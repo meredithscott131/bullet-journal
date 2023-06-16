@@ -13,4 +13,8 @@ public class Day {
   List<UserCalInput> dayInputs;
 
 
+  public void addContent() {
+
+  }
+
 } //closes Day class

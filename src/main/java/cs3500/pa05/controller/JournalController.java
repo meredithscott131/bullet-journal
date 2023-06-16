@@ -13,12 +13,18 @@ public class JournalController implements Controller {
   //CalendarHandler handler;??????
   Calendar calendar;
 
+  public JournalController(Calendar calendar) {
+    this.calendar = calendar;
+  }
+
 
   /**
    * Initializes the journal
    */
   @Override
   public void run() {
+
+
 
   }
 }

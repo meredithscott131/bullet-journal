@@ -2,6 +2,9 @@ package cs3500.pa05;
 
 import static javafx.application.Application.launch;
 
+import cs3500.pa05.controller.JournalController;
+import cs3500.pa05.model.Calendar;
+import cs3500.pa05.view.JournalView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -19,7 +22,17 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
+    Calendar cal = new Calendar();
+    JournalController journalCont = new JournalController(cal);
+    JournalView journalView = new JournalView(journalCont);
 
+    try {
+      stage.setScene(journalView.load());
+      journalCont.run();
+      stage.show();
+    } catch (IllegalStateException exc) {
+      System.err.println("Unable to load GUI.");
+    }
   }
 
 

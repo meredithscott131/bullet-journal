@@ -1,6 +1,9 @@
 package cs3500.pa05.view;
 
 
+import cs3500.pa05.controller.JournalController;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 /**
@@ -8,7 +11,13 @@ import javafx.scene.Scene;
  */
 public class JournalView implements View {
 
+  FXMLLoader loader;
 
+  public JournalView(JournalController controller) {
+    this.loader = new FXMLLoader();
+    this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournal.fxml"));
+    //this.loader.setController(controller);
+  }
 
   /**
    * Loads a scene from a journal GUI layout.
@@ -16,9 +25,11 @@ public class JournalView implements View {
    * @return the layout
    */
   @Override
-  public Scene load() {
-    return null; //TODO;
+  public Scene load() throws IllegalStateException {
+    try {
+      return this.loader.load();
+    } catch (IOException exc) {
+      throw new IllegalStateException("Unable to load layout.");
+    }
   }
-
-
 } //closes JournalView class
