@@ -1,4 +1,4 @@
-package model;
+package cs3500.pa05.model;
 
 import java.util.ArrayList;
 import java.util.List;

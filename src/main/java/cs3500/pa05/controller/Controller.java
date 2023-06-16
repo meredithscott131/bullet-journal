@@ -1,4 +1,4 @@
-package controller;
+package cs3500.pa05.controller;
 
 
 
@@ -12,4 +12,4 @@ interface Controller {
    */
   void run();
 
-} //closes controller interface
+} //closes cs3500.pa05.controller interface

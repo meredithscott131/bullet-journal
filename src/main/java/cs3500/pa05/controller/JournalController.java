@@ -1,9 +1,9 @@
-package controller;
+package cs3500.pa05.controller;
 
 
 
 /**
- * Represents the controller for the journal
+ * Represents the cs3500.pa05.controller for the journal
  */
 public class JournalController implements Controller {
 

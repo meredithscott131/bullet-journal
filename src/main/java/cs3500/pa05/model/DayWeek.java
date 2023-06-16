@@ -1,4 +1,4 @@
-package model;
+package cs3500.pa05.model;
 
 /**
  * DayWeek enum represents the days of the week

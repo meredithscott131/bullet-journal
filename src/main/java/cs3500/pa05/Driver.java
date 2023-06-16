@@ -1,3 +1,5 @@
+package cs3500.pa05;
+
 import static javafx.application.Application.launch;
 
 import javafx.application.Application;
@@ -5,7 +7,7 @@ import javafx.stage.Stage;
 
 
 /**
- * Driver class to run the program
+ * cs3500.pa05.Driver class to run the program
  */
 public class Driver extends Application {
 
@@ -32,4 +34,4 @@ public class Driver extends Application {
 
 
 
-} //closes Driver class
+} //closes cs3500.pa05.Driver class

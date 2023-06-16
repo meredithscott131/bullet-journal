@@ -1,5 +1,7 @@
-package model;
+package cs3500.pa05.model;
 
+
+import cs3500.pa05.model.DayWeek;
 
 /**
  * UserCalInput class information for an event or task
