@@ -39,7 +39,7 @@ public class PopupController {
   Button sunButton;
 
   public PopupController() {
-    this.eventIn = new Event();
+    this.eventIn = new Event(null, null, null, null, 0);
   }
 
   /**
@@ -51,15 +51,17 @@ public class PopupController {
   }
 
   public void getUserNameinput() {
-
+    eventIn.setName(nameTask.getText());
   }
+
+
 
   EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
     public void handle(ActionEvent e)
     {
       //getTarget gets what the action was done on
       if(e.getTarget().equals(thurButton)) {
-        eventIn.get
+        //eventIn
       }
     }
   }
