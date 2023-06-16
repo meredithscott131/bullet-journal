@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Day {
 
-  //Fields:
+  //Fields: m
   DayWeek day;
   List<UserCalInput> dayInputs;
 
