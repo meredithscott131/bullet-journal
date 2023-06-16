@@ -45,7 +45,8 @@
                </VBox>
             </content>
             <buttonTypes>
-               <ButtonType fx:constant="OK" />
+               <ButtonType fx:constant="APPLY" />
+               <ButtonType fx:constant="CANCEL" />
             </buttonTypes>
          </DialogPane>
       </children></AnchorPane>
