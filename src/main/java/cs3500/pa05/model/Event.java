@@ -12,4 +12,10 @@ public class Event extends UserCalInput {
   LocalTime startTime;
   int duration;
 
+  public Event(String name, String description, Day day,
+               LocalTime startTime, int duration) {
+    super(name, description, day);
+
+  }
+
 } //closes Event class

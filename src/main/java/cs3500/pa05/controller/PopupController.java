@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 
 public class PopupController {
 
-  Event event;
+  Event eventIn;
   @FXML
   TextField nameTask;
 
@@ -39,7 +39,7 @@ public class PopupController {
   Button sunButton;
 
   public PopupController() {
-    this.event = new Event();
+    this.eventIn = new Event();
   }
 
   /**
@@ -58,9 +58,11 @@ public class PopupController {
     public void handle(ActionEvent e)
     {
       //getTarget gets what the action was done on
-      e.getTarget().equals(thurButton);
+      if(e.getTarget().equals(thurButton)) {
+        eventIn.get
+      }
     }
-  };
+  }
 
 
 
