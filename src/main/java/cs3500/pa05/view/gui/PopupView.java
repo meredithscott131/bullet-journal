@@ -28,6 +28,9 @@ public class PopupView implements View {
   @FXML
   Button tuesdayButton;
 
+  @FXML
+  Button wednesdayButton;
+
 
 
   FXMLLoader loader;
