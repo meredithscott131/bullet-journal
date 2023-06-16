@@ -9,9 +9,16 @@ import cs3500.pa05.model.DayWeek;
 public abstract class UserCalInput {
 
   //Fields:
-  String name;
-  String description;
-  DayWeek day;
+  private String name;
+  private String description;
+  private DayWeek day;
 
+  public String getName() {
+    return name;
+  }
+
+  public String getDescription() {
+    return description;
+  }
 
 } //closes UserCalInput class

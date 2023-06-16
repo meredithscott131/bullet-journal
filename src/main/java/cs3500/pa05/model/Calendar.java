@@ -28,6 +28,4 @@ public class Calendar {
     List<Day> currList = new ArrayList<>();
     return currList;
   }
-
-
 } //closes Calendar class
