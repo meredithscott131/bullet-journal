@@ -15,24 +15,6 @@ import javafx.scene.control.TextField;
  */
 public class PopupView implements View {
 
-
-  @FXML
-  TextField nameTask;
-
-  @FXML
-  TextField decription;
-
-  @FXML
-  Button mondayButton;
-
-  @FXML
-  Button tuesdayButton;
-
-  @FXML
-  Button wednesdayButton;
-
-
-
   FXMLLoader loader;
 
   public PopupView(JournalController controller) {
@@ -54,4 +36,6 @@ public class PopupView implements View {
       throw new IllegalStateException("Unable to load popup.");
     }
   }
+
+
 } //closes JournalView class
