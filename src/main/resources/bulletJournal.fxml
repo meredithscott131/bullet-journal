@@ -9,147 +9,145 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-<?import javafx.stage.Stage?>
 
-<Stage fx:id="stage" maxHeight="1080.0" maxWidth="1920.0" resizable="false" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <scene>
-        <Scene fx:id="scene">
-            <AnchorPane fx:id="completePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0">
-            <children>
-               <HBox fx:id="completeBox" layoutX="8.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1059.0" prefWidth="1920.0">
-                  <children>
-                     <VBox fx:id="calendarBox" prefHeight="1059.0" prefWidth="1699.0">
-                        <children>
-                           <Label fx:id="weekTitle" alignment="CENTER" prefHeight="121.0" prefWidth="1448.0" text="Week" textAlignment="CENTER">
-                              <font>
-                                 <Font size="70.0" />
-                              </font>
-                           </Label>
-                           <HBox fx:id="weekDaysBox" prefHeight="806.0" prefWidth="1658.0">
-                              <children>
-                                 <VBox fx:id="sundayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="sundayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Sunday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="mondayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="mondayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Monday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="tuesdayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="tuesdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Tuesday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="wednesdayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="wednesdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Wednesday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="thursdayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="thursdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Thursday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="fridayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="fridayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Friday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                                 <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
-                                 <VBox fx:id="saturdayBox" prefHeight="806.0" prefWidth="222.0">
-                                    <children>
-                                       <Label fx:id="saturdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Saturday">
-                                          <font>
-                                             <Font size="36.0" />
-                                          </font>
-                                       </Label>
-                                       <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
-                                    </children>
-                                 </VBox>
-                              </children>
-                           </HBox>
-                           <HBox fx:id="buttonBox" alignment="CENTER" prefHeight="183.0" prefWidth="1448.0" spacing="50.0">
-                              <children>
-                                 <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Save">
-                                    <font>
-                                       <Font size="24.0" />
-                                    </font>
-                                 </Button>
-                                 <Button fx:id="taskButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="+ Task">
-                                    <font>
-                                       <Font size="24.0" />
-                                    </font>
-                                 </Button>
-                                 <Button fx:id="eventButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="+ Event">
-                                    <font>
-                                       <Font size="24.0" />
-                                    </font>
-                                 </Button>
-                                 <Button fx:id="themeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Theme">
-                                    <font>
-                                       <Font size="24.0" />
-                                    </font>
-                                 </Button>
-                              </children>
-                              <opaqueInsets>
-                                 <Insets />
-                              </opaqueInsets>
-                           </HBox>
-                        </children>
-                     </VBox>
-                     <Line endX="-101.44975280761719" endY="1014.2929077148438" startX="-100.0" strokeWidth="3.0" />
-                     <VBox fx:id="taskBox" prefHeight="1031.0" prefWidth="446.0">
-                        <children>
-                           <Label fx:id="taskTitle" alignment="CENTER" prefHeight="103.0" prefWidth="447.0" text="Tasks">
-                              <font>
-                                 <Font size="36.0" />
-                              </font>
-                           </Label>
-                        </children>
-                     </VBox>
-                  </children>
-               </HBox>
-            </children>
-            <padding>
-               <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-            </padding></AnchorPane>
-        </Scene>
-    </scene>
-</Stage>
+<Scene fx:id="scene" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <root>
+      <AnchorPane fx:id="completePane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0">
+         <children>
+            <HBox fx:id="completeBox" layoutX="8.0" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1059.0" prefWidth="1920.0">
+               <children>
+                  <VBox fx:id="calendarBox" prefHeight="1059.0" prefWidth="1699.0">
+                     <children>
+                        <Label fx:id="weekTitle" alignment="CENTER" prefHeight="121.0" prefWidth="1448.0" text="Week" textAlignment="CENTER">
+                           <font>
+                              <Font size="70.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="weekDaysBox" prefHeight="806.0" prefWidth="1658.0">
+                           <children>
+                              <VBox fx:id="sundayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="sundayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Sunday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="mondayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="mondayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Monday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="tuesdayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="tuesdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Tuesday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="wednesdayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="wednesdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Wednesday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="thursdayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="thursdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Thursday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="fridayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="fridayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Friday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                              <Line endX="86.56495666503906" startX="86.56484985351562" startY="829.2929077148438" strokeWidth="3.0" />
+                              <VBox fx:id="saturdayBox" prefHeight="806.0" prefWidth="222.0">
+                                 <children>
+                                    <Label fx:id="saturdayTitle" alignment="CENTER" prefHeight="63.0" prefWidth="310.0" text="Saturday">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                    <Line endX="100.0" startX="-100.0" strokeWidth="3.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="buttonBox" alignment="CENTER" prefHeight="183.0" prefWidth="1448.0" spacing="50.0">
+                           <children>
+                              <Button fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Save">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="taskButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="+ Task">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="eventButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="+ Event">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="themeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="144.0" text="Theme">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Line endX="-101.44975280761719" endY="1014.2929077148438" startX="-100.0" strokeWidth="3.0" />
+                  <VBox fx:id="taskBox" prefHeight="1031.0" prefWidth="446.0">
+                     <children>
+                        <Label fx:id="taskTitle" alignment="CENTER" prefHeight="103.0" prefWidth="447.0" text="Tasks">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+      </AnchorPane>
+   </root>
+</Scene>

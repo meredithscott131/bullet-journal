@@ -36,6 +36,7 @@ public class Driver extends Application {
   }
 
 
+
   /**
    * Entry point for journal
    *

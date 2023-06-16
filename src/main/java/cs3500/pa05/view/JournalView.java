@@ -32,4 +32,5 @@ public class JournalView implements View {
       throw new IllegalStateException("Unable to load layout.");
     }
   }
+
 } //closes JournalView class
