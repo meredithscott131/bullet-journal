@@ -1,4 +1,4 @@
-package Model;
+package model;
 
 /**
  * DayWeek enum represents the days of the week

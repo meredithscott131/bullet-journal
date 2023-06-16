@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 
 
@@ -12,4 +12,4 @@ interface Controller {
    */
   void run();
 
-} //closes Controller interface
+} //closes controller interface

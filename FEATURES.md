@@ -1,5 +1,5 @@
 ## Section 1: Requirements
-- Week View
+- Week view
 - Event and Task Creation
 - Commitment Warnings
 - Persistence
