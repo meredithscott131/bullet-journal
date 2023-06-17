@@ -6,6 +6,9 @@ import cs3500.pa05.controller.JournalController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.JournalView;
 import javafx.application.Application;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
@@ -28,8 +31,8 @@ public class Driver extends Application {
 
     try {
       stage.setScene(journalView.load());
-      journalCont.run();
       stage.show();
+      journalCont.run();
 
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load GUI.");

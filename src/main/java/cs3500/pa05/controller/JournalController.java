@@ -1,9 +1,11 @@
 package cs3500.pa05.controller;
 
-
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -18,9 +20,10 @@ public class JournalController implements Controller {
   //CalendarHandler handler;??????
   Calendar calendar;
 
-  @FXML
-  Button taskButton;
+  PopupController popupController;
 
+  @FXML
+   private Button taskButton;
 
 
   public JournalController(Calendar calendar) {
@@ -33,15 +36,30 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
-    start();
+    //handleNewEvet();
+      start();
   }
+
+  EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+    public void handle(ActionEvent e) {
+      //getTarget gets what the action was done on
+      System.out.println(popupController);
+      popupController.turnOn();
+    }
+  };
 
   public void start() {
     Stage stage = new Stage();
-    PopupController popupController = new PopupController(calendar);
+    popupController = new PopupController(calendar);
     PopupView popupView = new PopupView(this);
+
     try {
-      handleNewEvent(popupController);
+      //handleNewEvent(popupController);
+
+      //event.handle(new ActionEvent());
+
+      handleNewEvet();
+
       if (popupController.getIsOn()) {
         stage.setScene(popupView.load());
         popupController.run();
@@ -54,8 +72,20 @@ public class JournalController implements Controller {
     }
   }
 
-  public void handleNewEvent(PopupController popup) {
-    taskButton.setOnAction(e -> popup.turnOn());
+  /*public void handleNewEvent( Button button) {
+    button.setOnAction(e -> System.out.println("hi")); //popup.turnOn()
+  }*/
+
+  public void handleNewEvet() {
+    System.out.println("hdkjwlejdlkjeklfewk");
+    Button newButt = new Button("bro");
+   // taskButton = newButt;
+    //System.out.println(e.getTarget());
+      taskButton.setOnAction(e -> new ButtonsEventHandler());
   }
+
+
+
+
 
 }

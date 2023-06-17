@@ -60,7 +60,7 @@ public class PopupController implements Controller{
   public PopupController(Calendar calendar) {
     this.eventIn = new Event(null, null, null, null, 0);
     this.calendar = calendar;
-    this.popupOn = popupOn;
+    this.popupOn = false;
   }
 
   public boolean getIsOn() {
@@ -68,6 +68,7 @@ public class PopupController implements Controller{
   }
 
   public boolean turnOn() {
+    System.out.println("button task pressed");
     return popupOn = true;
   }
 
