@@ -35,13 +35,13 @@ public class SubmitButtonHandler implements EventHandler {
     if(!isNullEvent()) {
       //nothing happens
     } else {
-      setUserNameInput();
-      setUserDescriptionInput();
-      setUserDurationInput();
+      this.setUserNameInput();
+      this.setUserDescriptionInput();
+      this.setUserDurationInput();
       //setStartTimeInput();
-      System.out.println(nameTask.toString());
-      System.out.println(nameDecription.toString());
-      System.out.println(duration);
+      System.out.println(this.nameTask.toString());
+      System.out.println(this.nameDecription.toString());
+      System.out.println(this.duration);
       //System.out.println(startTime.toString());
     }
   }

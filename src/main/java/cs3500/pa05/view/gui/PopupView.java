@@ -20,7 +20,7 @@ public class PopupView implements View {
 
   public PopupView(PopupController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("PopUpEvent.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("TASKBUTTON2.fxml"));
     this.loader.setController(controller);
   }
 

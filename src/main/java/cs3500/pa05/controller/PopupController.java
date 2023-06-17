@@ -155,6 +155,9 @@ public class PopupController implements Controller{
     submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
         description.getText(), takeValidTime(startTime.getText()),
         takeDuration(duration.getText())));
+
+
   }
+
 
 }

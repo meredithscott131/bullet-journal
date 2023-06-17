@@ -25,7 +25,7 @@ class EventTest {
     @Test
     void testSetName() {
       String expected = "Event1";
-      EventIn event = new EventIn("Event1", "Description", DayWeek.MONDAY,"10:00:00", 60);
+      EventIn event = new EventIn("Event1", "Description", DayWeek.MONDAY,"10:00", 60);
       event.setName(expected);
       String actual = event.name;
       assertEquals(expected, actual);
@@ -34,7 +34,7 @@ class EventTest {
     @Test
     void testSetDay() {
       DayWeek expectedDay = DayWeek.TUESDAY;
-      EventIn event = new EventIn("Event", "Description", DayWeek.TUESDAY, "10:00:00", 60);
+      EventIn event = new EventIn("Event", "Description", DayWeek.TUESDAY, "10:00", 60);
       event.setDay(expectedDay);
       DayWeek actualDay = event.day;
       assertEquals(expectedDay, actualDay);
