@@ -6,20 +6,20 @@ import java.time.LocalTime;
 /**
  * Event class contains a new creation of an event.
  */
-public class Event extends UserCalInput {
+public class EventIn extends UserCalInput {
 
   //Fields
-  LocalTime startTime;
+  String startTime;
   int duration;
 
-  public Event(String name, String description, DayWeek day,
-               LocalTime startTime, int duration) {
+  public EventIn(String name, String description, DayWeek day,
+                 String startTime, int duration) {
     super(name, description, day);
     this.startTime = startTime;
     this.duration = duration;
   }
 
-  public LocalTime getStartTime() {
+  public String getStartTime() {
     return startTime;
   }
 
@@ -41,6 +41,10 @@ public class Event extends UserCalInput {
 
   public void setDuration(int num) {
     duration = num;
+  }
+
+  public void setStartTime(String str) {
+    startTime = str;
   }
 
 } //closes Event class

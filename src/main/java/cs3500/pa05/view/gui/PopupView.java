@@ -2,6 +2,7 @@ package cs3500.pa05.view.gui;
 
 
 import cs3500.pa05.controller.JournalController;
+import cs3500.pa05.controller.PopupController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -17,10 +18,10 @@ public class PopupView implements View {
 
   FXMLLoader loader;
 
-  public PopupView(JournalController controller) {
+  public PopupView(PopupController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("PopUpEvent.fxml"));
-    //this.loader.setController(controller);
+    this.loader.setController(controller);
   }
 
   /**

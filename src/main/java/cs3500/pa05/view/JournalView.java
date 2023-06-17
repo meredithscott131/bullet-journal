@@ -16,7 +16,7 @@ public class JournalView implements View {
   public JournalView(JournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournal.fxml"));
-    //this.loader.setController(controller);
+    this.loader.setController(controller);
   }
 
   /**

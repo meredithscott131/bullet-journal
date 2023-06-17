@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.controller.JournalController;
 import java.util.ArrayList;
 import java.util.List;
 
