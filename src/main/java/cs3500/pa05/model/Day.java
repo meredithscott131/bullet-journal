@@ -14,6 +14,10 @@ public class Day {
   DayWeek day;
   List<UserCalInput> dayInputs;
 
+  int maxTask;
+
+  int minTask;
+
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
   }
