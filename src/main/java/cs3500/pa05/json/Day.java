@@ -7,5 +7,5 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public record Day(
     @JsonProperty("day") DayWeek day,
-    @JsonProperty("inputs")UserCalInput[] inputs) {
+    @JsonProperty("inputs") UserCalInput[] inputs) {
 }
