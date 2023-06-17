@@ -18,9 +18,6 @@ public class Task extends UserCalInput {
   }
 
 
-
-
-
   /**
    * changeStage method changes a task to be incomplete(false) or complete(true)
    */

@@ -18,6 +18,15 @@ public class Day {
 
   int minTask;
 
+  Day() {
+  }
+
+
+  Day(DayWeek day) {
+    this.day = day;
+
+  }
+
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
   }
