@@ -4,7 +4,10 @@ import static javafx.application.Application.launch;
 
 import cs3500.pa05.controller.JournalController;
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.JournalView;
+import java.io.File;
+import java.nio.file.Path;
 import javafx.application.Application;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
@@ -25,7 +28,11 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-    Calendar cal = new Calendar();
+    ScannerBujo scann = new ScannerBujo();
+    Path path = Path.of("/Users/lalcelikbilek/Documents/cs3500/pa05-boujeebujo/src/main/resources/exCalendar.bujo");
+    File file = path.toFile();
+    Calendar cal = scann.readFromFile(file);
+
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont);
 

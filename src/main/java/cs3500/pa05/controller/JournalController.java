@@ -25,6 +25,30 @@ public class JournalController implements Controller {
   @FXML
   private Button taskButton;
 
+  /*
+
+  @FXML
+  private Button sundayBox;
+
+  @FXML
+  private Button mondayBox;
+
+  @FXML
+  private Button tuesdayBox;
+
+  @FXML
+  private Button wednesdayBox;
+
+  @FXML
+  private Button thrusdayBox;
+
+  @FXML
+  private Button fridayBox;
+
+  @FXML
+  private Button saturdayBox;
+*/
+
 
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
@@ -36,10 +60,7 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
-    ButtonsEventHandler butt = new ButtonsEventHandler();
+    ButtonsEventHandler butt = new ButtonsEventHandler(calendar);
     taskButton.setOnAction(butt);
   }
-
-
-
 }

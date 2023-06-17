@@ -3,6 +3,7 @@ package cs3500.pa05.controller;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.view.gui.DayView;
 import cs3500.pa05.view.gui.PopupView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -38,7 +39,7 @@ public class SubmitButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(isNullEvent()) {
+    if(isNullEvent() && isValidEvent()) {
       System.out.println("Null " + nameTask);
       System.out.println("Null " + nameDecription);
       System.out.println("Null " + duration);
@@ -53,8 +54,18 @@ public class SubmitButtonHandler implements EventHandler {
       setUserDescriptionInput();
       setUserDurationInput();
       setStartTimeInput();
+
       Day dayToAddTo = calendar.getOneDay(eventIn.getDayWeek());
-      dayToAddTo.getDayInputs().add(eventIn);
+      //if(checkMaxEvent(dayToAddTo)) {
+        dayToAddTo.getDayInputs().add(eventIn);
+
+/*
+
+      } else {
+        //do soething here later lol
+      }
+*/
+
 
       System.out.println("event name " + eventIn.getName() + "\n"
           + "event D " + eventIn.getDescription() + "\n"
@@ -64,9 +75,11 @@ public class SubmitButtonHandler implements EventHandler {
 
       System.out.println("Day " + dayToAddTo.getDayInputs().get(0).getName() + "\n");
 
+      //making the visual
 
 
-
+      DayView dayView = new DayView(dayToAddTo);
+      dayView.drawUserCallInput();
 
       //System.out.println(startTime.toString());
     }
@@ -100,5 +113,13 @@ public class SubmitButtonHandler implements EventHandler {
         || eventIn.getDayWeek() == null
         || duration == 0
         || startTime == "";
+  }
+
+  public boolean isValidEvent() {
+    return duration > 0;
+  }
+
+  public boolean checkMaxEvent(Day day) {
+   return day.getDayInputs().size() + 1 <= day.getMaxTask();
   }
 }

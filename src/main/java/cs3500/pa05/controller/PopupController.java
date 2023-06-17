@@ -168,16 +168,17 @@ public class PopupController implements Controller {
     thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
     friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
     submitButton.setOnAction(e -> makeSubmitButton(e));
-
   }
 
   public void makeSubmitButton(Event eventEn) {
 
     SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
-        description.getText(), startTime.getText(),
+        description.getText(),"12:30" ,
         takeDuration(duration.getText()));
     submit.handle(eventEn);
   }
+
+  //takeValidTime(startTime.getText())
 
   /*
   submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),

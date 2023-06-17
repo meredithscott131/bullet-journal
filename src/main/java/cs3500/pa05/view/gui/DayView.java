@@ -14,6 +14,7 @@ public class DayView extends VBox {
 
   @FXML
   VBox mondayBox;
+  //does it not work becuase it is connected to popup controller
 
   @FXML
   VBox tuesdayBox;
@@ -43,6 +44,9 @@ public class DayView extends VBox {
 
   //submit button to close popup
   //stage.close()
+  public DayView(Day day) {
+    this.day = day;
+  }
 
   public VBox getDayBox() {
     if (day.getGetDayWeek() == DayWeek.MONDAY) {
@@ -66,12 +70,14 @@ public class DayView extends VBox {
 
     for (UserCalInput userIn : day.getDayInputs()) {
       VBox vbox = new VBox();
+
       Label titleEvent = new Label(userIn.getName());
       Label contentEvent = new Label(userIn.getDescription());
       vbox.getChildren().add(titleEvent);
       vbox.getChildren().add(contentEvent);
 
-      getDayBox().getChildren().add(vbox);
+      //getDayBox().getChildren().add(vbox);
+      mondayBox.getChildren().add(vbox);
     }
   }
 }

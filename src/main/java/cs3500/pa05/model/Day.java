@@ -17,13 +17,10 @@ public class Day {
 
   private int maxTask;
 
-  int minTask;
-
   public Day(DayWeek day, List<UserCalInput> dayInputs, int maxTask, int minTask) {
     this.day = day;
     this.dayInputs = dayInputs;
     this.maxTask = maxTask;
-    this.minTask = minTask;
   }
 
   public Day() {
@@ -51,7 +48,7 @@ public class Day {
 
     }
   }//closes Day class
-
+/*
   public void drawUserCallInput(VBox dayVbox) {
 
     for(UserCalInput userIn : dayInputs) {
@@ -64,8 +61,13 @@ public class Day {
       dayVbox.getChildren().add(vbox);
     }
   }
-
+  */
   public List<UserCalInput> getInputs() {
     return this.dayInputs;
   }
+
+  public int getMaxTask() {
+    return maxTask;
+  }
+
 }
