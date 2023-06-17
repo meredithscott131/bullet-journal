@@ -19,7 +19,7 @@ class DayTest {
     input.add(currInput);
     input.add(currInput2);
 
-    currDay.dayInputs = input;
+    input = currDay.getDayInputs();
 
     assertEquals(currDay.getDayInputs(), input);
   }
