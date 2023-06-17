@@ -49,8 +49,7 @@ public class Calendar {
    * getDays method gets the current days
    */
   public List<Day> getDays() {
-    List<Day> currList = new ArrayList<>();
-    return currList;
+    return this.days;
   }
 
   public int getMaxTask() {

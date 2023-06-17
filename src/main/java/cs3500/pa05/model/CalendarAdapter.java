@@ -14,6 +14,7 @@ public class CalendarAdapter {
     int maxTasks = modelCalendar.getMaxTask();
     String title = modelCalendar.getName();
     DayJson[] days = new DayJson[7];
+
     for (int i = 0; i < days.length; i++) {
       List<EventJson> events = new ArrayList<>();
       List<TaskJson> tasks = new ArrayList<>();
