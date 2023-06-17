@@ -19,7 +19,7 @@ public class PopupView implements View {
 
   public PopupView(JournalController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("popup.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("PopUpEvent.fxml"));
     //this.loader.setController(controller);
   }
 
