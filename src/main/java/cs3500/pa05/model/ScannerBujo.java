@@ -1,26 +1,28 @@
 package cs3500.pa05.model;
-import cs3500.pa05.json.CalendarJson;
 
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import cs3500.pa05.json.CalendarJson;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 
 public class ScannerBujo {
   private final ObjectMapper mapper = new ObjectMapper();
+  private CalendarAdapter adapter = new CalendarAdapter();
 
-  public CalendarJson readFromFile(File file) {
-    CalendarJson calendar;
-    if (!file.toPath().endsWith("bujo")) {
+  public Calendar readFromFile(File file) {
+    Calendar calendar;
+    if (!file.toPath().toString().endsWith(".bujo")) {
       throw new IllegalArgumentException("Invalid File. Must be bujo.");
     } else {
       try {
-        JsonParser parser = this.mapper.getFactory().createParser(file);
-        calendar = parser.readValueAs(CalendarJson.class);
+        String bujoString = Files.readString(file.toPath());
+        CalendarJson calendarJson = new ObjectMapper().readValue(bujoString, CalendarJson.class);
+        calendar = adapter.convertToCalendar(calendarJson);
       } catch (IOException e) {
-        throw new RuntimeException("Cannot parse file");
+        throw new RuntimeException(e);
       }
-      return calendar;
     }
+    return calendar;
   }
 }

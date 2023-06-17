@@ -8,22 +8,16 @@ import java.util.List;
 
 public class CalendarAdapter {
 
-  Calendar modelCalendar;
-
-  public CalendarAdapter(Calendar modelCalendar) {
-    this.modelCalendar = modelCalendar;
-  }
-
-  public CalendarJson convertToJson() {
-    int maxEvents = this.modelCalendar.getMaxEvent();
-    int maxTasks = this.modelCalendar.getMaxTask();
-    String title = this.modelCalendar.getName();
+  public CalendarJson convertToJson(Calendar modelCalendar) {
+    int maxEvents = modelCalendar.getMaxEvent();
+    int maxTasks = modelCalendar.getMaxTask();
+    String title = modelCalendar.getName();
     DayJson[] days = new DayJson[7];
     for (int i = 0; i < days.length; i++) {
       List<EventJson> events = new ArrayList<>();
       List<TaskJson> tasks = new ArrayList<>();
-      for (int j = 0; j < this.modelCalendar.getDays().get(i).getInputs().size(); j++) {
-        UserCalInput input = this.modelCalendar.getDays().get(i).getInputs().get(j);
+      for (int j = 0; j < modelCalendar.getDays().get(i).getInputs().size(); j++) {
+        UserCalInput input = modelCalendar.getDays().get(i).getInputs().get(j);
         if (input instanceof Event) {
           events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
               ((Event) input).getStartTime(), ((Event) input).getDuration()));
@@ -32,10 +26,42 @@ public class CalendarAdapter {
               (((Task) input).getComplete())));
         }
       }
-      DayJson dayJson = new DayJson(this.modelCalendar.getDays().get(i).getGetDayWeek(),
+      DayJson dayJson = new DayJson(modelCalendar.getDays().get(i).getGetDayWeek(),
           events, tasks);
       days[i] = dayJson;
     }
     return new CalendarJson(maxTasks, maxEvents, title, days);
+  }
+
+  public Calendar convertToCalendar(CalendarJson calendarJson) {
+    int maxEvents = calendarJson.maxEvents();
+    int maxTasks = calendarJson.maxTasks();
+    String title = calendarJson.title();
+    List<Day> days = new ArrayList<>();
+    for (int i = 0; i < calendarJson.days().length; i++) {
+      Day day;
+      DayWeek dayWeek = calendarJson.days()[i].day();
+      ArrayList<UserCalInput> inputs = new ArrayList<>();
+      for (EventJson event : calendarJson.days()[i].events()) {
+        Event newEvent;
+        String eventTitle = event.name();
+        String eventDescription = event.description();
+        String startTime = event.startTime();
+        int duration = event.duration();
+        newEvent = new Event(eventTitle, eventDescription, dayWeek, startTime, duration);
+        inputs.add(newEvent);
+      }
+      for (TaskJson task : calendarJson.days()[i].tasks()) {
+        Task newTask;
+        String eventTitle = task.name();
+        String eventDescription = task.description();
+        boolean complete = task.complete();
+        newTask = new Task(eventTitle, eventDescription, dayWeek, complete);
+        inputs.add(newTask);
+      }
+      day = new Day(dayWeek, inputs);
+      days.add(day);
+    }
+    return new Calendar(title, days, maxTasks, maxEvents);
   }
 }

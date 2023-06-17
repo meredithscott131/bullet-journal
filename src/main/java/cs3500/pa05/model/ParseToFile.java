@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import cs3500.pa05.json.CalendarJson;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -7,16 +8,15 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 public class ParseToFile {
+  private ObjectMapper mapper = new ObjectMapper();
 
   public void writeToFile(Path path, Calendar calendar) {
-    CalendarAdapter adaptar = new CalendarAdapter(calendar);
-    CalendarJson calendarJson = adaptar.convertToJson();
-
-    String str = calendarJson.toString();
-    BufferedWriter writer = null;
+    CalendarAdapter adapter = new CalendarAdapter();
+    CalendarJson calendarJson = adapter.convertToJson(calendar);
     try {
-      writer = new BufferedWriter(new FileWriter(path.toFile()));
-      writer.write(str);
+      String jsonStr = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(calendarJson);
+      BufferedWriter writer = new BufferedWriter(new FileWriter(path.toFile()));
+      writer.write(jsonStr);
       writer.close();
     } catch (IOException e) {
       throw new RuntimeException(e);
