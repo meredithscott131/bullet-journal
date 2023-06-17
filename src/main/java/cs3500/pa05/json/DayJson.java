@@ -1,7 +1,6 @@
 package cs3500.pa05.json;
 
 import cs3500.pa05.model.DayWeek;
-import cs3500.pa05.model.UserCalInput;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
