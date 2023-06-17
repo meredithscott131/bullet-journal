@@ -80,7 +80,7 @@ public class JournalController implements Controller {
     System.out.println("hdkjwlejdlkjeklfewk");
     Button newButt = new Button("bro");
    // taskButton = newButt;
-    //System.out.println(e.getTarget());
+    //System.out.println(e.getTarget()); r
       taskButton.setOnAction(e -> new ButtonsEventHandler());
   }
 
