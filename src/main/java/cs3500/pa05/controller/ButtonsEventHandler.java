@@ -18,6 +18,7 @@ public class ButtonsEventHandler implements EventHandler {
     PopupController popupController = new PopupController(calendar);
     PopupView popupView = new PopupView(popupController);
     stage.setScene(popupView.load());
+    //call run while the tab is open
     popupController.run();
     stage.show();
   }

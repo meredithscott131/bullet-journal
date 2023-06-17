@@ -33,18 +33,28 @@ public class SubmitButtonHandler implements EventHandler {
   @Override
   public void handle(Event event) {
     if(!isNullEvent()) {
+      System.out.println("Nully" + nameTask.toString());
+      System.out.println(nameDecription.toString());
+      System.out.println(duration);
       //nothing happens
     } else {
-      setUserNameInput();
-      setUserDescriptionInput();
-      setUserDurationInput();
-      //setStartTimeInput();
       System.out.println(nameTask.toString());
       System.out.println(nameDecription.toString());
       System.out.println(duration);
+
+      setUserNameInput();
+      setUserDescriptionInput();
+      setUserDurationInput();
+      setStartTimeInput();
       //System.out.println(startTime.toString());
     }
   }
+
+  //listener: obj that modifies or changes when looking at a certina property
+  //when we click play we are reading whats in the text field
+  //listener looks at the text field and tells us when we update the text field
+  //onchange event listener --> listener that only listens when they stop typing
+  //
 
   public void setUserNameInput() {
     eventIn.setName(nameTask);

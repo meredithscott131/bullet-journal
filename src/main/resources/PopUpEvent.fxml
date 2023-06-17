@@ -20,7 +20,7 @@
                   <VBox prefHeight="269.0" prefWidth="280.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="61.0" />
-                        <TextField fx:id="nameTask" prefHeight="26.0" prefWidth="211.0" />
+                        <TextField fx:id="nameTask" prefHeight="26.0" prefWidth="179.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="74.0" />
                         <TextField fx:id="description" prefHeight="26.0" prefWidth="179.0" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Day:" />
