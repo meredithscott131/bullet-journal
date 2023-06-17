@@ -27,4 +27,8 @@ public abstract class UserCalInput {
     return description;
   }
 
+  public DayWeek getDayWeek() {
+    return day;
+  }
+
 } //closes UserCalInput class

@@ -1,5 +1,6 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.Event;
@@ -12,11 +13,19 @@ import javafx.scene.control.TextField;
 public class PopupController {
 
   Event eventIn;
+
+  Calendar calendar;
   @FXML
   TextField nameTask;
 
   @FXML
   TextField decription;
+
+  @FXML
+  TextField duration;
+
+  @FXML
+  TextField startTime;
 
   @FXML
   Button monButton;
@@ -45,8 +54,9 @@ public class PopupController {
   @FXML
   Button cancelButton;
 
-  public PopupController() {
+  public PopupController(Calendar calendar) {
     this.eventIn = new Event(null, null, null, null, 0);
+    this.calendar = calendar;
   }
 
   /**
@@ -57,11 +67,11 @@ public class PopupController {
 
   }
 
-  public void getUserNameInput() {
+  public void setUserNameInput() {
     eventIn.setName(nameTask.getText());
   }
 
-  public void getUserDescriptionInput() {
+  public void setUserDescriptionInput() {
     eventIn.setDescription(decription.getText());
   }
 
@@ -83,16 +93,30 @@ public class PopupController {
       } else if (e.getTarget().equals(friButton)){
         eventIn.setDay(DayWeek.FRIDAY);
       } else if(e.getTarget().equals(submitButton)) {
+        setSubmit();
+      } else {
 
       }
     }
   };
 
   public void setSubmit() {
-    if(hi)
-    getUserNameInput();
-    getUserDescriptionInput();
+    if(isNullEvent()) {
+      //nothing happens
+    } else {
+      //sets the userIn name and description
+      setUserNameInput();
+      setUserDescriptionInput();
+      //adds this event to the list of events on the day of this event
+      calendar.getOneDay(eventIn.getDayWeek()).getDayInputs().add(eventIn);
+    }
+  }
 
+  public boolean isNullEvent() {
+    return eventIn.getName() == null
+        && eventIn.getDescription() == null
+        && eventIn.getStartTime() == null
+        && eventIn.getDuration() == 0;
   }
 
 

@@ -19,6 +19,14 @@ public class Event extends UserCalInput {
     this.duration = duration;
   }
 
+  public LocalTime getStartTime() {
+    return startTime;
+  }
+
+  public int getDuration() {
+    return duration;
+  }
+
   public void setName(String str) {
     name = str;
   }

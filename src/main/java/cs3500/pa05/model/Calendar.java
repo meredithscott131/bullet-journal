@@ -19,6 +19,16 @@ public class Calendar {
     this.name = name;
   }
 
+  public Day getOneDay(DayWeek dayWeek) {
+    Day finalDay = new Day();
+    for(Day d : days) {
+      if(d.getGetDayWeek().equals(dayWeek)) {
+        finalDay = d;
+      }
+    }
+    return finalDay;
+  }
+
 
 
   /**
