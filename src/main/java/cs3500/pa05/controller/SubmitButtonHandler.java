@@ -32,20 +32,18 @@ public class SubmitButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(!isNullEvent()) {
-      System.out.println("Nully" + nameTask.toString());
-      System.out.println(nameDecription.toString());
-      System.out.println(duration);
+    if(isNullEvent()) {
+      System.out.println("NULL IN HANDLE");
       //nothing happens
     } else {
       System.out.println(nameTask.toString());
       System.out.println(nameDecription.toString());
       System.out.println(duration);
 
-      setUserNameInput();
-      setUserDescriptionInput();
-      setUserDurationInput();
-      setStartTimeInput();
+      this.setUserNameInput();
+      this.setUserDescriptionInput();
+      this.setUserDurationInput();
+      this.setStartTimeInput();
       //System.out.println(startTime.toString());
     }
   }
@@ -73,9 +71,9 @@ public class SubmitButtonHandler implements EventHandler {
   }
 
   public boolean isNullEvent() {
-    return eventIn.getName() == null
-        && eventIn.getDescription() == null
-        && eventIn.getStartTime() == null
+    return eventIn.getName() == ""
+        && eventIn.getDescription() == ""
+        && eventIn.getStartTime() == ""
         && eventIn.getDuration() == 0;
   }
 }

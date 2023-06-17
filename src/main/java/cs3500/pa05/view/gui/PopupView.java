@@ -20,7 +20,7 @@ public class PopupView implements View {
 
   public PopupView(PopupController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("PopUpEvent.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("EventPopUpUpdate2.fxml"));
     this.loader.setController(controller);
   }
 
@@ -37,6 +37,5 @@ public class PopupView implements View {
       throw new IllegalStateException("Unable to load popup.");
     }
   }
-
 
 } //closes JournalView class

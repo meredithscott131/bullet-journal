@@ -181,8 +181,8 @@ public class PopupController implements Controller {
   public String changeToStr(String given) {
     return given;
   }
-/*
 
+/*
   public String listenToField(TextField textField) {
     String exStr = new String();
     nameTask.textProperty().addListener(
@@ -194,12 +194,11 @@ public class PopupController implements Controller {
   public String listenToField2(TextField textField) {
     StringBuilder sb = new StringBuilder();
     textField.textProperty().addListener(
-        (observable, oldValue, newValue) -> sb.append(newValue));
-    //sb.append(newValue)
-    //sb.append(newValue)
+        (observable, oldValue, newValue) -> System.out.println(sb.append(newValue)));
     System.out.println("printing: " + sb);
     return sb.toString();
   }
 
 
 }
+
