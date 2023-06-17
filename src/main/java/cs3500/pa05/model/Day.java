@@ -17,7 +17,7 @@ public class Day {
 
   private int maxTask;
 
-  int minTask;
+  private int minTask;
 
   public Day(DayWeek day, List<UserCalInput> dayInputs, int maxTask, int minTask) {
     this.day = day;
@@ -29,7 +29,7 @@ public class Day {
   public Day() {
   }
 
-  public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
+  public Day(DayWeek day, List<UserCalInput> dayInputs) {
     this.day = day;
     this.dayInputs = dayInputs;
   }

@@ -82,15 +82,15 @@ class CalendarAdapterTest {
     writer.close();
 
     // creating sample calendar
-    ArrayList<UserCalInput>
-        inputsSunday = new ArrayList<>(Arrays.asList(new EventIn("Dinner", "eating",
+    List<UserCalInput>
+        inputsSunday = new ArrayList<>(List.of(new EventIn("Dinner", "eating",
         DayWeek.SUNDAY, "6:30", 60)));
     Day sunday = new Day(DayWeek.SUNDAY, inputsSunday);
     Day monday = new Day(DayWeek.MONDAY, new ArrayList<>());
     Day tuesday = new Day(DayWeek.TUESDAY, new ArrayList<>());
     Day wednesday = new Day(DayWeek.WEDNESDAY, new ArrayList<>());
     ArrayList<UserCalInput>
-        inputsThursday = new ArrayList<>(Arrays.asList(new Task("Dinner", "eating",
+        inputsThursday = new ArrayList<>(List.of(new Task("Dinner", "eating",
         DayWeek.THURSDAY, false)));
     Day thursday = new Day(DayWeek.THURSDAY, inputsThursday);
     Day friday = new Day(DayWeek.FRIDAY, new ArrayList<>());
