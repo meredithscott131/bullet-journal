@@ -11,12 +11,8 @@ import javafx.scene.layout.VBox;
 public class Day {
 
   //Fields:
-  DayWeek day;
-  List<UserCalInput> dayInputs;
-
-  int maxTask;
-
-  int minTask;
+  private DayWeek day;
+  private List<UserCalInput> dayInputs;
 
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
@@ -43,5 +39,9 @@ public class Day {
 
       dayVbox.getChildren().add(vbox);
     }
+  }
+
+  public List<UserCalInput> getInputs() {
+    return this.dayInputs;
   }
 }

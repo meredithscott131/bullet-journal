@@ -8,8 +8,12 @@ import java.util.List;
  */
 public class Calendar {
   //Fields:
-  String name;
-  List<Day> days;
+  private String name;
+  private List<Day> days;
+
+  private int maxTask;
+
+  private int maxEvent;
 
 
   /**
@@ -38,4 +42,16 @@ public class Calendar {
     List<Day> currList = new ArrayList<>();
     return currList;
   }
-} //closes Calendar class
+
+  public int getMaxTask() {
+    return this.maxTask;
+  }
+
+  public int getMaxEvent() {
+    return this.maxEvent;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+}

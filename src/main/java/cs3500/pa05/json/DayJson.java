@@ -4,8 +4,9 @@ import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.UserCalInput;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
-public record Day(
+public record DayJson(
     @JsonProperty("day") DayWeek day,
-    @JsonProperty("inputs") UserCalInput[] inputs) {
+    @JsonProperty("inputs") List<UserCalInput> inputs) {
 }
