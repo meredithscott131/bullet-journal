@@ -32,4 +32,8 @@ public class Task extends UserCalInput {
 
   }
 
+  public boolean getComplete() {
+    return this.complete;
+  }
+
 } //closes Task class

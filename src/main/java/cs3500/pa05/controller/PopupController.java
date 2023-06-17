@@ -1,74 +1,77 @@
 package cs3500.pa05.controller;
 
+import static java.lang.Integer.parseInt;
+
 import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
-import cs3500.pa05.model.Event;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import cs3500.pa05.model.EventIn;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.layout.VBox;
 
-public class PopupController implements Controller{
+public class PopupController implements Controller {
 
-  private Event eventIn;
+  private EventIn eventIn;
 
   private boolean popupOn;
 
   private Calendar calendar;
   @FXML
-  TextField nameTask;
+  private TextField nameTask;
 
   @FXML
-  TextField decription;
+  private TextField description;
 
   @FXML
-  TextField duration;
+  private TextField duration;
 
   @FXML
-  TextField startTime;
+  private TextField startTime;
 
   @FXML
-  Button monButton;
+  private Button monButton;
 
   @FXML
-  Button tuesButton;
+  private Button tuesButton;
 
   @FXML
-  Button wedButton;
+  private Button wedButton;
 
   @FXML
-  Button thurButton;
+  private Button thurButton;
 
   @FXML
-  Button friButton;
+  private Button friButton;
 
   @FXML
-  Button satButton;
+  private Button satButton;
 
   @FXML
-  Button sunButton;
+  private Button sunButton;
 
   @FXML
-  Button submitButton;
-
-  @FXML
-  Button cancelButton;
+  private Button submitButton;
 
   public PopupController(Calendar calendar) {
-    this.eventIn = new Event(null, null, null, null, 0);
+    this.eventIn = new EventIn(null, null, null, null, 0);
     this.calendar = calendar;
-    this.popupOn = popupOn;
+    this.popupOn = false;
   }
 
-  public boolean getIsOn() {
+  public boolean isOn() {
     return popupOn;
   }
 
-  public boolean turnOn() {
-    return popupOn = true;
+  public void turnOn() {
+    popupOn = true;
   }
 
   public void setUserNameInput() {
@@ -76,36 +79,63 @@ public class PopupController implements Controller{
   }
 
   public void setUserDescriptionInput() {
-    eventIn.setDescription(decription.getText());
+    eventIn.setDescription(description.getText());
   }
 
-  EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+  //EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+
+/*
+
     public void handle(ActionEvent e) {
-      //getTarget gets what the action was done on
-      if (e.getTarget().equals(thurButton)) {
-        eventIn.setDay(DayWeek.THURSDAY);
-      } else if (e.getTarget().equals(satButton)) {
-        eventIn.setDay(DayWeek.SATURDAY);
-      } else if (e.getTarget().equals(sunButton)) {
-        eventIn.setDay(DayWeek.SUNDAY);
-      } else if (e.getTarget().equals(monButton)) {
-        eventIn.setDay(DayWeek.MONDAY);
-      } else if (e.getTarget().equals(tuesButton)) {
-        eventIn.setDay(DayWeek.TUESDAY);
-      } else if (e.getTarget().equals(wedButton)) {
-        eventIn.setDay(DayWeek.WEDNESDAY);
-      } else if (e.getTarget().equals(friButton)){
-        eventIn.setDay(DayWeek.FRIDAY);
-      } else if(e.getTarget().equals(submitButton)) {
-        setSubmit();
-      } else {
-        popupOn = false;
-      }
+
+      sunButton.setOnAction(new PopButtonHandler(DayWeek.SUNDAY));
+      satButton.setOnAction(new PopButtonHandler(DayWeek.SATURDAY));
+      monButton.setOnAction(new PopButtonHandler(DayWeek.MONDAY));
+      tuesButton.setOnAction(new PopButtonHandler(DayWeek.TUESDAY));
+      wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY));
+      thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY));
+      friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY));
+
+      submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
+          decription.getText(), takeValidTime(startTime.getText()),
+          takeDuration(duration.getText())));
     }
-  };
+  //}
+*/
+
+  public boolean validTime(String time) {
+    Pattern p = Pattern.compile("[0-23]:[0-59]");
+    Matcher m = p.matcher(time);
+    return m.matches();
+  }
+
+  public String takeValidTime(String time) {
+    if (validTime(time)) {
+      return time;
+    } else {
+      return null;
+    }
+  }
+
+  public int takeDuration(String durationStr) {
+    if (isValidNum(durationStr)) {
+      return parseInt(durationStr);
+    }
+    return 0;
+  }
+
+  public boolean isValidNum(String str) {
+    try {
+      parseInt(str);
+      return true;
+    } catch (NumberFormatException n) {
+      return false;
+    }
+  }
+
 
   public void setSubmit() {
-    if(isNullEvent()) {
+    if (isNullEvent()) {
       //nothing happens
     } else {
       //sets the userIn name and description
@@ -113,6 +143,7 @@ public class PopupController implements Controller{
       setUserDescriptionInput();
       //adds this event to the list of events on the day of this event
       calendar.getOneDay(eventIn.getDayWeek()).getDayInputs().add(eventIn);
+      System.out.println(eventIn.getDayWeek());
     }
   }
 
@@ -124,11 +155,55 @@ public class PopupController implements Controller{
   }
 
 
+// Listen for TextField text changes
+
+
   @Override
   public void run() {
+    sunButton.setOnAction(new PopButtonHandler(DayWeek.SUNDAY, eventIn));
+    satButton.setOnAction(new PopButtonHandler(DayWeek.SATURDAY, eventIn));
+    monButton.setOnAction(new PopButtonHandler(DayWeek.MONDAY, eventIn));
+    tuesButton.setOnAction(new PopButtonHandler(DayWeek.TUESDAY, eventIn));
+    wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY, eventIn));
+    thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
+    friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
+    submitButton.setOnAction(e -> makeSubmitButton(e));
 
   }
 
+  public void makeSubmitButton(Event eventEn) {
 
+    SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
+        description.getText(), startTime.getText(),
+        takeDuration(duration.getText()));
+    submit.handle(eventEn);
+  }
 
+  /*
+  submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
+  listenToField2(description), listenToField2(startTime),
+  takeDuration(listenToField2(duration))));
+*/
+  public String changeToStr(String given) {
+    return given;
+  }
+/*
+
+  public String listenToField(TextField textField) {
+    String exStr = new String();
+    nameTask.textProperty().addListener(
+        (observable, oldValue, newValue) -> changeToStr(newValue));
+    return changeToStr(newValue);
+  }
+*/
+
+  public String listenToField2(TextField textField) {
+    StringBuilder sb = new StringBuilder();
+    textField.textProperty().addListener(
+        (observable, oldValue, newValue) -> sb.append(newValue));
+    //sb.append(newValue)
+    //sb.append(newValue)
+    System.out.println("printing: " + sb);
+    return sb.toString();
+  }
 }

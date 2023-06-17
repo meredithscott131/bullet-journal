@@ -5,6 +5,7 @@ import cs3500.pa05.json.EventJson;
 import cs3500.pa05.json.TaskJson;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.event.Event;
 
 public class CalendarAdapter {
 
@@ -18,9 +19,9 @@ public class CalendarAdapter {
       List<TaskJson> tasks = new ArrayList<>();
       for (int j = 0; j < modelCalendar.getDays().get(i).getInputs().size(); j++) {
         UserCalInput input = modelCalendar.getDays().get(i).getInputs().get(j);
-        if (input instanceof Event) {
+        if (input instanceof EventIn) {
           events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
-              ((Event) input).getStartTime(), ((Event) input).getDuration()));
+              ((EventIn) input).getStartTime(), ((EventIn) input).getDuration()));
         } else if (input instanceof Task) {
           tasks.add(new TaskJson(input.getName(), input.getDescription(), input.getDayWeek(),
               (((Task) input).getComplete())));
@@ -43,12 +44,12 @@ public class CalendarAdapter {
       DayWeek dayWeek = calendarJson.days()[i].day();
       ArrayList<UserCalInput> inputs = new ArrayList<>();
       for (EventJson event : calendarJson.days()[i].events()) {
-        Event newEvent;
+        EventIn newEvent;
         String eventTitle = event.name();
         String eventDescription = event.description();
         String startTime = event.startTime();
         int duration = event.duration();
-        newEvent = new Event(eventTitle, eventDescription, dayWeek, startTime, duration);
+        newEvent = new EventIn(eventTitle, eventDescription, dayWeek, startTime, duration);
         inputs.add(newEvent);
       }
       for (TaskJson task : calendarJson.days()[i].tasks()) {
