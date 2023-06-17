@@ -12,7 +12,6 @@ public class Calendar {
   String name;
   List<Day> days;
 
-
   /**
    * setName method sets the current name
    */
@@ -39,4 +38,5 @@ public class Calendar {
     List<Day> currList = new ArrayList<>();
     return currList;
   }
+
 } //closes Calendar class

@@ -18,6 +18,16 @@ public class Day {
 
   int minTask;
 
+  public Day(DayWeek day, List<UserCalInput> dayInputs, int maxTask, int minTask) {
+    this.day = day;
+    this.dayInputs = dayInputs;
+    this.maxTask = maxTask;
+    this.minTask = minTask;
+  }
+
+  public Day() {
+  }
+
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
   }

@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -166,18 +167,23 @@ public class PopupController implements Controller {
     wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY, eventIn));
     thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
     friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
-/*
-    String name = listenToField2(nameTask);
-    String des = listenToField2(description);
-    String start = listenToField2(startTime);
-    String dur = listenToField2(duration);
-*/
-    //System.out.println(name);
-    submitButton.setOnAction(new SubmitButtonHandler(eventIn, listenToField2(nameTask),
-        listenToField2(description), listenToField2(startTime),
-        takeDuration(listenToField2(duration))));
+    submitButton.setOnAction(e -> makeSubmitButton(e));
+
   }
 
+  public void makeSubmitButton(Event eventEn) {
+
+    SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
+        description.getText(), startTime.getText(),
+        takeDuration(duration.getText()));
+    submit.handle(eventEn);
+  }
+
+  /*
+  submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
+  listenToField2(description), listenToField2(startTime),
+  takeDuration(listenToField2(duration))));
+*/
   public String changeToStr(String given) {
     return given;
   }
@@ -200,6 +206,4 @@ public class PopupController implements Controller {
     System.out.println("printing: " + sb);
     return sb.toString();
   }
-
-
 }

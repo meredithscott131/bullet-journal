@@ -39,4 +39,7 @@ public class JournalController implements Controller {
     ButtonsEventHandler butt = new ButtonsEventHandler();
     taskButton.setOnAction(butt);
   }
+
+
+
 }

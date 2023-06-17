@@ -1,6 +1,7 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.Day;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.view.gui.PopupView;
 import javafx.event.Event;
@@ -11,6 +12,8 @@ public class SubmitButtonHandler implements EventHandler {
 
   EventIn eventIn;
 
+  Calendar calendar;
+
   String nameTask;
 
   String nameDecription;
@@ -20,8 +23,11 @@ public class SubmitButtonHandler implements EventHandler {
   String startTime;
 
 
-  SubmitButtonHandler(EventIn eventIn, String nameTask, String nameDecription,
+ public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
                       String startTime, int duration) {
+    System.out.println(nameTask +  nameDecription + startTime + duration);
+
+   this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
     this.nameDecription = nameDecription;
@@ -32,20 +38,36 @@ public class SubmitButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(!isNullEvent()) {
-      System.out.println("Nully" + nameTask.toString());
-      System.out.println(nameDecription.toString());
-      System.out.println(duration);
+    if(isNullEvent()) {
+      System.out.println("Null " + nameTask);
+      System.out.println("Null " + nameDecription);
+      System.out.println("Null " + duration);
       //nothing happens
     } else {
-      System.out.println(nameTask.toString());
-      System.out.println(nameDecription.toString());
-      System.out.println(duration);
+      System.out.println("nametask = " + nameTask);
+      System.out.println("des = " + nameDecription);
+      System.out.println("dur = " + startTime);
+      System.out.println("dur = " + duration);
 
       setUserNameInput();
       setUserDescriptionInput();
       setUserDurationInput();
       setStartTimeInput();
+      Day dayToAddTo = calendar.getOneDay(eventIn.getDayWeek());
+      dayToAddTo.getDayInputs().add(eventIn);
+
+      System.out.println("event name " + eventIn.getName() + "\n"
+          + "event D " + eventIn.getDescription() + "\n"
+          + "event dayweek " + eventIn.getDayWeek() + "\n"
+          + "event start " + eventIn.getStartTime() + "\n"
+          + "event duration " + eventIn.getDuration() + "\n");
+
+      System.out.println("Day " + dayToAddTo.getDayInputs().get(0).getName() + "\n");
+
+
+
+
+
       //System.out.println(startTime.toString());
     }
   }
@@ -73,9 +95,10 @@ public class SubmitButtonHandler implements EventHandler {
   }
 
   public boolean isNullEvent() {
-    return eventIn.getName() == null
-        && eventIn.getDescription() == null
-        && eventIn.getStartTime() == null
-        && eventIn.getDuration() == 0;
+    return nameTask == ""
+        || nameDecription == ""
+        || eventIn.getDayWeek() == null
+        || duration == 0
+        || startTime == "";
   }
 }
