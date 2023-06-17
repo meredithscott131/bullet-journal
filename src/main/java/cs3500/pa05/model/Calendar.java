@@ -15,6 +15,12 @@ public class Calendar {
 
   private int maxEvent;
 
+  public Calendar(String name, List<Day> days, int maxTask, int maxEvent) {
+    this.name = name;
+    this.days = days;
+    this.maxTask = maxTask;
+    this.maxEvent = maxEvent;
+  }
 
   /**
    * setName method sets the current name
@@ -24,7 +30,7 @@ public class Calendar {
   }
 
   public Day getOneDay(DayWeek dayWeek) {
-    Day finalDay = new Day();
+    Day finalDay = new Day(null, null);
     for(Day d : days) {
       if(d.getGetDayWeek().equals(dayWeek)) {
         finalDay = d;
@@ -33,14 +39,11 @@ public class Calendar {
     return finalDay;
   }
 
-
-
   /**
    * getDays method gets the current days
    */
   public List<Day> getDays() {
-    List<Day> currList = new ArrayList<>();
-    return currList;
+    return this.days;
   }
 
   public int getMaxTask() {

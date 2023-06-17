@@ -22,7 +22,7 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-    Calendar cal = new Calendar();
+    Calendar cal = new Calendar(null, null, 0, 0);
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont);
 

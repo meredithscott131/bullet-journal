@@ -9,17 +9,17 @@ import java.time.LocalTime;
 public class Event extends UserCalInput {
 
   //Fields
-  LocalTime startTime;
+  String startTime;
   int duration;
 
   public Event(String name, String description, DayWeek day,
-               LocalTime startTime, int duration) {
+               String startTime, int duration) {
     super(name, description, day);
     this.startTime = startTime;
     this.duration = duration;
   }
 
-  public LocalTime getStartTime() {
+  public String getStartTime() {
     return startTime;
   }
 

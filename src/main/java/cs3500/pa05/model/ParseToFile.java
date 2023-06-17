@@ -9,7 +9,7 @@ import java.nio.file.Path;
 public class ParseToFile {
 
   public void writeToFile(Path path, Calendar calendar) {
-    CalendarAdaptar adaptar = new CalendarAdaptar(calendar);
+    CalendarAdapter adaptar = new CalendarAdapter(calendar);
     CalendarJson calendarJson = adaptar.convertToJson();
 
     String str = calendarJson.toString();

@@ -17,6 +17,10 @@ public class Task extends UserCalInput {
     this.complete = complete;
   }
 
+  public boolean getComplete() {
+    return this.complete;
+  }
+
 
 
 

@@ -14,6 +14,11 @@ public class Day {
   private DayWeek day;
   private List<UserCalInput> dayInputs;
 
+  public Day(DayWeek day, List<UserCalInput> dayInputs) {
+    this.day = day;
+    this.dayInputs = dayInputs;
+  }
+
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
   }
