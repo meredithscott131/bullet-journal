@@ -39,6 +39,12 @@ public class PopupController {
   @FXML
   Button sunButton;
 
+  @FXML
+  Button submitButton;
+
+  @FXML
+  Button cancelButton;
+
   public PopupController() {
     this.eventIn = new Event(null, null, null, null, 0);
   }
@@ -76,8 +82,19 @@ public class PopupController {
         eventIn.setDay(DayWeek.WEDNESDAY);
       } else if (e.getTarget().equals(friButton)){
         eventIn.setDay(DayWeek.FRIDAY);
+      } else if(e.getTarget().equals(submitButton)) {
+
       }
     }
   };
+
+  public void setSubmit() {
+    if()
+    getUserNameInput();
+    getUserDescriptionInput();
+
+  }
+
+
 
 }
