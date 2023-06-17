@@ -29,7 +29,6 @@ public class Driver extends Application {
     try {
       stage.setScene(journalView.load());
       journalCont.run();
-
       stage.show();
 
     } catch (IllegalStateException exc) {

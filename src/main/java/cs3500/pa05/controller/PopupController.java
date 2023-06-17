@@ -9,12 +9,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class PopupController {
+public class PopupController implements Controller{
 
-  Event eventIn;
+  private Event eventIn;
 
-  Calendar calendar;
+  private boolean popupOn;
+
+  private Calendar calendar;
   @FXML
   TextField nameTask;
 
@@ -57,14 +60,15 @@ public class PopupController {
   public PopupController(Calendar calendar) {
     this.eventIn = new Event(null, null, null, null, 0);
     this.calendar = calendar;
+    this.popupOn = popupOn;
   }
 
-  /**
-   * Initializes the controller
-   */
-  @Override
-  public void run() {
+  public boolean getIsOn() {
+    return popupOn;
+  }
 
+  public boolean turnOn() {
+    return popupOn = true;
   }
 
   public void setUserNameInput() {
@@ -95,7 +99,7 @@ public class PopupController {
       } else if(e.getTarget().equals(submitButton)) {
         setSubmit();
       } else {
-
+        popupOn = false;
       }
     }
   };
@@ -117,6 +121,12 @@ public class PopupController {
         && eventIn.getDescription() == null
         && eventIn.getStartTime() == null
         && eventIn.getDuration() == 0;
+  }
+
+
+  @Override
+  public void run() {
+
   }
 
 
