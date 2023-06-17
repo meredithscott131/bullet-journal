@@ -89,7 +89,7 @@ public class PopupController {
   };
 
   public void setSubmit() {
-    if()
+    if(hi)
     getUserNameInput();
     getUserDescriptionInput();
 
