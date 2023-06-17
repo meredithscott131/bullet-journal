@@ -12,6 +12,20 @@ public class Calendar {
   String name;
   List<Day> days;
 
+  private int maxTask;
+
+  private int maxEvent;
+
+  public Calendar(String name, List<Day> days, int maxTask, int maxEvent) {
+    this.name = name;
+    this.days = days;
+    this.maxTask = maxTask;
+    this.maxEvent = maxEvent;
+  }
+
+  public Calendar() {
+  }
+
   /**
    * setName method sets the current name
    */
@@ -39,4 +53,18 @@ public class Calendar {
     return currList;
   }
 
+  public int getMaxTask() {
+    return this.maxTask;
+  }
+
+  public int getMaxEvent() {
+    return this.maxEvent;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
 } //closes Calendar class
+
+

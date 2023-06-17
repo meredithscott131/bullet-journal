@@ -1,6 +1,7 @@
 package cs3500.pa05.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -11,10 +12,10 @@ import javafx.scene.layout.VBox;
 public class Day {
 
   //Fields:
-  DayWeek day;
-  List<UserCalInput> dayInputs;
+  private DayWeek day;
+  private List<UserCalInput> dayInputs;
 
-  int maxTask;
+  private int maxTask;
 
   int minTask;
 
@@ -26,6 +27,15 @@ public class Day {
   }
 
   public Day() {
+  }
+
+  public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
+    this.day = day;
+    this.dayInputs = dayInputs;
+  }
+
+  public Day(DayWeek day) {
+    this.day = day;
   }
 
   public List<UserCalInput> getDayInputs() {
@@ -53,5 +63,9 @@ public class Day {
 
       dayVbox.getChildren().add(vbox);
     }
+  }
+
+  public List<UserCalInput> getInputs() {
+    return this.dayInputs;
   }
 }
