@@ -65,9 +65,31 @@ public class JournalController implements Controller {
     eventButton.setOnAction(butt);
     updateCalendar();
 
+    List<EventIn> events = this.calendar.eventsInCal();
+    List<Task> tasks = this.calendar.tasksInCal();
+    for(EventIn e : events) {
+      System.out.println("in update RUN : " + e.getName());
+    }
+    for(Task ee : tasks) {
+      System.out.println("in update cal TASK RUN : " + ee.getName());
+    }
+
+
   }
 
   public void updateCalendar() {
+    List<EventIn> events = this.calendar.eventsInCal();
+    List<Task> tasks = this.calendar.tasksInCal();
+    for(EventIn e : events) {
+      System.out.println("in update cal : " + e.getName());
+      this.addEvent(e, this.createEvent(e));
+    }
+    for(Task ee : tasks) {
+      System.out.println("in update cal TASK : " + ee.getName());
+    }
+  }
+
+  public void updateCalendar2() {
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
     for(EventIn e : events) {

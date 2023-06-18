@@ -73,7 +73,6 @@ public class SubmitButtonHandler implements EventHandler {
           System.out.println("updates : " + in.getName());
         }
       }
-
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window
     }
