@@ -97,7 +97,6 @@ public class SubmitButtonHandler implements EventHandler {
 
   public boolean isNullEvent() {
     return nameTask == ""
-        || nameDecription == ""
         || eventIn.getDayWeek() == null
         || duration == 0
         || startTime == "";
@@ -108,7 +107,7 @@ public class SubmitButtonHandler implements EventHandler {
    Label titleLabel = new Label(this.nameTask);
    Label descriptionLabel = new Label(this.nameDecription);
    Label startTimeLabel = new Label(this.startTime);
-   Label durationLabel = new Label(String.valueOf(this.duration));
+   Label durationLabel = new Label(String.valueOf(this.duration + " minutes"));
 
    newEvent.getChildren().add(titleLabel);
    newEvent.getChildren().add(descriptionLabel);
