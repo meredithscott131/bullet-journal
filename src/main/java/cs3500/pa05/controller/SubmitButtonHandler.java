@@ -20,7 +20,7 @@ public class SubmitButtonHandler implements EventHandler {
   private final String nameDecription;
   private final int duration;
   private final String startTime;
-  private VBox destination;
+  private final VBox destination;
 
  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
                       String startTime, int duration, VBox destination) {

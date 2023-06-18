@@ -10,8 +10,7 @@ import javafx.scene.Scene;
  * Represents a interface journal GUI cs3500.pa05.view.view.
  */
 public class PopupView implements View {
-
-  FXMLLoader loader;
+  private FXMLLoader loader;
 
   public PopupView(PopupController controller) {
     this.loader = new FXMLLoader();

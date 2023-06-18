@@ -143,14 +143,14 @@ public class PopupController implements Controller {
     thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
     friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
     submitButton.setOnAction(e -> makeSubmitButton(e));
-
   }
 
   public void makeSubmitButton(Event eventEn) {
-    VBox destination = new VBox();
+    VBox destination = null;
     if (this.eventIn.getDayWeek().equals(DayWeek.SUNDAY)) {
       destination = sundayBox;
     } else if (this.eventIn.getDayWeek().equals(DayWeek.MONDAY)) {
+      System.out.println("Greetings" + mondayBox);
       destination = mondayBox;
     } else if (this.eventIn.getDayWeek().equals(DayWeek.TUESDAY)) {
       destination = tuesdayBox;
@@ -168,19 +168,5 @@ public class PopupController implements Controller {
         description.getText(), startTime.getText(),
         takeDuration(duration.getText()), destination);
     submit.handle(eventEn);
-  }
-
-  public String changeToStr(String given) {
-    return given;
-  }
-
-  public String listenToField2(TextField textField) {
-    StringBuilder sb = new StringBuilder();
-    textField.textProperty().addListener(
-        (observable, oldValue, newValue) -> sb.append(newValue));
-    //sb.append(newValue)
-    //sb.append(newValue)
-    System.out.println("printing: " + sb);
-    return sb.toString();
   }
 }
