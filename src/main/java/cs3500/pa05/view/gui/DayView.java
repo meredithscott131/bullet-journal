@@ -70,7 +70,7 @@ public class DayView extends VBox {
       Label contentEvent = new Label(userIn.getDescription());
       vbox.getChildren().add(titleEvent);
       vbox.getChildren().add(contentEvent);
-
+      
       getDayBox().getChildren().add(vbox);
     }
   }
