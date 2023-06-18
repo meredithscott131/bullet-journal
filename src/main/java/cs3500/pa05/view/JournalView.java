@@ -10,11 +10,13 @@ import javafx.scene.Scene;
  */
 public class JournalView implements View {
   private FXMLLoader loader;
+  private JournalController controller;
 
   public JournalView(JournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournal.fxml"));
     this.loader.setController(controller);
+    this.controller = controller;
   }
 
   /**

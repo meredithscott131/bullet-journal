@@ -13,9 +13,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class PopupController implements Controller {
 
@@ -46,33 +48,14 @@ public class PopupController implements Controller {
   private Button sunButton;
   @FXML
   private Button submitButton;
+
   @FXML
-  private VBox sundayBox;
-  @FXML
-  private VBox mondayBox;
-  @FXML
-  private VBox tuesdayBox;
-  @FXML
-  private VBox wednesdayBox;
-  @FXML
-  private VBox thursdayBox;
-  @FXML
-  private VBox fridayBox;
-  @FXML
-  private VBox saturdayBox;
+  private Stage stage;
 
   public PopupController(Calendar calendar) {
     this.eventIn = new EventIn(null, null, null, null, 0);
     this.calendar = calendar;
     this.popupOn = false;
-  }
-
-  public boolean isOn() {
-    return popupOn;
-  }
-
-  public void turnOn() {
-    popupOn = true;
   }
 
   public void setUserNameInput() {
@@ -89,14 +72,6 @@ public class PopupController implements Controller {
     return m.matches();
   }
 
-  public String takeValidTime(String time) {
-    if (validTime(time)) {
-      return time;
-    } else {
-      return null;
-    }
-  }
-
   public int takeDuration(String durationStr) {
     if (isValidNum(durationStr)) {
       return parseInt(durationStr);
@@ -110,19 +85,6 @@ public class PopupController implements Controller {
       return true;
     } catch (NumberFormatException n) {
       return false;
-    }
-  }
-
-  public void setSubmit() {
-    if (isNullEvent()) {
-      //nothing happens
-    } else {
-      //sets the userIn name and description
-      setUserNameInput();
-      setUserDescriptionInput();
-      //adds this event to the list of events on the day of this event
-      calendar.getOneDay(eventIn.getDayWeek()).getDayInputs().add(eventIn);
-      System.out.println(eventIn.getDayWeek());
     }
   }
 
@@ -146,27 +108,9 @@ public class PopupController implements Controller {
   }
 
   public void makeSubmitButton(Event eventEn) {
-    VBox destination = null;
-    if (this.eventIn.getDayWeek().equals(DayWeek.SUNDAY)) {
-      destination = sundayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.MONDAY)) {
-      System.out.println("Greetings" + mondayBox);
-      destination = mondayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.TUESDAY)) {
-      destination = tuesdayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.WEDNESDAY)) {
-      destination = wednesdayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.THURSDAY)) {
-      destination = thursdayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.FRIDAY)) {
-      destination = fridayBox;
-    } else if (this.eventIn.getDayWeek().equals(DayWeek.SATURDAY)) {
-      destination = saturdayBox;
-    }
-
     SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
         description.getText(), startTime.getText(),
-        takeDuration(duration.getText()), destination);
+        takeDuration(duration.getText()), this.stage);
     submit.handle(eventEn);
   }
 }

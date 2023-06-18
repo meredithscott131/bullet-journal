@@ -4,37 +4,40 @@ import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
+import java.io.IOException;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SubmitButtonHandler implements EventHandler {
-
   private final EventIn eventIn;
   private final Calendar calendar;
   private final String nameTask;
   private final String nameDecription;
   private final int duration;
   private final String startTime;
-  private final VBox destination;
+  private final Stage stage;
 
  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
-                      String startTime, int duration, VBox destination) {
-    System.out.println(nameTask +  nameDecription + startTime + duration);
-
-   this.calendar = calendar;
+                      String startTime, int duration, Stage stage) {
+    this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
     this.nameDecription = nameDecription;
     this.duration = duration;
     this.startTime = startTime;
-    this.destination = destination;
+    this.stage = stage;
   }
-
 
   @Override
   public void handle(Event event) {
@@ -44,27 +47,26 @@ public class SubmitButtonHandler implements EventHandler {
       System.out.println("Null " + this.duration);
       //nothing happens
     } else {
-      this.destination.getChildren().add(this.createEvent());
 
-      System.out.println("nametask = " + this.nameTask);
-      System.out.println("des = " + this.nameDecription);
-      System.out.println("dur = " + this.startTime);
-      System.out.println("dur = " + this.duration);
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/bulletJournal.fxml"));
+      JournalController journalCont = new JournalController(this.calendar);
+      JournalView journalView = new JournalView(journalCont);
+      Stage stage = new Stage();
+      stage.setScene(journalView.load());
+      stage.show();
+      journalCont.run();
+      journalCont.addEvent(eventIn, this.createEvent());
 
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.close(); // closes popup window
+
+      // Adds event to calendar object
       setUserNameInput();
       setUserDescriptionInput();
       setUserDurationInput();
       setStartTimeInput();
       Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
       dayToAddTo.getDayInputs().add(eventIn);
-
-      System.out.println("event name " + eventIn.getName() + "\n"
-          + "event D " + eventIn.getDescription() + "\n"
-          + "event dayweek " + eventIn.getDayWeek() + "\n"
-          + "event start " + eventIn.getStartTime() + "\n"
-          + "event duration " + eventIn.getDuration() + "\n");
-
-      System.out.println("Day " + dayToAddTo.getDayInputs().get(0).getName() + "\n");
     }
   }
 
