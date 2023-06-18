@@ -1,19 +1,14 @@
 package cs3500.pa05.model;
 
-import cs3500.pa05.controller.JournalController;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Calendar class represents a calendar
  */
 public class Calendar {
-  //Fields:
-  String name;
-  List<Day> days;
-
+  private String name;
+  private List<Day> days;
   private int maxTask;
-
   private int maxEvent;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent) {
@@ -23,8 +18,7 @@ public class Calendar {
     this.maxEvent = maxEvent;
   }
 
-  public Calendar() {
-  }
+  public Calendar() {}
 
   /**
    * setName method sets the current name
@@ -42,8 +36,6 @@ public class Calendar {
     }
     return finalDay;
   }
-
-
 
   /**
    * getDays method gets the current days
@@ -64,6 +56,6 @@ public class Calendar {
     return this.name;
   }
 
-} //closes Calendar class
+}
 
 

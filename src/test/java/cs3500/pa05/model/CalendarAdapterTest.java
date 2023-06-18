@@ -1,10 +1,12 @@
 package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cs3500.pa05.json.CalendarJson;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -144,5 +146,14 @@ class CalendarAdapterTest {
     assertEquals(7, cal.getDays().size());
     assertEquals(1, cal.getDays().get(0).getInputs().size());
     assertEquals(1, cal.getDays().get(4).getInputs().size());
+  }
+
+  @Test
+  public void testScannerBujoError() {
+    File falseFile = new File("wrong.md");
+
+    ScannerBujo scannerBujo = new ScannerBujo();
+    assertThrows(IllegalArgumentException.class,
+        () -> scannerBujo.readFromFile(falseFile));
   }
 }

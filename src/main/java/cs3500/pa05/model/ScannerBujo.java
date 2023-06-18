@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 public class ScannerBujo {
-  private final ObjectMapper mapper = new ObjectMapper();
   private CalendarAdapter adapter = new CalendarAdapter();
 
   public Calendar readFromFile(File file) {

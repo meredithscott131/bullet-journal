@@ -8,28 +8,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class DayView extends VBox {
-
-  //Fields:
-  Day day;
+  private Day day;
 
   @FXML
-  VBox mondayBox;
-  //does it not work becuase it is connected to popup controller
+  private VBox mondayBox;
 
   @FXML
-  VBox tuesdayBox;
+  private VBox tuesdayBox;
 
   @FXML
-  VBox wednesdayBox;
+  private VBox wednesdayBox;
 
   @FXML
-  VBox thursdayBox;
+  private VBox thursdayBox;
 
   @FXML
-  VBox fridayBox;
+  private VBox fridayBox;
 
   @FXML
-  VBox sundayBox; //null if this is not shown yet
+  private VBox sundayBox;
+  //null if this is not shown yet
   //when making a scene it has to first be shown first
 
   //for popups
@@ -44,9 +42,6 @@ public class DayView extends VBox {
 
   //submit button to close popup
   //stage.close()
-  public DayView(Day day) {
-    this.day = day;
-  }
 
   public VBox getDayBox() {
     if (day.getGetDayWeek() == DayWeek.MONDAY) {
@@ -70,14 +65,12 @@ public class DayView extends VBox {
 
     for (UserCalInput userIn : day.getDayInputs()) {
       VBox vbox = new VBox();
-
       Label titleEvent = new Label(userIn.getName());
       Label contentEvent = new Label(userIn.getDescription());
       vbox.getChildren().add(titleEvent);
       vbox.getChildren().add(contentEvent);
 
-      //getDayBox().getChildren().add(vbox);
-      mondayBox.getChildren().add(vbox);
+      getDayBox().getChildren().add(vbox);
     }
   }
 }

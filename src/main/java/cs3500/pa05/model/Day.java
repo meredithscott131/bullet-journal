@@ -1,30 +1,16 @@
 package cs3500.pa05.model;
 
-
 import java.util.ArrayList;
 import java.util.List;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 
 /**
  * Day class represents a single day on the calendar
  */
 public class Day {
-
-  //Fields:
   private DayWeek day;
   private List<UserCalInput> dayInputs;
 
-  private int maxTask;
-
-  public Day(DayWeek day, List<UserCalInput> dayInputs, int maxTask, int minTask) {
-    this.day = day;
-    this.dayInputs = dayInputs;
-    this.maxTask = maxTask;
-  }
-
-  public Day() {
-  }
+  public Day() {}
 
   public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
     this.day = day;
@@ -43,31 +29,7 @@ public class Day {
     return day;
   }
 
-  public void addContent() {
-    if (day.equals(DayWeek.SUNDAY)) {
-
-    }
-  }//closes Day class
-/*
-  public void drawUserCallInput(VBox dayVbox) {
-
-    for(UserCalInput userIn : dayInputs) {
-      VBox vbox = new VBox();
-      Label titleEvent = new Label(userIn.getName());
-      Label contentEvent = new Label(userIn.getDescription());
-      vbox.getChildren().add(titleEvent);
-      vbox.getChildren().add(contentEvent);
-
-      dayVbox.getChildren().add(vbox);
-    }
-  }
-  */
   public List<UserCalInput> getInputs() {
     return this.dayInputs;
   }
-
-  public int getMaxTask() {
-    return maxTask;
-  }
-
 }

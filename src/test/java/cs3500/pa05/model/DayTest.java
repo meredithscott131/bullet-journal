@@ -23,5 +23,4 @@ class DayTest {
 
     assertEquals(currDay.getDayInputs(), input);
   }
-
 }

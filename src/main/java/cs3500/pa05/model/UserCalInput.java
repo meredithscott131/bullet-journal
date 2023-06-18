@@ -1,17 +1,12 @@
 package cs3500.pa05.model;
 
-
-import cs3500.pa05.model.DayWeek;
-
 /**
  * UserCalInput class information for an event or task
  */
 public abstract class UserCalInput {
-
-  //Fields:
-  String name;
-  String description;
-  DayWeek day;
+  private String name;
+  private String description;
+  private DayWeek day;
 
   public UserCalInput(String name, String description, DayWeek day) {
     this.name = name;
@@ -31,4 +26,16 @@ public abstract class UserCalInput {
     return day;
   }
 
-} //closes UserCalInput class
+  public void setName(String str) {
+    this.name = str;
+  }
+
+  public void setDay(DayWeek dayWeek) {
+    day = dayWeek;
+  }
+
+  public void setDescription(String str) {
+    description = str;
+  }
+
+}

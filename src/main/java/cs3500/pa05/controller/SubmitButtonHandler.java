@@ -2,86 +2,79 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
+import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
-import cs3500.pa05.view.gui.DayView;
+import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
+import java.io.IOException;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SubmitButtonHandler implements EventHandler {
+  private final EventIn eventIn;
+  private final Calendar calendar;
+  private final String nameTask;
+  private final String nameDecription;
+  private final int duration;
+  private final String startTime;
+  private final Stage stage;
 
-  EventIn eventIn;
-
-  Calendar calendar;
-
-  String nameTask;
-
-  String nameDecription;
-
-  int duration;
-
-  String startTime;
-
-
- public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
-                      String startTime, int duration) {
-    System.out.println(nameTask +  nameDecription + startTime + duration);
-
-   this.calendar = calendar;
+ public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
+                            String nameDecription, String startTime, int duration, Stage stage) {
+    this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
     this.nameDecription = nameDecription;
     this.duration = duration;
     this.startTime = startTime;
+    this.stage = stage;
   }
-
 
   @Override
   public void handle(Event event) {
-    if(isNullEvent() && isValidEvent()) {
-      System.out.println("Null " + nameTask);
-      System.out.println("Null " + nameDecription);
-      System.out.println("Null " + duration);
+    if(isNullEvent()) {
+      System.out.println("Null " + this.nameTask);
+      System.out.println("Null " + this.nameDecription);
+      System.out.println("Null " + this.duration);
       //nothing happens
     } else {
-      System.out.println("nametask = " + nameTask);
-      System.out.println("des = " + nameDecription);
-      System.out.println("dur = " + startTime);
-      System.out.println("dur = " + duration);
 
+      // CURRENT ISSUE... this is creating a new journal controller to add the event onto. we need a way
+      // to get our current journal controller without passing in through all of this lol
+      // Good news is... its being added correctly!
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/bulletJournal.fxml"));
+      JournalController journalCont = new JournalController(this.calendar);
+      JournalView journalView = new JournalView(journalCont);
+      Stage stage = new Stage();
+      stage.setScene(journalView.load());
+      stage.show();
+      journalCont.run();
+      journalCont.addEvent(eventIn, this.createEvent());
+
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.close(); // closes popup window
+
+      // Adds event to calendar object
       setUserNameInput();
       setUserDescriptionInput();
       setUserDurationInput();
       setStartTimeInput();
-
-      Day dayToAddTo = calendar.getOneDay(eventIn.getDayWeek());
-      //if(checkMaxEvent(dayToAddTo)) {
-        dayToAddTo.getDayInputs().add(eventIn);
-
-/*
-
-      } else {
-        //do soething here later lol
-      }
-*/
-
-
-      System.out.println("event name " + eventIn.getName() + "\n"
-          + "event D " + eventIn.getDescription() + "\n"
-          + "event dayweek " + eventIn.getDayWeek() + "\n"
-          + "event start " + eventIn.getStartTime() + "\n"
-          + "event duration " + eventIn.getDuration() + "\n");
-
-      System.out.println("Day " + dayToAddTo.getDayInputs().get(0).getName() + "\n");
-
-      //making the visual
-
-
-      DayView dayView = new DayView(dayToAddTo);
-      dayView.drawUserCallInput();
-
-      //System.out.println(startTime.toString());
+      Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
+      dayToAddTo.getDayInputs().add(eventIn);
     }
   }
 
@@ -109,17 +102,27 @@ public class SubmitButtonHandler implements EventHandler {
 
   public boolean isNullEvent() {
     return nameTask == ""
-        || nameDecription == ""
         || eventIn.getDayWeek() == null
         || duration == 0
         || startTime == "";
   }
 
-  public boolean isValidEvent() {
-    return duration > 0;
-  }
+  public VBox createEvent() {
+    String cssLayout = "-fx-border-color: grey;\n" +
+        "-fx-border-insets: 5;\n" +
+        "-fx-border-width: 1;\n";
+   VBox newEvent = new VBox();
+   newEvent.setStyle(cssLayout);
+   Label titleLabel = new Label(this.nameTask);
+   Label descriptionLabel = new Label(this.nameDecription);
+   Label startTimeLabel = new Label(this.startTime);
+   Label durationLabel = new Label(String.valueOf(this.duration + " minutes"));
 
-  public boolean checkMaxEvent(Day day) {
-   return day.getDayInputs().size() + 1 <= day.getMaxTask();
+   newEvent.getChildren().add(titleLabel);
+   newEvent.getChildren().add(descriptionLabel);
+   newEvent.getChildren().add(startTimeLabel);
+   newEvent.getChildren().add(durationLabel);
+
+   return newEvent;
   }
 }

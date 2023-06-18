@@ -10,7 +10,11 @@ import javafx.stage.Stage;
 
 public class ButtonsEventHandler implements EventHandler {
 
-  Calendar calendar;
+  private Calendar calendar;
+
+  ButtonsEventHandler(Calendar calendar) {
+    this.calendar = calendar;
+  }
 
   ButtonsEventHandler(Calendar calendar) {
     this.calendar = calendar;
@@ -19,11 +23,11 @@ public class ButtonsEventHandler implements EventHandler {
   @Override
   public void handle(Event event) {
     Stage stage = new Stage();
-    PopupController popupController = new PopupController(calendar);
+    PopupController popupController = new PopupController(this.calendar);
     PopupView popupView = new PopupView(popupController);
     stage.setScene(popupView.load());
     //call run while the tab is open
-    popupController.run();
     stage.show();
+    popupController.run();
   }
 }

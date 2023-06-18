@@ -11,11 +11,11 @@ import javafx.stage.Stage;
 
 public class PopButtonHandler implements EventHandler {
 
-  Calendar calendar;
+  private Calendar calendar;
 
-  DayWeek dayWeek;
+  private DayWeek dayWeek;
 
-  EventIn eventIn;
+  private EventIn eventIn;
 
   public PopButtonHandler(DayWeek dayWeek, EventIn eventIn) {
     this.eventIn = eventIn;
