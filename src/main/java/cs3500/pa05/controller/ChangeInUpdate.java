@@ -13,18 +13,8 @@ public class ChangeInUpdate implements ChangeListener {
 
   @Override
   public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+    updateCalendar();
 
   }
-
-
 }
 
-class SliderListener implements ChangeListener {
-  public void stateChanged(ChangeEvent e) {
-    JSlider source = (JSlider)e.getSource();
-    if (!source.getValueIsAdjusting()) {
-      int fps = (int)source.getValue();
-            ...
-    }
-  }
-}
