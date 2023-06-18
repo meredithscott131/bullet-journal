@@ -28,8 +28,8 @@
     "day" : "THURSDAY",
     "events" : [ ],
     "tasks" : [ {
-      "name" : "Dinner",
-      "description" : "eating",
+      "name" : "Annoy Fontenot",
+      "description" : "tell Fontenot coke zero sucks",
       "day" : "THURSDAY",
       "complete" : false
     } ]
