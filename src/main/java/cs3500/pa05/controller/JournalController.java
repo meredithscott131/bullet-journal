@@ -42,6 +42,9 @@ public class JournalController implements Controller {
   private VBox fridayBox;
   @FXML
   private VBox saturdayBox;
+  @FXML
+  private Button eventButton;
+
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
   }
@@ -52,7 +55,7 @@ public class JournalController implements Controller {
   @Override
   public void run() {
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
-    taskButton.setOnAction(butt);
+    eventButton.setOnAction(butt);
   }
 
   public void addEvent(EventIn event, VBox eventBox) {
@@ -61,15 +64,15 @@ public class JournalController implements Controller {
     } else if (event.getDayWeek().equals(DayWeek.MONDAY)) {
       mondayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.TUESDAY)) {
-      mondayBox.getChildren().add(eventBox);
+      tuesdayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.WEDNESDAY)) {
-      mondayBox.getChildren().add(eventBox);
+      wednesdayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.THURSDAY)) {
-      mondayBox.getChildren().add(eventBox);
+      thursdayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.FRIDAY)) {
-      mondayBox.getChildren().add(eventBox);
+      fridayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.SATURDAY)) {
-      mondayBox.getChildren().add(eventBox);
+      saturdayBox.getChildren().add(eventBox);
     }
   }
 }

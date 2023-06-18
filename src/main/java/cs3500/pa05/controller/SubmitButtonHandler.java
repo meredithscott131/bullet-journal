@@ -11,12 +11,17 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SubmitButtonHandler implements EventHandler {
@@ -103,7 +108,11 @@ public class SubmitButtonHandler implements EventHandler {
   }
 
   public VBox createEvent() {
+    String cssLayout = "-fx-border-color: grey;\n" +
+        "-fx-border-insets: 5;\n" +
+        "-fx-border-width: 1;\n";
    VBox newEvent = new VBox();
+   newEvent.setStyle(cssLayout);
    Label titleLabel = new Label(this.nameTask);
    Label descriptionLabel = new Label(this.nameDecription);
    Label startTimeLabel = new Label(this.startTime);

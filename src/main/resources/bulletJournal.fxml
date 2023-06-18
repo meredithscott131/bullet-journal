@@ -95,12 +95,12 @@
                                  <Font size="18.0" />
                               </font>
                            </Button>
-                           <Button id="taskButton" fx:id="taskButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="taskButton">
+                           <Button id="taskButton" fx:id="taskButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="+ Task">
                               <font>
                                  <Font size="18.0" />
                               </font>
                            </Button>
-                           <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="+ Event">
+                           <Button fx:id="eventButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="+ Event">
                               <font>
                                  <Font size="18.0" />
                               </font>
