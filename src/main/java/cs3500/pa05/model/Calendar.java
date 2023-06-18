@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -56,6 +57,31 @@ public class Calendar {
     return this.name;
   }
 
+  public List<EventIn> eventsInCal() {
+    List<EventIn> eventIns = new ArrayList<>();
+    for(Day d: days) {
+      List<UserCalInput> inputs = d.getDayInputs();
+      for(UserCalInput in : inputs) {
+        if(in instanceof EventIn) {
+          eventIns.add((EventIn) in);
+        }
+      }
+    }
+    return eventIns;
+  }
+
+  public List<Task> tasksInCal() {
+    List<Task> tasks = new ArrayList<>();
+    for(Day d: days) {
+      List<UserCalInput> inputs = d.getDayInputs();
+      for(UserCalInput in : inputs) {
+        if(in instanceof Task) {
+          tasks.add((Task) in);
+        }
+      }
+    }
+    return tasks;
+  }
 }
 
 

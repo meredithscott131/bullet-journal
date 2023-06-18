@@ -16,10 +16,6 @@ public class ButtonsEventHandler implements EventHandler {
     this.calendar = calendar;
   }
 
-  ButtonsEventHandler(Calendar calendar) {
-    this.calendar = calendar;
-  }
-
   @Override
   public void handle(Event event) {
     Stage stage = new Stage();

@@ -4,6 +4,7 @@ import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.model.UserCalInput;
 import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
 import java.io.IOException;
@@ -52,6 +53,42 @@ public class SubmitButtonHandler implements EventHandler {
       System.out.println("Null " + this.duration);
       //nothing happens
     } else {
+      // Adds event to calendar object
+      setUserNameInput();
+      setUserDescriptionInput();
+      setUserDurationInput();
+      setStartTimeInput();
+
+      for(Day d: this.calendar.getDays()) {
+        for(UserCalInput in: d.getDayInputs()) {
+          System.out.println("inital : " + in.getName());
+        }
+      }
+
+      Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
+      dayToAddTo.getDayInputs().add(eventIn);
+
+      for(Day d: this.calendar.getDays()) {
+        for(UserCalInput in: d.getDayInputs()) {
+          System.out.println("updates : " + in.getName());
+        }
+      }
+
+      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      window.close(); // closes popup window
+    }
+  }
+
+
+/*
+  @Override
+  public void handle(Event event) {
+    if(isNullEvent()) {
+      System.out.println("Null " + this.nameTask);
+      System.out.println("Null " + this.nameDecription);
+      System.out.println("Null " + this.duration);
+      //nothing happens
+    } else {
 
       // CURRENT ISSUE... this is creating a new journal controller to add the event onto. we need a way
       // to get our current journal controller without passing in through all of this lol
@@ -77,6 +114,8 @@ public class SubmitButtonHandler implements EventHandler {
       dayToAddTo.getDayInputs().add(eventIn);
     }
   }
+
+  */
 
   //listener: obj that modifies or changes when looking at a certina property
   //when we click play we are reading whats in the text field
@@ -106,7 +145,7 @@ public class SubmitButtonHandler implements EventHandler {
         || duration == 0
         || startTime == "";
   }
-
+/*
   public VBox createEvent() {
     String cssLayout = "-fx-border-color: grey;\n" +
         "-fx-border-insets: 5;\n" +
@@ -125,4 +164,7 @@ public class SubmitButtonHandler implements EventHandler {
 
    return newEvent;
   }
+  */
+
+
 }

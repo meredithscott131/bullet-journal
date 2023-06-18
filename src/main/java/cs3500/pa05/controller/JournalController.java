@@ -1,15 +1,22 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.model.Task;
+import cs3500.pa05.model.UserCalInput;
 import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -56,7 +63,22 @@ public class JournalController implements Controller {
   public void run() {
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
+    updateCalendar();
+
   }
+
+  public void updateCalendar() {
+    List<EventIn> events = this.calendar.eventsInCal();
+    List<Task> tasks = this.calendar.tasksInCal();
+    for(EventIn e : events) {
+      System.out.println("in update cal : " + e.getName());
+      this.addEvent(e, this.createEvent(e));
+    }
+    for(Task ee : tasks) {
+      System.out.println("in update cal TASK : " + ee.getName());
+    }
+  }
+
 
   public void addEvent(EventIn event, VBox eventBox) {
     if (event.getDayWeek().equals(DayWeek.SUNDAY)) {
@@ -75,4 +97,25 @@ public class JournalController implements Controller {
       saturdayBox.getChildren().add(eventBox);
     }
   }
+
+  public VBox createEvent(EventIn event) {
+    String cssLayout = "-fx-border-color: grey;\n" +
+        "-fx-border-insets: 5;\n" +
+        "-fx-border-width: 1;\n";
+    VBox newEvent = new VBox();
+    newEvent.setStyle(cssLayout);
+    Label titleLabel = new Label(event.getName());
+    Label descriptionLabel = new Label(event.getDescription());
+    Label startTimeLabel = new Label(event.getStartTime());
+    Label durationLabel = new Label(String.valueOf(event.getDuration() + " minutes"));
+
+    newEvent.getChildren().add(titleLabel);
+    newEvent.getChildren().add(descriptionLabel);
+    newEvent.getChildren().add(startTimeLabel);
+    newEvent.getChildren().add(durationLabel);
+
+    return newEvent;
+  }
+
+
 }
