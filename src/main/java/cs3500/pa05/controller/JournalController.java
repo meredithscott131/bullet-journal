@@ -1,24 +1,14 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
-import cs3500.pa05.model.UserCalInput;
-import cs3500.pa05.view.JournalView;
-import cs3500.pa05.view.gui.PopupView;
-import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 /**
  * Represents the cs3500.pa05.controller for the journal
@@ -65,8 +55,6 @@ public class JournalController implements Controller {
     eventButton.setOnAction(butt);
 
     updateCalendar();
-
-    framesPerSecond.addChangeListener(new SliderListener());
 
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
