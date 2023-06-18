@@ -52,6 +52,8 @@ public class JournalController implements Controller {
   @FXML
   private Button eventButton;
 
+
+
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
   }
@@ -64,9 +66,15 @@ public class JournalController implements Controller {
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
 
+
+    calendar.get
+
+
+
+
     updateCalendar();
 
-    framesPerSecond.addChangeListener(new SliderListener());
+    //framesPerSecond.addChangeListener(new SliderListener());
 
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
@@ -76,7 +84,6 @@ public class JournalController implements Controller {
     for(Task ee : tasks) {
       System.out.println("in update cal TASK RUN : " + ee.getName());
     }
-
 
   }
 
@@ -92,17 +99,18 @@ public class JournalController implements Controller {
     }
   }
 
-  public void updateCalendar2() {
-    List<EventIn> events = this.calendar.eventsInCal();
-    List<Task> tasks = this.calendar.tasksInCal();
-    for(EventIn e : events) {
-      System.out.println("in update cal : " + e.getName());
-      this.addEvent(e, this.createEvent(e));
-    }
-    for(Task ee : tasks) {
-      System.out.println("in update cal TASK : " + ee.getName());
-    }
-  }
+
+//  public void updateCalendar2() {
+//    List<EventIn> events = this.calendar.eventsInCal();
+//    List<Task> tasks = this.calendar.tasksInCal();
+//    for(EventIn e : events) {
+//      System.out.println("in update cal : " + e.getName());
+//      this.addEvent(e, this.createEvent(e));
+//    }
+//    for(Task ee : tasks) {
+//      System.out.println("in update cal TASK : " + ee.getName());
+//    }
+//  }
 
 
   public void addEvent(EventIn event, VBox eventBox) {

@@ -13,7 +13,7 @@ public class ChangeInUpdate implements ChangeListener {
 
   @Override
   public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-    updateCalendar();
+    //updateCalendar();
 
   }
 }
