@@ -8,27 +8,26 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class DayView extends VBox {
-
-  //Fields:
-  Day day;
+  private Day day;
 
   @FXML
-  VBox mondayBox;
+  private VBox mondayBox;
 
   @FXML
-  VBox tuesdayBox;
+  private VBox tuesdayBox;
 
   @FXML
-  VBox wednesdayBox;
+  private VBox wednesdayBox;
 
   @FXML
-  VBox thursdayBox;
+  private VBox thursdayBox;
 
   @FXML
-  VBox fridayBox;
+  private VBox fridayBox;
 
   @FXML
-  VBox sundayBox; //null if this is not shown yet
+  private VBox sundayBox;
+  //null if this is not shown yet
   //when making a scene it has to first be shown first
 
   //for popups

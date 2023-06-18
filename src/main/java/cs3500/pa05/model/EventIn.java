@@ -7,10 +7,8 @@ import java.time.LocalTime;
  * Event class contains a new creation of an event.
  */
 public class EventIn extends UserCalInput {
-
-  //Fields
-  String startTime;
-  int duration;
+  private String startTime;
+  private int duration;
 
   public EventIn(String name, String description, DayWeek day,
                  String startTime, int duration) {
@@ -27,18 +25,6 @@ public class EventIn extends UserCalInput {
     return duration;
   }
 
-  public void setName(String str) {
-    name = str;
-  }
-
-  public void setDay(DayWeek dayWeek) {
-    day = dayWeek;
-  }
-
-  public void setDescription(String str) {
-    description = str;
-  }
-
   public void setDuration(int num) {
     duration = num;
   }
@@ -46,5 +32,4 @@ public class EventIn extends UserCalInput {
   public void setStartTime(String str) {
     startTime = str;
   }
-
-} //closes Event class
+}

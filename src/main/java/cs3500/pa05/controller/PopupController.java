@@ -20,45 +20,46 @@ import javafx.scene.layout.VBox;
 public class PopupController implements Controller {
 
   private EventIn eventIn;
-
   private boolean popupOn;
-
   private Calendar calendar;
   @FXML
   private TextField nameTask;
-
   @FXML
   private TextField description;
-
   @FXML
   private TextField duration;
-
   @FXML
   private TextField startTime;
-
   @FXML
   private Button monButton;
-
   @FXML
   private Button tuesButton;
-
   @FXML
   private Button wedButton;
-
   @FXML
   private Button thurButton;
-
   @FXML
   private Button friButton;
-
   @FXML
   private Button satButton;
-
   @FXML
   private Button sunButton;
-
   @FXML
   private Button submitButton;
+  @FXML
+  private VBox sundayBox;
+  @FXML
+  private VBox mondayBox;
+  @FXML
+  private VBox tuesdayBox;
+  @FXML
+  private VBox wednesdayBox;
+  @FXML
+  private VBox thursdayBox;
+  @FXML
+  private VBox fridayBox;
+  @FXML
+  private VBox saturdayBox;
 
   public PopupController(Calendar calendar) {
     this.eventIn = new EventIn(null, null, null, null, 0);
@@ -81,27 +82,6 @@ public class PopupController implements Controller {
   public void setUserDescriptionInput() {
     eventIn.setDescription(description.getText());
   }
-
-  //EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-
-/*
-
-    public void handle(ActionEvent e) {
-
-      sunButton.setOnAction(new PopButtonHandler(DayWeek.SUNDAY));
-      satButton.setOnAction(new PopButtonHandler(DayWeek.SATURDAY));
-      monButton.setOnAction(new PopButtonHandler(DayWeek.MONDAY));
-      tuesButton.setOnAction(new PopButtonHandler(DayWeek.TUESDAY));
-      wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY));
-      thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY));
-      friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY));
-
-      submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
-          decription.getText(), takeValidTime(startTime.getText()),
-          takeDuration(duration.getText())));
-    }
-  //}
-*/
 
   public boolean validTime(String time) {
     Pattern p = Pattern.compile("[0-23]:[0-59]");
@@ -133,7 +113,6 @@ public class PopupController implements Controller {
     }
   }
 
-
   public void setSubmit() {
     if (isNullEvent()) {
       //nothing happens
@@ -154,10 +133,6 @@ public class PopupController implements Controller {
         && eventIn.getDuration() == 0;
   }
 
-
-// Listen for TextField text changes
-
-
   @Override
   public void run() {
     sunButton.setOnAction(new PopButtonHandler(DayWeek.SUNDAY, eventIn));
@@ -172,30 +147,32 @@ public class PopupController implements Controller {
   }
 
   public void makeSubmitButton(Event eventEn) {
+    VBox destination = new VBox();
+    if (this.eventIn.getDayWeek().equals(DayWeek.SUNDAY)) {
+      destination = sundayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.MONDAY)) {
+      destination = mondayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.TUESDAY)) {
+      destination = tuesdayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.WEDNESDAY)) {
+      destination = wednesdayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.THURSDAY)) {
+      destination = thursdayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.FRIDAY)) {
+      destination = fridayBox;
+    } else if (this.eventIn.getDayWeek().equals(DayWeek.SATURDAY)) {
+      destination = saturdayBox;
+    }
 
     SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
         description.getText(), startTime.getText(),
-        takeDuration(duration.getText()));
+        takeDuration(duration.getText()), destination);
     submit.handle(eventEn);
   }
 
-  /*
-  submitButton.setOnAction(new SubmitButtonHandler(eventIn, nameTask.getText(),
-  listenToField2(description), listenToField2(startTime),
-  takeDuration(listenToField2(duration))));
-*/
   public String changeToStr(String given) {
     return given;
   }
-/*
-
-  public String listenToField(TextField textField) {
-    String exStr = new String();
-    nameTask.textProperty().addListener(
-        (observable, oldValue, newValue) -> changeToStr(newValue));
-    return changeToStr(newValue);
-  }
-*/
 
   public String listenToField2(TextField textField) {
     StringBuilder sb = new StringBuilder();

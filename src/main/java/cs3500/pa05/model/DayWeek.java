@@ -12,4 +12,4 @@ public enum DayWeek {
   FRIDAY,
   SATURDAY
 
-} //closes DayWeek enum
+}

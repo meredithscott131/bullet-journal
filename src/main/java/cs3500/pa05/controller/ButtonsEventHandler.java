@@ -12,10 +12,14 @@ public class ButtonsEventHandler implements EventHandler {
 
   Calendar calendar;
 
+  ButtonsEventHandler(Calendar calendar) {
+    this.calendar = calendar;
+  }
+
   @Override
   public void handle(Event event) {
     Stage stage = new Stage();
-    PopupController popupController = new PopupController(calendar);
+    PopupController popupController = new PopupController(this.calendar);
     PopupView popupView = new PopupView(popupController);
     stage.setScene(popupView.load());
     //call run while the tab is open

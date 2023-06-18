@@ -5,7 +5,6 @@ import cs3500.pa05.json.EventJson;
 import cs3500.pa05.json.TaskJson;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.event.Event;
 
 public class CalendarAdapter {
 
@@ -23,7 +22,7 @@ public class CalendarAdapter {
         if (input instanceof EventIn) {
           events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
               ((EventIn) input).getStartTime(), ((EventIn) input).getDuration()));
-        } else if (input instanceof Task) {
+        } else {
           tasks.add(new TaskJson(input.getName(), input.getDescription(), input.getDayWeek(),
               (((Task) input).getComplete())));
         }

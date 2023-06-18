@@ -2,29 +2,28 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
+import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.view.gui.PopupView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SubmitButtonHandler implements EventHandler {
 
-  EventIn eventIn;
-
-  Calendar calendar;
-
-  String nameTask;
-
-  String nameDecription;
-
-  int duration;
-
-  String startTime;
-
+  private final EventIn eventIn;
+  private final Calendar calendar;
+  private final String nameTask;
+  private final String nameDecription;
+  private final int duration;
+  private final String startTime;
+  private VBox destination;
 
  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
-                      String startTime, int duration) {
+                      String startTime, int duration, VBox destination) {
     System.out.println(nameTask +  nameDecription + startTime + duration);
 
    this.calendar = calendar;
@@ -33,27 +32,30 @@ public class SubmitButtonHandler implements EventHandler {
     this.nameDecription = nameDecription;
     this.duration = duration;
     this.startTime = startTime;
+    this.destination = destination;
   }
 
 
   @Override
   public void handle(Event event) {
     if(isNullEvent()) {
-      System.out.println("Null " + nameTask);
-      System.out.println("Null " + nameDecription);
-      System.out.println("Null " + duration);
+      System.out.println("Null " + this.nameTask);
+      System.out.println("Null " + this.nameDecription);
+      System.out.println("Null " + this.duration);
       //nothing happens
     } else {
-      System.out.println("nametask = " + nameTask);
-      System.out.println("des = " + nameDecription);
-      System.out.println("dur = " + startTime);
-      System.out.println("dur = " + duration);
+      this.destination.getChildren().add(this.createEvent());
+
+      System.out.println("nametask = " + this.nameTask);
+      System.out.println("des = " + this.nameDecription);
+      System.out.println("dur = " + this.startTime);
+      System.out.println("dur = " + this.duration);
 
       setUserNameInput();
       setUserDescriptionInput();
       setUserDurationInput();
       setStartTimeInput();
-      Day dayToAddTo = calendar.getOneDay(eventIn.getDayWeek());
+      Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
       dayToAddTo.getDayInputs().add(eventIn);
 
       System.out.println("event name " + eventIn.getName() + "\n"
@@ -63,12 +65,6 @@ public class SubmitButtonHandler implements EventHandler {
           + "event duration " + eventIn.getDuration() + "\n");
 
       System.out.println("Day " + dayToAddTo.getDayInputs().get(0).getName() + "\n");
-
-
-
-
-
-      //System.out.println(startTime.toString());
     }
   }
 
@@ -100,5 +96,20 @@ public class SubmitButtonHandler implements EventHandler {
         || eventIn.getDayWeek() == null
         || duration == 0
         || startTime == "";
+  }
+
+  public VBox createEvent() {
+   VBox newEvent = new VBox();
+   Label titleLabel = new Label(this.nameTask);
+   Label descriptionLabel = new Label(this.nameDecription);
+   Label startTimeLabel = new Label(this.startTime);
+   Label durationLabel = new Label(String.valueOf(this.duration));
+
+   newEvent.getChildren().add(titleLabel);
+   newEvent.getChildren().add(descriptionLabel);
+   newEvent.getChildren().add(startTimeLabel);
+   newEvent.getChildren().add(durationLabel);
+
+   return newEvent;
   }
 }

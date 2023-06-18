@@ -36,7 +36,7 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
-    ButtonsEventHandler butt = new ButtonsEventHandler();
+    ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     taskButton.setOnAction(butt);
   }
 
