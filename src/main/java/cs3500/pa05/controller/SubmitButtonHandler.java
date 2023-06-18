@@ -28,8 +28,8 @@ public class SubmitButtonHandler implements EventHandler {
   private final String startTime;
   private final Stage stage;
 
- public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask, String nameDecription,
-                      String startTime, int duration, Stage stage) {
+ public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
+                            String nameDecription, String startTime, int duration, Stage stage) {
     this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
@@ -48,6 +48,9 @@ public class SubmitButtonHandler implements EventHandler {
       //nothing happens
     } else {
 
+      // CURRENT ISSUE... this is creating a new journal controller to add the event onto. we need a way
+      // to get our current journal controller without passing in through all of this lol
+      // Good news is... its being added correctly!
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/bulletJournal.fxml"));
       JournalController journalCont = new JournalController(this.calendar);
       JournalView journalView = new JournalView(journalCont);
