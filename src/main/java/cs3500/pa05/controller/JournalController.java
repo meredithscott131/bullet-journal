@@ -63,7 +63,10 @@ public class JournalController implements Controller {
   public void run() {
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
+
     updateCalendar();
+
+    framesPerSecond.addChangeListener(new SliderListener());
 
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
