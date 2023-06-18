@@ -72,10 +72,13 @@ public class JournalController implements Controller {
     eventButton.setOnAction(butt);
 
     updateCalendar();
-    calendar.getOneDay(DayWeek.THURSDAY).getDayInputsObservable().addListener(
-        (ListChangeListener) c -> {
-          updateCalendar();
-        });
+    List<Day> days = calendar.getDays();
+    for(Day d: days) {
+      d.getDayInputsObservable().addListener(
+          (ListChangeListener) c -> {
+            updateCalendar();
+          });
+    }
 
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
