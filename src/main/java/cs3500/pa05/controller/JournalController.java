@@ -10,7 +10,13 @@ import cs3500.pa05.view.JournalView;
 import cs3500.pa05.view.gui.PopupView;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -19,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.PropertySheet;
 
 /**
  * Represents the cs3500.pa05.controller for the journal
@@ -65,30 +72,34 @@ public class JournalController implements Controller {
     eventButton.setOnAction(butt);
 
     updateCalendar();
-
-    framesPerSecond.addChangeListener(new SliderListener());
+    calendar.getOneDay(DayWeek.THURSDAY).getDayInputsObservable().addListener(
+        (ListChangeListener) c -> {
+          updateCalendar();
+        });
 
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
+
     for(EventIn e : events) {
       System.out.println("in update RUN : " + e.getName());
     }
     for(Task ee : tasks) {
       System.out.println("in update cal TASK RUN : " + ee.getName());
     }
-
-
-  }
+}
 
   public void updateCalendar() {
     List<EventIn> events = this.calendar.eventsInCal();
+    int sizeList = events.size();
     List<Task> tasks = this.calendar.tasksInCal();
-    for(EventIn e : events) {
-      System.out.println("in update cal : " + e.getName());
-      this.addEvent(e, this.createEvent(e));
-    }
-    for(Task ee : tasks) {
-      System.out.println("in update cal TASK : " + ee.getName());
+    if(sizeList > 0) {
+      EventIn e = events.get(sizeList - 1);
+        System.out.println("in update cal : " + e.getName());
+        this.addEvent(e, this.createEvent(e));
+
+      for (Task ee : tasks) {
+        System.out.println("in update cal TASK : " + ee.getName());
+      }
     }
   }
 

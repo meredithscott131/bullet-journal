@@ -104,6 +104,7 @@ public class PopupController implements Controller {
     wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY, eventIn));
     thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
     friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
+
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 

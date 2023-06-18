@@ -2,6 +2,9 @@ package cs3500.pa05.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Calendar class represents a calendar
@@ -72,10 +75,10 @@ public class Calendar {
 
   public List<Task> tasksInCal() {
     List<Task> tasks = new ArrayList<>();
-    for(Day d: days) {
+    for (Day d : days) {
       List<UserCalInput> inputs = d.getDayInputs();
-      for(UserCalInput in : inputs) {
-        if(in instanceof Task) {
+      for (UserCalInput in : inputs) {
+        if (in instanceof Task) {
           tasks.add((Task) in);
         }
       }
