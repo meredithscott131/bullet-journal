@@ -80,50 +80,6 @@ public class SubmitButtonHandler implements EventHandler {
     }
   }
 
-
-/*
-  @Override
-  public void handle(Event event) {
-    if(isNullEvent()) {
-      System.out.println("Null " + this.nameTask);
-      System.out.println("Null " + this.nameDecription);
-      System.out.println("Null " + this.duration);
-      //nothing happens
-    } else {
-
-      // CURRENT ISSUE... this is creating a new journal controller to add the event onto. we need a way
-      // to get our current journal controller without passing in through all of this lol
-      // Good news is... its being added correctly!
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/bulletJournal.fxml"));
-      JournalController journalCont = new JournalController(this.calendar);
-      JournalView journalView = new JournalView(journalCont);
-      Stage stage = new Stage();
-      stage.setScene(journalView.load());
-      stage.show();
-      journalCont.run();
-      journalCont.addEvent(eventIn, this.createEvent());
-
-      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      window.close(); // closes popup window
-
-      // Adds event to calendar object
-      setUserNameInput();
-      setUserDescriptionInput();
-      setUserDurationInput();
-      setStartTimeInput();
-      Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
-      dayToAddTo.getDayInputs().add(eventIn);
-    }
-  }
-
-  */
-
-  //listener: obj that modifies or changes when looking at a certina property
-  //when we click play we are reading whats in the text field
-  //listener looks at the text field and tells us when we update the text field
-  //onchange event listener --> listener that only listens when they stop typing
-  //
-
   public void setUserNameInput() {
     eventIn.setName(nameTask);
   }
@@ -146,26 +102,5 @@ public class SubmitButtonHandler implements EventHandler {
         || duration == 0
         || startTime == "";
   }
-/*
-  public VBox createEvent() {
-    String cssLayout = "-fx-border-color: grey;\n" +
-        "-fx-border-insets: 5;\n" +
-        "-fx-border-width: 1;\n";
-   VBox newEvent = new VBox();
-   newEvent.setStyle(cssLayout);
-   Label titleLabel = new Label(this.nameTask);
-   Label descriptionLabel = new Label(this.nameDecription);
-   Label startTimeLabel = new Label(this.startTime);
-   Label durationLabel = new Label(String.valueOf(this.duration + " minutes"));
-
-   newEvent.getChildren().add(titleLabel);
-   newEvent.getChildren().add(descriptionLabel);
-   newEvent.getChildren().add(startTimeLabel);
-   newEvent.getChildren().add(durationLabel);
-
-   return newEvent;
-  }
-  */
-
 
 }

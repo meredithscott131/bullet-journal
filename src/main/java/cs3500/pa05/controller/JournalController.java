@@ -22,6 +22,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -59,6 +60,9 @@ public class JournalController implements Controller {
   @FXML
   private Button eventButton;
 
+  @FXML
+  private VBox taskBox;
+
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
   }
@@ -70,6 +74,9 @@ public class JournalController implements Controller {
   public void run() {
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
+
+    TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
+    taskButton.setOnAction(taskButt);
 
     updateCalendar();
     List<Day> days = calendar.getDays();
@@ -95,18 +102,23 @@ public class JournalController implements Controller {
     List<EventIn> events = this.calendar.eventsInCal();
     int sizeList = events.size();
     List<Task> tasks = this.calendar.tasksInCal();
+    int taskSizeList = tasks.size();
+
     if(sizeList > 0) {
       EventIn e = events.get(sizeList - 1);
-        System.out.println("in update cal : " + e.getName());
-        this.addEvent(e, this.createEvent(e));
+      System.out.println("in update cal : " + e.getName());
+      this.addEvent(e, this.createEvent(e));
+    }
 
-      for (Task ee : tasks) {
-        System.out.println("in update cal TASK : " + ee.getName());
-      }
+    if(taskSizeList > 0) {
+      Task ee = tasks.get(taskSizeList - 1);
+      System.out.println("in update cal TASK : " + ee.getName());
+      this.addEvent(ee, this.createTask(ee));
+      taskBox.getChildren().add(createTaskBox(ee));
     }
   }
 
-  public void updateCalendar2() {
+  public void updateCalendarTask() {
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();
     for(EventIn e : events) {
@@ -115,11 +127,12 @@ public class JournalController implements Controller {
     }
     for(Task ee : tasks) {
       System.out.println("in update cal TASK : " + ee.getName());
+      this.addEvent(ee, this.createTask(ee));
     }
   }
 
 
-  public void addEvent(EventIn event, VBox eventBox) {
+  public void addEvent(UserCalInput event, VBox eventBox) {
     if (event.getDayWeek().equals(DayWeek.SUNDAY)) {
       sundayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.MONDAY)) {
@@ -156,5 +169,31 @@ public class JournalController implements Controller {
     return newEvent;
   }
 
+  public VBox createTask(Task task) {
+    String cssLayout = "-fx-border-color: grey;\n" +
+        "-fx-border-insets: 5;\n" +
+        "-fx-border-width: 1;\n";
+    VBox newEvent = new VBox();
+    newEvent.setStyle(cssLayout);
+    Label titleLabel = new Label(task.getName());
+    Label descriptionLabel = new Label(task.getDescription());
 
+    newEvent.getChildren().add(titleLabel);
+    newEvent.getChildren().add(descriptionLabel);
+
+    return newEvent;
+  }
+
+  public VBox createTaskBox(Task task) {
+    String cssLayout = "-fx-border-color: grey;\n" +
+        "-fx-border-insets: 5;\n" +
+        "-fx-border-width: 1;\n";
+
+    VBox newEvent = new VBox();
+    newEvent.setStyle(cssLayout);
+
+    CheckBox checkBox = new CheckBox(task.getName() + "\n" + task.getDescription());
+    newEvent.getChildren().add(checkBox);
+    return newEvent;
+  }
 }
