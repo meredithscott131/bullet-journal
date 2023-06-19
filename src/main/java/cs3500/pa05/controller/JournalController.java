@@ -48,6 +48,8 @@ public class JournalController implements Controller {
 
   int counter = 0;
 
+  int initalSize = 0;
+
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
   }
@@ -57,60 +59,75 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
+    int count = 0;
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
 
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
+    count++;
 
-    updateCalendar(counter);
+    updateCalendar();
 
     List<Day> days = calendar.getDays();
-    for(Day d: days) {
+    for (Day d : days) {
       d.getDayInputsObservable().addListener(
           (ListChangeListener) c -> {
-            updateCalendar(counter);
+            updateCalendar();
           });
     }
-}
 
-  public void updateCalendar(int counter) {
-    counter++;
+  }
+
+  public void updateCalendar() {
     List<EventIn> events = this.calendar.eventsInCal();
     System.out.println(events.get(0).getName());
     int sizeList = events.size();
     List<Task> tasks = this.calendar.tasksInCal();
-
 
     int taskSizeList = tasks.size();
 
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();
 
-    if(counter == 0) {
+    if (counter == 0) {
+      initalSize = this.calendar.getTotalUserInputs().size();
 
-      for(UserCalInput use : totalList) {
-        if(use instanceof EventIn) {
+      System.out.println("my counter is zero");
+
+      for (UserCalInput use : totalList) {
+        if (use instanceof EventIn) {
+          System.out.println("event instance" + use);
           this.addUserIn(use, this.createEvent((EventIn) use));
         } else {
+          System.out.println("task instance" + use);
           this.addUserIn(use, this.createTask((Task) use));
         }
       }
 
     } else {
+      System.out.println("EVET IS ADDED");
 
       UserCalInput lastInput = totalList.get(totalSize - 1);
 
       if (lastInput instanceof EventIn) {
 
+
+        System.out.println("total size : " + totalSize);
+        System.out.println("init size : " + initalSize);
+        System.out.println("event instance count > 0" + lastInput.getName());
+
         this.addUserIn(lastInput, this.createEvent((EventIn) lastInput));
 
       } else if (lastInput instanceof Task) {
+        System.out.println("total size : " + totalSize);
+        System.out.println("task instance > 0" + lastInput.getName());
 
         this.addUserIn(lastInput, this.createTask((Task) lastInput));
         taskBox.getChildren().add(createTaskBox((Task) lastInput));
       }
     }
+    counter++;
   }
 
   public void addUserIn(UserCalInput event, VBox eventBox) {

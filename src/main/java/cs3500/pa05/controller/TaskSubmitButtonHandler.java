@@ -37,8 +37,8 @@ public class TaskSubmitButtonHandler implements EventHandler {
 
       Day dayToAddTo = this.calendar.getOneDay(task.getDayWeek());
       //dayToAddTo.getDayInputs().add(eventIn);
-      dayToAddTo.getDayInputsObservable().add(task);
       this.calendar.getTotalUserInputs().add(task);
+      dayToAddTo.getDayInputsObservable().add(task);
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window
