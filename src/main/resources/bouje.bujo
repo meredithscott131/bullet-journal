@@ -28,8 +28,8 @@
     "day" : "THURSDAY",
     "events" : [ ],
     "tasks" : [ {
-      "name" : "Annoy Fontenot",
-      "description" : "tell Fontenot coke zero sucks",
+      "name" : "Live, laugh, love OOD",
+      "description" : "go to OOD",
       "day" : "THURSDAY",
       "complete" : false
     } ]
