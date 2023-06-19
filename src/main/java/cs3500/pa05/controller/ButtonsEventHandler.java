@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 public class ButtonsEventHandler implements EventHandler {
 
+  //this is a calendar
   private Calendar calendar;
 
   ButtonsEventHandler(Calendar calendar) {
