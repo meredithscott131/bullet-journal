@@ -1,5 +1,6 @@
 package cs3500.pa05.controller;
 
+import cs3500.pa05.controller.event.PopupController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.gui.PopupView;
 import javafx.event.Event;

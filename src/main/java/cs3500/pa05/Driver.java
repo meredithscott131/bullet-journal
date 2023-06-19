@@ -1,10 +1,7 @@
 package cs3500.pa05;
 
-import cs3500.pa05.controller.JournalController;
-import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.ScannerBujo;
-import cs3500.pa05.view.JournalView;
-import java.io.File;
+import cs3500.pa05.controller.BujoPopupController;
+import cs3500.pa05.view.gui.BujoPopupView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -20,6 +17,21 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
+
+    BujoPopupController bujoController = new BujoPopupController(stage);
+    BujoPopupView bujoPopupView = new BujoPopupView(bujoController);
+
+    try {
+      stage.setScene(bujoPopupView.load());
+      stage.show();
+      bujoController.run();
+
+    } catch (IllegalStateException exc) {
+      System.err.println("Unable to load bujoPopup GUI.");
+    }
+
+
+    /*
     ScannerBujo scannerBujo = new ScannerBujo();
     Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/workingBouje.bujo"));
     JournalController journalCont = new JournalController(cal);
@@ -33,6 +45,9 @@ public class Driver extends Application {
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load GUI.");
     }
+    */
+
+
   }
 
   /**

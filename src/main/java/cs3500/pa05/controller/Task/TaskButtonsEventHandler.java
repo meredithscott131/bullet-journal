@@ -1,5 +1,6 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.Task;
 
+import cs3500.pa05.controller.Task.TaskPopupController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.gui.TaskPopupView;
 import javafx.event.Event;
@@ -10,7 +11,7 @@ public class TaskButtonsEventHandler implements EventHandler {
 
   private Calendar calendar;
 
-  TaskButtonsEventHandler(Calendar calendar) {
+  public TaskButtonsEventHandler(Calendar calendar) {
     this.calendar = calendar;
   }
 

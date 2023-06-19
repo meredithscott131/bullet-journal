@@ -1,7 +1,8 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.event;
 
 import static java.lang.Integer.parseInt;
 
+import cs3500.pa05.controller.Controller;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;

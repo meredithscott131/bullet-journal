@@ -14,4 +14,8 @@ module cs3500.pa05 {
   exports cs3500.pa05.view;
   exports cs3500.pa05.json;
   opens cs3500.pa05.controller to javafx.fxml;
+  exports cs3500.pa05.controller.Task;
+  opens cs3500.pa05.controller.Task to javafx.fxml;
+  exports cs3500.pa05.controller.event;
+  opens cs3500.pa05.controller.event to javafx.fxml;
 }

@@ -1,17 +1,18 @@
 package cs3500.pa05.view.gui;
 
-import cs3500.pa05.controller.Task.TaskPopupController;
+import cs3500.pa05.controller.BujoPopupController;
+import cs3500.pa05.controller.event.PopupController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
-public class TaskPopupView implements View {
+public class BujoPopupView implements View {
   private FXMLLoader loader;
 
-  public TaskPopupView(TaskPopupController controller) {
+  public BujoPopupView(BujoPopupController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("PopupTask.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("bujoPopup.fxml"));
     this.loader.setController(controller);
   }
 
