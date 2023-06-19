@@ -28,23 +28,19 @@ public class SubmitButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(isNullEvent()) {
-      //nothing happens
-    } else {
-      // Adds event to calendar object
-      setUserNameInput();
-      setUserDescriptionInput();
-      setUserDurationInput();
-      setStartTimeInput();
+    // Adds event to calendar object
+    setUserNameInput();
+    setUserDescriptionInput();
+    setUserDurationInput();
+    setStartTimeInput();
 
-      Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
+    Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
 
-      this.calendar.getTotalUserInputs().add(eventIn);
-      dayToAddTo.getDayInputsObservable().add(eventIn);
+    this.calendar.getTotalUserInputs().add(eventIn);
+    dayToAddTo.getDayInputsObservable().add(eventIn);
 
-      Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      window.close(); // closes popup window
-    }
+    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    window.close(); // closes popup window
   }
 
   public void setUserNameInput() {

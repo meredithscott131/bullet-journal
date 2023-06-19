@@ -61,7 +61,7 @@ public class PopupController implements Controller {
   }
 
   public boolean validTime(String time) {
-    Pattern p = Pattern.compile("[0-23]:[0-59]");
+    Pattern p = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]");
     Matcher m = p.matcher(time);
     return m.matches();
   }
@@ -73,10 +73,16 @@ public class PopupController implements Controller {
     return 0;
   }
 
+  public String takeTime(String timeStr) {
+    if (validTime(timeStr)) {
+      return timeStr;
+    }
+    return null;
+  }
+
   public boolean isValidNum(String str) {
     try {
-      parseInt(str);
-      return true;
+      return Integer.parseInt(str) > 0;
     } catch (NumberFormatException n) {
       return false;
     }
@@ -84,9 +90,9 @@ public class PopupController implements Controller {
 
   public boolean isNullEvent() {
     return eventIn.getName() == null
-        && eventIn.getDescription() == null
-        && eventIn.getStartTime() == null
-        && eventIn.getDuration() == 0;
+        || eventIn.getDayWeek() == null
+        || eventIn.getStartTime() == null
+        || eventIn.getDuration() == 0;
   }
 
   @Override
@@ -98,14 +104,28 @@ public class PopupController implements Controller {
     wedButton.setOnAction(new PopButtonHandler(DayWeek.WEDNESDAY, eventIn));
     thurButton.setOnAction(new PopButtonHandler(DayWeek.THURSDAY, eventIn));
     friButton.setOnAction(new PopButtonHandler(DayWeek.FRIDAY, eventIn));
+    this.nameTask.textProperty().addListener((observable, oldValue, newValue) -> {
+      this.eventIn.setName(newValue);
+    });
+    this.startTime.textProperty().addListener((observable, oldValue, newValue) -> {
+      this.eventIn.setStartTime(this.takeTime(newValue));
+      System.out.println(this.eventIn.getStartTime());
+    });
+    this.duration.textProperty().addListener((observable, oldValue, newValue) -> {
+      this.eventIn.setDuration(this.takeDuration(newValue));
+    });
 
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 
   public void makeSubmitButton(Event eventEn) {
-    SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
-        description.getText(), startTime.getText(),
-        takeDuration(duration.getText()));
-    submit.handle(eventEn);
+    if (this.isNullEvent()) {
+      // do nothing
+    } else {
+      SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
+          description.getText(), this.takeTime(startTime.getText()),
+          this.takeDuration(duration.getText()));
+      submit.handle(eventEn);
+    }
   }
 }
