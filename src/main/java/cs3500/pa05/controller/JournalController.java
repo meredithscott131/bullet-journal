@@ -76,9 +76,9 @@ public class JournalController implements Controller {
           });
     }
 
-    this.quotesNotes.setOnAction(
-        c -> System.out.println(this.quotesNotes.getText())
-    );
+    this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
+      this.calendar.setQuotesNotes(newValue);
+    });
   }
 
   public void updateCalendar() {

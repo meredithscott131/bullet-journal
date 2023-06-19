@@ -12,7 +12,6 @@ public class CalendarAdapter {
     int maxEvents = modelCalendar.getMaxEvent();
     int maxTasks = modelCalendar.getMaxTask();
     String title = modelCalendar.getName();
-    System.out.println("Note being passed into conversion " + modelCalendar.getQuotesNotes());
     String quotesNotes = modelCalendar.getQuotesNotes();
     DayJson[] days = new DayJson[7];
 

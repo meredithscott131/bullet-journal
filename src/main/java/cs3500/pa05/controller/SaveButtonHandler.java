@@ -15,7 +15,6 @@ public class SaveButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    System.out.println("Note being passed into handler: " + this.calendar.getQuotesNotes());
     ParseToFile parseToFile = new ParseToFile();
     parseToFile.writeToFile(Paths.get(this.calendar.getBujoPath()), this.calendar);
   }

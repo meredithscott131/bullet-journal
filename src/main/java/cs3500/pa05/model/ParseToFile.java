@@ -11,7 +11,6 @@ public class ParseToFile {
   private ObjectMapper mapper = new ObjectMapper();
 
   public void writeToFile(Path path, Calendar calendar) {
-    System.out.println("Note being passed into writer: " + calendar.getQuotesNotes());
     CalendarAdapter adapter = new CalendarAdapter();
     CalendarJson calendarJson = adapter.convertToJson(calendar);
     try {
