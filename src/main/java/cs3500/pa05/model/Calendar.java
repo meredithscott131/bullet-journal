@@ -2,16 +2,13 @@ package cs3500.pa05.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
 /**
  * Calendar class represents a calendar
  */
 public class Calendar {
   private String name;
   private List<Day> days;
+  private List<UserCalInput> totalUserInputs;
   private int maxTask;
   private int maxEvent;
 
@@ -20,9 +17,28 @@ public class Calendar {
     this.days = days;
     this.maxTask = maxTask;
     this.maxEvent = maxEvent;
+    this.totalUserInputs = new ArrayList<>();
+    calenderInit();
   }
 
   public Calendar() {}
+
+  public List<UserCalInput> getTotalUserInputs() {
+    return totalUserInputs;
+  }
+
+  public void calenderInit() {
+    Task use = new Task(null, null, null, false);
+    EventIn usew = new EventIn(null, null, null, null, 0);
+    totalUserInputs.add(usew);
+
+    for(Day d: days) {
+      List<UserCalInput> inputs = d.getInputs();
+      for(UserCalInput in : inputs) {
+        totalUserInputs.add(in);
+      }
+    }
+  }
 
   /**
    * setName method sets the current name

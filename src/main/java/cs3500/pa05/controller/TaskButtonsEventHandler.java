@@ -1,7 +1,6 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
-import cs3500.pa05.view.gui.PopupView;
 import cs3500.pa05.view.gui.TaskPopupView;
 import javafx.event.Event;
 import javafx.event.EventHandler;

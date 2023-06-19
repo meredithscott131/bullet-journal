@@ -6,36 +6,19 @@ import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
-import cs3500.pa05.view.JournalView;
-import cs3500.pa05.view.gui.PopupView;
-import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import org.controlsfx.control.PropertySheet;
 
 /**
  * Represents the cs3500.pa05.controller for the journal
  */
 public class JournalController implements Controller {
 
-  //Fields:
-
-  //CalendarHandler handler;??????
   private Calendar calendar;
 
   PopupController popupController;
@@ -63,6 +46,8 @@ public class JournalController implements Controller {
   @FXML
   private VBox taskBox;
 
+  int counter = 0;
+
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
   }
@@ -78,61 +63,57 @@ public class JournalController implements Controller {
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
 
-    updateCalendar();
+    updateCalendar(counter);
+
     List<Day> days = calendar.getDays();
     for(Day d: days) {
       d.getDayInputsObservable().addListener(
           (ListChangeListener) c -> {
-            updateCalendar();
+            updateCalendar(counter);
           });
-    }
-
-    List<EventIn> events = this.calendar.eventsInCal();
-    List<Task> tasks = this.calendar.tasksInCal();
-
-    for(EventIn e : events) {
-      System.out.println("in update RUN : " + e.getName());
-    }
-    for(Task ee : tasks) {
-      System.out.println("in update cal TASK RUN : " + ee.getName());
     }
 }
 
-  public void updateCalendar() {
+  public void updateCalendar(int counter) {
+    counter++;
     List<EventIn> events = this.calendar.eventsInCal();
+    System.out.println(events.get(0).getName());
     int sizeList = events.size();
     List<Task> tasks = this.calendar.tasksInCal();
+
+
     int taskSizeList = tasks.size();
 
-    if(sizeList > 0) {
-      EventIn e = events.get(sizeList - 1);
-      System.out.println("in update cal : " + e.getName());
-      this.addEvent(e, this.createEvent(e));
-    }
+    List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
+    int totalSize = totalList.size();
 
-    if(taskSizeList > 0) {
-      Task ee = tasks.get(taskSizeList - 1);
-      System.out.println("in update cal TASK : " + ee.getName());
-      this.addEvent(ee, this.createTask(ee));
-      taskBox.getChildren().add(createTaskBox(ee));
+    if(counter == 0) {
+
+      for(UserCalInput use : totalList) {
+        if(use instanceof EventIn) {
+          this.addUserIn(use, this.createEvent((EventIn) use));
+        } else {
+          this.addUserIn(use, this.createTask((Task) use));
+        }
+      }
+
+    } else {
+
+      UserCalInput lastInput = totalList.get(totalSize - 1);
+
+      if (lastInput instanceof EventIn) {
+
+        this.addUserIn(lastInput, this.createEvent((EventIn) lastInput));
+
+      } else if (lastInput instanceof Task) {
+
+        this.addUserIn(lastInput, this.createTask((Task) lastInput));
+        taskBox.getChildren().add(createTaskBox((Task) lastInput));
+      }
     }
   }
 
-  public void updateCalendarTask() {
-    List<EventIn> events = this.calendar.eventsInCal();
-    List<Task> tasks = this.calendar.tasksInCal();
-    for(EventIn e : events) {
-      System.out.println("in update cal : " + e.getName());
-      this.addEvent(e, this.createEvent(e));
-    }
-    for(Task ee : tasks) {
-      System.out.println("in update cal TASK : " + ee.getName());
-      this.addEvent(ee, this.createTask(ee));
-    }
-  }
-
-
-  public void addEvent(UserCalInput event, VBox eventBox) {
+  public void addUserIn(UserCalInput event, VBox eventBox) {
     if (event.getDayWeek().equals(DayWeek.SUNDAY)) {
       sundayBox.getChildren().add(eventBox);
     } else if (event.getDayWeek().equals(DayWeek.MONDAY)) {

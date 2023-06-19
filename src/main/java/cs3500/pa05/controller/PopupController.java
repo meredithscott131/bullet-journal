@@ -5,18 +5,12 @@ import static java.lang.Integer.parseInt;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class PopupController implements Controller {

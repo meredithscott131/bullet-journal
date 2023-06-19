@@ -1,6 +1,5 @@
 package cs3500.pa05.view.gui;
 
-import cs3500.pa05.controller.PopupController;
 import cs3500.pa05.controller.TaskPopupController;
 import cs3500.pa05.view.View;
 import java.io.IOException;

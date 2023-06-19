@@ -2,27 +2,10 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
-import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
-import cs3500.pa05.model.UserCalInput;
-import cs3500.pa05.view.JournalView;
-import cs3500.pa05.view.gui.PopupView;
-import java.io.IOException;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class SubmitButtonHandler implements EventHandler {
@@ -59,21 +42,10 @@ public class SubmitButtonHandler implements EventHandler {
       setUserDurationInput();
       setStartTimeInput();
 
-      for(Day d: this.calendar.getDays()) {
-        for(UserCalInput in: d.getDayInputs()) {
-          System.out.println("inital : " + in.getName());
-        }
-      }
-
       Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
-      //dayToAddTo.getDayInputs().add(eventIn);
-      dayToAddTo.getDayInputsObservable().add(eventIn);
 
-      for(Day d: this.calendar.getDays()) {
-        for(UserCalInput in: d.getDayInputs()) {
-          System.out.println("updates : " + in.getName());
-        }
-      }
+      dayToAddTo.getDayInputsObservable().add(eventIn);
+      this.calendar.getTotalUserInputs().add(eventIn);
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window

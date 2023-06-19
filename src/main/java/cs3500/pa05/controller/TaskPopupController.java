@@ -1,13 +1,8 @@
 package cs3500.pa05.controller;
 
-import static java.lang.Integer.parseInt;
-
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
-import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

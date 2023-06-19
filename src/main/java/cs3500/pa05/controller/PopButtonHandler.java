@@ -3,11 +3,8 @@ package cs3500.pa05.controller;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
-import cs3500.pa05.view.gui.PopupView;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.stage.Stage;
 
 public class PopButtonHandler implements EventHandler {
 

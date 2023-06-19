@@ -2,7 +2,6 @@ package cs3500.pa05.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -20,8 +19,6 @@ public class Day {
   public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
     this.day = day;
     this.dayInputs = dayInputs;
-    //FXCollections.observableList(this.dayInputs) = dayInputsObservable;
-    //FXCollections.observableList(this.dayInputs)
     this.dayInputsObservable = FXCollections.observableList(this.dayInputs);
 
   }

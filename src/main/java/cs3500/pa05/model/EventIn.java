@@ -1,8 +1,5 @@
 package cs3500.pa05.model;
 
-
-import java.time.LocalTime;
-
 /**
  * Event class contains a new creation of an event.
  */

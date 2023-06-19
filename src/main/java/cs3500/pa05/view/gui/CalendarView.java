@@ -5,5 +5,5 @@ import javafx.scene.layout.VBox;
 
 public class CalendarView extends VBox {
   private Label title;
-  private DayView days; //??
+  private DayView days;
 }
