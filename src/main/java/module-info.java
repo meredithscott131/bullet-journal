@@ -18,4 +18,6 @@ module cs3500.pa05 {
   opens cs3500.pa05.controller.Task to javafx.fxml;
   exports cs3500.pa05.controller.event;
   opens cs3500.pa05.controller.event to javafx.fxml;
+  exports cs3500.pa05.controller.bujofile;
+  opens cs3500.pa05.controller.bujofile to javafx.fxml;
 }

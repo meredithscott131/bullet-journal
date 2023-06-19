@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane prefHeight="134.0" prefWidth="200">
+      <children>
+         <Label layoutX="66.0" layoutY="14.0" text="Oh-No!">
+            <font>
+               <Font size="21.0" />
+            </font>
+         </Label>
+         <Label layoutX="43.0" layoutY="47.0" prefHeight="31.0" prefWidth="130.0" text="You have exceed your" />
+         <Label layoutX="26.0" layoutY="63.0" prefHeight="31.0" prefWidth="164.0" text="maximum number of tasks or " />
+         <Label layoutX="50.0" layoutY="79.0" prefHeight="31.0" prefWidth="116.0" text="events for this day. " />
+      </children></AnchorPane>
+</Scene>

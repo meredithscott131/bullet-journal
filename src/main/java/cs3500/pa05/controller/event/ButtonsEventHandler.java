@@ -1,4 +1,4 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.event;
 
 import cs3500.pa05.controller.event.PopupController;
 import cs3500.pa05.model.Calendar;
@@ -12,7 +12,7 @@ public class ButtonsEventHandler implements EventHandler {
   //this is a calendar.
   private Calendar calendar;
 
-  ButtonsEventHandler(Calendar calendar) {
+  public ButtonsEventHandler(Calendar calendar) {
     this.calendar = calendar;
   }
 

@@ -1,7 +1,6 @@
 package cs3500.pa05.view.gui;
 
-import cs3500.pa05.controller.BujoPopupController;
-import cs3500.pa05.controller.event.PopupController;
+import cs3500.pa05.controller.bujofile.BujoPopupController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,7 @@ public class BujoPopupView implements View {
 
   public BujoPopupView(BujoPopupController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("bujoPopup.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("PopUpOpening.fxml"));
     this.loader.setController(controller);
   }
 

@@ -48,6 +48,22 @@ public class Calendar {
     this.name = name;
   }
 
+  public void setMaxEvent(int num) {
+    this.maxEvent = num;
+  }
+
+  public void setMaxTask(int num) {
+    this.maxTask = num;
+  }
+
+  public void setTotalUserInputs(List<UserCalInput> users) {
+    this.totalUserInputs = users;
+  }
+
+  public void setBujoPath(String str) {
+    this.bujoPath = str;
+  }
+
   public Day getOneDay(DayWeek dayWeek) {
     Day finalDay = new Day();
     for(Day d : days) {
@@ -87,5 +103,20 @@ public class Calendar {
 
   public String getBujoPath() {
     return this.bujoPath;
+  }
+
+  public void setDays(List<Day> daysIn) {
+    this.days = daysIn;
+  }
+
+  public void initDaysList(List<Day> givenDay) {
+    days = givenDay;
+    days.add(new Day(DayWeek.SUNDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.MONDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.TUESDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.WEDNESDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.THURSDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.FRIDAY, new ArrayList<>()));
+    days.add(new Day(DayWeek.SATURDAY, new ArrayList<>()));
   }
 }

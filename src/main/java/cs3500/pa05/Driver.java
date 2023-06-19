@@ -1,6 +1,6 @@
 package cs3500.pa05;
 
-import cs3500.pa05.controller.BujoPopupController;
+import cs3500.pa05.controller.bujofile.BujoPopupController;
 import cs3500.pa05.view.gui.BujoPopupView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -18,7 +18,7 @@ public class Driver extends Application {
   @Override
   public void start(Stage stage) {
 
-    BujoPopupController bujoController = new BujoPopupController(stage);
+    BujoPopupController bujoController = new BujoPopupController();
     BujoPopupView bujoPopupView = new BujoPopupView(bujoController);
 
     try {
@@ -29,7 +29,6 @@ public class Driver extends Application {
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load bujoPopup GUI.");
     }
-
 
     /*
     ScannerBujo scannerBujo = new ScannerBujo();

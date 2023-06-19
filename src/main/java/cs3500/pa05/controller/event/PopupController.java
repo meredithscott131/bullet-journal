@@ -4,6 +4,7 @@ import static java.lang.Integer.parseInt;
 
 import cs3500.pa05.controller.Controller;
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
 import java.util.regex.Matcher;
@@ -122,6 +123,10 @@ public class PopupController implements Controller {
   public void makeSubmitButton(Event eventEn) {
     if (this.isNullEvent()) {
       // do nothing
+    } else if () {
+      //if we have reached the max number of events
+      //set up warning popup
+
     } else {
       SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
           description.getText(), this.takeTime(startTime.getText()),
@@ -129,4 +134,11 @@ public class PopupController implements Controller {
       submit.handle(eventEn);
     }
   }
+  /*
+  public boolean isAtMaxEvent() {
+    DayWeek dayWeek = eventIn.getDayWeek();
+    Day oneDay = this.calendar.getOneDay(dayWeek);
+
+  }
+  */
 }
