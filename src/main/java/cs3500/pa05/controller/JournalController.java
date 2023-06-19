@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 /**
- * Represents the cs3500.pa05.controller for the journal
+ * Represents the cs3500.pa05.controller for the journal.
  */
 public class JournalController implements Controller {
 
