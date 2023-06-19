@@ -57,13 +57,14 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
+
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
 
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
 
-    updateCalendar(counter);
+    updateCalendar(counter - 1);
 
     List<Day> days = calendar.getDays();
     for(Day d: days) {
@@ -75,18 +76,17 @@ public class JournalController implements Controller {
 }
 
   public void updateCalendar(int counter) {
-    counter++;
     List<EventIn> events = this.calendar.eventsInCal();
     System.out.println(events.get(0).getName());
-    int sizeList = events.size();
     List<Task> tasks = this.calendar.tasksInCal();
 
-
+    int sizeList = events.size();
     int taskSizeList = tasks.size();
 
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
-    int totalSize = totalList.size();
+    int totalSize = totalList.size() - 1;
 
+    counter ++;
     if(counter == 0) {
 
       for(UserCalInput use : totalList) {
