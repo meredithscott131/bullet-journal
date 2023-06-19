@@ -1,5 +1,7 @@
 .root {
-    -fx-background-color: #383838;
+    -fx-background-image: url("Fonto.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1280 720;
 }
 
 .button {
@@ -10,7 +12,6 @@
 
 }
 .label {
-    -fx-text-fill: #F8F8F8;
     -fx-font-family: "Courier New";
 }
 
