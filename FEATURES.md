@@ -1,5 +1,5 @@
 ## Section 1: Requirements
-- Week View
+- Week cs3500.pa05.view.view
 - Event and Task Creation
 - Commitment Warnings
 - Persistence
