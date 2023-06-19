@@ -10,7 +10,7 @@ import javafx.collections.ObservableList;
  */
 public class Day {
   private DayWeek day;
-  private List<UserCalInput> dayInputs;
+  private List<UserCalInput> dayInputs = new ArrayList<>();
 
   private ObservableList<UserCalInput> dayInputsObservable;
 

@@ -28,9 +28,6 @@ public class Calendar {
   }
 
   public void calenderInit() {
-    Task use = new Task(null, null, null, false);
-    EventIn usew = new EventIn(null, null, null, null, 0);
-    totalUserInputs.add(usew);
 
     for(Day d: days) {
       List<UserCalInput> inputs = d.getInputs();
