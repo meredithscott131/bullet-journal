@@ -14,12 +14,14 @@ public class Calendar {
   private List<Day> days;
   private int maxTask;
   private int maxEvent;
+  private List<UserCalInput> inputMasterList; //tracks each event/task added in order
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent) {
     this.name = name;
     this.days = days;
     this.maxTask = maxTask;
     this.maxEvent = maxEvent;
+    this.inputMasterList = this.setInputMasterList();
   }
 
   public Calendar() {}
@@ -84,6 +86,22 @@ public class Calendar {
       }
     }
     return tasks;
+  }
+
+  public void addInput(UserCalInput input) {
+    this.inputMasterList.add(input);
+  }
+
+  public List<UserCalInput> getInputMasterList() {
+    return inputMasterList;
+  }
+
+  private ArrayList<UserCalInput> setInputMasterList() {
+    ArrayList<UserCalInput> tempList = new ArrayList<>();
+    for (Day d : this.days) {
+      tempList.addAll(d.getInputs());
+    }
+    return tempList;
   }
 }
 

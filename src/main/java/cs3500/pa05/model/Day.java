@@ -20,10 +20,7 @@ public class Day {
   public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
     this.day = day;
     this.dayInputs = dayInputs;
-    //FXCollections.observableList(this.dayInputs) = dayInputsObservable;
-    //FXCollections.observableList(this.dayInputs)
     this.dayInputsObservable = FXCollections.observableList(this.dayInputs);
-
   }
 
   public Day(DayWeek day) {
@@ -44,9 +41,5 @@ public class Day {
 
   public List<UserCalInput> getInputs() {
     return this.dayInputs;
-  }
-
-  public ObservableList getAsObservableList() {
-    return FXCollections.observableList(this.dayInputs);
   }
 }

@@ -92,32 +92,16 @@ public class JournalController implements Controller {
 }
 
   public void updateCalendar() {
-    List<EventIn> events = this.calendar.eventsInCal();
-    int sizeList = events.size();
-    List<Task> tasks = this.calendar.tasksInCal();
+    List<UserCalInput> inputs = this.calendar.getInputMasterList();
+    int sizeList = inputs.size();
     if(sizeList > 0) {
-      EventIn e = events.get(sizeList - 1);
-        System.out.println("in update cal : " + e.getName());
-        this.addEvent(e, this.createEvent(e));
-
-      for (Task ee : tasks) {
-        System.out.println("in update cal TASK : " + ee.getName());
+      UserCalInput e = inputs.get(sizeList - 1);
+      System.out.println("in update cal : " + e.getName());
+      if (e instanceof EventIn) {
+        this.addEvent((EventIn) e, this.createEvent((EventIn) e));
       }
     }
   }
-
-  public void updateCalendar2() {
-    List<EventIn> events = this.calendar.eventsInCal();
-    List<Task> tasks = this.calendar.tasksInCal();
-    for(EventIn e : events) {
-      System.out.println("in update cal : " + e.getName());
-      this.addEvent(e, this.createEvent(e));
-    }
-    for(Task ee : tasks) {
-      System.out.println("in update cal TASK : " + ee.getName());
-    }
-  }
-
 
   public void addEvent(EventIn event, VBox eventBox) {
     if (event.getDayWeek().equals(DayWeek.SUNDAY)) {
@@ -155,6 +139,4 @@ public class JournalController implements Controller {
 
     return newEvent;
   }
-
-
 }
