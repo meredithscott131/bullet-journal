@@ -6,6 +6,8 @@ import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.JournalView;
 import java.io.File;
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -24,10 +26,18 @@ public class Driver extends Application {
     Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/bouje.bujo"));
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont);
+    Scene scene = journalView.load();
+
 
     try {
-      stage.setScene(journalView.load());
+
+      stage.setScene(scene);
+
+      scene.getStylesheets().add("Dark.css");
+
+
       stage.show();
+
       journalCont.run();
 
     } catch (IllegalStateException exc) {

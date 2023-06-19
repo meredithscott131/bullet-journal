@@ -90,7 +90,7 @@
                      </HBox>
                      <HBox fx:id="buttonBox" alignment="CENTER" prefHeight="77.0" prefWidth="949.0" spacing="50.0">
                         <children>
-                           <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Save">
+                           <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Save">
                               <font>
                                  <Font size="18.0" />
                               </font>
@@ -105,7 +105,7 @@
                                  <Font size="18.0" />
                               </font>
                            </Button>
-                           <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
+                           <Button fx:id="themeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
                               <font>
                                  <Font size="18.0" />
                               </font>
@@ -114,13 +114,26 @@
                      </HBox>
                   </children>
                </VBox>
-               <VBox fx:id="taskBox" prefHeight="667.0" prefWidth="281.0">
+               <VBox fx:id="sideBox" prefHeight="667.0" prefWidth="274.0">
                   <children>
-                     <Label fx:id="taskTitle" alignment="CENTER" prefHeight="52.0" prefWidth="298.0" text="Tasks">
-                        <font>
-                           <Font size="24.0" />
-                        </font>
-                     </Label>
+                     <VBox fx:id="taskBox" prefHeight="346.0" prefWidth="269.0">
+                        <children>
+                           <Label fx:id="taskTitle" prefHeight="56.0" prefWidth="268.0" text="            Tasks:">
+                              <font>
+                                 <Font size="35.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <VBox fx:id="notesBox" prefHeight="325.0" prefWidth="269.0">
+                        <children>
+                           <Label fx:id="notesTitle" text=" Quotes and Notes:">
+                              <font>
+                                 <Font size="33.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
                   </children>
                </VBox>
             </children>

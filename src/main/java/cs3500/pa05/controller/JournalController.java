@@ -106,6 +106,7 @@ public class JournalController implements Controller {
     }
   }
 
+
   public void updateCalendar2() {
     List<EventIn> events = this.calendar.eventsInCal();
     List<Task> tasks = this.calendar.tasksInCal();

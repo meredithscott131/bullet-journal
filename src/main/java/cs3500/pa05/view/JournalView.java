@@ -4,6 +4,7 @@ import cs3500.pa05.controller.JournalController;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * Represents a interface journal GUI cs3500.pa05.view.view.
@@ -17,6 +18,8 @@ public class JournalView implements View {
     this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournal.fxml"));
     this.loader.setController(controller);
     this.controller = controller;
+
+
   }
 
   /**
