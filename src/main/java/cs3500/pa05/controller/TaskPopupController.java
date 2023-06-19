@@ -33,7 +33,6 @@ public class TaskPopupController implements Controller {
   private Button sunButton;
   @FXML
   private Button submitButton;
-
   @FXML
   private Stage stage;
 
@@ -68,6 +67,7 @@ public class TaskPopupController implements Controller {
 
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
+
 
   public void makeSubmitButton(Event eventEn) {
     TaskSubmitButtonHandler submit = new TaskSubmitButtonHandler(calendar, task, nameTask.getText(),

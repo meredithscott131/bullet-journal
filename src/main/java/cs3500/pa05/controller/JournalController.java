@@ -41,6 +41,9 @@ public class JournalController implements Controller {
   private Button taskButton;
   @FXML
   private Button saveButton;
+
+  @FXML
+  private Button maxButton;
   @FXML
   private VBox taskBox;
   @FXML
@@ -65,6 +68,11 @@ public class JournalController implements Controller {
 
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
+
+    SetMaxButtonHandler setMaxButt = new SetMaxButtonHandler(this.calendar);
+    maxButton.setOnAction(setMaxButt);
+
+
 
     updateCalendar();
 
@@ -107,6 +115,7 @@ public class JournalController implements Controller {
     }
     counter++;
   }
+
 
   public void addUserIn(UserCalInput event, VBox eventBox) {
     if (event.getDayWeek().equals(DayWeek.SUNDAY)) {

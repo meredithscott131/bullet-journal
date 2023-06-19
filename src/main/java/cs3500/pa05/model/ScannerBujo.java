@@ -21,6 +21,7 @@ public class ScannerBujo {
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
+
     }
     return calendar;
   }

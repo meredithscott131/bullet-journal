@@ -176,6 +176,11 @@
                                  <Font size="18.0" />
                               </font>
                            </Button>
+                           <Button fx:id="maxButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Set Max">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                           </Button>
                         </children>
                      </HBox>
                   </children>

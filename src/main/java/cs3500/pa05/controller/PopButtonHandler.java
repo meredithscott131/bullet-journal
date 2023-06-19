@@ -18,7 +18,7 @@ public class PopButtonHandler implements EventHandler {
     this.eventIn = eventIn;
     this.dayWeek = dayWeek;
   }
-
+  
   @Override
   public void handle(Event event) {
     eventIn.setDay(dayWeek);

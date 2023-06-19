@@ -10,9 +10,14 @@ import javafx.collections.ObservableList;
  */
 public class Day {
   private DayWeek day;
+
   private List<UserCalInput> dayInputs = new ArrayList<>();
 
   private ObservableList<UserCalInput> dayInputsObservable;
+
+  private int taskMax;
+  private int eventMax;
+
 
   public Day() {}
 
@@ -46,4 +51,17 @@ public class Day {
   public ObservableList getAsObservableList() {
     return FXCollections.observableList(this.dayInputs);
   }
+
+
+  public void setTaskMax(int taskMax) {
+    this.taskMax = taskMax;
+  }
+
+  public void setEventMax(int eventMax) {
+    this.eventMax = eventMax;
+  }
+
+
+
+
 }
