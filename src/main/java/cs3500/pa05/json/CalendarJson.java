@@ -6,4 +6,5 @@ public record CalendarJson(
     @JsonProperty("max tasks") int maxTasks,
     @JsonProperty("max events") int maxEvents,
     @JsonProperty("title") String title,
-    @JsonProperty("days") DayJson[] days) {}
+    @JsonProperty("days") DayJson[] days,
+    @JsonProperty("quotes & notes") String quotesNotes) {}

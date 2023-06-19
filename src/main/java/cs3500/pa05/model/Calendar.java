@@ -11,13 +11,18 @@ public class Calendar {
   private List<UserCalInput> totalUserInputs;
   private int maxTask;
   private int maxEvent;
+  private String quotesNotes;
+  private String bujoPath;
 
-  public Calendar(String name, List<Day> days, int maxTask, int maxEvent) {
+  public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
+                  String quotesNotes, String bujoPath) {
     this.name = name;
     this.days = days;
     this.maxTask = maxTask;
     this.maxEvent = maxEvent;
     this.totalUserInputs = new ArrayList<>();
+    this.quotesNotes = quotesNotes;
+    this.bujoPath = bujoPath;
     calenderInit();
   }
 
@@ -28,7 +33,6 @@ public class Calendar {
   }
 
   public void calenderInit() {
-
     for(Day d: days) {
       List<UserCalInput> inputs = d.getInputs();
       for(UserCalInput in : inputs) {
@@ -73,31 +77,15 @@ public class Calendar {
     return this.name;
   }
 
-  public List<EventIn> eventsInCal() {
-    List<EventIn> eventIns = new ArrayList<>();
-    for(Day d: days) {
-      List<UserCalInput> inputs = d.getDayInputs();
-      for(UserCalInput in : inputs) {
-        if(in instanceof EventIn) {
-          eventIns.add((EventIn) in);
-        }
-      }
-    }
-    return eventIns;
+  public String getQuotesNotes() {
+    return quotesNotes;
   }
 
-  public List<Task> tasksInCal() {
-    List<Task> tasks = new ArrayList<>();
-    for (Day d : days) {
-      List<UserCalInput> inputs = d.getDayInputs();
-      for (UserCalInput in : inputs) {
-        if (in instanceof Task) {
-          tasks.add((Task) in);
-        }
-      }
-    }
-    return tasks;
+  public void setQuotesNotes(String notes) {
+    this.quotesNotes = notes;
+  }
+
+  public String getBujoPath() {
+    return this.bujoPath;
   }
 }
-
-

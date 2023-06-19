@@ -17,7 +17,7 @@ public class ScannerBujo {
       try {
         String bujoString = Files.readString(file.toPath());
         CalendarJson calendarJson = new ObjectMapper().readValue(bujoString, CalendarJson.class);
-        calendar = adapter.convertToCalendar(calendarJson);
+        calendar = adapter.convertToCalendar(calendarJson, file.getPath());
       } catch (IOException e) {
         throw new RuntimeException(e);
       }

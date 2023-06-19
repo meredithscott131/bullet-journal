@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 /**
@@ -20,12 +21,6 @@ import javafx.scene.layout.VBox;
 public class JournalController implements Controller {
 
   private Calendar calendar;
-
-  PopupController popupController;
-
-  @FXML
-  private Button taskButton;
-
   @FXML
   private VBox sundayBox;
   @FXML
@@ -42,13 +37,16 @@ public class JournalController implements Controller {
   private VBox saturdayBox;
   @FXML
   private Button eventButton;
-
+  @FXML
+  private Button taskButton;
+  @FXML
+  private Button saveButton;
   @FXML
   private VBox taskBox;
+  @FXML
+  private TextField quotesNotes;
 
-  int counter = 0;
-
-  int initalSize = 0;
+  private int counter = 0;
 
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
@@ -59,13 +57,14 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
-    int count = 0;
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
 
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
-    count++;
+
+    SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
+    saveButton.setOnAction(saveButt);
 
     updateCalendar();
 
@@ -77,52 +76,31 @@ public class JournalController implements Controller {
           });
     }
 
+    this.quotesNotes.setOnAction(
+        c -> System.out.println(this.quotesNotes.getText())
+    );
   }
 
   public void updateCalendar() {
-    List<EventIn> events = this.calendar.eventsInCal();
-    System.out.println(events.get(0).getName());
-    int sizeList = events.size();
-    List<Task> tasks = this.calendar.tasksInCal();
-
-    int taskSizeList = tasks.size();
-
+    this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();
 
     if (counter == 0) {
-      initalSize = this.calendar.getTotalUserInputs().size();
-
-      System.out.println("my counter is zero");
 
       for (UserCalInput use : totalList) {
         if (use instanceof EventIn) {
-          System.out.println("event instance" + use);
           this.addUserIn(use, this.createEvent((EventIn) use));
         } else {
-          System.out.println("task instance" + use);
           this.addUserIn(use, this.createTask((Task) use));
         }
       }
-
     } else {
-      System.out.println("EVET IS ADDED");
-
       UserCalInput lastInput = totalList.get(totalSize - 1);
 
       if (lastInput instanceof EventIn) {
-
-
-        System.out.println("total size : " + totalSize);
-        System.out.println("init size : " + initalSize);
-        System.out.println("event instance count > 0" + lastInput.getName());
-
         this.addUserIn(lastInput, this.createEvent((EventIn) lastInput));
-
       } else if (lastInput instanceof Task) {
-        System.out.println("total size : " + totalSize);
-        System.out.println("task instance > 0" + lastInput.getName());
-
         this.addUserIn(lastInput, this.createTask((Task) lastInput));
         taskBox.getChildren().add(createTaskBox((Task) lastInput));
       }

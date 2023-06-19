@@ -15,25 +15,20 @@ public class SubmitButtonHandler implements EventHandler {
   private final String nameDecription;
   private final int duration;
   private final String startTime;
-  private final Stage stage;
 
  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
-                            String nameDecription, String startTime, int duration, Stage stage) {
+                            String nameDecription, String startTime, int duration) {
     this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
     this.nameDecription = nameDecription;
     this.duration = duration;
     this.startTime = startTime;
-    this.stage = stage;
   }
 
   @Override
   public void handle(Event event) {
     if(isNullEvent()) {
-      System.out.println("Null " + this.nameTask);
-      System.out.println("Null " + this.nameDecription);
-      System.out.println("Null " + this.duration);
       //nothing happens
     } else {
       // Adds event to calendar object
@@ -74,5 +69,4 @@ public class SubmitButtonHandler implements EventHandler {
         || duration == 0
         || startTime == "";
   }
-
 }

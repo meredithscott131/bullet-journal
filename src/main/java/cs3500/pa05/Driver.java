@@ -21,7 +21,7 @@ public class Driver extends Application {
   @Override
   public void start(Stage stage) {
     ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/bouje.bujo"));
+    Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/workingBouje.bujo"));
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont);
 

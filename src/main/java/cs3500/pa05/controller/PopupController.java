@@ -105,7 +105,7 @@ public class PopupController implements Controller {
   public void makeSubmitButton(Event eventEn) {
     SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
         description.getText(), startTime.getText(),
-        takeDuration(duration.getText()), this.stage);
+        takeDuration(duration.getText()));
     submit.handle(eventEn);
   }
 }
