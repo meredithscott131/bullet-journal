@@ -3,4 +3,4 @@
 
 [PA Write Up](https://markefontenot.notion.site/PA-05-8263d28a81a7473d8372c6579abd6481)
 
-![alt text](/Users/lalcelikbilek/Documents/cs3500/pa05-boujeebujo/photo.png)
+![alt text](/Users/lalcelikbilek/Documents/cs3500/pa05-boujeebujo/src/PhotoOfJournal.png)
