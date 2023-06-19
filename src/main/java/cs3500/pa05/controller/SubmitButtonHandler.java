@@ -45,6 +45,7 @@ public class SubmitButtonHandler implements EventHandler {
       Day dayToAddTo = this.calendar.getOneDay(eventIn.getDayWeek());
 
       dayToAddTo.getDayInputsObservable().add(eventIn);
+      dayToAddTo.getInputs().add(eventIn);
       this.calendar.getTotalUserInputs().add(eventIn);
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -74,5 +75,4 @@ public class SubmitButtonHandler implements EventHandler {
         || duration == 0
         || startTime == "";
   }
-
 }

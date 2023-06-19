@@ -25,7 +25,6 @@ public class JournalController implements Controller {
 
   @FXML
   private Button taskButton;
-
   @FXML
   private VBox sundayBox;
   @FXML
@@ -98,15 +97,12 @@ public class JournalController implements Controller {
       }
 
     } else {
-
       UserCalInput lastInput = totalList.get(totalSize - 1);
+      System.out.println(totalSize);
 
       if (lastInput instanceof EventIn) {
-
         this.addUserIn(lastInput, this.createEvent((EventIn) lastInput));
-
       } else if (lastInput instanceof Task) {
-
         this.addUserIn(lastInput, this.createTask((Task) lastInput));
         taskBox.getChildren().add(createTaskBox((Task) lastInput));
       }
