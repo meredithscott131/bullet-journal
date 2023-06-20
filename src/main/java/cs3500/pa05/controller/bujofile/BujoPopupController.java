@@ -42,23 +42,6 @@ public class BujoPopupController implements Controller {
   @Override
   public void run() {
     submitButton.setOnAction(e -> makeSubmitButton(e));
-/*
-    Stage stage = new Stage();
-    ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/workingBouje.bujo"));
-    JournalController journalCont = new JournalController(cal);
-    JournalView journalView = new JournalView(journalCont);
-
-    try {
-      stage.setScene(journalView.load());
-      stage.show();
-      journalCont.run();
-    } catch (IllegalStateException exc) {
-      System.err.println("Unable to load GUI.");
-    }
-    */
-
-
   }
 
   public void makeSubmitButton(Event eventEn) {

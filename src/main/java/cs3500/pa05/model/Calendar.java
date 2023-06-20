@@ -19,6 +19,8 @@ public class Calendar {
 
   private OrderType orderType = OrderType.NORMAL;
 
+  private List<Task> listTasks = new ArrayList<>();
+
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, String bujoPath) {
     this.name = name;
@@ -35,6 +37,18 @@ public class Calendar {
 
   public List<UserCalInput> getTotalUserInputs() {
     return totalUserInputs;
+  }
+
+  public List<Task> getListTasks() {
+    return listTasks;
+  }
+
+  public void setListTask() {
+    for(UserCalInput use : totalUserInputs) {
+      if(use instanceof Task) {
+        listTasks.add((Task) use);
+      }
+    }
   }
 
   public int getTotalTasksCount(){
@@ -64,6 +78,7 @@ public class Calendar {
         tasks.add((Task) use);
       }
     }
+
     return tasks;
   }
 

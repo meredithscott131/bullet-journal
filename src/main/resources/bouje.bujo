@@ -10,25 +10,8 @@
       "day" : "SUNDAY",
       "start time" : "6:30",
       "duration" : 60
-    }, {
-      "name" : "A",
-      "description" : "A",
-      "day" : "SUNDAY",
-      "start time" : "19:00",
-      "duration" : 12
-    }, {
-      "name" : "B",
-      "description" : "B",
-      "day" : "SUNDAY",
-      "start time" : "19:00",
-      "duration" : 17
     } ],
-    "tasks" : [ {
-      "name" : "C",
-      "description" : "C",
-      "day" : "SUNDAY",
-      "complete" : false
-    } ]
+    "tasks" : [ ]
   }, {
     "day" : "MONDAY",
     "events" : [ ],
@@ -49,11 +32,6 @@
       "description" : "go to OOD",
       "day" : "THURSDAY",
       "complete" : false
-    }, {
-      "name" : "A",
-      "description" : "A",
-      "day" : "THURSDAY",
-      "complete" : false
     } ]
   }, {
     "day" : "FRIDAY",
@@ -63,6 +41,5 @@
     "day" : "SATURDAY",
     "events" : [ ],
     "tasks" : [ ]
-  } ],
-  "quotes & notes" : null
+  } ]
 }
