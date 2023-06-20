@@ -19,7 +19,7 @@
       "name" : "Hello",
       "description" : "",
       "day" : "MONDAY",
-      "complete" : false
+      "complete" : true
     } ]
   }, {
     "day" : "TUESDAY",
@@ -30,7 +30,12 @@
       "start time" : "2:00",
       "duration" : 20
     } ],
-    "tasks" : [ ]
+    "tasks" : [ {
+      "name" : "hi",
+      "description" : "",
+      "day" : "TUESDAY",
+      "complete" : false
+    } ]
   }, {
     "day" : "WEDNESDAY",
     "events" : [ ],
@@ -42,7 +47,7 @@
       "name" : "Live, laugh, love OOD",
       "description" : "go to OOD",
       "day" : "THURSDAY",
-      "complete" : false
+      "complete" : true
     } ]
   }, {
     "day" : "FRIDAY",
@@ -55,8 +60,8 @@
       "name" : "Saturday",
       "description" : "",
       "day" : "SATURDAY",
-      "complete" : false
+      "complete" : true
     } ]
   } ],
-  "quotes & notes" : "New Note! Hello."
+  "quotes & notes" : "Hello!"
 }
