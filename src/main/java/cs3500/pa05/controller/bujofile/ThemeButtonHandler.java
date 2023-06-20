@@ -28,7 +28,11 @@ public class ThemeButtonHandler implements EventHandler {
   public void handle(Event event) {
 
     Scene scene = button.getScene();
-      //only traveling down the if statement once
+
+    if (!scene.getStylesheets().isEmpty()) {
+      scene.getStylesheets().remove(0, 1);
+    }
+
       if (calendar.getStyleType() == StyleType.NORMAL) {
         scene.getStylesheets().add("Pink.css");
         calendar.setStyleType(StyleType.PINK);
