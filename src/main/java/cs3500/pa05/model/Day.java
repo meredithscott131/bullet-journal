@@ -15,6 +15,8 @@ public class Day {
 
   private ObservableList<UserCalInput> dayInputsObservable;
 
+  private List<UserCalInput> dayInputsObservableCopy = new ArrayList<>();
+
   public Day() {}
 
   public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
@@ -22,6 +24,20 @@ public class Day {
     this.dayInputs = dayInputs;
     this.dayInputsObservable = FXCollections.observableList(this.dayInputs);
 
+  }
+
+  public void listClear() {
+    dayInputsObservableCopy = new ArrayList<>();
+  }
+
+  public void listCopy() {
+    for(UserCalInput use: dayInputsObservable) {
+      dayInputsObservableCopy.add(use);
+    }
+  }
+
+  public List<UserCalInput> getListCopy() {
+    return dayInputsObservableCopy;
   }
 
   public Day(DayWeek day) {
@@ -34,6 +50,26 @@ public class Day {
 
   public ObservableList<UserCalInput> getDayInputsObservable() {
     return dayInputsObservable;
+  }
+
+  public List<String> getObservableInNames() {
+    List<String> list = new ArrayList<>();
+    for(UserCalInput use : dayInputsObservable) {
+      list.add(use.getName());
+    }
+    return list;
+  }
+
+  public List<Integer> getObservableInDuration() {
+    List<Integer> list = new ArrayList<>();
+    for(UserCalInput use : dayInputsObservable) {
+      if(use instanceof EventIn) {
+        list.add(((EventIn) use).getDuration());
+      } else if(use instanceof Task) {
+        list.add(0);
+      }
+    }
+    return list;
   }
 
   public int getNumEventsInDay() {

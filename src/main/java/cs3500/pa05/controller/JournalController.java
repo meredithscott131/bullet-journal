@@ -3,20 +3,25 @@ package cs3500.pa05.controller;
 import cs3500.pa05.controller.Task.TaskButtonsEventHandler;
 import cs3500.pa05.controller.event.ButtonsEventHandler;
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.CompareByDuration;
+import cs3500.pa05.model.CompareByInputName;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.model.OrderType;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -55,10 +60,13 @@ public class JournalController implements Controller {
   private ProgressBar progressbar;
 
   @FXML
-  private CheckBox newCheckBox0;
+  private ProgressIndicator progressindicator;
 
   @FXML
   private Label titleLabel;
+
+  @FXML
+  private ChoiceBox dropDown;
 
   private int counter = 0;
 
@@ -73,6 +81,9 @@ public class JournalController implements Controller {
    */
   @Override
   public void run() {
+
+    initOrder();
+
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
     eventButton.setOnAction(butt);
 
@@ -88,15 +99,124 @@ public class JournalController implements Controller {
     for (Day d : days) {
       d.getDayInputsObservable().addListener(
           (ListChangeListener) c -> {
-            updateCalendar();
+            if(this.calendar.getOrderType().equals(OrderType.NORMAL)) {
+              updateCalendar();
+            } else {
+              d.listClear();
+              updateCalendar();
+              organize();
+            }
           });
     }
+
 
     this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
       this.calendar.setQuotesNotes(newValue);
     });
+
+    dropDown.setOnAction(e -> {
+      int selectedIndex = dropDown.getSelectionModel().getSelectedIndex();
+      if(selectedIndex == 0) {
+        organizeBasedOnName();
+      } else if(selectedIndex == 1) {
+        organizeBasedOnDur();
+      }
+    });
+
   }
 
+  public void organize() {
+    if(this.calendar.getOrderType() == OrderType.NAME) {
+      organizeBasedOnName();
+    } else if(this.calendar.getOrderType() == OrderType.DURATION) {
+      organizeBasedOnDur();
+    }
+  }
+
+  public void organizeBasedOnName() {
+    this.calendar.setOrderType(OrderType.NAME);
+
+    for(Day d : this.calendar.getDays()) {
+      d.listClear();
+      d.listCopy();
+    }
+
+    updateOrder(OrderType.NAME);
+    clearCalendar();
+    updateCalOrderDisplay();
+  }
+
+  //it needs to clear the copy list
+
+  public void organizeBasedOnDur() {
+    this.calendar.setOrderType(OrderType.DURATION);
+    updateOrder(OrderType.DURATION);
+    clearCalendar();
+    updateCalOrderDisplay();
+  }
+
+  public void clearCalendar() {
+    sundayBox.getChildren().clear();
+    mondayBox.getChildren().clear();
+    tuesdayBox.getChildren().clear();
+    wednesdayBox.getChildren().clear();
+    thursdayBox.getChildren().clear();
+    fridayBox.getChildren().clear();
+    saturdayBox.getChildren().clear();
+    taskBox.getChildren().clear();
+  }
+
+  public void updateOrder(OrderType orderType) {
+    Comparator<UserCalInput> compareName = new CompareByInputName();
+    Comparator<UserCalInput> compareDuration = new CompareByDuration();
+
+    List<Day> days = this.calendar.getDays();
+    for(Day d : days) {
+      List<UserCalInput> userInputs = d.getDayInputsObservable();
+      //d.listCopy();
+      List<UserCalInput> userInputsCopy = d.getListCopy(); //copy of list
+
+      //System.out.println("inital first " + userInputs.get(0).getName());
+
+      for(UserCalInput u : userInputsCopy) { //changed to userInputsCopy
+        System.out.println("inital first " + u.getName());
+      }
+
+        if (orderType.equals(OrderType.NAME)) {
+          Collections.sort(userInputsCopy, compareName);
+
+          for(UserCalInput u : userInputsCopy) { //changed to userInputsCopy
+            System.out.println("inital name " + u.getName());
+          }
+
+         // System.out.println("organized name " + userInputs.get(0).getName());
+        } else if(orderType.equals(OrderType.DURATION)) {
+          Collections.sort(userInputsCopy, compareDuration);
+        }
+    }
+  }
+
+  public void initOrder() {
+    dropDown.getItems().add(OrderType.NAME);
+    dropDown.getItems().add(OrderType.DURATION);
+  }
+
+
+  public void updateCalOrderDisplay() {
+    List<Day> days = this.calendar.getDays();
+    for(Day d : days) {
+      //List<UserCalInput> inputs = d.getDayInputsObservable();
+      List<UserCalInput> inputs = d.getListCopy();
+      for(UserCalInput use: inputs) {
+        if (use instanceof EventIn) {
+          this.addUserIn(use, this.createEvent((EventIn) use));
+        } else if (use instanceof Task) {
+          this.addUserIn(use, this.createTask((Task) use));
+          taskBox.getChildren().add(createTaskBox((Task) use));
+        }
+      }
+    }
+  }
 
 
   public void updateCalendar() {
@@ -214,5 +334,6 @@ public class JournalController implements Controller {
     int maxTasksTotal = this.calendar.getTotalTasks().size();
     double number = (double)numCompleted / (double) maxTasksTotal;
     progressbar.setProgress(number);
+    progressindicator.setProgress(number);
   }
 }

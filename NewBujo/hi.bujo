@@ -1,7 +1,7 @@
 {
   "max tasks" : 1,
-  "max events" : 2,
-  "title" : "Hello",
+  "max events" : 1,
+  "title" : "hello",
   "days" : [ {
     "day" : "SUNDAY",
     "events" : [ ],

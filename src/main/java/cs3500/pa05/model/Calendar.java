@@ -17,6 +17,8 @@ public class Calendar {
   private String quotesNotes;
   private String bujoPath;
 
+  private OrderType orderType = OrderType.NORMAL;
+
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, String bujoPath) {
     this.name = name;
@@ -45,6 +47,14 @@ public class Calendar {
       }
     }
     return counter;
+  }
+
+  public OrderType getOrderType() {
+    return this.orderType;
+  }
+
+  public void setOrderType(OrderType order) {
+    this.orderType = order;
   }
 
   public List<Task> getTotalTasks() {
