@@ -16,7 +16,7 @@ public class CompareByDuration implements Comparator<UserCalInput> {
     }
 
     if(use2 instanceof EventIn) {
-      o2 = ((EventIn) use1).getDuration();
+      o2 = ((EventIn) use2).getDuration();
     } else {
       o2 = 0;
     }

@@ -150,6 +150,12 @@ public class JournalController implements Controller {
 
   public void organizeBasedOnDur() {
     this.calendar.setOrderType(OrderType.DURATION);
+
+    for(Day d : this.calendar.getDays()) {
+      d.listClear();
+      d.listCopy();
+    }
+
     updateOrder(OrderType.DURATION);
     clearCalendar();
     updateCalOrderDisplay();
