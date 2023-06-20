@@ -89,6 +89,7 @@ public class Calendar {
     this.bujoPath = str;
   }
 
+  //jderlw
   public Day getOneDay(DayWeek dayWeek) {
     Day finalDay = new Day();
     for(Day d : days) {
@@ -100,7 +101,7 @@ public class Calendar {
   }
 
   /**
-   * getDays method gets the current days.
+   * getDays method gets the current days
    */
   public List<Day> getDays() {
     return this.days;
