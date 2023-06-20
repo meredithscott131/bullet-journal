@@ -115,6 +115,7 @@ public class BujoSubmitHandler implements EventHandler {
 
   public boolean isInvalidBujo() {
     return (pathStr == "")
+        || !(pathStr.toString().endsWith(".bujo"))
         || (!isPathValid(pathStr));
   }
 

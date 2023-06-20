@@ -3,14 +3,17 @@ package cs3500.pa05.controller.event;
 import static java.lang.Integer.parseInt;
 
 import cs3500.pa05.controller.Controller;
+import cs3500.pa05.controller.WarningPopupController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
+import cs3500.pa05.view.gui.WarningPopupView;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -123,9 +126,21 @@ public class PopupController implements Controller {
   public void makeSubmitButton(Event eventEn) {
     if (this.isNullEvent()) {
       // do nothing
-    } else if () {
+    } else if (isAtMaxEvent()) {
       //if we have reached the max number of events
       //set up warning popup
+      WarningPopupController warningCont = new WarningPopupController(this.calendar);
+      WarningPopupView warningView = new WarningPopupView(warningCont);
+      try {
+        stage.setScene(warningView.load());
+        stage.show();
+        warningCont.run();
+      } catch (IllegalStateException exc) {
+        System.err.println("Unable to load warning GUI.");
+      }
+
+      Stage window = (Stage) ((Node) eventEn.getSource()).getScene().getWindow();
+      window.close(); // closes popup window
 
     } else {
       SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
@@ -134,11 +149,12 @@ public class PopupController implements Controller {
       submit.handle(eventEn);
     }
   }
-  /*
+
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = eventIn.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);
-
+    int numOfInputsCurr = oneDay.getDayInputsObservable().size();
+    int maxEvents = this.calendar.getMaxEvent();
+    return numOfInputsCurr == maxEvents;
   }
-  */
 }

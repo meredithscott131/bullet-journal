@@ -88,6 +88,7 @@ public class BujoPopupController implements Controller {
   //are these being grabbed at the right time?
   public boolean isNullInput() {
     return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText())
+
   && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
         || !isValidNum(maxTaskText.getText()))));
   }
@@ -95,8 +96,8 @@ public class BujoPopupController implements Controller {
 
   public boolean isValidBujo(String str) {
     return !(bujoText.getText() == "")
-    || (!isPathValid(str))
-    || (!isBujo(str));
+    && (isPathValid(str))
+    && (isBujo(str));
   }
 
   public static boolean isPathValid(String str) {
