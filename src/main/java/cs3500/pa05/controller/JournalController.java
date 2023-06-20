@@ -95,7 +95,6 @@ public class JournalController implements Controller {
 
 
 
-
   public void updateCalendar() {
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
