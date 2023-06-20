@@ -2,6 +2,7 @@ package cs3500.pa05.controller.bujofile;
 
 import cs3500.pa05.controller.JournalController;
 import cs3500.pa05.model.Calendar;
+import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.ParseToFile;
 import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.JournalView;
@@ -25,13 +26,16 @@ public class BujoSubmitHandler implements EventHandler {
 
   private String calendarTitle;
 
+  private DayWeek startDay;
+
   BujoSubmitHandler(String pathStr, String maxEventStr,  String maxTaskStr,
-                    String newBujoStr, String calendarTitle) {
+                    String newBujoStr, String calendarTitle, DayWeek startDay) {
     this.pathStr = pathStr;
     this.maxEventStr = maxEventStr;
     this.maxTaskStr = maxTaskStr;
     this.newBujoStr = newBujoStr;
     this.calendarTitle = calendarTitle;
+    this.startDay = startDay;
     //this.stage = stage;
   }
 
@@ -57,7 +61,7 @@ public class BujoSubmitHandler implements EventHandler {
         this.calendarTitle = "unnamed";
       }
 
-      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle);
+      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay);
 
       System.out.println(cal.getName().isEmpty());
       runOnNew(path, cal);
@@ -68,7 +72,8 @@ public class BujoSubmitHandler implements EventHandler {
     }
   }
 
-  public Calendar initCalendar(int maxEvent, int maxTask, String path, String name) {
+  public Calendar initCalendar(int maxEvent, int maxTask, String path,
+                               String name, DayWeek startDay) {
     Calendar cal = new Calendar();
     cal.setName(name);
     cal.setMaxTask(maxTask);
@@ -77,6 +82,7 @@ public class BujoSubmitHandler implements EventHandler {
     cal.setQuotesNotes("");
     cal.setBujoPath(path);
     cal.initDaysList(new ArrayList<>());
+    cal.setStartDay(startDay);
     return cal;
   }
 
@@ -87,7 +93,7 @@ public class BujoSubmitHandler implements EventHandler {
     JournalController journalCont = new JournalController(cal);
 
     //based on dayweek load a certain journalview (change fxml)
-    JournalView journalView = new JournalView(journalCont);
+    JournalView journalView = new JournalView(journalCont, cal.getStartDay());
     Stage stage = new Stage();
 
     try {
@@ -109,7 +115,7 @@ public class BujoSubmitHandler implements EventHandler {
     Calendar cal = scannerBujo.readFromFile(path.toFile());
 
     JournalController journalCont = new JournalController(cal);
-    JournalView journalView = new JournalView(journalCont);
+    JournalView journalView = new JournalView(journalCont, startDay);
     Stage stage = new Stage();
 
     try {

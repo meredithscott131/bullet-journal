@@ -15,12 +15,12 @@ public class JournalView implements View {
 
   private DayWeek startDay;
 
-  public JournalView(JournalController controller) {
+  public JournalView(JournalController controller, DayWeek startDay) {
+    this.startDay = startDay;
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournalMonday.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource(getFXML()));
     this.loader.setController(controller);
     this.controller = controller;
-    this.startDay = startDay;
   }
 
   public String getFXML() {
@@ -33,7 +33,7 @@ public class JournalView implements View {
     } else if(startDay.equals(DayWeek.WEDNESDAY)) {
       return "bulletJournalWednesday.fxml";
     } else if(startDay.equals(DayWeek.THURSDAY)) {
-      return "bulletJournalThurday.fxml";
+      return "bulletJournalThursday.fxml";
     } else if(startDay.equals(DayWeek.FRIDAY)) {
       return "bulletJournalFriday.fxml";
     } else {

@@ -38,6 +38,14 @@ public class Calendar {
 
   public Calendar() {}
 
+  public void setStartDay(DayWeek dayWeek) {
+    this.startDay = dayWeek;
+  }
+
+  public DayWeek getStartDay() {
+    return this.startDay;
+  }
+
   public List<UserCalInput> getTotalUserInputs() {
     return totalUserInputs;
   }
