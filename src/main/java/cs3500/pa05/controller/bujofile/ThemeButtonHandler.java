@@ -41,13 +41,13 @@ public class ThemeButtonHandler implements EventHandler {
       } else if (calendar.getStyleType() == StyleType.LIGHT) {
         scene.getStylesheets().add("Dark.css");
         calendar.setStyleType(StyleType.DARK);
-      }
 
+        System.out.println(calendar.getStyleType());
+      }
 
       // /Users/aspentabar/Desktop/ CS3500/pa05-boujeebujo/src/main/resources/bouje.bujo
 
 
   }
-
 
 }
