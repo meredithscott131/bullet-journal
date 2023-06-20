@@ -23,13 +23,15 @@ public class BujoSubmitHandler implements EventHandler {
 
   private final String newBujoStr;
 
-  //private final Stage stage;
+  private String calendarTitle;
 
-  BujoSubmitHandler(String pathStr, String maxEventStr,  String maxTaskStr, String newBujoStr) {
+  BujoSubmitHandler(String pathStr, String maxEventStr,  String maxTaskStr,
+                    String newBujoStr, String calendarTitle) {
     this.pathStr = pathStr;
     this.maxEventStr = maxEventStr;
     this.maxTaskStr = maxTaskStr;
     this.newBujoStr = newBujoStr;
+    this.calendarTitle = calendarTitle;
     //this.stage = stage;
   }
 
@@ -51,7 +53,12 @@ public class BujoSubmitHandler implements EventHandler {
       String correctPath = "NewBujo/" + newBujoStr + ".bujo";
       Path path = Path.of(correctPath);
 
-      Calendar cal = initCalendar(maxEvent, maxTask, correctPath);
+      if(calendarTitle.isEmpty()) {
+        this.calendarTitle = "unnamed";
+      }
+
+      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle);
+
       System.out.println(cal.getName().isEmpty());
       runOnNew(path, cal);
 
@@ -61,9 +68,9 @@ public class BujoSubmitHandler implements EventHandler {
     }
   }
 
-  public Calendar initCalendar(int maxEvent, int maxTask, String path) {
+  public Calendar initCalendar(int maxEvent, int maxTask, String path, String name) {
     Calendar cal = new Calendar();
-    cal.setName("");
+    cal.setName(name);
     cal.setMaxTask(maxTask);
     cal.setMaxEvent(maxEvent);
     cal.setTotalUserInputs(new ArrayList<>());

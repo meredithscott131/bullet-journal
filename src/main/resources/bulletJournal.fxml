@@ -19,7 +19,7 @@
             <children>
                <VBox fx:id="calBox" prefHeight="667.0" prefWidth="1210.0">
                   <children>
-                     <Label alignment="CENTER" prefHeight="62.0" prefWidth="987.0" text="Title">
+                     <Label fx:id="titleLabel" alignment="CENTER" prefHeight="62.0" prefWidth="987.0" text="Title">
                         <font>
                            <Font size="48.0" />
                         </font>

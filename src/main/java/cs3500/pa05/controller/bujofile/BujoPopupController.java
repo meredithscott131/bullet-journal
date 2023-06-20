@@ -29,6 +29,9 @@ public class BujoPopupController implements Controller {
   @FXML
   private Stage stage;
 
+  @FXML
+  private TextField calendarTitle;
+
   //Stage stage;
 
   public BujoPopupController() {
@@ -79,7 +82,7 @@ public class BujoPopupController implements Controller {
       System.out.println(maxTaskText.getText());
 
       BujoSubmitHandler submit = new BujoSubmitHandler(bujoText.getText(), maxEventText.getText(),
-          maxTaskText.getText(), newNameText.getText());
+          maxTaskText.getText(), newNameText.getText(), calendarTitle.getText());
       submit.handle(eventEn);
     }
   }

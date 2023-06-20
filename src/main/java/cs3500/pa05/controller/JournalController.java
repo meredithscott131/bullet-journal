@@ -57,6 +57,9 @@ public class JournalController implements Controller {
   @FXML
   private CheckBox newCheckBox0;
 
+  @FXML
+  private Label titleLabel;
+
   private int counter = 0;
 
   private int checkboxCouter = 0;
@@ -92,10 +95,6 @@ public class JournalController implements Controller {
     this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
       this.calendar.setQuotesNotes(newValue);
     });
-
-    //(ListChangeListener<Task>) c -> System.out.println("progress")
-    //updateProgress()
-
   }
 
 
@@ -106,6 +105,9 @@ public class JournalController implements Controller {
     int totalSize = totalList.size();
 
     if (counter == 0) {
+
+      //add calendar title
+      titleLabel.setText(this.calendar.getName());
 
       for (UserCalInput use : totalList) {
         if (use instanceof EventIn) {
