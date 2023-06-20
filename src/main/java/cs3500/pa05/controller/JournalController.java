@@ -364,14 +364,15 @@ public class JournalController implements Controller {
 
     CheckBox checkBox = new CheckBox(task.getName() + "\n" + task.getDescription());
 
-    updateProgress();
+    updateProgress(checkBox, task);
+
     checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
       if(newValue) {
         task.markComplete();
-        updateProgress();
+        updateProgress(checkBox, task);
       } else {
         task.markIncomplete();
-        updateProgress();
+        updateProgress(checkBox, task);
       }
     });
 
@@ -380,11 +381,12 @@ public class JournalController implements Controller {
     return newEvent;
   }
 
-  public void updateProgress() {
+  public void updateProgress(CheckBox checkBox, Task task) {
     int numCompleted = this.calendar.getTotalTasksCount();
     int maxTasksTotal = this.calendar.getTotalTasks().size();
     double number = (double)numCompleted / (double) maxTasksTotal;
     progressbar.setProgress(number);
     progressindicator.setProgress(number);
+    checkBox.setSelected(task.getComplete());
   }
 }
