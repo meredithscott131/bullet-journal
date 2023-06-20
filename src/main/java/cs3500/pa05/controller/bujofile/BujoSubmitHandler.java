@@ -80,10 +80,13 @@ public class BujoSubmitHandler implements EventHandler {
     return cal;
   }
 
+  //pass in dayweek
   public void runOnExisting(Path path) {
     ScannerBujo scannerBujo = new ScannerBujo();
     Calendar cal = scannerBujo.readFromFile(path.toFile());
     JournalController journalCont = new JournalController(cal);
+
+    //based on dayweek load a certain journalview (change fxml)
     JournalView journalView = new JournalView(journalCont);
     Stage stage = new Stage();
 
