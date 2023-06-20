@@ -100,7 +100,7 @@ public class JournalController implements Controller {
   }
 
   public void updateCalendar() {
-    this.titleLabel.setText(this.calendar.getName().toString());
+    this.titleLabel.setText(this.calendar.getName());
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();

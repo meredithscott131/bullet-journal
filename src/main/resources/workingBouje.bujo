@@ -1,7 +1,7 @@
 {
   "max tasks" : 4,
   "max events" : 4,
-  "title" : "Test Week",
+  "title" : "Week of 6/20",
   "days" : [ {
     "day" : "SUNDAY",
     "events" : [ {
