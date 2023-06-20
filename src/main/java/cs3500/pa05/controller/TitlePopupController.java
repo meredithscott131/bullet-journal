@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,19 +17,19 @@ public class TitlePopupController implements Controller {
   private Calendar calendar;
   @FXML
   private TextField titleInput;
-  private String newTitle;
+  private Label titleLabel;
 
-  public TitlePopupController(Calendar calendar) {
+  public TitlePopupController(Calendar calendar, Label titleLabel) {
     this.calendar = calendar;
+    this.titleLabel = titleLabel;
   }
 
   @Override
   public void run() {
     Button b = (Button) titlePane.lookupButton(ButtonType.APPLY);
     titleInput.textProperty().addListener((observable, oldValue, newValue) -> {
-      System.out.println("Title Input changed to: " + newValue);
       this.calendar.setName(newValue);
     });
-    b.setOnAction(new TitlePopupHandler(this.calendar, this.calendar.getName()));
+    b.setOnAction(new TitlePopupHandler(this.calendar, this.titleLabel));
   }
 }

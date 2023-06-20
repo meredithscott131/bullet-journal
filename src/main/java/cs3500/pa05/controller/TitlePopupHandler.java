@@ -5,21 +5,22 @@ import cs3500.pa05.view.gui.TitlePopupView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class TitlePopupHandler implements EventHandler {
 
   private Calendar calendar;
-  private String input;
+  private Label titleLabel;
 
-  TitlePopupHandler(Calendar calendar, String input) {
+  TitlePopupHandler(Calendar calendar, Label titleLable) {
     this.calendar = calendar;
-    this.input = input;
+    this.titleLabel = titleLable;
   }
   @Override
   public void handle(Event event) {
-    System.out.println("Input: " + this.input);
     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
     window.close(); // closes popup window
+    this.titleLabel.setText(this.calendar.getName());
   }
 }

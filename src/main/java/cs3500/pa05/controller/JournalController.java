@@ -96,12 +96,11 @@ public class JournalController implements Controller {
       this.calendar.setQuotesNotes(newValue);
     });
 
-    this.titleLabel.setOnMouseClicked(new TitleEventHandler(this.calendar));
+    this.titleLabel.setOnMouseClicked(new TitleEventHandler(this.calendar, this.titleLabel));
   }
 
   public void updateCalendar() {
-    System.out.println("Update Calendar Name: " + this.calendar.getName());
-    this.titleLabel.setText(this.calendar.getName());
+    this.titleLabel.setText(this.calendar.getName().toString());
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();
@@ -109,7 +108,7 @@ public class JournalController implements Controller {
     if (counter == 0) {
 
       //add calendar title
-      titleLabel.setText(this.calendar.getName());
+      titleLabel.setText(this.calendar.getName().toString());
 
       for (UserCalInput use : totalList) {
         if (use instanceof EventIn) {
