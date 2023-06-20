@@ -171,7 +171,7 @@
                                  <Font size="18.0" />
                               </font>
                            </Button>
-                           <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
+                           <Button fx:id="themeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
                               <font>
                                  <Font size="18.0" />
                               </font>

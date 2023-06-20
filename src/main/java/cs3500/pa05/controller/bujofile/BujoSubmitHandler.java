@@ -5,12 +5,15 @@ import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.ParseToFile;
 import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.JournalView;
+import cs3500.pa05.view.StyleType;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class BujoSubmitHandler implements EventHandler {
@@ -79,9 +82,10 @@ public class BujoSubmitHandler implements EventHandler {
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont);
     Stage stage = new Stage();
+    Scene scene = journalView.load();
 
     try {
-      stage.setScene(journalView.load());
+      stage.setScene(scene);
       stage.show();
       journalCont.run();
 
@@ -89,6 +93,7 @@ public class BujoSubmitHandler implements EventHandler {
       System.err.println("Unable to load existing GUI.");
     }
   }
+
 
   public void runOnNew(Path path, Calendar calen) {
 

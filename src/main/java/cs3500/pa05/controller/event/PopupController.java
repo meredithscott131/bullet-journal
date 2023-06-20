@@ -117,23 +117,23 @@ public class PopupController implements Controller {
       this.eventIn.setDuration(this.takeDuration(newValue));
     });
 
-    submitButton.setOnAction(e -> makeSubmitButton(e));
+    //submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 
-  public void makeSubmitButton(Event eventEn) {
-    if (this.isNullEvent()) {
-      // do nothing
-    } else if () {
-      //if we have reached the max number of events
-      //set up warning popup
-
-    } else {
-      SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
-          description.getText(), this.takeTime(startTime.getText()),
-          this.takeDuration(duration.getText()));
-      submit.handle(eventEn);
-    }
-  }
+//  public void makeSubmitButton(Event eventEn) {
+//    if (this.isNullEvent()) {
+//      // do nothing
+//    } else if () {
+//      //if we have reached the max number of events
+//      //set up warning popup
+//
+//    } else {
+//      SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
+//          description.getText(), this.takeTime(startTime.getText()),
+//          this.takeDuration(duration.getText()));
+//      submit.handle(eventEn);
+//    }
+//  }
   /*
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = eventIn.getDayWeek();

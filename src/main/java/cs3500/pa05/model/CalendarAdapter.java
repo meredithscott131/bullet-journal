@@ -3,6 +3,7 @@ import cs3500.pa05.json.CalendarJson;
 import cs3500.pa05.json.DayJson;
 import cs3500.pa05.json.EventJson;
 import cs3500.pa05.json.TaskJson;
+import cs3500.pa05.view.StyleType;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.view.StyleType;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -13,6 +14,7 @@ public class Calendar {
   private int maxEvent;
   private String quotesNotes;
   private String bujoPath;
+  private StyleType styleType = StyleType.NORMAL;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, String bujoPath) {
@@ -23,6 +25,7 @@ public class Calendar {
     this.totalUserInputs = new ArrayList<>();
     this.quotesNotes = quotesNotes;
     this.bujoPath = bujoPath;
+    //this.styleType = styleType;
     calenderInit();
   }
 
@@ -108,6 +111,15 @@ public class Calendar {
   public void setDays(List<Day> daysIn) {
     this.days = daysIn;
   }
+
+  public void setStyleType(StyleType styleType) {
+    this.styleType = styleType;
+  }
+
+  public StyleType getStyleType() {
+    return this.styleType;
+  }
+
 
   public void initDaysList(List<Day> givenDay) {
     days = givenDay;

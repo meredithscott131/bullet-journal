@@ -63,21 +63,7 @@ public class BujoPopupController implements Controller {
       System.out.println("all inputs are null");
       // do nothing
 
-      System.out.println("NULLLLL:L:L");
-      System.out.println(maxEventText.getText());
-      System.out.println(!isValidNum(maxEventText.getText()) );
-      System.out.println(!isValidNum(maxTaskText.getText()));
-      System.out.println(maxTaskText.getText());
-      System.out.println("is invalid bujo " + isValidBujo(bujoText.getText()));
-      System.out.println("is not path valid " + !isPathValid(bujoText.getText()));
-
     } else {
-      System.out.println("all inputs aren't null");
-
-      System.out.println(maxEventText.getText());
-      System.out.println(isValidNum(maxEventText.getText()) );
-      System.out.println(isValidNum(maxTaskText.getText()));
-      System.out.println(maxTaskText.getText());
 
       BujoSubmitHandler submit = new BujoSubmitHandler(bujoText.getText(), maxEventText.getText(),
           maxTaskText.getText(), newNameText.getText());

@@ -1,6 +1,7 @@
 package cs3500.pa05.controller;
 
 import cs3500.pa05.controller.Task.TaskButtonsEventHandler;
+import cs3500.pa05.controller.bujofile.ThemeButtonHandler;
 import cs3500.pa05.controller.event.ButtonsEventHandler;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
@@ -10,6 +11,7 @@ import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
 import java.util.List;
 import javafx.collections.ListChangeListener;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -44,6 +46,8 @@ public class JournalController implements Controller {
   @FXML
   private Button saveButton;
   @FXML
+  private Button themeButton;
+  @FXML
   private VBox taskBox;
   @FXML
   private TextField quotesNotes;
@@ -65,10 +69,19 @@ public class JournalController implements Controller {
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
 
+
+
+    ThemeButtonHandler themeButt = new ThemeButtonHandler(this.calendar, themeButton);
+    themeButton.setOnAction(themeButt);
+
+
+
+
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
 
     updateCalendar();
+
 
     List<Day> days = calendar.getDays();
     for (Day d : days) {
@@ -82,6 +95,9 @@ public class JournalController implements Controller {
       this.calendar.setQuotesNotes(newValue);
     });
   }
+
+
+
 
   public void updateCalendar() {
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
@@ -174,4 +190,6 @@ public class JournalController implements Controller {
     newEvent.getChildren().add(checkBox);
     return newEvent;
   }
+
+
 }
