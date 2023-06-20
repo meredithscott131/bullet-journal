@@ -9,11 +9,14 @@ import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
 import java.util.List;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
@@ -48,7 +51,15 @@ public class JournalController implements Controller {
   @FXML
   private TextField quotesNotes;
 
+  @FXML
+  private ProgressBar progressbar;
+
+  @FXML
+  private CheckBox newCheckBox0;
+
   private int counter = 0;
+
+  private int checkboxCouter = 0;
 
   public JournalController(Calendar calendar) {
     this.calendar = calendar;
@@ -81,7 +92,13 @@ public class JournalController implements Controller {
     this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
       this.calendar.setQuotesNotes(newValue);
     });
+
+    //(ListChangeListener<Task>) c -> System.out.println("progress")
+    //updateProgress()
+
   }
+
+
 
   public void updateCalendar() {
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
@@ -95,6 +112,7 @@ public class JournalController implements Controller {
           this.addUserIn(use, this.createEvent((EventIn) use));
         } else {
           this.addUserIn(use, this.createTask((Task) use));
+          taskBox.getChildren().add(createTaskBox((Task) use));
         }
       }
     } else {
@@ -163,6 +181,7 @@ public class JournalController implements Controller {
   }
 
   public VBox createTaskBox(Task task) {
+
     String cssLayout = "-fx-border-color: grey;\n" +
         "-fx-border-insets: 5;\n" +
         "-fx-border-width: 1;\n";
@@ -171,7 +190,27 @@ public class JournalController implements Controller {
     newEvent.setStyle(cssLayout);
 
     CheckBox checkBox = new CheckBox(task.getName() + "\n" + task.getDescription());
+
+    updateProgress();
+    checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+      if(newValue) {
+        task.markComplete();
+        updateProgress();
+      } else {
+        task.markIncomplete();
+        updateProgress();
+      }
+    });
+
     newEvent.getChildren().add(checkBox);
+    checkboxCouter++;
     return newEvent;
+  }
+
+  public void updateProgress() {
+    int numCompleted = this.calendar.getTotalTasksCount();
+    int maxTasksTotal = this.calendar.getTotalTasks().size();
+    double number = (double)numCompleted / (double) maxTasksTotal;
+    progressbar.setProgress(number);
   }
 }

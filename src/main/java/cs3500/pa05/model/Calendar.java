@@ -2,6 +2,9 @@ package cs3500.pa05.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  * Calendar class represents a calendar
  */
@@ -30,6 +33,28 @@ public class Calendar {
 
   public List<UserCalInput> getTotalUserInputs() {
     return totalUserInputs;
+  }
+
+  public int getTotalTasksCount(){
+    int counter = 0;
+    for(UserCalInput use : totalUserInputs) {
+      if(use instanceof Task) {
+        if(((Task) use).getComplete()) {
+          counter++;
+        }
+      }
+    }
+    return counter;
+  }
+
+  public List<Task> getTotalTasks() {
+    List<Task> tasks = new ArrayList<>();
+    for(UserCalInput use : totalUserInputs) {
+      if(use instanceof Task) {
+        tasks.add((Task) use);
+      }
+    }
+    return tasks;
   }
 
   public void calenderInit() {

@@ -14,13 +14,15 @@ public class Task extends UserCalInput {
 
 
 
-
-
   /**
    * changeStage method changes a task to be incomplete(false) or complete(true)
    */
-  public void changeStage() {
+  public void markComplete() {
+    this.complete = true;
+  }
 
+  public void markIncomplete() {
+    this.complete = false;
   }
 
   public boolean getComplete() {

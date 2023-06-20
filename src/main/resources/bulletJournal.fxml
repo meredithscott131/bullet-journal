@@ -196,7 +196,7 @@
                            </AnchorPane>
                        </content>
                      </ScrollPane>
-                     <ProgressBar prefHeight="31.0" prefWidth="189.0" progress="0.0" />
+                     <ProgressBar id="progressBar" fx:id="progressbar" prefHeight="31.0" prefWidth="189.0" progress="0.0" />
                      <Label alignment="CENTER" prefHeight="27.0" prefWidth="205.0" text="Quotes &amp; Notes">
                         <font>
                            <Font size="18.0" />
