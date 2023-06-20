@@ -21,6 +21,8 @@ public class Calendar {
 
   private List<Task> listTasks = new ArrayList<>();
 
+  private DayWeek startDay;
+
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, String bujoPath) {
     this.name = name;
@@ -30,6 +32,7 @@ public class Calendar {
     this.totalUserInputs = new ArrayList<>();
     this.quotesNotes = quotesNotes;
     this.bujoPath = bujoPath;
+    this.startDay = startDay;
     calenderInit();
   }
 

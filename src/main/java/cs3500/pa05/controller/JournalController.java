@@ -95,6 +95,8 @@ public class JournalController implements Controller {
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
 
+
+
     updateCalendar();
 
     //when we make changes to the day lists
@@ -139,6 +141,8 @@ public class JournalController implements Controller {
         displayJustTask();
       }
     });
+
+    this.titleLabel.setOnMouseClicked(new TitleEventHandler(this.calendar, this.titleLabel));
 
   }
 
@@ -271,6 +275,7 @@ public class JournalController implements Controller {
 
 
   public void updateCalendar() {
+    this.titleLabel.setText(this.calendar.getName());
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();
