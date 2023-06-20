@@ -24,7 +24,7 @@ public class Calendar {
   private DayWeek startDay;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
-                  String quotesNotes, String bujoPath) {
+                  String quotesNotes, DayWeek startDay, String bujoPath) {
     this.name = name;
     this.days = days;
     this.maxTask = maxTask;

@@ -11,6 +11,7 @@ public class CalendarAdapter {
   public CalendarJson convertToJson(Calendar modelCalendar) {
     int maxEvents = modelCalendar.getMaxEvent();
     int maxTasks = modelCalendar.getMaxTask();
+    DayWeek startDay = modelCalendar.getStartDay();
     String title = modelCalendar.getName();
     String quotesNotes = modelCalendar.getQuotesNotes();
     DayJson[] days = new DayJson[7];
@@ -32,12 +33,13 @@ public class CalendarAdapter {
           events, tasks);
       days[i] = dayJson;
     }
-    return new CalendarJson(maxTasks, maxEvents, title, days, quotesNotes);
+    return new CalendarJson(maxTasks, maxEvents, title, days, quotesNotes, startDay.toString());
   }
 
   public Calendar convertToCalendar(CalendarJson calendarJson, String bujo) {
     int maxEvents = calendarJson.maxEvents();
     int maxTasks = calendarJson.maxTasks();
+    DayWeek startDay = DayWeek.valueOf(calendarJson.startDay());
     String title = calendarJson.title();
     String quotesNotes = calendarJson.quotesNotes();
     List<Day> days = new ArrayList<>();
@@ -65,6 +67,6 @@ public class CalendarAdapter {
       day = new Day(dayWeek, inputs);
       days.add(day);
     }
-    return new Calendar(title, days, maxTasks, maxEvents, quotesNotes, bujo);
+    return new Calendar(title, days, maxTasks, maxEvents, quotesNotes, startDay, bujo);
   }
 }
