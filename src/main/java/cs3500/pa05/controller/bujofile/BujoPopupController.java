@@ -63,13 +63,12 @@ public class BujoPopupController implements Controller {
       System.out.println("all inputs are null");
       // do nothing
 
-      System.out.println("NULLLLL:L:L");
-      System.out.println(maxEventText.getText());
-      System.out.println(!isValidNum(maxEventText.getText()) );
+      System.out.println(!isValidBujo(bujoText.getText()));
+      System.out.println(!isPathValid(bujoText.getText()));
+
+      System.out.println(newNameText.getText().isEmpty());
+      System.out.println(!isValidNum(maxEventText.getText()));
       System.out.println(!isValidNum(maxTaskText.getText()));
-      System.out.println(maxTaskText.getText());
-      System.out.println("is invalid bujo " + isValidBujo(bujoText.getText()));
-      System.out.println("is not path valid " + !isPathValid(bujoText.getText()));
 
     } else {
       System.out.println("all inputs aren't null");
@@ -87,10 +86,10 @@ public class BujoPopupController implements Controller {
 
   //are these being grabbed at the right time?
   public boolean isNullInput() {
-    return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText())
+    return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText()))
 
   && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
-        || !isValidNum(maxTaskText.getText()))));
+        || !isValidNum(maxTaskText.getText())));
   }
 
 

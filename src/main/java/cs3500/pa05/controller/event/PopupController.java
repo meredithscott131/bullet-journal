@@ -129,18 +129,7 @@ public class PopupController implements Controller {
     } else if (isAtMaxEvent()) {
       //if we have reached the max number of events
       //set up warning popup
-      WarningPopupController warningCont = new WarningPopupController(this.calendar);
-      WarningPopupView warningView = new WarningPopupView(warningCont);
-      try {
-        stage.setScene(warningView.load());
-        stage.show();
-        warningCont.run();
-      } catch (IllegalStateException exc) {
-        System.err.println("Unable to load warning GUI.");
-      }
-
-      Stage window = (Stage) ((Node) eventEn.getSource()).getScene().getWindow();
-      window.close(); // closes popup window
+      runWarningPopup(eventEn);
 
     } else {
       SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
@@ -150,11 +139,30 @@ public class PopupController implements Controller {
     }
   }
 
+  public void runWarningPopup(Event eventEn) {
+    WarningPopupController warningCont = new WarningPopupController(this.calendar);
+    WarningPopupView warningView = new WarningPopupView(warningCont);
+    Stage warningStage = new Stage();
+    try {
+      warningStage.setScene(warningView.load());
+      warningStage.show();
+      warningCont.run();
+    } catch (IllegalStateException exc) {
+      System.err.println("Unable to load warning GUI.");
+    }
+
+    Stage window = (Stage) ((Node) eventEn.getSource()).getScene().getWindow();
+    window.close(); // closes popup window
+  }
+
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = eventIn.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);
-    int numOfInputsCurr = oneDay.getDayInputsObservable().size();
+
+    //int numOfInputsCurr = oneDay.getDayInputsObservable().size();
+
+    int numOfEventsCurr = oneDay.getNumEventsInDay();
     int maxEvents = this.calendar.getMaxEvent();
-    return numOfInputsCurr == maxEvents;
+    return numOfEventsCurr == maxEvents;
   }
 }
