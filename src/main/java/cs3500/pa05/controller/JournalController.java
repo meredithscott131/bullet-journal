@@ -71,6 +71,7 @@ public class JournalController implements Controller {
 
   private int counter = 0;
 
+  //comment
   private int checkboxCouter = 0;
 
   public JournalController(Calendar calendar) {
