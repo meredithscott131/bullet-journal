@@ -95,11 +95,13 @@ public class JournalController implements Controller {
     this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
       this.calendar.setQuotesNotes(newValue);
     });
+
+    this.titleLabel.setOnMouseClicked(new TitleEventHandler(this.calendar));
   }
 
-
-
   public void updateCalendar() {
+    System.out.println("Update Calendar Name: " + this.calendar.getName());
+    this.titleLabel.setText(this.calendar.getName());
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
     int totalSize = totalList.size();

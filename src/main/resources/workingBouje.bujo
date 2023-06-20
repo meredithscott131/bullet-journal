@@ -20,6 +20,11 @@
       "description" : "",
       "day" : "MONDAY",
       "complete" : false
+    }, {
+      "name" : ".",
+      "description" : "",
+      "day" : "MONDAY",
+      "complete" : true
     } ]
   }, {
     "day" : "TUESDAY",
@@ -42,7 +47,7 @@
       "name" : "Live, laugh, love OOD",
       "description" : "go to OOD",
       "day" : "THURSDAY",
-      "complete" : false
+      "complete" : true
     } ]
   }, {
     "day" : "FRIDAY",
@@ -58,5 +63,5 @@
       "complete" : false
     } ]
   } ],
-  "quotes & notes" : "New Note! Hello."
+  "quotes & notes" : "greetings."
 }
