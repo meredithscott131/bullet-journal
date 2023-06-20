@@ -30,21 +30,22 @@ public class ThemeButtonHandler implements EventHandler {
     Scene scene = button.getScene();
       //only traveling down the if statement once
       if (calendar.getStyleType() == StyleType.NORMAL) {
-        scene.getStylesheets().add("Dark.css");
-        calendar.setStyleType(StyleType.DARK);
-      } else if (calendar.getStyleType() == StyleType.DARK) {
         scene.getStylesheets().add("Pink.css");
         calendar.setStyleType(StyleType.PINK);
       } else if (calendar.getStyleType() == StyleType.PINK) {
+        scene.getStylesheets().add("Dark.css");
+        calendar.setStyleType(StyleType.DARK);
+      } else if (calendar.getStyleType() == StyleType.DARK) {
         scene.getStylesheets().add("Light.css");
         calendar.setStyleType(StyleType.LIGHT);
       } else if (calendar.getStyleType() == StyleType.LIGHT) {
-        scene.getStylesheets().add("Dark.css");
-        calendar.setStyleType(StyleType.DARK);
+        scene.getStylesheets().add("Pink.css");
+        calendar.setStyleType(StyleType.PINK);
+        System.out.println(calendar.getStyleType());
       }
 
 
-      // /Users/aspentabar/Desktop/ CS3500/pa05-boujeebujo/src/main/resources/bouje.bujo
+      //    /Users/aspentabar/Desktop/ CS3500/pa05-boujeebujo/src/main/resources/bouje.bujo
 
 
   }
