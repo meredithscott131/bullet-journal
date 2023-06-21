@@ -68,7 +68,6 @@ public class BujoSubmitHandler implements EventHandler {
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window
-
     }
   }
 
@@ -132,7 +131,22 @@ public class BujoSubmitHandler implements EventHandler {
   public boolean isInvalidBujo() {
     return (pathStr == "")
         || !(pathStr.toString().endsWith(".bujo"))
-        || (!isPathValid(pathStr));
+        || (!isPathValid(pathStr)
+    || throwsExcp(pathStr));
+  }
+
+  public boolean throwsExcp(String pathStr) {
+    Path path = Path.of(pathStr);
+    ScannerBujo scannerBujo = new ScannerBujo();
+    boolean doesThrow = false;
+    try {
+      scannerBujo.readFromFile(path.toFile());
+      doesThrow = true;
+    } catch (NullPointerException e) {
+      doesThrow = false;
+      throw new IllegalArgumentException("Invalid Bujo");
+    }
+    return doesThrow;
   }
 
   public static boolean isPathValid(String str) {

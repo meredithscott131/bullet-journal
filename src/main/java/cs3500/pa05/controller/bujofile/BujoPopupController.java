@@ -37,6 +37,7 @@ public class BujoPopupController implements Controller {
 
   @FXML
   private TextField calendarTitle;
+
   @FXML
   private ChoiceBox choiceBox;
 
@@ -48,7 +49,6 @@ public class BujoPopupController implements Controller {
     this.startDayIn = null;
    // this.stage = stage;
   }
-
 
   @Override
   public void run() {
