@@ -175,14 +175,14 @@
                                        <Font size="18.0" />
                                     </font>
                                  </Button>
-                                 <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
+                                 <Button fx:id="themeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
                                  </Button>
                                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="139.0">
                                     <children>
-                                       <Label prefHeight="18.0" prefWidth="113.0" text="Organize days by:">
+                                       <Label fx:id="ODB" prefHeight="18.0" prefWidth="113.0" text="Organize days by:">
                                           <font>
                                              <Font name="Apple Braille" size="13.0" />
                                           </font>
@@ -236,5 +236,9 @@
                </HBox>
             </children>
          </AnchorPane>
+         <Label fx:id="picture3" layoutX="18.0" layoutY="8.0" prefHeight="106.0" prefWidth="146.0" />
+         <Label fx:id="picture4" layoutX="909.0" layoutY="8.0" prefHeight="107.0" prefWidth="145.0" />
+         <Label fx:id="picture" layoutX="893.0" layoutY="634.0" prefHeight="82.0" prefWidth="101.0" />
+         <Label fx:id="picture2" layoutX="656.0" layoutY="636.0" prefHeight="80.0" prefWidth="111.0" />
       </children></AnchorPane>
 </Scene>

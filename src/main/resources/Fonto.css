@@ -1,6 +1,6 @@
 .root {
-    /* -fx-background-image: url("Fonto.png"); */
-    /* -fx-background-size: 120 120; */
+    -fx-background-image: url("");
+    -fx-background-size: 120 120
 }
 
 .button {

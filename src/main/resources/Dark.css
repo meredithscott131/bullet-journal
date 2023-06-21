@@ -9,7 +9,6 @@
     -fx-text-fill: #F8F8F8;
 }
 
-
 .label {
     -fx-font-family: "Courier New";
     -fx-text-fill: #F8F8F8;
@@ -43,4 +42,8 @@
     -fx-background-repeat: stretch;
     -fx-background-size: 175 150;
     -fx-background-position: center center;
+}
+
+#ODB {
+    -fx-font-size: 11;
 }

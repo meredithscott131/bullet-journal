@@ -1,0 +1,37 @@
+{
+  "max tasks" : 7,
+  "max events" : 7,
+  "title" : "oiuy",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "SATURDAY",
+  "categories" : [ ]
+}

@@ -95,7 +95,7 @@ public class JournalController implements Controller {
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
 
-    ThemeButtonHandler themeButt = new ThemeButtonHandler(this.calendar, this.themeButton);
+    ThemeButtonHandler themeButt = new ThemeButtonHandler(this.calendar, themeButton);
     themeButton.setOnAction(themeButt);
 
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);

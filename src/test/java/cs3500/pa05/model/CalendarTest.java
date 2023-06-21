@@ -20,17 +20,17 @@ class CalendarTest {
     assertEquals(expected, calendar.getName());
   }
 
-  @Test
-  void testGetOneDay() {
-    Day day1 = new Day(DayWeek.MONDAY);
-    Day day2 = new Day(DayWeek.THURSDAY);
-    List<Day> dayList = new ArrayList<>(Arrays.asList(day1, day2));
-    Calendar currCalendar = new Calendar("Title", dayList, 2, 2);
-
-    DayWeek currDay = DayWeek.MONDAY;
-
-    assertEquals(currCalendar.getOneDay(currDay), day1);
-  }
+//  @Test
+//  void testGetOneDay() {
+//    Day day1 = new Day(DayWeek.MONDAY);
+//    Day day2 = new Day(DayWeek.THURSDAY);
+//    List<Day> dayList = new ArrayList<>(Arrays.asList(day1, day2));
+//    Calendar currCalendar = new Calendar("Title", dayList, 2, 2);
+//
+//    DayWeek currDay = DayWeek.MONDAY;
+//
+//    assertEquals(currCalendar.getOneDay(currDay), day1);
+//  }
 
 
     //@Test

@@ -37,13 +37,14 @@
 #picture3 {
     -fx-background-image: url("BirdPink.png");
     -fx-background-repeat: stretch;
-    -fx-background-size: 150 150;
+    -fx-background-size: 140 140;
     -fx-background-position: center center;
 }
 
 #picture4 {
     -fx-background-image: url("BirdPinkFlipped.png");
     -fx-background-repeat: stretch;
-    -fx-background-size: 150 150;
+    -fx-background-size: 140 140;
     -fx-background-position: center center;
 }
+
