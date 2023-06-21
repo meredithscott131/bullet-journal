@@ -1,7 +1,9 @@
 package cs3500.pa05;
 
+import cs3500.pa05.controller.WelcomeController;
 import cs3500.pa05.controller.bujofile.BujoPopupController;
 import cs3500.pa05.view.gui.BujoPopupView;
+import cs3500.pa05.view.gui.WelcomeHandlerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -18,16 +20,16 @@ public class Driver extends Application {
   @Override
   public void start(Stage stage) {
 
-    BujoPopupController bujoController = new BujoPopupController();
-    BujoPopupView bujoPopupView = new BujoPopupView(bujoController);
+    WelcomeController welController = new WelcomeController();
+    WelcomeHandlerView welPopupView = new WelcomeHandlerView(welController);
 
     try {
-      stage.setScene(bujoPopupView.load());
+      stage.setScene(welPopupView.load());
       stage.show();
-      bujoController.run();
+      welController.run();
 
     } catch (IllegalStateException exc) {
-      System.err.println("Unable to load bujoPopup GUI.");
+      System.err.println("Unable to load welcome GUI.");
     }
 
     /*
