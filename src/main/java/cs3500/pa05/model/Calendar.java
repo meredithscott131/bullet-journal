@@ -198,7 +198,7 @@ public class Calendar {
   }
 
   public StyleType getStyleType() {
-    return styleType;
+    return this.styleType;
   }
 
   public void setStyleType(StyleType styleType) {
