@@ -1,5 +1,6 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.welcome;
 
+import cs3500.pa05.controller.Controller;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;

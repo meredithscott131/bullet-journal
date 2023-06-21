@@ -1,8 +1,6 @@
 package cs3500.pa05;
 
-import cs3500.pa05.controller.WelcomeController;
-import cs3500.pa05.controller.bujofile.BujoPopupController;
-import cs3500.pa05.view.gui.BujoPopupView;
+import cs3500.pa05.controller.welcome.WelcomeController;
 import cs3500.pa05.view.gui.WelcomeHandlerView;
 import javafx.application.Application;
 import javafx.stage.Stage;

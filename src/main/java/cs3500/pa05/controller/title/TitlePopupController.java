@@ -1,14 +1,13 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.title;
 
+import cs3500.pa05.controller.Controller;
 import cs3500.pa05.model.Calendar;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class TitlePopupController implements Controller {
 

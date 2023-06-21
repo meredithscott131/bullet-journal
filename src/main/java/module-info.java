@@ -20,4 +20,8 @@ module cs3500.pa05 {
   opens cs3500.pa05.controller.event to javafx.fxml;
   exports cs3500.pa05.controller.bujofile;
   opens cs3500.pa05.controller.bujofile to javafx.fxml;
+  exports cs3500.pa05.controller.welcome;
+  opens cs3500.pa05.controller.welcome to javafx.fxml;
+  exports cs3500.pa05.controller.title;
+  opens cs3500.pa05.controller.title to javafx.fxml;
 }
