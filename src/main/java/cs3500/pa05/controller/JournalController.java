@@ -53,6 +53,9 @@ public class JournalController implements Controller {
   @FXML
   private Button saveButton;
   @FXML
+  private Button themeButton;
+
+  @FXML
   private VBox taskBox;
   @FXML
   private TextField quotesNotes;
@@ -92,9 +95,11 @@ public class JournalController implements Controller {
     TaskButtonsEventHandler taskButt = new TaskButtonsEventHandler(this.calendar);
     taskButton.setOnAction(taskButt);
 
+    ThemeButtonHandler themeButt = new ThemeButtonHandler(this.calendar, this.themeButton);
+    themeButton.setOnAction(themeButt);
+
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
-
 
 
     updateCalendar();

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class BujoSubmitHandler implements EventHandler {
@@ -92,12 +93,14 @@ public class BujoSubmitHandler implements EventHandler {
     Calendar cal = scannerBujo.readFromFile(path.toFile());
     JournalController journalCont = new JournalController(cal);
 
-    //based on dayweek load a certain journalview (change fxml)
+    //based on dayweek load a certain journaliew (change fxml)
     JournalView journalView = new JournalView(journalCont, cal.getStartDay());
     Stage stage = new Stage();
+    Scene scene = journalView.load();
 
     try {
-      stage.setScene(journalView.load());
+      stage.setScene(scene);
+      scene.getStylesheets().add("Normal.css");
       stage.show();
       journalCont.run();
 
@@ -117,9 +120,11 @@ public class BujoSubmitHandler implements EventHandler {
     JournalController journalCont = new JournalController(cal);
     JournalView journalView = new JournalView(journalCont, startDay);
     Stage stage = new Stage();
+    Scene scene = journalView.load();
 
     try {
-      stage.setScene(journalView.load());
+      stage.setScene(scene);
+      scene.getStylesheets().add("Normal.css");
       stage.show();
       journalCont.run();
 

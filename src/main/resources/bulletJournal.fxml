@@ -158,7 +158,7 @@
                      </HBox>
                      <HBox fx:id="buttonBox" alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="1022.0" spacing="10.0">
                         <children>
-                           <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="5.0" prefWidth="92.0" text="Save">
+                           <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="92.0" text="Save">
                               <font>
                                  <Font size="18.0" />
                               </font>
@@ -173,7 +173,7 @@
                                  <Font size="18.0" />
                               </font>
                            </Button>
-                           <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
+                           <Button fx:id="themeButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="92.0" text="Theme">
                               <font>
                                  <Font size="18.0" />
                               </font>

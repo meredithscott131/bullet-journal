@@ -1,0 +1,76 @@
+.root {
+    /* -fx-background-image: url("Fonto.png"); */
+    /* -fx-background-size: 120 120; */
+}
+
+.button {
+    -fx-background-color: #000000;
+    -fx-font-size: 16;
+    -fx-font-family: "Impact";
+    -fx-text-fill: #ffffff;
+}
+
+.label {
+    -fx-font-family: "Impact";
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* Setting scroll panes to pink */
+.scroll-pane .viewport {
+    -fx-background-color: #000000;
+}
+
+/* Setting scroll panes to pink */
+.scroll-pane {
+    -fx-background-color: #737373;
+}
+
+
+/* Boxes around each title */
+#mondayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#tuesdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+
+#sundayTitle3 {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#thursdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#fridayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#saturdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#sundayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#taskTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#notesTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}

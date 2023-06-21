@@ -1,15 +1,46 @@
 .root {
-    -fx-background-color: #383838;
+    -fx-background-color: #585858;
 }
 
 .button {
-    -fx-background-color: #585858;
+    -fx-background-color: #777676;
     -fx-font-size: 16;
     -fx-font-family: "Courier New";
     -fx-text-fill: #F8F8F8;
-
 }
+
+
 .label {
-    -fx-text-fill: #F8F8F8;
     -fx-font-family: "Courier New";
+    -fx-text-fill: #F8F8F8;
+}
+
+
+.scroll-pane .viewport {
+    -fx-background-color: #777676;
+}
+
+
+.scroll-pane {
+    -fx-background-color: #777676;
+}
+
+.text-field {
+    -fx-background-color: #777676;
+    -fx-font-weight: bold;
+    -fx-text-fill: #399dda;
+}
+
+#picture4 {
+    -fx-background-image: url("Rock4.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 200 200;
+    -fx-background-position: center center;
+}
+
+#picture3 {
+    -fx-background-image: url("Rock6.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 175 150;
+    -fx-background-position: center center;
 }

@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import cs3500.pa05.view.StyleType;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ public class Calendar {
   private int maxEvent;
   private String quotesNotes;
   private String bujoPath;
+  private StyleType styleType = StyleType.NORMAL;
 
   private OrderType orderType = OrderType.NORMAL;
 
@@ -194,4 +196,13 @@ public class Calendar {
     days.add(new Day(DayWeek.FRIDAY, new ArrayList<>()));
     days.add(new Day(DayWeek.SATURDAY, new ArrayList<>()));
   }
+
+  public StyleType getStyleType() {
+    return styleType;
+  }
+
+  public void setStyleType(StyleType styleType) {
+    this.styleType = styleType;
+  }
+
 }
