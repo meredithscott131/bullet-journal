@@ -10,7 +10,7 @@ public class CompareByInputName implements Comparator<UserCalInput> {
     String str1 = use1.getName();
     String str2 = use2.getName();
 
-    if(str1.compareTo(str2) < 0) {
+    if  (str1.compareTo(str2) < 0) {
       return -1;
     } else if (str1.compareTo(str2) == 0) {
       return 0;

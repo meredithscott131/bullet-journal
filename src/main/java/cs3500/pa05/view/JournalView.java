@@ -24,17 +24,17 @@ public class JournalView implements View {
   }
 
   public String getFXML() {
-    if(startDay.equals(DayWeek.SUNDAY)) {
+    if (startDay.equals(DayWeek.SUNDAY)) {
       return "bulletJournal.fxml";
-    } else if(startDay.equals(DayWeek.MONDAY)) {
+    } else if (startDay.equals(DayWeek.MONDAY)) {
       return "bulletJournalMonday.fxml";
-    } else if(startDay.equals(DayWeek.TUESDAY)) {
+    } else if (startDay.equals(DayWeek.TUESDAY)) {
       return "bulletJournalTuesday.fxml";
-    } else if(startDay.equals(DayWeek.WEDNESDAY)) {
+    } else if (startDay.equals(DayWeek.WEDNESDAY)) {
       return "bulletJournalWednesday.fxml";
-    } else if(startDay.equals(DayWeek.THURSDAY)) {
+    } else if (startDay.equals(DayWeek.THURSDAY)) {
       return "bulletJournalThursday.fxml";
-    } else if(startDay.equals(DayWeek.FRIDAY)) {
+    } else if (startDay.equals(DayWeek.FRIDAY)) {
       return "bulletJournalFriday.fxml";
     } else {
       return "bulletJournalSaturday.fxml";

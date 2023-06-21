@@ -31,7 +31,7 @@ public class Day {
   }
 
   public void listCopy() {
-    for(UserCalInput use: dayInputsObservable) {
+    for (UserCalInput use : dayInputsObservable) {
       dayInputsObservableCopy.add(use);
     }
   }
@@ -54,7 +54,7 @@ public class Day {
 
   public List<String> getObservableInNames() {
     List<String> list = new ArrayList<>();
-    for(UserCalInput use : dayInputsObservable) {
+    for (UserCalInput use : dayInputsObservable) {
       list.add(use.getName());
     }
     return list;
@@ -62,10 +62,10 @@ public class Day {
 
   public List<Integer> getObservableInDuration() {
     List<Integer> list = new ArrayList<>();
-    for(UserCalInput use : dayInputsObservable) {
-      if(use instanceof EventIn) {
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof EventIn) {
         list.add(((EventIn) use).getDuration());
-      } else if(use instanceof Task) {
+      } else if (use instanceof Task) {
         list.add(0);
       }
     }
@@ -74,8 +74,8 @@ public class Day {
 
   public int getNumEventsInDay() {
     int counter = 0;
-    for(UserCalInput use : dayInputsObservable) {
-      if(use instanceof EventIn) {
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof EventIn) {
         counter++;
       }
     }
@@ -84,8 +84,8 @@ public class Day {
 
   public int getNumTaskInDay() {
     int counter = 0;
-    for(UserCalInput use : dayInputsObservable) {
-      if(use instanceof Task) {
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof Task) {
         counter++;
       }
     }

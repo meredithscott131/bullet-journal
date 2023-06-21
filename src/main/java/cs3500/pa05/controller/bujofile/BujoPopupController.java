@@ -42,11 +42,9 @@ public class BujoPopupController implements Controller {
 
   private DayWeek startDayIn;
 
-  //Stage stage;
 
   public BujoPopupController() {
     this.startDayIn = null;
-   // this.stage = stage;
   }
 
 
@@ -56,25 +54,25 @@ public class BujoPopupController implements Controller {
     choiceBox.setOnAction(e -> {
       int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
       setStartDayIn(selectedIndex);
-        });
+    });
 
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 
   public void setStartDayIn(int selected) {
-    if(selected == 0) {
+    if (selected == 0) {
       startDayIn = DayWeek.MONDAY;
-    } else if(selected == 1) {
+    } else if (selected == 1) {
       startDayIn = DayWeek.TUESDAY;
-    } else if(selected == 2) {
+    } else if (selected == 2) {
       startDayIn = DayWeek.WEDNESDAY;
-    } else if(selected == 3) {
+    } else if (selected == 3) {
       startDayIn = DayWeek.THURSDAY;
-    } else if(selected == 4) {
+    } else if (selected == 4) {
       startDayIn = DayWeek.FRIDAY;
-    } else if(selected == 5) {
+    } else if (selected == 5) {
       startDayIn = DayWeek.SATURDAY;
-    } else if(selected == 6) {
+    } else if (selected == 6) {
       startDayIn = DayWeek.SUNDAY;
     } else {
       startDayIn = null;
@@ -108,7 +106,7 @@ public class BujoPopupController implements Controller {
       System.out.println("all inputs aren't null");
 
       System.out.println(maxEventText.getText());
-      System.out.println(isValidNum(maxEventText.getText()) );
+      System.out.println(isValidNum(maxEventText.getText()));
       System.out.println(isValidNum(maxTaskText.getText()));
       System.out.println(maxTaskText.getText());
 
@@ -123,15 +121,15 @@ public class BujoPopupController implements Controller {
   public boolean isNullInput() {
     return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText()))
 
-  && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
+        && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
         || !isValidNum(maxTaskText.getText()) || (startDayIn == null))); //added this
   }
 
 
   public boolean isValidBujo(String str) {
     return !(bujoText.getText() == "")
-    && (isPathValid(str))
-    && (isBujo(str));
+        && (isPathValid(str))
+        && (isBujo(str));
   }
 
   public static boolean isPathValid(String str) {
@@ -139,7 +137,7 @@ public class BujoPopupController implements Controller {
     File file = givenPath.toFile();
     if (!file.exists()) {
       return false;
-    }else {
+    } else {
       return true;
     }
   }

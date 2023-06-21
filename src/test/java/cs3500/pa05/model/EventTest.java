@@ -1,11 +1,11 @@
-package cs3500.pa05.model;
-
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import java.time.LocalTime;
-
-class EventTest {
-
+//package cs3500.pa05.model;
+//
+//import org.junit.jupiter.api.Test;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
+//import java.time.LocalTime;
+//
+//class EventTest {
+//
 //    @Test
 //    void testGetStartTime() {
 //      String expected = "10:00";
@@ -13,7 +13,7 @@ class EventTest {
 //      String actual = event.getStartTime();
 //      assertEquals(expected, actual);
 //    }
-
+//
 //    @Test
 //    void testGetDuration() {
 //      int expectedDur = 60;
@@ -21,7 +21,7 @@ class EventTest {
 //      int actualDur = event.getDuration();
 //      assertEquals(expectedDur, actualDur);
 //    }
-
+//
 //    @Test
 //    void testSetName() {
 //      String expected = "Event1";
@@ -30,7 +30,7 @@ class EventTest {
 //      String actual = event.getName();
 //      assertEquals(expected, actual);
 //    }
-
+//
 //    @Test
 //    void testSetDay() {
 //      DayWeek expectedDay = DayWeek.TUESDAY;
@@ -39,7 +39,7 @@ class EventTest {
 //      DayWeek actualDay = event.getDayWeek();
 //      assertEquals(expectedDay, actualDay);
 //    }
-
+//
 //    @Test
 //    void testSetDescription() {
 //      String expected = "Your mom";
@@ -48,7 +48,7 @@ class EventTest {
 //      String actual = event.getDescription();
 //      assertEquals(expected, actual);
 //    }
-
+//
 //    @Test
 //    void testSetDuration() {
 //      int expected = 60;
@@ -57,8 +57,8 @@ class EventTest {
 //      int actual = event.getDuration();
 //      assertEquals(expected, actual);
 //    }
-
-
+//
+//
 //  @Test
 //  void testSetStartTime() {
 //    String expected = "11:00";
@@ -67,5 +67,5 @@ class EventTest {
 //    String actual = event.getStartTime();
 //    assertEquals(expected, actual);
 //  }
-
-}
+//
+//}

@@ -70,18 +70,18 @@ public class Calendar {
   }
 
   public void setListTask() {
-    for(UserCalInput use : totalUserInputs) {
-      if(use instanceof Task) {
+    for (UserCalInput use : totalUserInputs) {
+      if (use instanceof Task) {
         listTasks.add((Task) use);
       }
     }
   }
 
-  public int getTotalTasksCount(){
+  public int getTotalTasksCount() {
     int counter = 0;
-    for(UserCalInput use : totalUserInputs) {
-      if(use instanceof Task) {
-        if(((Task) use).getComplete()) {
+    for (UserCalInput use : totalUserInputs) {
+      if (use instanceof Task) {
+        if (((Task) use).getComplete()) {
           counter++;
         }
       }
@@ -99,8 +99,8 @@ public class Calendar {
 
   public List<Task> getTotalTasks() {
     List<Task> tasks = new ArrayList<>();
-    for(UserCalInput use : totalUserInputs) {
-      if(use instanceof Task) {
+    for (UserCalInput use : totalUserInputs) {
+      if (use instanceof Task) {
         tasks.add((Task) use);
       }
     }
@@ -109,9 +109,9 @@ public class Calendar {
   }
 
   public void calenderInit() {
-    for(Day d: days) {
+    for (Day d : days) {
       List<UserCalInput> inputs = d.getInputs();
-      for(UserCalInput in : inputs) {
+      for (UserCalInput in : inputs) {
         totalUserInputs.add(in);
       }
     }
@@ -143,8 +143,8 @@ public class Calendar {
   //jderlw
   public Day getOneDay(DayWeek dayWeek) {
     Day finalDay = new Day();
-    for(Day d : days) {
-      if(d.getGetDayWeek().equals(dayWeek)) {
+    for (Day d : days) {
+      if (d.getGetDayWeek().equals(dayWeek)) {
         finalDay = d;
       }
     }

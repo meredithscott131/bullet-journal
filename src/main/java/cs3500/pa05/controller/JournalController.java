@@ -109,7 +109,7 @@ public class JournalController implements Controller {
     for (Day d : days) {
       d.getDayInputsObservable().addListener(
           (ListChangeListener) c -> {
-            if(this.calendar.getOrderType().equals(OrderType.NORMAL)) {
+            if (this.calendar.getOrderType().equals(OrderType.NORMAL)) {
               updateCalendar();
 
               taskBox.getChildren().clear();
@@ -134,12 +134,12 @@ public class JournalController implements Controller {
 
     dropDown.setOnAction(e -> {
       int selectedIndex = dropDown.getSelectionModel().getSelectedIndex();
-      if(selectedIndex == 0) {
+      if (selectedIndex == 0) {
         organizeBasedOnName();
         taskBox.getChildren().clear();
         sortJustTask(OrderType.NAME);
         displayJustTask();
-      } else if(selectedIndex == 1) {
+      } else if (selectedIndex == 1) {
         organizeBasedOnDur();
         taskBox.getChildren().clear();
         sortJustTask(OrderType.DURATION);
@@ -152,9 +152,9 @@ public class JournalController implements Controller {
   }
 
   public void organize() {
-    if(this.calendar.getOrderType() == OrderType.NAME) {
+    if (this.calendar.getOrderType() == OrderType.NAME) {
       organizeBasedOnName();
-    } else if(this.calendar.getOrderType() == OrderType.DURATION) {
+    } else if (this.calendar.getOrderType() == OrderType.DURATION) {
       organizeBasedOnDur();
     }
   }
@@ -162,7 +162,7 @@ public class JournalController implements Controller {
   public void organizeBasedOnName() {
     this.calendar.setOrderType(OrderType.NAME);
 
-    for(Day d : this.calendar.getDays()) {
+    for (Day d : this.calendar.getDays()) {
       d.listClear();
       d.listCopy();
     }
@@ -177,7 +177,7 @@ public class JournalController implements Controller {
   public void organizeBasedOnDur() {
     this.calendar.setOrderType(OrderType.DURATION);
 
-    for(Day d : this.calendar.getDays()) {
+    for (Day d : this.calendar.getDays()) {
       d.listClear();
       d.listCopy();
     }
@@ -215,13 +215,13 @@ public class JournalController implements Controller {
     Comparator<UserCalInput> compareDuration = new CompareByDuration();
     if (orderType.equals(OrderType.NAME)) {
       Collections.sort(tasks, compareName);
-    } else if(orderType.equals(OrderType.DURATION)) {
+    } else if (orderType.equals(OrderType.DURATION)) {
       Collections.sort(tasks, compareDuration);
     }
   }
 
   public void displayJustTask() {
-    for(Task t : this.calendar.getListTasks()) {
+    for (Task t : this.calendar.getListTasks()) {
       taskBox.getChildren().add(createTaskBox(t));
     }
   }
@@ -232,27 +232,27 @@ public class JournalController implements Controller {
     Comparator<UserCalInput> compareDuration = new CompareByDuration();
 
     List<Day> days = this.calendar.getDays();
-    for(Day d : days) {
+    for (Day d : days) {
       List<UserCalInput> userInputs = d.getDayInputsObservable();
       //d.listCopy();
       List<UserCalInput> userInputsCopy = d.getListCopy(); //copy of list
 
       //System.out.println("inital first " + userInputs.get(0).getName());
 
-      for(UserCalInput u : userInputsCopy) { //changed to userInputsCopy
+      for (UserCalInput u : userInputsCopy) { //changed to userInputsCopy
         System.out.println("inital first " + u.getName());
       }
 
-        if (orderType.equals(OrderType.NAME)) {
-          Collections.sort(userInputsCopy, compareName);
+      if (orderType.equals(OrderType.NAME)) {
+        Collections.sort(userInputsCopy, compareName);
 
-          for(UserCalInput u : userInputsCopy) { //changed to userInputsCopy
-            System.out.println("inital name " + u.getName());
-          }
-         // System.out.println("organized name " + userInputs.get(0).getName());
-        } else if(orderType.equals(OrderType.DURATION)) {
-          Collections.sort(userInputsCopy, compareDuration);
+        for (UserCalInput u : userInputsCopy) { //changed to userInputsCopy
+          System.out.println("inital name " + u.getName());
         }
+        // System.out.println("organized name " + userInputs.get(0).getName());
+      } else if (orderType.equals(OrderType.DURATION)) {
+        Collections.sort(userInputsCopy, compareDuration);
+      }
     }
   }
 
@@ -264,15 +264,15 @@ public class JournalController implements Controller {
 
   public void updateCalOrderDisplay() {
     List<Day> days = this.calendar.getDays();
-    for(Day d : days) {
+    for (Day d : days) {
       //List<UserCalInput> inputs = d.getDayInputsObservable();
       List<UserCalInput> inputs = d.getListCopy();
-      for(UserCalInput use: inputs) {
+      for (UserCalInput use : inputs) {
         if (use instanceof EventIn) {
           this.addUserIn(use, this.createEvent((EventIn) use));
         } else if (use instanceof Task) {
           this.addUserIn(use, this.createTask((Task) use));
-         // taskBox.getChildren().add(createTaskBox((Task) use));
+          // taskBox.getChildren().add(createTaskBox((Task) use));
         }
       }
     }
@@ -330,9 +330,9 @@ public class JournalController implements Controller {
   }
 
   public VBox createEvent(EventIn event) {
-    String cssLayout = "-fx-border-color: grey;\n" +
-        "-fx-border-insets: 5;\n" +
-        "-fx-border-width: 1;\n";
+    String cssLayout = "-fx-border-color: grey;\n"
+        + "-fx-border-insets: 5;\n"
+        + "-fx-border-width: 1;\n";
     VBox newEvent = new VBox();
     newEvent.setStyle(cssLayout);
     Label titleLabel = new Label(event.getName());
@@ -357,9 +357,9 @@ public class JournalController implements Controller {
   }
 
   public VBox createTask(Task task) {
-    String cssLayout = "-fx-border-color: grey;\n" +
-        "-fx-border-insets: 5;\n" +
-        "-fx-border-width: 1;\n";
+    String cssLayout = "-fx-border-color: grey;\n"
+        + "-fx-border-insets: 5;\n"
+        + "-fx-border-width: 1;\n";
     VBox newEvent = new VBox();
     newEvent.setStyle(cssLayout);
     Label titleLabel = new Label(task.getName());
@@ -381,9 +381,9 @@ public class JournalController implements Controller {
 
   public VBox createTaskBox(Task task) {
 
-    String cssLayout = "-fx-border-color: grey;\n" +
-        "-fx-border-insets: 5;\n" +
-        "-fx-border-width: 1;\n";
+    String cssLayout = "-fx-border-color: grey;\n"
+        + "-fx-border-insets: 5;\n"
+        + "-fx-border-width: 1;\n";
 
     VBox newEvent = new VBox();
     newEvent.setStyle(cssLayout);
@@ -393,7 +393,7 @@ public class JournalController implements Controller {
     updateProgress(checkBox, task);
 
     checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-      if(newValue) {
+      if (newValue) {
         task.markComplete();
         updateProgress(checkBox, task);
       } else {
@@ -410,7 +410,7 @@ public class JournalController implements Controller {
   public void updateProgress(CheckBox checkBox, Task task) {
     int numCompleted = this.calendar.getTotalTasksCount();
     int maxTasksTotal = this.calendar.getTotalTasks().size();
-    double number = (double)numCompleted / (double) maxTasksTotal;
+    double number = (double) numCompleted / (double) maxTasksTotal;
     progressbar.setProgress(number);
     progressindicator.setProgress(number);
     checkBox.setSelected(task.getComplete());

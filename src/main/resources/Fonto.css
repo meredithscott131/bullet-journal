@@ -1,6 +1,8 @@
 .root {
-    -fx-background-image: url("");
-    -fx-background-size: 120 120
+    -fx-background-image: url("Code.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1300 800;
+    -fx-background-position: center center;
 }
 
 .button {
@@ -72,5 +74,23 @@
 #notesTitle {
     -fx-background-color: black;
     -fx-text-fill: #ffffff;
+}
 
+.text-field {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+}
+
+#picture3 {
+    -fx-background-image: url("Fonto1.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 85 85;
+    -fx-background-position: center center;
+}
+
+#picture4 {
+    -fx-background-image: url("Fonto1.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 85 85;
+    -fx-background-position: center center;
 }

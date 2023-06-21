@@ -24,10 +24,15 @@ public class CalendarAdapter {
         UserCalInput input = modelCalendar.getDays().get(i).getInputs().get(j);
         if (input instanceof EventIn) {
           events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
-              ((EventIn) input).getStartTime(), ((EventIn) input).getDuration(), input.getCategory()));
+              ((EventIn) input).getStartTime(),
+              ((EventIn) input).getDuration(),
+              input.getCategory()));
         } else {
-          tasks.add(new TaskJson(input.getName(), input.getDescription(), input.getDayWeek(),
-              (((Task) input).getComplete()), input.getCategory()));
+          tasks.add(new TaskJson(input.getName(),
+              input.getDescription(),
+              input.getDayWeek(),
+              (((Task) input).getComplete()),
+              input.getCategory()));
         }
 
         if (!modelCalendar.getCategories().contains(input.getCategory().toUpperCase())) {
@@ -38,7 +43,8 @@ public class CalendarAdapter {
           events, tasks);
       days[i] = dayJson;
     }
-    return new CalendarJson(maxTasks, maxEvents, title, days, quotesNotes, startDay.toString(), categories);
+    return new CalendarJson(maxTasks, maxEvents, title, days,
+        quotesNotes, startDay.toString(), categories);
   }
 
   public Calendar convertToCalendar(CalendarJson calendarJson, String bujo) {
@@ -66,7 +72,8 @@ public class CalendarAdapter {
           }
         }
         int duration = event.duration();
-        newEvent = new EventIn(eventTitle, eventDescription, dayWeek, startTime, category, duration);
+        newEvent = new EventIn(eventTitle, eventDescription,
+            dayWeek, startTime, category, duration);
         inputs.add(newEvent);
       }
       for (TaskJson task : calendarJson.days()[i].tasks()) {

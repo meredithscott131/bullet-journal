@@ -46,15 +46,15 @@ public class DayView extends VBox {
   public VBox getDayBox() {
     if (day.getGetDayWeek() == DayWeek.MONDAY) {
       return mondayBox;
-    } else if(day.getGetDayWeek() == DayWeek.TUESDAY) {
+    } else if (day.getGetDayWeek() == DayWeek.TUESDAY) {
       return tuesdayBox;
-    } else if(day.getGetDayWeek() == DayWeek.WEDNESDAY) {
+    } else if (day.getGetDayWeek() == DayWeek.WEDNESDAY) {
       return wednesdayBox;
-    } else if(day.getGetDayWeek() == DayWeek.THURSDAY) {
+    } else if (day.getGetDayWeek() == DayWeek.THURSDAY) {
       return thursdayBox;
-    } else if(day.getGetDayWeek() == DayWeek.FRIDAY) {
+    } else if (day.getGetDayWeek() == DayWeek.FRIDAY) {
       return fridayBox;
-    } else if(day.getGetDayWeek() == DayWeek.SATURDAY) {
+    } else if (day.getGetDayWeek() == DayWeek.SATURDAY) {
       return tuesdayBox;
     } else {
       return sundayBox;

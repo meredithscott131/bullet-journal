@@ -18,7 +18,7 @@ public class TaskSubmitButtonHandler implements EventHandler {
   private final Stage stage;
 
   public TaskSubmitButtonHandler(Calendar calendar, Task task, String nameTask,
-                             String nameDecription, Stage stage) {
+                                 String nameDecription, Stage stage) {
     this.calendar = calendar;
     this.task = task;
     this.nameTask = nameTask;
@@ -28,7 +28,7 @@ public class TaskSubmitButtonHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(isNullEvent()) {
+    if (isNullEvent()) {
       //nothing happens
     } else {
       // Adds event to calendar object

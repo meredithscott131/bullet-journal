@@ -43,7 +43,7 @@ public class TaskPopupController implements Controller {
   private Stage stage;
 
   public TaskPopupController(Calendar calendar) {
-    this.task = new Task(null, null, null, null,false);
+    this.task = new Task(null, null, null, null, false);
     this.calendar = calendar;
   }
 
@@ -75,7 +75,7 @@ public class TaskPopupController implements Controller {
   }
 
   public void makeSubmitButton(Event eventEn) {
-    if(isAtMaxEvent()) {
+    if (isAtMaxEvent()) {
       runWarningPopup(eventEn);
     } else {
       TaskSubmitButtonHandler submit =

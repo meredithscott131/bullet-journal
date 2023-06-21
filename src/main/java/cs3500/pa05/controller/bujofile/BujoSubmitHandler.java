@@ -42,7 +42,7 @@ public class BujoSubmitHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if(!isInvalidBujo()) {
+    if (!isInvalidBujo()) {
       //take the existing bujo
       Path path = Path.of(pathStr);
       runOnExisting(path);
@@ -58,7 +58,7 @@ public class BujoSubmitHandler implements EventHandler {
       String correctPath = "NewBujo/" + newBujoStr + ".bujo";
       Path path = Path.of(correctPath);
 
-      if(calendarTitle.isEmpty()) {
+      if (calendarTitle.isEmpty()) {
         this.calendarTitle = "unnamed";
       }
 
@@ -145,7 +145,7 @@ public class BujoSubmitHandler implements EventHandler {
     File file = givenPath.toFile();
     if (!file.exists()) {
       return false;
-    }else {
+    } else {
       return true;
     }
   }
