@@ -1,7 +1,9 @@
 package cs3500.pa05.controller.bujofile;
 
 import cs3500.pa05.controller.Controller;
+import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
+import cs3500.pa05.model.ScannerBujo;
 import java.io.File;
 import java.nio.file.Path;
 import javafx.event.Event;
@@ -115,10 +117,12 @@ public class BujoPopupController implements Controller {
 
   //are these being grabbed at the right time?
   public boolean isNullInput() {
-    return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText()))
-
-        && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
-        || !isValidNum(maxTaskText.getText()) || (startDayIn == null))); //added this
+    if (!isPathValid(bujoText.getText())) {
+      if (!isValidBujo(bujoText.getText())) {
+        return !isValidCalendar(bujoText.getText());
+      }
+    }
+    return false;
   }
 
 
@@ -126,6 +130,15 @@ public class BujoPopupController implements Controller {
     return !(bujoText.getText() == "")
         && (isPathValid(str))
         && (isBujo(str));
+  }
+
+  public boolean isValidCalendar(String str) {
+    ScannerBujo scannerBujo = new ScannerBujo();
+    Calendar cal = scannerBujo.readFromFile(new File(str));
+    return cal.getName() != null
+        || cal.getDays() != null
+        || cal.getBujoPath() != null
+        || cal.getStartDay() != null;
   }
 
   public static boolean isPathValid(String str) {

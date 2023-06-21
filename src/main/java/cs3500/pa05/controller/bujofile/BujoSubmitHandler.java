@@ -42,7 +42,7 @@ public class BujoSubmitHandler implements EventHandler {
 
   @Override
   public void handle(Event event) {
-    if (!isInvalidBujo()) {
+    if (!isNullInput()) {
       //take the existing bujo
       Path path = Path.of(pathStr);
       runOnExisting(path);
@@ -134,10 +134,34 @@ public class BujoSubmitHandler implements EventHandler {
   }
 
 
-  public boolean isInvalidBujo() {
-    return (pathStr == "")
-        || !(pathStr.toString().endsWith(".bujo"))
-        || (!isPathValid(pathStr));
+  public boolean isNullInput() {
+    if (!isPathValid(newBujoStr)) {
+      if (!isValidBujo(newBujoStr)) {
+        return !isValidCalendar(newBujoStr);
+      }
+    }
+    return false;
+  }
+
+
+  public boolean isValidBujo(String str) {
+    return !(newBujoStr == "")
+        && (isPathValid(str))
+        && (isBujo(str));
+  }
+
+  public boolean isBujo(String str) {
+    Path givenPath = Path.of(str);
+    return givenPath.toString().endsWith(".bujo");
+  }
+
+  public boolean isValidCalendar(String str) {
+    ScannerBujo scannerBujo = new ScannerBujo();
+    Calendar cal = scannerBujo.readFromFile(new File(str));
+    return cal.getName() != null
+        || cal.getDays() != null
+        || cal.getBujoPath() != null
+        || cal.getStartDay() != null;
   }
 
   public static boolean isPathValid(String str) {

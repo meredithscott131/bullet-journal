@@ -19,7 +19,6 @@ public class ParseToFile {
       writer.write(jsonStr);
       writer.close();
     } catch (IOException e) {
-      throw new RuntimeException(e);
     }
   }
 }
