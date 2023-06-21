@@ -114,7 +114,7 @@ public class Day {
 //        counter++;
 //      }
 //    }
-//    return counter;
+//    return counter; yay
 //  }
 
 } //closes day class
