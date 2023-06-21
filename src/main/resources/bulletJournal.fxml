@@ -19,7 +19,7 @@
             <children>
                <VBox fx:id="calBox" prefHeight="667.0" prefWidth="1210.0">
                   <children>
-                     <Label alignment="CENTER" prefHeight="62.0" prefWidth="987.0" text="Title">
+                     <Label fx:id="titleLabel" alignment="CENTER" prefHeight="88.0" prefWidth="1022.0" text="Title">
                         <font>
                            <Font size="48.0" />
                         </font>
@@ -28,7 +28,7 @@
                         <children>
                            <VBox fx:id="sunday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="sundayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Sunday">
+                                 <Label fx:id="sundayTitle" alignment="CENTER" prefHeight="31.0" prefWidth="136.0" text="Sunday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -46,7 +46,7 @@
                            </VBox>
                            <VBox fx:id="monday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="mondayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Monday">
+                                 <Label fx:id="mondayTitle" alignment="CENTER" prefHeight="33.0" prefWidth="136.0" text="Monday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -64,7 +64,7 @@
                            </VBox>
                            <VBox fx:id="tuesday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="tuesdayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Tuesday">
+                                 <Label fx:id="tuesdayTitle" alignment="CENTER" prefHeight="36.0" prefWidth="156.0" text="Tuesday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -82,7 +82,7 @@
                            </VBox>
                            <VBox fx:id="wednesday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="sundayTitle3" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Wednesday">
+                                 <Label fx:id="wednesdayTitle" alignment="CENTER" prefHeight="38.0" prefWidth="136.0" text="Wednesday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -100,7 +100,7 @@
                            </VBox>
                            <VBox fx:id="thursday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="thursdayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Thursday">
+                                 <Label fx:id="thursdayTitle" alignment="CENTER" prefHeight="39.0" prefWidth="136.0" text="Thursday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -118,7 +118,7 @@
                            </VBox>
                            <VBox fx:id="friday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="fridayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Friday">
+                                 <Label fx:id="fridayTitle" alignment="CENTER" prefHeight="41.0" prefWidth="136.0" text="Friday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -136,7 +136,7 @@
                            </VBox>
                            <VBox fx:id="saturday" prefHeight="518.0" prefWidth="147.0">
                               <children>
-                                 <Label fx:id="saturdayTitle" alignment="CENTER" prefHeight="60.0" prefWidth="136.0" text="Saturday">
+                                 <Label fx:id="saturdayTitle" alignment="CENTER" prefHeight="40.0" prefWidth="136.0" text="Saturday">
                                     <font>
                                        <Font size="18.0" />
                                     </font>
@@ -197,7 +197,7 @@
                        </content>
                      </ScrollPane>
                      <ProgressBar prefHeight="31.0" prefWidth="189.0" progress="0.0" />
-                     <Label alignment="CENTER" prefHeight="27.0" prefWidth="205.0" text="Quotes &amp; Notes">
+                     <Label fx:id="notesTitle" alignment="CENTER" prefHeight="27.0" prefWidth="205.0" text="Quotes &amp; Notes">
                         <font>
                            <Font size="18.0" />
                         </font>
@@ -214,5 +214,13 @@
                </VBox>
             </children>
          </HBox>
+         <Label fx:id="picture" layoutX="861.0" layoutY="645.0" prefHeight="73.0" prefWidth="95.0">
+            <font>
+               <Font size="39.0" />
+            </font>
+         </Label>
+         <Label fx:id="picture2" layoutX="555.0" layoutY="648.0" prefHeight="69.0" prefWidth="101.0" />
+         <Label fx:id="picture3" layoutX="7.0" layoutY="16.0" prefHeight="109.0" prefWidth="152.0" />
+         <Label fx:id="picture4" layoutX="918.0" layoutY="16.0" prefHeight="111.0" prefWidth="141.0" />
       </children></AnchorPane>
 </Scene>

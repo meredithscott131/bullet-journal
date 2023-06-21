@@ -1,14 +1,11 @@
 package cs3500.pa05.controller.bujofile;
 
-import cs3500.pa05.controller.event.PopupController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.StyleType;
-import cs3500.pa05.view.gui.PopupView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
 public class ThemeButtonHandler implements EventHandler {
 
@@ -33,19 +30,18 @@ public class ThemeButtonHandler implements EventHandler {
       scene.getStylesheets().remove(0, 1);
     }
 
-      if (calendar.getStyleType() == StyleType.NORMAL) {
+    if (calendar.getStyleType() == StyleType.NORMAL) {
         scene.getStylesheets().add("Pink.css");
         calendar.setStyleType(StyleType.PINK);
       } else if (calendar.getStyleType() == StyleType.PINK) {
         scene.getStylesheets().add("Dark.css");
         calendar.setStyleType(StyleType.DARK);
       } else if (calendar.getStyleType() == StyleType.DARK) {
-        scene.getStylesheets().add("Light.css");
-        calendar.setStyleType(StyleType.LIGHT);
-      } else if (calendar.getStyleType() == StyleType.LIGHT) {
-        scene.getStylesheets().add("Pink.css");
-        calendar.setStyleType(StyleType.PINK);
-        System.out.println(calendar.getStyleType());
+        scene.getStylesheets().add("Music.css");
+        calendar.setStyleType(StyleType.MUSIC);
+      } else if (calendar.getStyleType() == StyleType.MUSIC) {
+        scene.getStylesheets().add("Normal.css");
+        calendar.setStyleType(StyleType.NORMAL);
       }
 
 

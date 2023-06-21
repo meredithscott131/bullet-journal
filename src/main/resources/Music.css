@@ -1,0 +1,17 @@
+.root {
+    -fx-background-image: url("MusicNotes2.jpeg");
+    -fx-background-size: 300 300;
+}
+
+.button {
+    -fx-background-color: #c78c29;
+    -fx-font-size: 16;
+    -fx-font-family: "Apple Chancery";
+    -fx-text-fill: #ffffff;
+}
+
+.label {
+    -fx-font-family: "Apple Chancery";
+    -fx-font-weight: bold;
+    -fx-text-fill: #181818;
+}

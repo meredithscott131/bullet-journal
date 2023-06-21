@@ -86,6 +86,8 @@ public class BujoSubmitHandler implements EventHandler {
 
     try {
       stage.setScene(scene);
+      scene.getStylesheets().add("Normal.css");
+
       stage.show();
       journalCont.run();
 
