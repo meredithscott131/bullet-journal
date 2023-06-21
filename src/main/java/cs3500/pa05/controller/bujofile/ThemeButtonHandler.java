@@ -37,9 +37,9 @@ public class ThemeButtonHandler implements EventHandler {
         scene.getStylesheets().add("Dark.css");
         calendar.setStyleType(StyleType.DARK);
       } else if (calendar.getStyleType() == StyleType.DARK) {
-        scene.getStylesheets().add("Music.css");
-        calendar.setStyleType(StyleType.MUSIC);
-      } else if (calendar.getStyleType() == StyleType.MUSIC) {
+        scene.getStylesheets().add("Fonto.css");
+        calendar.setStyleType(StyleType.FONTO);
+      } else if (calendar.getStyleType() == StyleType.FONTO) {
         scene.getStylesheets().add("Normal.css");
         calendar.setStyleType(StyleType.NORMAL);
       }

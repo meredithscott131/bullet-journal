@@ -4,5 +4,5 @@ package cs3500.pa05.view;
     PINK,
     MYSTERY,
     NORMAL,
-    MUSIC, LIGHT
+    MUSIC, FONTO, LIGHT
   }
