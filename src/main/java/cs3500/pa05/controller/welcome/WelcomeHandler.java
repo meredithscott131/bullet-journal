@@ -27,5 +27,6 @@ public class WelcomeHandler implements EventHandler {
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load bujoPopup GUI.");
     }
+
   }
 }

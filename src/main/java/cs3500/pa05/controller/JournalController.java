@@ -101,7 +101,6 @@ public class JournalController implements Controller {
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
 
-
     updateCalendar();
 
     //when we make changes to the day lists

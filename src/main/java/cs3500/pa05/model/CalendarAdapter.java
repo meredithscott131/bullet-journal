@@ -47,6 +47,9 @@ public class CalendarAdapter {
         quotesNotes, startDay.toString(), categories);
   }
 
+  //try catch here
+  //
+
   public Calendar convertToCalendar(CalendarJson calendarJson, String bujo) {
     int maxEvents = calendarJson.maxEvents();
     int maxTasks = calendarJson.maxTasks();

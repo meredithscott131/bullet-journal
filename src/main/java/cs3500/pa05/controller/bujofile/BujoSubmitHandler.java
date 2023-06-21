@@ -1,11 +1,13 @@
 package cs3500.pa05.controller.bujofile;
 
 import cs3500.pa05.controller.JournalController;
+import cs3500.pa05.controller.PasswordController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.ParseToFile;
 import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.JournalView;
+import cs3500.pa05.view.gui.PasswordPopupView;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -29,14 +31,19 @@ public class BujoSubmitHandler implements EventHandler {
 
   private DayWeek startDay;
 
+  private Calendar cal;
+
+  private String passwordStr;
+
   BujoSubmitHandler(String pathStr, String maxEventStr,  String maxTaskStr,
-                    String newBujoStr, String calendarTitle, DayWeek startDay) {
+                    String newBujoStr, String calendarTitle, DayWeek startDay, String passwordStr) {
     this.pathStr = pathStr;
     this.maxEventStr = maxEventStr;
     this.maxTaskStr = maxTaskStr;
     this.newBujoStr = newBujoStr;
     this.calendarTitle = calendarTitle;
     this.startDay = startDay;
+    this.passwordStr = passwordStr;
     //this.stage = stage;
   }
 
@@ -62,7 +69,7 @@ public class BujoSubmitHandler implements EventHandler {
         this.calendarTitle = "unnamed";
       }
 
-      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay);
+      cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay, passwordStr);
 
       System.out.println(cal.getName().isEmpty());
       runOnNew(path, cal);
@@ -74,7 +81,7 @@ public class BujoSubmitHandler implements EventHandler {
   }
 
   public Calendar initCalendar(int maxEvent, int maxTask, String path,
-                               String name, DayWeek startDay) {
+                               String name, DayWeek startDay, String password) {
     Calendar cal = new Calendar();
     cal.setName(name);
     cal.setMaxTask(maxTask);
@@ -84,11 +91,29 @@ public class BujoSubmitHandler implements EventHandler {
     cal.setBujoPath(path);
     cal.initDaysList(new ArrayList<>());
     cal.setStartDay(startDay);
+    cal.setPassword(password);
     return cal;
   }
 
   //pass in dayweek
   public void runOnExisting(Path path) {
+    PasswordController passwordController = new PasswordController(path);
+    PasswordPopupView paswordView = new PasswordPopupView(passwordController);
+
+    Stage stage = new Stage();
+    Scene scene = paswordView.load();
+
+    try {
+      stage.setScene(scene);
+      scene.getStylesheets().add("Normal.css");
+      stage.show();
+      passwordController.run();
+
+    } catch (IllegalStateException exc) {
+      System.err.println("Unable to load existing GUI.");
+    }
+
+    /*
     ScannerBujo scannerBujo = new ScannerBujo();
     Calendar cal = scannerBujo.readFromFile(path.toFile());
     JournalController journalCont = new JournalController(cal);
@@ -107,6 +132,7 @@ public class BujoSubmitHandler implements EventHandler {
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load existing GUI.");
     }
+    */
   }
 
   public void runOnNew(Path path, Calendar calen) {

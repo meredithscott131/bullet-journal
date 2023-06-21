@@ -26,9 +26,12 @@ public class Calendar {
   private DayWeek startDay;
   private ArrayList<String> categories;
 
+  private String password;
+
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, DayWeek startDay, ArrayList<String> categories,
-                  String bujoPath) {
+                  String bujoPath) { //, String password
+
     this.name = name;
     this.days = days;
     this.maxTask = maxTask;
@@ -38,10 +41,15 @@ public class Calendar {
     this.bujoPath = bujoPath;
     this.startDay = startDay;
     this.categories = categories;
+    this.password = password;
     calenderInit();
   }
 
   public Calendar() {}
+
+  public void setPassword(String pass) {
+    this.password = pass;
+  }
 
   public void setStartDay(DayWeek dayWeek) {
     this.startDay = dayWeek;

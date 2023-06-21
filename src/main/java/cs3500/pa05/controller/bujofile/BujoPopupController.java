@@ -38,6 +38,9 @@ public class BujoPopupController implements Controller {
 
   private DayWeek startDayIn;
 
+  @FXML
+  private TextField setPassword;
+
 
   public BujoPopupController() {
     this.startDayIn = null;
@@ -108,7 +111,7 @@ public class BujoPopupController implements Controller {
 
       BujoSubmitHandler submit = new BujoSubmitHandler(bujoText.getText(), maxEventText.getText(),
           maxTaskText.getText(), newNameText.getText(), calendarTitle.getText(),
-          startDayIn);
+          startDayIn, setPassword.getText());
       submit.handle(eventEn);
     }
   }
@@ -118,9 +121,9 @@ public class BujoPopupController implements Controller {
     return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText()))
 
         && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
-        || !isValidNum(maxTaskText.getText()) || (startDayIn == null))); //added this
+        || !isValidNum(maxTaskText.getText()) || (startDayIn == null)
+        || (setPassword.getText().isEmpty()))); //added this
   }
-
 
   public boolean isValidBujo(String str) {
     return !(bujoText.getText() == "")
