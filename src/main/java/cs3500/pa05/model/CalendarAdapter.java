@@ -23,33 +23,43 @@ public class CalendarAdapter {
       List<TaskJson> tasks = new ArrayList<>();
       for (int j = 0; j < modelCalendar.getDays().get(i).getInputs().size(); j++) {
         UserCalInput input = modelCalendar.getDays().get(i).getInputs().get(j);
-        if (input instanceof EventIn) {
-          events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
-              ((EventIn) input).getStartTime(),
-              ((EventIn) input).getDuration(),
-              input.getCategory()));
-        } else {
-          tasks.add(new TaskJson(input.getName(),
-              input.getDescription(),
-              input.getDayWeek(),
-              (((Task) input).getComplete()),
-              input.getCategory()));
-        }
+        addUserInputJson(input, events, tasks);
+        checkCategory(input, modelCalendar, categories);
 
-        if (input.getCategory() != null && !modelCalendar.getCategories().contains(input.getCategory().toUpperCase())) {
-          categories.add(input.getCategory().toUpperCase());
-        }
       }
+
       DayJson dayJson = new DayJson(modelCalendar.getDays().get(i).getGetDayWeek(),
           events, tasks);
       days[i] = dayJson;
     }
+
     return new CalendarJson(maxTasks, maxEvents, title, days,
         quotesNotes, startDay.toString(), categories, password);
   }
 
-  //try catch here
-  //
+  private void addUserInputJson(UserCalInput input, List<EventJson> events, List<TaskJson> tasks) {
+    if (input instanceof EventIn) {
+      events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
+          ((EventIn) input).getStartTime(),
+          ((EventIn) input).getDuration(),
+          input.getCategory()));
+    } else {
+      tasks.add(new TaskJson(input.getName(),
+          input.getDescription(),
+          input.getDayWeek(),
+          (((Task) input).getComplete()),
+          input.getCategory()));
+    }
+  }
+
+  private void checkCategory(UserCalInput input, Calendar modelCalendar,
+                            ArrayList<String> categories) {
+    if (input.getCategory() != null && !modelCalendar.getCategories()
+        .contains(input.getCategory().toUpperCase())) {
+      categories.add(input.getCategory().toUpperCase());
+    }
+  }
+
 
   public Calendar convertToCalendar(CalendarJson calendarJson, String bujo) {
     int maxEvents = calendarJson.maxEvents();
@@ -65,39 +75,72 @@ public class CalendarAdapter {
       Day day;
       DayWeek dayWeek = calendarJson.days()[i].day();
       ArrayList<UserCalInput> inputs = new ArrayList<>();
-      for (EventJson event : calendarJson.days()[i].events()) {
-        EventIn newEvent;
-        String eventTitle = event.name();
-        String eventDescription = event.description();
-        String startTime = event.startTime();
-        String category = event.category();
-        if (category != null) {
-          if (!calendarJson.categories().contains(event.category().toUpperCase())) {
-            categories.add(event.category().toUpperCase());
-          }
-        }
-        int duration = event.duration();
-        newEvent = new EventIn(eventTitle, eventDescription,
-            dayWeek, startTime, category, duration);
-        inputs.add(newEvent);
-      }
-      for (TaskJson task : calendarJson.days()[i].tasks()) {
-        Task newTask;
-        String eventTitle = task.name();
-        String eventDescription = task.description();
-        String eventCategory = task.category();
-        if (eventCategory != null) {
-          if (!calendarJson.categories().contains(task.category().toUpperCase())) {
-            categories.add(task.category().toUpperCase());
-          }
-        }
-        boolean complete = task.complete();
-        newTask = new Task(eventTitle, eventDescription, dayWeek, eventCategory, complete);
-        inputs.add(newTask);
-      }
+
+      everyEventJson(calendarJson, i, dayWeek, inputs, categories);
+
+      everyTaskJson(calendarJson, i, dayWeek, inputs, categories);
+
       day = new Day(dayWeek, inputs);
       days.add(day);
     }
-    return new Calendar(title, days, maxTasks, maxEvents, quotesNotes, startDay, categories, bujo, password);
+    return new Calendar(title, days, maxTasks, maxEvents,
+        quotesNotes, startDay, categories, bujo, password);
+  }
+
+  private void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
+                               String eventCategory, ArrayList<String> categories) {
+    if (eventCategory != null) {
+      if (!calendarJson.categories().contains(task.category().toUpperCase())) {
+        categories.add(task.category().toUpperCase());
+      }
+    }
+  }
+
+  public void nullCategoryCalEvent(CalendarJson calendarJson, EventJson event,
+                                   String category, ArrayList<String> categories) {
+    if (category != null) {
+      if (!calendarJson.categories().contains(event.category().toUpperCase())) {
+        categories.add(event.category().toUpperCase());
+      }
+    }
+  }
+
+  public void everyEventJson(CalendarJson calendarJson, int i,
+                             DayWeek dayWeek, ArrayList<UserCalInput> inputs,
+                             ArrayList<String> categories) {
+
+    for (EventJson event : calendarJson.days()[i].events()) {
+      EventIn newEvent;
+      String eventTitle = event.name();
+      String eventDescription = event.description();
+      String startTime = event.startTime();
+      String category = event.category();
+
+      nullCategoryCalEvent(calendarJson, event, category, categories);
+
+      int duration = event.duration();
+      newEvent = new EventIn(eventTitle, eventDescription,
+          dayWeek, startTime, category, duration);
+      inputs.add(newEvent);
+    }
+  }
+
+  public void everyTaskJson(CalendarJson calendarJson, int i,
+                             DayWeek dayWeek, ArrayList<UserCalInput> inputs,
+                             ArrayList<String> categories) {
+
+    for (TaskJson task : calendarJson.days()[i].tasks()) {
+      Task newTask;
+      String eventTitle = task.name();
+      String eventDescription = task.description();
+      String eventCategory = task.category();
+
+      nullCategoryCalTask( calendarJson, task, eventCategory, categories);
+
+      boolean complete = task.complete();
+      newTask = new Task(eventTitle, eventDescription, dayWeek, eventCategory, complete);
+      inputs.add(newTask);
+    }
   }
 }
+

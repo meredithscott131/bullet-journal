@@ -15,11 +15,30 @@
   }, {
     "day" : "MONDAY",
     "events" : [ ],
-    "tasks" : [ ]
+    "tasks" : [ {
+      "name" : "q",
+      "description" : "q",
+      "day" : "MONDAY",
+      "complete" : true,
+      "category" : null
+    } ]
   }, {
     "day" : "TUESDAY",
-    "events" : [ ],
-    "tasks" : [ ]
+    "events" : [ {
+      "name" : "Hi",
+      "description" : "boo",
+      "day" : "TUESDAY",
+      "start time" : "12:30",
+      "duration" : 34,
+      "category" : null
+    } ],
+    "tasks" : [ {
+      "name" : "eat dinner",
+      "description" : "",
+      "day" : "TUESDAY",
+      "complete" : false,
+      "category" : "family"
+    } ]
   }, {
     "day" : "WEDNESDAY",
     "events" : [ ],

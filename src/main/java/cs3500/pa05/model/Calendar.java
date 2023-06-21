@@ -8,6 +8,7 @@ import java.util.List;
  * Calendar class represents a calendar
  */
 public class Calendar {
+
   private String name;
 
   private List<Day> days;
@@ -15,17 +16,23 @@ public class Calendar {
   private List<UserCalInput> totalUserInputs;
 
   private int maxTask;
+
   private int maxEvent;
+
   private String quotesNotes;
+
   private String bujoPath;
+
   private StyleType styleType = StyleType.NORMAL;
 
   private OrderType orderType = OrderType.NORMAL;
 
-  private List<Task> listTasks = new ArrayList<>();
+  private final List<Task> listTasks = new ArrayList<>();
 
   private DayWeek startDay;
+
   private ArrayList<String> categories;
+
   private String password;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
@@ -45,7 +52,9 @@ public class Calendar {
     calenderInit();
   }
 
-  public Calendar() {}
+  public Calendar() {
+
+  }
 
   public void setPassword(String pass) {
     this.password = pass;
@@ -112,7 +121,6 @@ public class Calendar {
         tasks.add((Task) use);
       }
     }
-
     return tasks;
   }
 
@@ -125,9 +133,6 @@ public class Calendar {
     }
   }
 
-  /**
-   * setName method sets the current name
-   */
   public void setName(String name) {
     this.name = name;
   }
@@ -148,7 +153,6 @@ public class Calendar {
     this.bujoPath = str;
   }
 
-  //jderlw
   public Day getOneDay(DayWeek dayWeek) {
     Day finalDay = new Day();
     for (Day d : days) {
@@ -159,9 +163,6 @@ public class Calendar {
     return finalDay;
   }
 
-  /**
-   * getDays method gets the current days
-   */
   public List<Day> getDays() {
     return this.days;
   }
