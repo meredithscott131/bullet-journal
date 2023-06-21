@@ -50,7 +50,7 @@ public class PasswordController implements Controller {
   }
 
   public void pressEnter(Event e) {
-    if(isPasswordCorrect()) {
+    if (isPasswordCorrect()) {
       PasswordHandler handler = new PasswordHandler(path);
       handler.handle(e);
 

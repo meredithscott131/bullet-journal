@@ -8,25 +8,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 public class PasswordPopupView implements View {
-    private FXMLLoader loader;
+  private FXMLLoader loader;
 
-    public PasswordPopupView(PasswordController controller) {
-      this.loader = new FXMLLoader();
-      this.loader.setLocation(getClass().getClassLoader().getResource("enterPassword.fxml"));
-      this.loader.setController(controller);
-    }
+  public PasswordPopupView(PasswordController controller) {
+    this.loader = new FXMLLoader();
+    this.loader.setLocation(getClass().getClassLoader().getResource("enterPassword.fxml"));
+    this.loader.setController(controller);
+  }
 
-    /**
-     * Loads a scene from a journal GUI layout.
-     *
-     * @return the layout
-     */
-    @Override
-    public Scene load() throws IllegalStateException {
-      try {
-        return this.loader.load();
-      } catch (IOException exc) {
-        throw new IllegalStateException("Unable to load popup.");
-      }
+  /**
+   * Loads a scene from a journal GUI layout.
+   *
+   * @return the layout
+   */
+  @Override
+  public Scene load() throws IllegalStateException {
+    try {
+      return this.loader.load();
+    } catch (IOException exc) {
+      throw new IllegalStateException("Unable to load popup.");
     }
+  }
 }

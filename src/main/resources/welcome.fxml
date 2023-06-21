@@ -3,36 +3,31 @@
 <?import javafx.scene.Scene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane prefHeight="433.0" prefWidth="362.0">
       <children>
-         <ImageView fitHeight="440.0" fitWidth="376.0" layoutX="-6.0" layoutY="-1.0">
-            <image>
-               <Image url="@../Desktop/b026f6f8d365c6beee27bffbbf6a9722.jpg" />
-            </image>
-         </ImageView>
-         <Label alignment="TOP_CENTER" layoutX="50.0" layoutY="82.0" prefHeight="53.0" prefWidth="271.0" text="Welcome!">
+         <VBox fx:id="welcomeBox" layoutX="-2.0" layoutY="-3.0" prefHeight="439.0" prefWidth="367.0" />
+         <Label alignment="TOP_CENTER" layoutX="52.0" layoutY="14.0" prefHeight="54.0" prefWidth="257.0" text="Welcome!">
             <font>
                <Font name="Monospaced Regular" size="45.0" />
             </font>
          </Label>
-         <Label layoutX="25.0" layoutY="195.0" prefHeight="17.0" prefWidth="314.0" text="We hope you enjoy using our calendar...">
+         <Label layoutX="18.0" layoutY="80.0" prefHeight="17.0" prefWidth="324.0" text="We hope you enjoy using our calendar...">
             <font>
-               <Font name="Monospaced Bold" size="12.0" />
+               <Font name="Monospaced Bold" size="13.0" />
             </font>
          </Label>
-         <Label layoutX="25.0" layoutY="220.0" prefHeight="15.0" prefWidth="186.0" text="- Lal, Aspen, and Meredith ">
+         <Label layoutX="18.0" layoutY="106.0" prefHeight="15.0" prefWidth="186.0" text="- Lal, Aspen, and Meredith ">
             <font>
-               <Font name="Monospaced Bold" size="10.0" />
+               <Font name="Monospaced Bold" size="11.0" />
             </font>
          </Label>
-         <Button fx:id="startButton" layoutX="125.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="113.0" style="-fx-background-color: #e7ebde;" text="Start" />
-         <Line endX="170.0" layoutX="150.0" layoutY="136.0" startX="-107.5" />
+         <Button fx:id="startButton" layoutX="145.0" layoutY="401.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #9F99BD;" text="Start" />
+         <Line endX="170.0" layoutX="149.0" layoutY="68.0" startX="-107.5" />
       </children></AnchorPane>
 </Scene>

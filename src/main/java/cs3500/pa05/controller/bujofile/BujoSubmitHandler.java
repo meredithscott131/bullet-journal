@@ -73,7 +73,9 @@ public class BujoSubmitHandler implements EventHandler {
         this.calendarTitle = "unnamed";
       }
 
-      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay, passwordStr);
+      Calendar cal = initCalendar(maxEvent, maxTask,
+          correctPath, calendarTitle,
+          startDay, passwordStr);
 
       ParseToFile parse = new ParseToFile();
       parse.writeToFile(path, cal);

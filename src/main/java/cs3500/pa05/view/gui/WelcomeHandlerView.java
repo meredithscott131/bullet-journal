@@ -16,7 +16,6 @@ public class WelcomeHandlerView implements View {
   }
 
   /**
-
    Loads a scene from a journal GUI layout.*
    @return the layout*/
   @Override
