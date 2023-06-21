@@ -8,8 +8,9 @@
       "name" : "Dinner",
       "description" : "eating",
       "day" : "SUNDAY",
-      "start time" : "6:30",
-      "duration" : 60
+      "start time" : null,
+      "duration" : 60,
+      "category" : "6:30"
     } ],
     "tasks" : [ ]
   }, {
@@ -19,7 +20,8 @@
       "name" : "Hello",
       "description" : "",
       "day" : "MONDAY",
-      "complete" : false
+      "complete" : false,
+      "category" : null
     } ]
   }, {
     "day" : "TUESDAY",
@@ -27,14 +29,21 @@
       "name" : "Greetings",
       "description" : "Hello",
       "day" : "TUESDAY",
-      "start time" : "2:00",
-      "duration" : 20
+      "start time" : null,
+      "duration" : 20,
+      "category" : "2:00"
     } ],
     "tasks" : [ ]
   }, {
     "day" : "WEDNESDAY",
     "events" : [ ],
-    "tasks" : [ ]
+    "tasks" : [ {
+      "name" : "hi",
+      "description" : "",
+      "day" : "WEDNESDAY",
+      "complete" : false,
+      "category" : null
+    } ]
   }, {
     "day" : "THURSDAY",
     "events" : [ ],
@@ -42,7 +51,8 @@
       "name" : "Live, laugh, love OOD",
       "description" : "go to OOD",
       "day" : "THURSDAY",
-      "complete" : false
+      "complete" : false,
+      "category" : null
     } ]
   }, {
     "day" : "FRIDAY",
@@ -55,9 +65,12 @@
       "name" : "Saturday",
       "description" : "",
       "day" : "SATURDAY",
-      "complete" : false
+      "complete" : false,
+      "category" : null
     } ]
   } ],
   "quotes & notes" : "New Note! Hello.",
-  "start day" : "MONDAY"
+  "start day" : "MONDAY",
+  "categories" : [ "6:30", "2:00" ],
+  "password" : "password"
 }

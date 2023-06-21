@@ -11,4 +11,5 @@ public record CalendarJson(
     @JsonProperty("days") DayJson[] days,
     @JsonProperty("quotes & notes") String quotesNotes,
     @JsonProperty("start day") String startDay,
-    @JsonProperty("categories") ArrayList<String> categories) {}
+    @JsonProperty("categories") ArrayList<String> categories,
+    @JsonProperty("password") String password) {}

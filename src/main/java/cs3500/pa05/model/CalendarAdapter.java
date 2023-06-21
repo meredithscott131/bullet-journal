@@ -16,6 +16,7 @@ public class CalendarAdapter {
     String quotesNotes = modelCalendar.getQuotesNotes();
     DayJson[] days = new DayJson[7];
     ArrayList<String> categories = new ArrayList<>();
+    String password = modelCalendar.getPassword();
 
     for (int i = 0; i < days.length; i++) {
       List<EventJson> events = new ArrayList<>();
@@ -35,7 +36,7 @@ public class CalendarAdapter {
               input.getCategory()));
         }
 
-        if (!modelCalendar.getCategories().contains(input.getCategory().toUpperCase())) {
+        if (input.getCategory() != null && !modelCalendar.getCategories().contains(input.getCategory().toUpperCase())) {
           categories.add(input.getCategory().toUpperCase());
         }
       }
@@ -44,7 +45,7 @@ public class CalendarAdapter {
       days[i] = dayJson;
     }
     return new CalendarJson(maxTasks, maxEvents, title, days,
-        quotesNotes, startDay.toString(), categories);
+        quotesNotes, startDay.toString(), categories, password);
   }
 
   //try catch here
@@ -58,6 +59,7 @@ public class CalendarAdapter {
     String quotesNotes = calendarJson.quotesNotes();
     List<Day> days = new ArrayList<>();
     ArrayList<String> categories = new ArrayList<>();
+    String password = calendarJson.password();
 
     for (int i = 0; i < calendarJson.days().length; i++) {
       Day day;
@@ -96,6 +98,6 @@ public class CalendarAdapter {
       day = new Day(dayWeek, inputs);
       days.add(day);
     }
-    return new Calendar(title, days, maxTasks, maxEvents, quotesNotes, startDay, categories, bujo);
+    return new Calendar(title, days, maxTasks, maxEvents, quotesNotes, startDay, categories, bujo, password);
   }
 }

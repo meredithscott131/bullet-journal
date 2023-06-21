@@ -25,12 +25,11 @@ public class Calendar {
 
   private DayWeek startDay;
   private ArrayList<String> categories;
-
   private String password;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, DayWeek startDay, ArrayList<String> categories,
-                  String bujoPath) { //, String password
+                  String bujoPath, String password) {
 
     this.name = name;
     this.days = days;
@@ -211,6 +210,10 @@ public class Calendar {
 
   public void setStyleType(StyleType styleType) {
     this.styleType = styleType;
+  }
+
+  public String getPassword() {
+    return password;
   }
 
 }
