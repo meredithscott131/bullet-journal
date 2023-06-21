@@ -11,7 +11,7 @@ public class WelcomeHandlerView implements View {
 
   public WelcomeHandlerView(WelcomeController controller) {
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("welcome.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource("welcomeTwo.fxml"));
     this.loader.setController(controller);
   }
 
