@@ -1,7 +1,7 @@
 package cs3500.pa05.model;
 
 /**
- * Task class contains a new creation of an task
+ * Task class contains a new creation of a task
  */
 public class Task extends UserCalInput {
   private boolean complete;
@@ -11,8 +11,6 @@ public class Task extends UserCalInput {
     super(name, description, day, category);
     this.complete = complete;
   }
-
-
 
   /**
    * changeStage method changes a task to be incomplete(false) or complete(true)
