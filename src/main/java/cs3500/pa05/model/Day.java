@@ -10,11 +10,9 @@ import javafx.collections.ObservableList;
  * Day class represents a single day on the calendar
  */
 public class Day {
-
-  //Fields
   private DayWeek day;
-  private List<UserCalInput> dayInputs = new ArrayList<>();
   private ObservableList<UserCalInput> dayInputsObservable;
+  private List<UserCalInput> dayInputs = new ArrayList<>();
   private List<UserCalInput> dayInputsObservableCopy = new ArrayList<>();
 
   /**
@@ -59,16 +57,16 @@ public class Day {
     dayInputsObservableCopy = new ArrayList<>();
   }
 
+  public ObservableList<UserCalInput> getDayInputsObservable() {
+    return dayInputsObservable;
+  }
+
   public List<UserCalInput> getListCopy() {
     return dayInputsObservableCopy;
   }
 
   public List<UserCalInput> getDayInputs() {
     return dayInputs;
-  }
-
-  public ObservableList<UserCalInput> getDayInputsObservable() {
-    return dayInputsObservable;
   }
 
   public DayWeek getGetDayWeek() {

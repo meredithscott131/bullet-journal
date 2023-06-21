@@ -12,9 +12,6 @@ public class Task extends UserCalInput {
     this.complete = complete;
   }
 
-  /**
-   * changeStage method changes a task to be incomplete(false) or complete(true)
-   */
   public void markComplete() {
     this.complete = true;
   }
