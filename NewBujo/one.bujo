@@ -1,0 +1,46 @@
+{
+  "max tasks" : 2,
+  "max events" : 2,
+  "title" : "Hello",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Helo",
+      "description" : "e",
+      "day" : "SUNDAY",
+      "complete" : false
+    }, {
+      "name" : "A",
+      "description" : "A",
+      "day" : "SUNDAY",
+      "complete" : false
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "WEDNESDAY"
+}
