@@ -1,4 +1,4 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.title;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.gui.TitlePopupView;
@@ -12,7 +12,7 @@ public class TitleEventHandler implements EventHandler {
   private Calendar calendar;
   private Label titleLabel;
 
-  TitleEventHandler(Calendar calendar, Label titleLabel) {
+  public TitleEventHandler(Calendar calendar, Label titleLabel) {
     this.calendar = calendar;
     this.titleLabel = titleLabel;
   }

@@ -2,6 +2,7 @@ package cs3500.pa05.controller;
 
 import cs3500.pa05.controller.Task.TaskButtonsEventHandler;
 import cs3500.pa05.controller.event.ButtonsEventHandler;
+import cs3500.pa05.controller.title.TitleEventHandler;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.CompareByDuration;
 import cs3500.pa05.model.CompareByInputName;
@@ -16,7 +17,6 @@ import java.util.Comparator;
 import java.util.List;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;

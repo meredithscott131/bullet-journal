@@ -1,4 +1,4 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.welcome;
 
 import cs3500.pa05.controller.bujofile.BujoPopupController;
 import cs3500.pa05.view.gui.BujoPopupView;

@@ -1,4 +1,4 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.title;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.gui.TitlePopupView;
