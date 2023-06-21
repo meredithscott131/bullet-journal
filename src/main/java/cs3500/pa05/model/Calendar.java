@@ -3,8 +3,6 @@ package cs3500.pa05.model;
 import cs3500.pa05.view.StyleType;
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  * Calendar class represents a calendar
