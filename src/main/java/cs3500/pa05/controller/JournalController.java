@@ -333,7 +333,7 @@ public class JournalController implements Controller {
     Label titleLabel = new Label(event.getName());
     Label descriptionLabel = new Label(event.getDescription());
     Label startTimeLabel = new Label(event.getStartTime());
-    Label durationLabel = new Label(String.valueOf(event.getDuration() + " minutes"));
+    Label durationLabel = new Label(event.getDuration() + " minutes");
 
     Label categoryLabel;
     if (event.getCategory() != null) {
@@ -383,7 +383,7 @@ public class JournalController implements Controller {
     VBox newEvent = new VBox();
     newEvent.setStyle(cssLayout);
 
-    CheckBox checkBox = new CheckBox(task.getName() + "\n" + task.getDescription());
+    CheckBox checkBox = new CheckBox(task.getName());
 
     updateProgress(checkBox, task);
 
