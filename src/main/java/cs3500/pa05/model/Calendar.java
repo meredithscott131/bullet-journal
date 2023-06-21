@@ -22,9 +22,11 @@ public class Calendar {
   private List<Task> listTasks = new ArrayList<>();
 
   private DayWeek startDay;
+  private ArrayList<String> categories;
 
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
-                  String quotesNotes, DayWeek startDay, String bujoPath) {
+                  String quotesNotes, DayWeek startDay, ArrayList<String> categories,
+                  String bujoPath) {
     this.name = name;
     this.days = days;
     this.maxTask = maxTask;
@@ -33,6 +35,7 @@ public class Calendar {
     this.quotesNotes = quotesNotes;
     this.bujoPath = bujoPath;
     this.startDay = startDay;
+    this.categories = categories;
     calenderInit();
   }
 
@@ -47,7 +50,17 @@ public class Calendar {
   }
 
   public List<UserCalInput> getTotalUserInputs() {
-    return totalUserInputs;
+    return this.totalUserInputs;
+  }
+
+  public ArrayList<String> getCategories() {
+    return this.categories;
+  }
+
+  public void addCategory(String category) {
+    if (!this.categories.contains(category.toUpperCase())) {
+      this.categories.add(category.toUpperCase());
+    }
   }
 
   public List<Task> getListTasks() {

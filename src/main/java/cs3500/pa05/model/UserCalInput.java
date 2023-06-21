@@ -7,11 +7,13 @@ public abstract class UserCalInput {
   private String name;
   private String description;
   private DayWeek day;
+  private String category;
 
-  public UserCalInput(String name, String description, DayWeek day) {
+  public UserCalInput(String name, String description, DayWeek day, String category) {
     this.name = name;
     this.description = description;
     this.day = day;
+    this.category = category;
   }
 
   public String getName() {
@@ -24,6 +26,14 @@ public abstract class UserCalInput {
 
   public DayWeek getDayWeek() {
     return day;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   public void setName(String str) {

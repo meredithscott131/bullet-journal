@@ -7,9 +7,9 @@ public class EventIn extends UserCalInput {
   private String startTime;
   private int duration;
 
-  public EventIn(String name, String description, DayWeek day,
+  public EventIn(String name, String description, DayWeek day, String category,
                  String startTime, int duration) {
-    super(name, description, day);
+    super(name, description, day, category);
     this.startTime = startTime;
     this.duration = duration;
   }

@@ -43,7 +43,7 @@ public class TaskPopupController implements Controller {
   private Stage stage;
 
   public TaskPopupController(Calendar calendar) {
-    this.task = new Task(null, null, null, false);
+    this.task = new Task(null, null, null, null,false);
     this.calendar = calendar;
   }
 
@@ -108,5 +108,4 @@ public class TaskPopupController implements Controller {
     int maxTask = this.calendar.getMaxTask();
     return numOfInputsCurr == maxTask;
   }
-
 }

@@ -8,5 +8,6 @@ public record EventJson (
     @JsonProperty("description") String description,
     @JsonProperty("day") DayWeek day,
     @JsonProperty("start time") String startTime,
-    @JsonProperty("duration") int duration) {
+    @JsonProperty("duration") int duration,
+    @JsonProperty("category") String category) {
 }

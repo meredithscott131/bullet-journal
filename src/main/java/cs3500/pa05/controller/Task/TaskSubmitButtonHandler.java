@@ -46,7 +46,14 @@ public class TaskSubmitButtonHandler implements EventHandler {
   }
 
   public void setUserNameInput() {
-    task.setName(nameTask);
+    if (nameTask.startsWith("#")) {
+      String[] titleArr = nameTask.split(" ", 2);
+      this.task.setCategory(titleArr[0].substring(1));
+      this.calendar.addCategory(titleArr[0].substring(1));
+      this.task.setName(titleArr[1]);
+    } else {
+      this.task.setName(nameTask);
+    }
   }
 
   public void setUserDescriptionInput() {

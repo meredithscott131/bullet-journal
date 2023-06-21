@@ -6,9 +6,9 @@ package cs3500.pa05.model;
 public class Task extends UserCalInput {
   private boolean complete;
 
-  public Task(String name, String description, DayWeek day,
+  public Task(String name, String description, DayWeek day, String category,
               boolean complete) {
-    super(name, description, day);
+    super(name, description, day, category);
     this.complete = complete;
   }
 

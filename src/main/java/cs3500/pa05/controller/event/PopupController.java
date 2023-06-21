@@ -52,7 +52,7 @@ public class PopupController implements Controller {
   private Stage stage;
 
   public PopupController(Calendar calendar) {
-    this.eventIn = new EventIn(null, null, null, null, 0);
+    this.eventIn = new EventIn(null, null, null, null, null, 0);
     this.calendar = calendar;
     this.popupOn = false;
   }
