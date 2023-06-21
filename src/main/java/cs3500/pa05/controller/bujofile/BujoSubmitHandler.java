@@ -31,7 +31,7 @@ public class BujoSubmitHandler implements EventHandler {
 
   private DayWeek startDay;
 
-  private Calendar cal;
+  //private Calendar cal;
 
   private String passwordStr;
 
@@ -52,7 +52,11 @@ public class BujoSubmitHandler implements EventHandler {
     if (!isInvalidBujo()) {
       //take the existing bujo
       Path path = Path.of(pathStr);
-      runOnExisting(path);
+
+      ScannerBujo scannerBujo = new ScannerBujo();
+      Calendar cal = scannerBujo.readFromFile(path.toFile());
+
+      runOnExisting(path, cal);
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window
@@ -69,10 +73,17 @@ public class BujoSubmitHandler implements EventHandler {
         this.calendarTitle = "unnamed";
       }
 
-      cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay, passwordStr);
+      Calendar cal = initCalendar(maxEvent, maxTask, correctPath, calendarTitle, startDay, passwordStr);
 
-      System.out.println(cal.getName().isEmpty());
-      runOnNew(path, cal);
+      ParseToFile parse = new ParseToFile();
+      parse.writeToFile(path, cal);
+
+      ScannerBujo scannerBujo = new ScannerBujo();
+      Calendar calen = scannerBujo.readFromFile(path.toFile());
+
+      System.out.println(calen.getName().isEmpty());
+
+      runOnNew(path, calen);
 
       Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
       window.close(); // closes popup window
@@ -96,8 +107,9 @@ public class BujoSubmitHandler implements EventHandler {
   }
 
   //pass in dayweek
-  public void runOnExisting(Path path) {
-    PasswordController passwordController = new PasswordController(path);
+  public void runOnExisting(Path path, Calendar cal) {
+
+    PasswordController passwordController = new PasswordController(path, cal);
     PasswordPopupView paswordView = new PasswordPopupView(passwordController);
 
     Stage stage = new Stage();
@@ -136,14 +148,15 @@ public class BujoSubmitHandler implements EventHandler {
   }
 
   public void runOnNew(Path path, Calendar calen) {
-
+/*
     ParseToFile parse = new ParseToFile();
     parse.writeToFile(path, calen);
 
     ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(path.toFile());
+    cal = scannerBujo.readFromFile(path.toFile());
+    */
 
-    JournalController journalCont = new JournalController(cal);
+    JournalController journalCont = new JournalController(calen);
     JournalView journalView = new JournalView(journalCont, startDay);
     Stage stage = new Stage();
     Scene scene = journalView.load();

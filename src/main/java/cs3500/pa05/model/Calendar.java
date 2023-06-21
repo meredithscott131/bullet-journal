@@ -11,8 +11,11 @@ import javafx.collections.ObservableList;
  */
 public class Calendar {
   private String name;
+
   private List<Day> days;
+
   private List<UserCalInput> totalUserInputs;
+
   private int maxTask;
   private int maxEvent;
   private String quotesNotes;

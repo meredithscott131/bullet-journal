@@ -1,0 +1,44 @@
+{
+  "max tasks" : 1,
+  "max events" : 1,
+  "title" : "booo",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "ojdf",
+      "description" : "wef",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "SUNDAY",
+  "categories" : [ ],
+  "password" : "iloveyou"
+}
