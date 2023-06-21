@@ -4,9 +4,13 @@ package cs3500.pa05.model;
  * UserCalInput class information for an event or task
  */
 public abstract class UserCalInput {
+
   private String name;
+
   private String description;
+
   private DayWeek day;
+
   private String category;
 
   public UserCalInput(String name, String description, DayWeek day, String category) {

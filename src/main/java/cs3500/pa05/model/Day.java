@@ -10,9 +10,13 @@ import javafx.collections.ObservableList;
  * Day class represents a single day on the calendar
  */
 public class Day {
+
   private DayWeek day;
+
   private ObservableList<UserCalInput> dayInputsObservable;
+
   private List<UserCalInput> dayInputs = new ArrayList<>();
+
   private List<UserCalInput> dayInputsObservableCopy = new ArrayList<>();
 
   /**

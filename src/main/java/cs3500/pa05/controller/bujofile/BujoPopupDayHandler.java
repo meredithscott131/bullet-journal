@@ -1,8 +1,6 @@
 package cs3500.pa05.controller.bujofile;
 
-import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
-import cs3500.pa05.model.EventIn;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
