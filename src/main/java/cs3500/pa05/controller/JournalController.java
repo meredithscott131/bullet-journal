@@ -87,6 +87,7 @@ public class JournalController implements Controller {
   @Override
   public void run() {
 
+
     initOrder();
 
     ButtonsEventHandler butt = new ButtonsEventHandler(this.calendar);
@@ -340,12 +341,28 @@ public class JournalController implements Controller {
     Label startTimeLabel = new Label(event.getStartTime());
     Label durationLabel = new Label(event.getDuration() + " minutes");
 
+    titleLabel.setWrapText(true);
+    titleLabel.setMaxWidth(220);
+
+    descriptionLabel.setWrapText(true);
+    descriptionLabel.setMaxWidth(220);
+
+    startTimeLabel.setWrapText(true);
+    startTimeLabel.setMaxWidth(220);
+
+    durationLabel.setWrapText(true);
+    durationLabel.setMaxWidth(220);
+
+
     Label categoryLabel;
     if (event.getCategory() != null) {
       categoryLabel = new Label(event.getCategory().toUpperCase());
     } else {
       categoryLabel = new Label();
     }
+
+    categoryLabel.setWrapText(true);
+    categoryLabel.setMaxWidth(220);
 
     newEvent.getChildren().add(titleLabel);
     newEvent.getChildren().add(descriptionLabel);
@@ -365,12 +382,23 @@ public class JournalController implements Controller {
     Label titleLabel = new Label(task.getName());
     Label descriptionLabel = new Label(task.getDescription());
 
+
+    titleLabel.setWrapText(true);
+    titleLabel.setMaxWidth(220);
+
+    descriptionLabel.setWrapText(true);
+    descriptionLabel.setMaxWidth(220);
+
     Label categoryLabel;
+
     if (task.getCategory() != null) {
       categoryLabel = new Label(task.getCategory().toUpperCase());
     } else {
       categoryLabel = new Label();
     }
+
+    categoryLabel.setWrapText(true);
+    categoryLabel.setMaxWidth(220);
 
     newEvent.getChildren().add(titleLabel);
     newEvent.getChildren().add(descriptionLabel);

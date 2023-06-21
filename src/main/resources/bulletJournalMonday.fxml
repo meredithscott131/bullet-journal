@@ -217,7 +217,7 @@
                                  <ProgressIndicator fx:id="progressindicator" prefHeight="39.0" prefWidth="32.0" progress="0.0" />
                               </children>
                            </HBox>
-                           <Label alignment="CENTER" prefHeight="27.0" prefWidth="205.0" text="Quotes &amp; Notes">
+                           <Label fx:id="QN" alignment="CENTER" prefHeight="27.0" prefWidth="205.0" text="Quotes &amp; Notes">
                               <font>
                                  <Font size="18.0" />
                               </font>

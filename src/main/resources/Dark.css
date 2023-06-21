@@ -11,7 +11,7 @@
 
 .label {
     -fx-font-family: "Courier New";
-    -fx-text-fill: #F8F8F8;
+    -fx-text-fill: #000000;
 }
 
 
@@ -47,3 +47,14 @@
 #ODB {
     -fx-font-size: 11;
 }
+
+
+#dropDown {
+    -fx-background-color: #777676;
+}
+
+
+.choice-box .label {
+    -fx-text-fill: black;
+}
+
