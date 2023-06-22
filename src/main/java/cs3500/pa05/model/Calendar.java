@@ -35,6 +35,8 @@ public class Calendar {
 
   private String password;
 
+  private boolean isTemp;
+
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, DayWeek startDay, ArrayList<String> categories,
                   String bujoPath, String password) {
@@ -54,6 +56,14 @@ public class Calendar {
 
   public Calendar() {
 
+  }
+
+  public boolean getIsTemp() {
+    return isTemp;
+  }
+
+  public boolean setIsTemp() {
+    return isTemp;
   }
 
   public void setPassword(String pass) {
