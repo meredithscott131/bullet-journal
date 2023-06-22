@@ -172,7 +172,7 @@ class CalendarAdapterTest {
     List<TaskJson> taskJson = new ArrayList<>();
     sayArray[0] = new DayJson(DayWeek.SUNDAY, eventJson, taskJson);
 
-    CalendarJson calJson = new CalendarJson(2,2,"title",
+    CalendarJson calJson = new CalendarJson(2, 2, "title",
         sayArray, "quote", DayWeek.MONDAY.toString(), new ArrayList<>(), "pas");
 
     EventJson event = new EventJson("j", "e", DayWeek.SUNDAY,

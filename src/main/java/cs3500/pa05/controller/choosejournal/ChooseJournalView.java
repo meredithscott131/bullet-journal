@@ -13,6 +13,12 @@ import javafx.scene.Scene;
 public class ChooseJournalView implements View {
   private FXMLLoader loader;
 
+
+  /**
+   * ChooseJournalView constructor
+   *
+   * @param controller is the controller
+   */
   public ChooseJournalView(ChooseJournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("journalChoice.fxml"));

@@ -13,12 +13,21 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * TempJournalHandler class is the handler
+ */
 public class TempJournalHandler implements EventHandler {
 
   private final String pathStr;
 
   private final String nameStr;
 
+  /**
+   * TempJournalHandler constructors
+   *
+   * @param nameStr name param
+   * @param pathStr path param
+   */
   public TempJournalHandler(String pathStr, String nameStr) {
     this.pathStr = pathStr;
     this.nameStr = nameStr;

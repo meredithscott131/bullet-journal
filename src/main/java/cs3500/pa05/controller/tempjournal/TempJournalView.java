@@ -6,9 +6,15 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * TempJournalView class is the temp
+ */
 public class TempJournalView implements View {
   private FXMLLoader loader;
 
+  /**
+   * TempJournalView constructor
+   */
   public TempJournalView(TempJournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("templateBujo.fxml"));

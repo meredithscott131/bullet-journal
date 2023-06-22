@@ -372,18 +372,28 @@ public class Calendar {
     }
   }
 
+  /**
+   * getIsTemp gets the temp
+   */
   public boolean getIsTemp() {
     return isTemp;
   }
 
+  /**
+   * setIsTemp sets the temp
+   */
   public void setIsTemp() {
     isTemp = true;
   }
 
+
+  /**
+   * setNormalList sets a normal list
+   */
   public void setNormalList() {
-    for(Day d: days) {
+    for (Day d : days) {
       List<UserCalInput> listObservable = d.getDayInputsObservable();
-      for(UserCalInput use : listObservable) {
+      for (UserCalInput use : listObservable) {
         d.getInputs().clear();
         d.getInputs().add(use);
       }

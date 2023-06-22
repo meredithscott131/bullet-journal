@@ -40,7 +40,7 @@ public class PasswordHandler implements EventHandler {
    */
   @Override
   public void handle(Event event) {
-    if(cal.getIsTemp()) {
+    if (cal.getIsTemp()) {
       initCalendar(cal);
     }
 
@@ -64,7 +64,7 @@ public class PasswordHandler implements EventHandler {
 
   private void initCalendar(Calendar cal) {
     List<Day> days = cal.getDays();
-    for(Day d : days) {
+    for (Day d : days) {
       d.setDayInputs(new ArrayList<>());
       d.setObservable(new ArrayList<>());
     }

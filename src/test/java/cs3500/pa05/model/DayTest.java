@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.collections.ObservableList;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -97,8 +96,10 @@ class DayTest {
   @Test
   public void testGetNumEventsInDay() {
     ArrayList input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
-    UserCalInput currInput2 = new EventIn("Name", "Description", DayWeek.MONDAY, "category", "10:00", 30);
+    UserCalInput currInput = new Task("Name", "Description",
+        DayWeek.MONDAY, "category", false);
+    UserCalInput currInput2 = new EventIn("Name", "Description",
+        DayWeek.MONDAY, "category", "10:00", 30);
     input.add(currInput);
     input.add(currInput2);
 
@@ -115,7 +116,8 @@ class DayTest {
   public void testGetNumTaskInDay() {
     ArrayList input = new ArrayList<>();
     UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
-    UserCalInput currInput2 = new EventIn("Name", "Description", DayWeek.MONDAY, "category", "10:00", 30);
+    UserCalInput currInput2 = new EventIn("Name", "Description",
+        DayWeek.MONDAY, "category", "10:00", 30);
     input.add(currInput);
     input.add(currInput2);
 
