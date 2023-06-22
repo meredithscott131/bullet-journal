@@ -4,6 +4,7 @@ import cs3500.pa05.controller.Controller;
 import cs3500.pa05.model.DayWeek;
 import java.io.File;
 import java.nio.file.Path;
+import java.util.Objects;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -11,6 +12,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Representation of the controller for the bujo popup.
+ */
 public class BujoPopupController implements Controller {
 
   @FXML
@@ -42,22 +46,34 @@ public class BujoPopupController implements Controller {
   private TextField setPassword;
 
 
+  /**
+   * Instantiates a new bujo popup controller.
+   */
   public BujoPopupController() {
     this.startDayIn = null;
   }
 
 
+  /**
+   * Runs the bujo popup controller.
+   */
   @Override
   public void run() {
     initChoiceBox();
+    // TODO move this
     choiceBox.setOnAction(e -> {
       int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
       setStartDayIn(selectedIndex);
     });
-
-    submitButton.setOnAction(e -> makeSubmitButton(e));
+    submitButton.setOnAction(this::makeSubmitButton);
   }
 
+  /**
+   * Given a selected integer, sets the
+   * starting day for the calendar view.
+   *
+   * @param selected the selected start day
+   */
   public void setStartDayIn(int selected) {
     if (selected == 0) {
       startDayIn = DayWeek.MONDAY;
@@ -78,6 +94,9 @@ public class BujoPopupController implements Controller {
     }
   }
 
+  /**
+   * Initializes the choice box for the bujo popup
+   */
   public void initChoiceBox() {
     choiceBox.getItems().add(DayWeek.MONDAY);
     choiceBox.getItems().add(DayWeek.TUESDAY);
@@ -88,27 +107,13 @@ public class BujoPopupController implements Controller {
     choiceBox.getItems().add(DayWeek.SUNDAY);
   }
 
+  /**
+   * Creates the submit button on the bujo popup
+   *
+   * @param eventEn the event
+   */
   public void makeSubmitButton(Event eventEn) {
-    if (this.isNullInput()) {
-      System.out.println("all inputs are null");
-      // do nothing
-
-      System.out.println(!isValidBujo(bujoText.getText()));
-      System.out.println(!isPathValid(bujoText.getText()));
-
-      System.out.println(newNameText.getText().isEmpty());
-      System.out.println(!isValidNum(maxEventText.getText()));
-      System.out.println(!isValidNum(maxTaskText.getText()));
-      System.out.println((submitButton == null));
-
-    } else {
-      System.out.println("all inputs aren't null");
-
-      System.out.println(maxEventText.getText());
-      System.out.println(isValidNum(maxEventText.getText()));
-      System.out.println(isValidNum(maxTaskText.getText()));
-      System.out.println(maxTaskText.getText());
-
+    if (!this.isNullInput()) {
       BujoSubmitHandler submit = new BujoSubmitHandler(bujoText.getText(), maxEventText.getText(),
           maxTaskText.getText(), newNameText.getText(), calendarTitle.getText(),
           startDayIn, setPassword.getText());
@@ -116,37 +121,62 @@ public class BujoPopupController implements Controller {
     }
   }
 
-  //are these being grabbed at the right time?
+  /**
+   * Determines whether the popup input is null.
+   *
+   * @return whether the input is null
+   */
   public boolean isNullInput() {
-    return ((!isValidBujo(bujoText.getText()) || !isPathValid(bujoText.getText()))
-
-        && (newNameText.getText().isEmpty() || !isValidNum(maxEventText.getText())
-        || !isValidNum(maxTaskText.getText()) || (startDayIn == null)
-        || (setPassword.getText().isEmpty()))); //added this
+    return ((!isValidBujo(bujoText.getText())
+        || !isPathValid(bujoText.getText()))
+        && (newNameText.getText().isEmpty()
+        || !isValidNum(maxEventText.getText())
+        || !isValidNum(maxTaskText.getText())
+        || (startDayIn == null)
+        || (setPassword.getText().isEmpty())));
   }
 
+  /**
+   * Determines whether the given bujo file is valid
+   *
+   * @param str the link to the bujo file
+   * @return whether the file is valid
+   */
   public boolean isValidBujo(String str) {
-    return !(bujoText.getText() == "")
+    return !(Objects.equals(bujoText.getText(), ""))
         && (isPathValid(str))
         && (isBujo(str));
   }
 
+  /**
+   * Determines whether the given file path is valid.
+   *
+   * @param str the file path
+   * @return whether the path is valid
+   */
   public static boolean isPathValid(String str) {
     Path givenPath = Path.of(str);
     File file = givenPath.toFile();
-    if (!file.exists()) {
-      return false;
-    } else {
-      return true;
-    }
+    return file.exists();
   }
 
+  /**
+   * Is bujo boolean.
+   *
+   * @param str the str
+   * @return the boolean
+   */
   public boolean isBujo(String str) {
     Path givenPath = Path.of(str);
     return givenPath.toString().endsWith(".bujo");
   }
 
-  //check this
+  /**
+   * Determines whether the given string is an integer
+   *
+   * @param strNum the user input
+   * @return whether the input is valid
+   */
   public boolean isValidNum(String strNum) {
     if (strNum.isEmpty()) {
       return false;
