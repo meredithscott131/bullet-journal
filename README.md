@@ -42,6 +42,7 @@ what we feel was necessary for the best organization.
 ## Dependency Inversion Principle
 Our “UserCalInput” is an example of how a high-level module should not depend on a low-level module.
 Both classes, “EventIn” and “Task” depend on the abstraction class and not each other.
+
 # Extensions
 We could have extended our calendar to have a vertical layout. To do this, the user could be prompted
 to select vertical or horizontal in the beginning popup. We would have to make an additional GUI in
