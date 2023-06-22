@@ -1,0 +1,121 @@
+{
+  "max tasks" : 3,
+  "max events" : 2,
+  "title" : "One Week",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ {
+      "name" : "Donate food",
+      "description" : "",
+      "day" : "SUNDAY",
+      "start time" : "17:00",
+      "duration" : 20,
+      "category" : null
+    } ],
+    "tasks" : [ {
+      "name" : "Eat Food",
+      "description" : "go to eat sushi",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : null
+    }, {
+      "name" : "Call mom",
+      "description" : "",
+      "day" : "SUNDAY",
+      "complete" : true,
+      "category" : null
+    }, {
+      "name" : "Attend party",
+      "description" : "",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : "FUN"
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Listen to lecture",
+      "description" : "",
+      "day" : "TUESDAY",
+      "complete" : true,
+      "category" : null
+    } ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ {
+      "name" : "Attend work meeting",
+      "description" : "go to work meeting",
+      "day" : "WEDNESDAY",
+      "start time" : "12:30",
+      "duration" : 2,
+      "category" : "IMPORTANT"
+    }, {
+      "name" : "Do homework",
+      "description" : "compelte hw",
+      "day" : "WEDNESDAY",
+      "start time" : "18:00",
+      "duration" : 80,
+      "category" : null
+    } ],
+    "tasks" : [ {
+      "name" : "Buy textbooks",
+      "description" : "",
+      "day" : "WEDNESDAY",
+      "complete" : false,
+      "category" : "ACADEMIC"
+    } ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Get dinner with dad",
+      "description" : "",
+      "day" : "THURSDAY",
+      "complete" : false,
+      "category" : "FAMILY"
+    } ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Buy bananas",
+      "description" : "get bananas from grocery store",
+      "day" : "FRIDAY",
+      "complete" : false,
+      "category" : "TODO"
+    } ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ {
+      "name" : "Eat dinner",
+      "description" : "go to dinner at good cafe",
+      "day" : "SATURDAY",
+      "start time" : "18:00",
+      "duration" : 2,
+      "category" : null
+    }, {
+      "name" : "sleep",
+      "description" : "",
+      "day" : "SATURDAY",
+      "start time" : "17:00",
+      "duration" : 28,
+      "category" : "REST"
+    } ],
+    "tasks" : [ {
+      "name" : "Play playstation",
+      "description" : "play some games",
+      "day" : "SATURDAY",
+      "complete" : false,
+      "category" : "FUN"
+    } ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "SATURDAY",
+  "categories" : [ ],
+  "password" : "password"
+}
