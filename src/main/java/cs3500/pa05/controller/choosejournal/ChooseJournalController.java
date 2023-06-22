@@ -36,7 +36,7 @@ public class ChooseJournalController implements Controller {
       runTemplate(e);
 
       Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
-      window.close(); // closes popup window
+      window.close(); // closes popup window.
     });
 
     regularJournal.setOnAction(e -> {
