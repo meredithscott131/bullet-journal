@@ -20,19 +20,15 @@ public class PasswordHandler implements EventHandler {
   private String nameStr;
   private Calendar cal;
 
-  PasswordHandler(Path path, String nameStr, Calendar cal) {
-    this.path = path;
-    this.nameStr = nameStr;
-    this.cal = cal;
-  }
-
   /**
    * Instantiates a new password handler.
    *
    * @param path the path
    */
-  PasswordHandler(Path path) {
+  PasswordHandler(Path path, String nameStr, Calendar cal) {
     this.path = path;
+    this.nameStr = nameStr;
+    this.cal = cal;
   }
 
   /**
@@ -43,10 +39,7 @@ public class PasswordHandler implements EventHandler {
     if(cal.getIsTemp()) {
       initCalendar(cal);
     }
-
     JournalController journalCont = new JournalController(cal);
-
-    //based on dayweek load a certain journaliew (change fxml)
     JournalView journalView = new JournalView(journalCont, cal.getStartDay());
     Stage stage = new Stage();
     Scene scene = journalView.load();
@@ -62,6 +55,11 @@ public class PasswordHandler implements EventHandler {
     }
   }
 
+  /**
+   * Initialized calendar
+   *
+   * @param cal the calendar
+   */
   private void initCalendar(Calendar cal) {
     List<Day> days = cal.getDays();
     for(Day d : days) {

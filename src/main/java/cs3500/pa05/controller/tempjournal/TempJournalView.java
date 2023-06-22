@@ -6,9 +6,17 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents the template journal View.
+ */
 public class TempJournalView implements View {
   private FXMLLoader loader;
 
+  /**
+   * Instantiates a new template journal view.
+   *
+   * @param controller controller
+   */
   public TempJournalView(TempJournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("templateBujo.fxml"));

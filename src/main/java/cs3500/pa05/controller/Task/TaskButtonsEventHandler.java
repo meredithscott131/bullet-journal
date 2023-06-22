@@ -32,7 +32,6 @@ public class TaskButtonsEventHandler implements EventHandler {
     TaskPopupController popupController = new TaskPopupController(this.calendar);
     TaskPopupView popupView = new TaskPopupView(popupController);
     stage.setScene(popupView.load());
-    //call run while the tab is open
     stage.show();
     popupController.run();
   }

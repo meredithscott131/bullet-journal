@@ -10,6 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+/**
+ * Represents the template journal controller.
+ */
 public class TempJournalController implements Controller {
 
   @FXML
@@ -21,9 +24,15 @@ public class TempJournalController implements Controller {
   @FXML
   private Button submitButton;
 
+  /**
+   * Instantiates a new template journal controller.
+   */
   public TempJournalController() {
   }
 
+  /**
+   * Runs the template journal controller
+   */
   @Override
   public void run() {
     submitButton.setOnAction(e -> {
@@ -31,9 +40,10 @@ public class TempJournalController implements Controller {
     });
   }
 
+  /**
+   * Runs the template journal controller handler
+   */
   public void runTemp(Event e) {
-
-    BujoPopupController bujoCont = new BujoPopupController();
 
     if(isValidBujo(bujoPath.getText()) && !(bujoName == null)) {
       TempJournalHandler regular = new TempJournalHandler(bujoPath.getText(), bujoName.getText());

@@ -13,26 +13,36 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Represents the template journal Handler.
+ */
 public class TempJournalHandler implements EventHandler {
 
   private final String pathStr;
 
   private final String nameStr;
 
+  /**
+   * Instantiates a new template journal event handler.
+   *
+   * @param pathStr path of calendar
+   * @param nameStr name of the calendar
+   */
   public TempJournalHandler(String pathStr, String nameStr) {
     this.pathStr = pathStr;
     this.nameStr = nameStr;
   }
 
+  /**
+   * Handles the event.
+   *
+   * @param event action event
+   */
   @Override
   public void handle(Event event) {
     Path path = Path.of(pathStr);
     ScannerBujo scannerBujo = new ScannerBujo();
     Calendar cal = scannerBujo.readFromFile(path.toFile()); //normal read from file
-
-    //is this where the issue is
-
-    //init calender
     cal.setIsTemp();
     runOnExisting(path, cal, nameStr);
 
