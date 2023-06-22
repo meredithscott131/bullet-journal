@@ -28,7 +28,7 @@ progress you have made on the progress bar. In the bottom right of the calendar 
 quotes! Overall, we hope you enjoy this calendar!
 
 # Screenshots
-[![Splash Screen](src/main/resources/welcomeScreenshot.png)]
+[![Splash Screen](src/main/resources/welcomeScreen.png)]
 [![File Selection](src/main/resources/filePopup.png)]
 [![Week View](src/main/resources/weekView.png)]
 [![Popup View](src/main/resources/popupView.png)]
