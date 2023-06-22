@@ -35,8 +35,8 @@ public class WelcomeController implements Controller {
    */
   @Override
   public void run() {
-    BackgroundImage image= new BackgroundImage(new Image("photoSky.png",
-        400,450,false,true),
+    BackgroundImage image = new BackgroundImage(new Image("photoSky.png",
+        400, 450, false, true),
         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
         BackgroundSize.DEFAULT);
     welcomeBox.setBackground(new Background(image));

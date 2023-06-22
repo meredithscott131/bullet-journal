@@ -24,7 +24,7 @@ class UserCalInputTest {
    */
   @Test
   public void testGetDayWeek() {
-    UserCalInput currInput = new Task("Task", "Description", DayWeek.MONDAY,"category", false);
+    UserCalInput currInput = new Task("Task", "Description", DayWeek.MONDAY, "category", false);
     DayWeek expected = DayWeek.MONDAY;
     assertEquals(currInput.getDayWeek(), expected);
   }

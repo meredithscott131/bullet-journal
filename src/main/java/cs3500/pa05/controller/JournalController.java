@@ -8,9 +8,9 @@ import cs3500.pa05.model.Day;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.OrderType;
+import cs3500.pa05.model.Sorting;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
-import cs3500.pa05.model.Sorting;
 import java.util.List;
 import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
@@ -322,20 +322,20 @@ public class JournalController implements Controller {
     VBox newEvent = new VBox();
     assignStyle(newEvent);
 
-    Label titleLabel = new Label(event.getName());
-    Label descriptionLabel = new Label(event.getDescription());
-    Label startTimeLabel = new Label(event.getStartTime());
-    Label durationLabel = new Label(event.getDuration() + " minutes");
 
+    Label titleLabel = new Label(event.getName());
     titleLabel.setWrapText(true);
     titleLabel.setMaxWidth(220);
 
+    Label descriptionLabel = new Label(event.getDescription());
     descriptionLabel.setWrapText(true);
     descriptionLabel.setMaxWidth(220);
 
+    Label startTimeLabel = new Label(event.getStartTime());
     startTimeLabel.setWrapText(true);
     startTimeLabel.setMaxWidth(220);
 
+    Label durationLabel = new Label(event.getDuration() + " minutes");
     durationLabel.setWrapText(true);
     durationLabel.setMaxWidth(220);
 

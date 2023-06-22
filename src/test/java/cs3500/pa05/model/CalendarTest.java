@@ -1,12 +1,12 @@
 package cs3500.pa05.model;
 
-import java.util.Arrays;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * CalendarTest class is the test class for Calendar

@@ -1,6 +1,6 @@
 package cs3500.pa05.model;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +20,8 @@ class DayTest {
     Day currDay = new Day();
 
     List input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
 
     input.add(currInput);
     input.add(currInput2);
@@ -36,8 +36,8 @@ class DayTest {
   @Test
   public void testGetListCopy() {
     ArrayList input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
 
     input.add(currInput);
     input.add(currInput2);
@@ -54,8 +54,8 @@ class DayTest {
   @Test
   public void testGetDayInputsObservable() {
     ArrayList input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
 
     input.add(currInput);
     input.add(currInput2);
@@ -73,8 +73,10 @@ class DayTest {
     ArrayList input = new ArrayList<>();
 
     Day currDay2 = new Day(DayWeek.MONDAY);
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY,
+        "category", false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY,
+        "category" ,false);
 
     input.add(currInput);
     input.add(currInput2);
@@ -95,8 +97,8 @@ class DayTest {
   @Test
   public void testGetNumEventsInDay() {
     ArrayList input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category",false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category" ,false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category" ,false);
     input.add(currInput);
     input.add(currInput2);
 

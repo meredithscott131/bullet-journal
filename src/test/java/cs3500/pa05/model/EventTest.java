@@ -1,8 +1,9 @@
 package cs3500.pa05.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * EventTest class is the test class for EventTest

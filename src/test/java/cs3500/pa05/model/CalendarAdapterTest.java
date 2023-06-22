@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -21,7 +20,7 @@ import org.junit.jupiter.api.Test;
 class CalendarAdapterTest {
   private Calendar calendar;
   private PrintWriter writer;
-  private Path p = Paths.get("src/test/java/cs3500/pa05/model/boujee.bujo");
+  private Path path1 = Paths.get("src/test/java/cs3500/pa05/model/boujee.bujo");
   private String expected = """
           {
             "max tasks" : 4,
@@ -76,7 +75,7 @@ class CalendarAdapterTest {
   public void innit() {
     // reset bujo file
     try {
-      writer = new PrintWriter(p.toString());
+      writer = new PrintWriter(path1.toString());
     } catch (FileNotFoundException e) {
       throw new RuntimeException(e);
     }
@@ -86,14 +85,14 @@ class CalendarAdapterTest {
     // creating sample calendar
     ArrayList<UserCalInput>
         inputsSunday = new ArrayList<>(Arrays.asList(new EventIn("Dinner", "eating",
-        DayWeek.SUNDAY, "catagory","6:30", 60)));
+        DayWeek.SUNDAY, "catagory", "6:30", 60)));
     Day sunday = new Day(DayWeek.SUNDAY, inputsSunday);
     Day monday = new Day(DayWeek.MONDAY, new ArrayList<>());
     Day tuesday = new Day(DayWeek.TUESDAY, new ArrayList<>());
     Day wednesday = new Day(DayWeek.WEDNESDAY, new ArrayList<>());
     ArrayList<UserCalInput>
         inputsThursday = new ArrayList<>(Arrays.asList(new Task("Dinner", "eating",
-        DayWeek.THURSDAY, "catagory",false)));
+        DayWeek.THURSDAY, "catagory", false)));
     Day thursday = new Day(DayWeek.THURSDAY, inputsThursday);
     Day friday = new Day(DayWeek.FRIDAY, new ArrayList<>());
     Day saturday = new Day(DayWeek.SATURDAY, new ArrayList<>());
@@ -113,10 +112,10 @@ class CalendarAdapterTest {
   @Test
   public void testScannerBujo() {
     ParseToFile parser = new ParseToFile();
-    parser.writeToFile(p, this.calendar);
+    parser.writeToFile(path1, this.calendar);
 
     ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(p.toFile());
+    Calendar cal = scannerBujo.readFromFile(path1.toFile());
 
     assertEquals(4, cal.getMaxEvent());
     assertEquals(4, cal.getMaxEvent());
