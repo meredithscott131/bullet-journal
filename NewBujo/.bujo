@@ -1,7 +1,7 @@
 {
-  "max tasks" : 12,
-  "max events" : 12,
-  "title" : "",
+  "max tasks" : 4,
+  "max events" : 4,
+  "title" : "ne",
   "days" : [ {
     "day" : "SUNDAY",
     "events" : [ ],
@@ -9,7 +9,13 @@
   }, {
     "day" : "MONDAY",
     "events" : [ ],
-    "tasks" : [ ]
+    "tasks" : [ {
+      "name" : "eeeeeeeee",
+      "description" : "rt",
+      "day" : "MONDAY",
+      "complete" : false,
+      "category" : null
+    } ]
   }, {
     "day" : "TUESDAY",
     "events" : [ ],
@@ -31,5 +37,8 @@
     "events" : [ ],
     "tasks" : [ ]
   } ],
-  "quotes & notes" : ""
+  "quotes & notes" : "",
+  "start day" : "MONDAY",
+  "categories" : [ ],
+  "password" : "password"
 }

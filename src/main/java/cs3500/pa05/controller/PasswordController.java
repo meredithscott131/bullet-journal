@@ -22,6 +22,7 @@ public class PasswordController implements Controller {
   @FXML
   private VBox vbox;
   private final Path path;
+  private String nameStr;
 
   /**
    * Instantiates a new password controller.
@@ -29,9 +30,10 @@ public class PasswordController implements Controller {
    * @param path     the path
    * @param calendar the calendar
    */
-  public PasswordController(Path path, Calendar calendar) {
+  public PasswordController(Path path, Calendar calendar, String nameStr) {
     this.path = path;
     this.calendar = calendar;
+    this.nameStr = nameStr;
   }
 
   /**
@@ -66,7 +68,7 @@ public class PasswordController implements Controller {
    */
   public void pressEnter(Event e) {
     if (isPasswordCorrect()) {
-      PasswordHandler handler = new PasswordHandler(path);
+      PasswordHandler handler = new PasswordHandler(path, nameStr, this.calendar);
       handler.handle(e);
 
       Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();

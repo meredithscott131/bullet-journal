@@ -129,4 +129,12 @@ public class Day {
     }
     return counter;
   }
+
+  public void setObservable(ArrayList<UserCalInput> list) {
+    dayInputsObservable = FXCollections.observableList(list);
+  }
+
+  public void setDayInputs(ArrayList<UserCalInput> list) {
+    dayInputs = list;
+  }
 }

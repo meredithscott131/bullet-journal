@@ -21,6 +21,11 @@ public class ParseToFile {
    */
   public void writeToFile(Path path, Calendar calendar) {
     CalendarAdapter adapter = new CalendarAdapter();
+
+    if(calendar.getIsTemp()) {
+      calendar.setNormalList();
+    }
+
     CalendarJson calendarJson = adapter.convertToJson(calendar);
     try {
       String jsonStr = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(calendarJson);

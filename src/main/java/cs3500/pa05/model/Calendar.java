@@ -21,6 +21,7 @@ public class Calendar {
   private DayWeek startDay;
   private ArrayList<String> categories;
   private String password;
+  private boolean isTemp;
 
   /**
    * Instantiates a new Calendar.
@@ -367,6 +368,24 @@ public class Calendar {
     for (UserCalInput use : totalUserInputs) {
       if (use instanceof Task) {
         listTasks.add((Task) use);
+      }
+    }
+  }
+
+  public boolean getIsTemp() {
+    return isTemp;
+  }
+
+  public void setIsTemp() {
+    isTemp = true;
+  }
+
+  public void setNormalList() {
+    for(Day d: days) {
+      List<UserCalInput> listObservable = d.getDayInputsObservable();
+      for(UserCalInput use : listObservable) {
+        d.getInputs().clear();
+        d.getInputs().add(use);
       }
     }
   }
