@@ -3,6 +3,8 @@ package cs3500.pa05.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import cs3500.pa05.json.CalendarJson;
+import cs3500.pa05.json.EventJson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -136,4 +138,28 @@ class CalendarAdapterTest {
     assertThrows(IllegalArgumentException.class,
         () -> scannerBujo.readFromFile(falseFile));
   }
+
+  @Test
+  public void testNullCategoryCalEvent() {
+    CalendarAdapter adapter = new CalendarAdapter();
+    CalendarJson calendarJson = adapter.convertToJson(this.calendar);
+    ArrayList<String> categories = new ArrayList<>();
+    EventJson event = new EventJson("hi", null, DayWeek.THURSDAY, "6:00", 60, "Family");
+
+    adapter.nullCategoryCalEvent(calendarJson, event, "Family", categories);
+    assertEquals(1, categories.size());
+  }
+
+  @Test
+  public void testNullCategoryCalEvent2() {
+    CalendarAdapter adapter = new CalendarAdapter();
+    CalendarJson calendarJson = adapter.convertToJson(this.calendar);
+    ArrayList<String> categories = new ArrayList<>();
+    EventJson event = new EventJson("hi", null, DayWeek.THURSDAY, "6:00", 60, "Family");
+
+    adapter.nullCategoryCalEvent(calendarJson, event, null, categories);
+    assertEquals(0, categories.size());
+  }
+
+
 }

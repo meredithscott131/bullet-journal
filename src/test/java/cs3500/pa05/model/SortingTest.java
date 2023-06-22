@@ -46,6 +46,9 @@ class SortingTest {
 
     currSort.updateOrder(OrderType.DURATION);
     assertEquals(input.get(1), currInput2);
+
+    currSort.updateOrder(OrderType.NORMAL);
+    assertEquals(input.get(1), currInput2);
   }
 
 
@@ -86,7 +89,9 @@ class SortingTest {
     currSort.sortJustTask(OrderType.DURATION);
     assertEquals(input.get(1), currInput2);
 
-  }
+    currSort.sortJustTask(OrderType.NORMAL);
+    assertEquals(input.get(1), currInput2);
 
+  }
 
 }
