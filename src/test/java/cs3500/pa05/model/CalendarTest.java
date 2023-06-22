@@ -222,4 +222,45 @@ class CalendarTest {
 
     assertEquals(currCalendar.getTotalTasksCount(), 1);
   }
+
+  /**
+   * testSetNormalList method is the test method for setNormalList
+   */
+  @Test
+  void testSetNormalList() {
+
+    Task task1 = new Task("name", "des", DayWeek.MONDAY, "category", false);
+    Task task2 = new Task("name2", "des2", DayWeek.MONDAY, "category2", false);
+
+    ArrayList<UserCalInput> currDayInputsMon = new ArrayList<>();
+    currDayInputsMon.add(task1);
+    currDayInputsMon.add(task2);
+
+    Task task3 = new Task("name", "des", DayWeek.MONDAY, "category", false);
+    Task task4 = new Task("name2", "des2", DayWeek.MONDAY, "category2", false);
+
+    ArrayList<UserCalInput> currDayInputsTues = new ArrayList<>();
+    currDayInputsMon.add(task3);
+    currDayInputsMon.add(task4);
+
+    Day day1 = new Day(DayWeek.MONDAY, currDayInputsMon);
+    Day day2 = new Day(DayWeek.THURSDAY, currDayInputsTues);
+    List<Day> dayList = new ArrayList<>(Arrays.asList(day1, day2));
+
+    ArrayList cat = new ArrayList<>();
+
+    List expected = new ArrayList<>();
+    expected.add(task1);
+    expected.add(task2);
+    expected.add(task3);
+    expected.add(task4);
+
+    Calendar currCalendar = new Calendar("Title", dayList, 2, 2,
+        "quotes", DayWeek.MONDAY, cat,
+        "path", "password");
+
+    currCalendar.setNormalList();
+
+    assertEquals(currCalendar.getTotalUserInputs().size(), 4);
+  }
 }

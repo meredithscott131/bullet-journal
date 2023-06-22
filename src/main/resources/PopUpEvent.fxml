@@ -12,14 +12,14 @@
 
 <Scene xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <root>
-      <AnchorPane prefHeight="200.0" prefWidth="280.0">
+      <AnchorPane prefHeight="323.0" prefWidth="312.0" style="-fx-background-color: #E3DBF1;">
          <children>
-            <Button fx:id="submitButton" layoutX="110.0" layoutY="269.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Submit">
+            <Button fx:id="submitButton" layoutX="126.0" layoutY="283.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="60.0" text="Submit">
                <font>
                   <Font size="12.0" />
                </font>
             </Button>
-            <VBox prefHeight="269.0" prefWidth="280.0">
+            <VBox layoutX="16.0" layoutY="14.0" prefHeight="269.0" prefWidth="280.0">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="61.0" />
                   <TextField fx:id="nameTask" prefHeight="26.0" prefWidth="211.0" />

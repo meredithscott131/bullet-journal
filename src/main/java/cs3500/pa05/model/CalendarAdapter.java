@@ -75,7 +75,7 @@ public class CalendarAdapter {
    * @param modelCalendar the calendar
    * @param categories the list of categories belonging to the calendar
    */
-  private void checkCategory(UserCalInput input, Calendar modelCalendar,
+  public void checkCategory(UserCalInput input, Calendar modelCalendar,
                             ArrayList<String> categories) {
     if (input.getCategory() != null && !modelCalendar.getCategories()
         .contains(input.getCategory().toUpperCase())) {
@@ -126,7 +126,7 @@ public class CalendarAdapter {
    * @param eventCategory the category of the event
    * @param categories    the list of categories
    */
-  private void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
+  public void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
                                String eventCategory, ArrayList<String> categories) {
     if (eventCategory != null) {
       if (!calendarJson.categories().contains(task.category().toUpperCase())) {

@@ -1,7 +1,7 @@
 {
-  "max tasks" : 4,
-  "max events" : 4,
-  "title" : "ne",
+  "max tasks" : 2,
+  "max events" : 1,
+  "title" : "NewCalendar",
   "days" : [ {
     "day" : "SUNDAY",
     "events" : [ ],
@@ -9,13 +9,7 @@
   }, {
     "day" : "MONDAY",
     "events" : [ ],
-    "tasks" : [ {
-      "name" : "eeeeeeeee",
-      "description" : "rt",
-      "day" : "MONDAY",
-      "complete" : false,
-      "category" : null
-    } ]
+    "tasks" : [ ]
   }, {
     "day" : "TUESDAY",
     "events" : [ ],
@@ -38,7 +32,7 @@
     "tasks" : [ ]
   } ],
   "quotes & notes" : "",
-  "start day" : "MONDAY",
+  "start day" : "THURSDAY",
   "categories" : [ ],
   "password" : "password"
 }

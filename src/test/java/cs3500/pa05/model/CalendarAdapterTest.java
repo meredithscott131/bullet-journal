@@ -2,7 +2,12 @@ package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import cs3500.pa05.json.CalendarJson;
+import cs3500.pa05.json.DayJson;
+import cs3500.pa05.json.EventJson;
+import cs3500.pa05.json.TaskJson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -135,5 +140,63 @@ class CalendarAdapterTest {
     ScannerBujo scannerBujo = new ScannerBujo();
     assertThrows(IllegalArgumentException.class,
         () -> scannerBujo.readFromFile(falseFile));
+  }
+
+  @Test
+  public void checkingNull() {
+
+    Day sunday = new Day(DayWeek.SUNDAY, new ArrayList<>());
+    Day monday = new Day(DayWeek.MONDAY, new ArrayList<>());
+    Day tuesday = new Day(DayWeek.TUESDAY, new ArrayList<>());
+    Day wednesday = new Day(DayWeek.WEDNESDAY, new ArrayList<>());
+    ArrayList<UserCalInput>
+        inputsThursday = new ArrayList<>(Arrays.asList(new Task("Dinner", "eating",
+        DayWeek.THURSDAY, "catagory", false)));
+    Day thursday = new Day(DayWeek.THURSDAY, inputsThursday);
+    Day friday = new Day(DayWeek.FRIDAY, new ArrayList<>());
+
+    UserCalInput input = new Task("name", "b",
+        DayWeek.SUNDAY, null, false);
+    ArrayList<UserCalInput> inList = new ArrayList<>();
+    inList.add(input);
+    Day saturday = new Day(DayWeek.SATURDAY, new ArrayList<>());
+    List<Day> days = new ArrayList<>(Arrays.asList(sunday, monday, tuesday, wednesday, thursday,
+        friday, saturday));
+
+    Calendar cal = new Calendar("b", new ArrayList<>(), 1, 1,
+        "hi", DayWeek.SUNDAY, new ArrayList<>(), null, "pass");
+
+    Calendar nullCal = new Calendar("b", days, 1, 1,
+        "hi", DayWeek.SUNDAY, new ArrayList<>(), "path", "pas");
+
+    CalendarAdapter adapt = new CalendarAdapter();
+    CalendarJson jsonCal = adapt.convertToJson(nullCal);
+    assertEquals(1, jsonCal.categories().size());
+
+  }
+
+
+  @Test
+  public void testNullCategoryCalTask() {
+
+    DayJson[] sayArray = new DayJson[1];
+    List<EventJson> eventJson = new ArrayList<>();
+    List<TaskJson> taskJson = new ArrayList<>();
+    sayArray[0] = new DayJson(DayWeek.SUNDAY, eventJson, taskJson);
+
+    CalendarJson calJson = new CalendarJson(2,2,"title",
+        sayArray, "quote", DayWeek.MONDAY.toString(), new ArrayList<>(), "pas");
+
+    TaskJson task = new TaskJson("j", "e", DayWeek.SUNDAY, true, "i");
+    ArrayList<String> str = new ArrayList<>();
+    str.add("u");
+
+    assertEquals(1, str.size());
+
+    CalendarAdapter calAdapt = new CalendarAdapter();
+    calAdapt.nullCategoryCalTask(calJson, task, "hi", str);
+
+    assertTrue(str.contains("I"));
+    assertEquals(2, str.size());
   }
 }
