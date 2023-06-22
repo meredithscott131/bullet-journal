@@ -1,4 +1,5 @@
 package cs3500.pa05.model;
+
 import cs3500.pa05.json.CalendarJson;
 import cs3500.pa05.json.DayJson;
 import cs3500.pa05.json.EventJson;
@@ -199,7 +200,7 @@ public class CalendarAdapter {
       String eventDescription = task.description();
       String eventCategory = task.category();
 
-      nullCategoryCalTask( calendarJson, task, eventCategory, categories);
+      nullCategoryCalTask(calendarJson, task, eventCategory, categories);
 
       boolean complete = task.complete();
       newTask = new Task(eventTitle, eventDescription, dayWeek, eventCategory, complete);

@@ -177,15 +177,16 @@ class CalendarTest {
     List<Day> dayList = new ArrayList<>(Arrays.asList(day1, day2));
 
     ArrayList cat = new ArrayList<>();
-    Calendar currCalendar = new Calendar("Title", dayList, 2, 2,
-        "quotes", DayWeek.MONDAY, cat,
-        "path", "password");
 
     List expected = new ArrayList<>();
     expected.add(task1);
     expected.add(task2);
     expected.add(task3);
     expected.add(task4);
+
+    Calendar currCalendar = new Calendar("Title", dayList, 2, 2,
+        "quotes", DayWeek.MONDAY, cat,
+        "path", "password");
 
     assertEquals(currCalendar.getTotalTasks(), expected);
   }

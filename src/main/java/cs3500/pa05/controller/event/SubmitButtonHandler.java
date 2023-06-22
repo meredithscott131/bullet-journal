@@ -23,8 +23,8 @@ public class SubmitButtonHandler implements EventHandler {
   /**
    * Controller #1
    */
- public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
-                            String nameDecription, String startTime, int duration) {
+  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
+                             String nameDecription, String startTime, int duration) {
     this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
@@ -34,7 +34,7 @@ public class SubmitButtonHandler implements EventHandler {
   }
 
   /**
-   *  handle method for the submit button
+   * handle method for the submit button
    */
   @Override
   public void handle(Event event) {
@@ -86,12 +86,5 @@ public class SubmitButtonHandler implements EventHandler {
    */
   public void setStartTimeInput() {
     eventIn.setStartTime(startTime);
-  }
-
-  public boolean isNullEvent() {
-    return nameTask == ""
-        || eventIn.getDayWeek() == null
-        || duration == 0
-        || startTime == "";
   }
 }

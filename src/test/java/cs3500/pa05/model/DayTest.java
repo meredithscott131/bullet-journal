@@ -76,7 +76,7 @@ class DayTest {
     UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY,
         "category", false);
     UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY,
-        "category" ,false);
+        "category", false);
 
     input.add(currInput);
     input.add(currInput2);
@@ -97,8 +97,8 @@ class DayTest {
   @Test
   public void testGetNumEventsInDay() {
     ArrayList input = new ArrayList<>();
-    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category" ,false);
-    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category" ,false);
+    UserCalInput currInput = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
+    UserCalInput currInput2 = new Task("Name", "Description", DayWeek.MONDAY, "category", false);
     input.add(currInput);
     input.add(currInput2);
 

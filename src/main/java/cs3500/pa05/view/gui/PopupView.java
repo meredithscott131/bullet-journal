@@ -13,6 +13,11 @@ import javafx.scene.Scene;
 public class PopupView implements View {
   private FXMLLoader loader;
 
+  /**
+   * Constructor
+   *
+   * @param controller is the given controller
+   */
   public PopupView(PopupController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("PopUpEvent.fxml"));

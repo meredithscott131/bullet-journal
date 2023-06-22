@@ -22,7 +22,7 @@ public class JournalView implements View {
   public JournalView(JournalController controller, DayWeek startDay) {
     this.startDay = startDay;
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource(getFXML()));
+    this.loader.setLocation(getClass().getClassLoader().getResource(getFxMl()));
     this.loader.setController(controller);
   }
 
@@ -31,7 +31,7 @@ public class JournalView implements View {
    *
    * @return the fxml
    */
-  public String getFXML() {
+  public String getFxMl() {
     if (startDay.equals(DayWeek.SUNDAY)) {
       return "bulletJournal.fxml";
     } else if (startDay.equals(DayWeek.MONDAY)) {

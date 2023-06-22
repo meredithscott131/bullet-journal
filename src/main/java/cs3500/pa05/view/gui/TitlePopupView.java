@@ -25,12 +25,14 @@ public class TitlePopupView implements View {
 
   /**
    * Loads a scene from a journal GUI layout.
+   *
    * @return the layout
    */
   @Override
   public Scene load() throws IllegalStateException {
     try {
-      return this.loader.load(); } catch (IOException exc) {
+      return this.loader.load();
+    } catch (IOException exc) {
       throw new IllegalStateException("Unable to load popup.");
     }
   }
