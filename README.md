@@ -66,6 +66,3 @@ scene builder that reorganized our information in a vertical format.
 - https://www.instagram.com/frogeposting/#
 - https://www.freepik.com/premium-vector/dotted-grid-seamless-pattern-bullet-journal-black-point-texture-black-dot-grid-notebook-paper-vector-illustration-white-background_24711017.htm
 - https://www.vecteezy.com/free-vector/coding-background
-
-![alt text](src/PhotoOfJournal.png)
-This is an old screenshot
