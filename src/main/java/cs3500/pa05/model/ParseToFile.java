@@ -14,7 +14,7 @@ public class ParseToFile {
   private final ObjectMapper mapper = new ObjectMapper();
 
   /**
-   * Writes the given calendar to the given bujo path
+   * Writes the given calendar to the given bujo path.
    *
    * @param path     the path
    * @param calendar the calendar
