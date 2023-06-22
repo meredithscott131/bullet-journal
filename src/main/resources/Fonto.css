@@ -5,6 +5,7 @@
     -fx-background-position: center center;
 }
 
+
 .button {
     -fx-background-color: #000000;
     -fx-font-size: 16;
@@ -18,27 +19,22 @@
     -fx-text-fill: #ffffff;
 }
 
-/* Setting scroll panes to pink */
 .scroll-pane .viewport {
-    -fx-background-color: #000000;
+    -fx-background-color: #3552b2;
 }
 
-/* Setting scroll panes to pink */
 .scroll-pane {
     -fx-background-color: #737373;
 }
 
-
-/* Boxes around each title */
 #mondayTitle {
     -fx-background-color: black;
     -fx-text-fill: #ffffff;
-
 }
+
 #tuesdayTitle {
     -fx-background-color: black;
     -fx-text-fill: #ffffff;
-
 }
 
 #sundayTitle3 {
@@ -77,7 +73,7 @@
 }
 
 .text-field {
-    -fx-background-color: black;
+    -fx-background-color: #3552b2;
     -fx-text-fill: #ffffff;
 }
 
@@ -97,10 +93,10 @@
 
 
 #dropDown {
-    -fx-background-color: black;
+    -fx-background-color: #3552b2;
 }
 
 .choice-box .label {
-    -fx-text-fill: black;
+    -fx-text-fill: #000000;
 }
 
