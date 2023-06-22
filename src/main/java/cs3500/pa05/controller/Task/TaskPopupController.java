@@ -14,6 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Represents the controller for the task popup.
+ */
 public class TaskPopupController implements Controller {
   private Task task;
   private Calendar calendar;
@@ -21,7 +24,6 @@ public class TaskPopupController implements Controller {
   private TextField nameTask;
   @FXML
   private TextField description;
-
   @FXML
   private Button monButton;
   @FXML
@@ -38,29 +40,22 @@ public class TaskPopupController implements Controller {
   private Button sunButton;
   @FXML
   private Button submitButton;
-
   @FXML
   private Stage stage;
 
+  /**
+   * Instantiates a new task popup controller.
+   *
+   * @param calendar the calendar
+   */
   public TaskPopupController(Calendar calendar) {
     this.task = new Task(null, null, null, null, false);
     this.calendar = calendar;
   }
 
-  public void setUserNameInput() {
-    task.setName(nameTask.getText());
-  }
-
-  public void setUserDescriptionInput() {
-    task.setDescription(description.getText());
-  }
-
-  public boolean isNullTask() {
-    return task.getName() == null
-        && task.getDayWeek() == null
-        && task.getDescription() == null;
-  }
-
+  /**
+   * Runs the task popup controller
+   */
   @Override
   public void run() {
     sunButton.setOnAction(new TaskDayButtonHandler(DayWeek.SUNDAY, task));
@@ -74,19 +69,29 @@ public class TaskPopupController implements Controller {
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 
+  /**
+   * Make submit button.
+   *
+   * @param eventEn the action event
+   */
   public void makeSubmitButton(Event eventEn) {
     if (isAtMaxEvent()) {
       runWarningPopup(eventEn);
     } else {
       TaskSubmitButtonHandler submit =
           new TaskSubmitButtonHandler(calendar, task, nameTask.getText(),
-              description.getText(), this.stage);
+              description.getText());
       submit.handle(eventEn);
     }
   }
 
+  /**
+   * Run a warning popup.
+   *
+   * @param eventEn the action event
+   */
   public void runWarningPopup(Event eventEn) {
-    WarningPopupController warningCont = new WarningPopupController(this.calendar);
+    WarningPopupController warningCont = new WarningPopupController();
     WarningPopupView warningView = new WarningPopupView(warningCont);
     Stage warningStage = new Stage();
     try {
@@ -101,6 +106,11 @@ public class TaskPopupController implements Controller {
     window.close(); // closes popup window
   }
 
+  /**
+   * Determines whether the user has reached the max event limit
+   *
+   * @return whether they are at the limit
+   */
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = task.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);

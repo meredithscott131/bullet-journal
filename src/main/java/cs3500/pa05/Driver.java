@@ -29,24 +29,6 @@ public class Driver extends Application {
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load welcome GUI.");
     }
-
-    /*
-    ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/workingBouje.bujo"));
-    JournalController journalCont = new JournalController(cal);
-    JournalView journalView = new JournalView(journalCont);
-
-    try {
-      stage.setScene(journalView.load());
-      stage.show();
-      journalCont.run();
-
-    } catch (IllegalStateException exc) {
-      System.err.println("Unable to load GUI.");
-    }
-    */
-
-
   }
 
   /**

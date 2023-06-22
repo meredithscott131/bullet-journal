@@ -7,7 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 /**
- * Represents a interface journal GUI cs3500.pa05.view.view.
+ * Represents a View for the Event Popup
+ * TODO rename
  */
 public class PopupView implements View {
   private FXMLLoader loader;

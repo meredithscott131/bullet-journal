@@ -1,9 +1,11 @@
 package cs3500.pa05.json;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import cs3500.pa05.model.DayWeek;
 import java.util.ArrayList;
 
+/**
+ * Represents Json of a Calendar object.
+ */
 public record CalendarJson(
     @JsonProperty("max tasks") int maxTasks,
     @JsonProperty("max events") int maxEvents,

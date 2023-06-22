@@ -9,19 +9,27 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Represents the handler for the password popup
+ */
 public class PasswordHandler implements EventHandler {
+  private final Path path;
 
-  Path path;
-
+  /**
+   * Instantiates a new password handler.
+   *
+   * @param path the path
+   */
   PasswordHandler(Path path) {
     this.path = path;
   }
 
+  /**
+   * Handles the password popup event
+   */
   @Override
   public void handle(Event event) {
-
     //runs the existing file journal
-    //Path path = Path.of(path);
     ScannerBujo scannerBujo = new ScannerBujo();
     Calendar cal = scannerBujo.readFromFile(path.toFile());
     JournalController journalCont = new JournalController(cal);
@@ -36,7 +44,6 @@ public class PasswordHandler implements EventHandler {
       scene.getStylesheets().add("Normal.css");
       stage.show();
       journalCont.run();
-
     } catch (IllegalStateException exc) {
       System.err.println("Unable to load existing GUI.");
     }

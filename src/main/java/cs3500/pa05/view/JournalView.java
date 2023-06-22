@@ -7,22 +7,30 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 /**
- * Represents a interface journal GUI cs3500.pa05.view.view.
+ * Represents the View for the Journal
  */
 public class JournalView implements View {
-  private FXMLLoader loader;
-  private JournalController controller;
+  private final FXMLLoader loader;
+  private final DayWeek startDay;
 
-  private DayWeek startDay;
-
+  /**
+   * Instantiates a new Journal view.
+   *
+   * @param controller the controller
+   * @param startDay   the start day
+   */
   public JournalView(JournalController controller, DayWeek startDay) {
     this.startDay = startDay;
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource(getFXML()));
     this.loader.setController(controller);
-    this.controller = controller;
   }
 
+  /**
+   * Gets fxml.
+   *
+   * @return the fxml
+   */
   public String getFXML() {
     if (startDay.equals(DayWeek.SUNDAY)) {
       return "bulletJournal.fxml";

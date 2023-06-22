@@ -5,27 +5,40 @@ import cs3500.pa05.model.Day;
 import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
 import cs3500.pa05.model.UserCalInput;
+import java.util.Objects;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
+/**
+ * Represents the handler for the task popup submit button.
+ */
 public class TaskSubmitButtonHandler implements EventHandler {
   private final Task task;
   private final Calendar calendar;
   private final String nameTask;
-  private final String nameDecription;
-  private final Stage stage;
+  private final String nameDescription;
 
+  /**
+   * Instantiates a new task submit button handler.
+   *
+   * @param calendar       the calendar
+   * @param task           the task
+   * @param nameTask       the name task
+   * @param nameDescription the name description
+   */
   public TaskSubmitButtonHandler(Calendar calendar, Task task, String nameTask,
-                                 String nameDecription, Stage stage) {
+                                 String nameDescription) {
     this.calendar = calendar;
     this.task = task;
     this.nameTask = nameTask;
-    this.nameDecription = nameDecription;
-    this.stage = stage;
+    this.nameDescription = nameDescription;
   }
 
+  /**
+   * Handles a submit button press.
+   */
   @Override
   public void handle(Event event) {
     if (isNullEvent()) {
@@ -36,7 +49,6 @@ public class TaskSubmitButtonHandler implements EventHandler {
       setUserDescriptionInput();
 
       Day dayToAddTo = this.calendar.getOneDay(task.getDayWeek());
-      //dayToAddTo.getDayInputs().add(eventIn);
       this.calendar.getTotalUserInputs().add(task);
       dayToAddTo.getDayInputsObservable().add(task);
 
@@ -45,6 +57,10 @@ public class TaskSubmitButtonHandler implements EventHandler {
     }
   }
 
+  /**
+   * Sets the task's name and determines whether the user
+   * assigned this task to a category
+   */
   public void setUserNameInput() {
     if (nameTask.startsWith("#")) {
       String[] titleArr = nameTask.split(" ", 2);
@@ -56,12 +72,20 @@ public class TaskSubmitButtonHandler implements EventHandler {
     }
   }
 
+  /**
+   * Sets the task description.
+   */
   public void setUserDescriptionInput() {
-    task.setDescription(nameDecription);
+    task.setDescription(nameDescription);
   }
 
+  /**
+   * Determines whether this event has any null values
+   *
+   * @return whether there are any null values
+   */
   public boolean isNullEvent() {
-    return nameTask == ""
+    return Objects.equals(nameTask, "")
         || task.getDayWeek() == null;
   }
 }

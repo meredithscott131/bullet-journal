@@ -6,8 +6,17 @@ import cs3500.pa05.json.TaskJson;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Responsible for converting between Calendar and CalendarJson objects
+ */
 public class CalendarAdapter {
 
+  /**
+   * Given a Calendar object, convert it to a Json Calendar
+   *
+   * @param modelCalendar the calendar
+   * @return the calendar json
+   */
   public CalendarJson convertToJson(Calendar modelCalendar) {
     int maxEvents = modelCalendar.getMaxEvent();
     int maxTasks = modelCalendar.getMaxTask();
@@ -25,9 +34,7 @@ public class CalendarAdapter {
         UserCalInput input = modelCalendar.getDays().get(i).getInputs().get(j);
         addUserInputJson(input, events, tasks);
         checkCategory(input, modelCalendar, categories);
-
       }
-
       DayJson dayJson = new DayJson(modelCalendar.getDays().get(i).getGetDayWeek(),
           events, tasks);
       days[i] = dayJson;
@@ -37,6 +44,13 @@ public class CalendarAdapter {
         quotesNotes, startDay.toString(), categories, password);
   }
 
+  /**
+   * Adds an input to either the list of tasks or events
+   *
+   * @param input the user input
+   * @param events the list of events
+   * @param tasks the list of tasks
+   */
   private void addUserInputJson(UserCalInput input, List<EventJson> events, List<TaskJson> tasks) {
     if (input instanceof EventIn) {
       events.add(new EventJson(input.getName(), input.getDescription(), input.getDayWeek(),
@@ -52,6 +66,14 @@ public class CalendarAdapter {
     }
   }
 
+  /**
+   * Adds the given user input's category to the category list
+   * if the list doesn't already contain it.
+   *
+   * @param input the user input
+   * @param modelCalendar the calendar
+   * @param categories the list of categories belonging to the calendar
+   */
   private void checkCategory(UserCalInput input, Calendar modelCalendar,
                             ArrayList<String> categories) {
     if (input.getCategory() != null && !modelCalendar.getCategories()
@@ -61,6 +83,13 @@ public class CalendarAdapter {
   }
 
 
+  /**
+   * Given a Calendar Json, convert it to a Calendar object
+   *
+   * @param calendarJson the calendar json
+   * @param bujo         the bujo path
+   * @return             the calendar
+   */
   public Calendar convertToCalendar(CalendarJson calendarJson, String bujo) {
     int maxEvents = calendarJson.maxEvents();
     int maxTasks = calendarJson.maxTasks();
@@ -87,6 +116,15 @@ public class CalendarAdapter {
         quotesNotes, startDay, categories, bujo, password);
   }
 
+  /**
+   * Checks if the given event category is null and adds it to the
+   * category list if the list doesn't already contain it.
+   *
+   * @param calendarJson  the calendar json
+   * @param task          the task
+   * @param eventCategory the category of the event
+   * @param categories    the list of categories
+   */
   private void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
                                String eventCategory, ArrayList<String> categories) {
     if (eventCategory != null) {
@@ -96,6 +134,15 @@ public class CalendarAdapter {
     }
   }
 
+  /**
+   * Checks if the given category is null and adds it to
+   * the category list if the list doesn't already contain it.
+   *
+   * @param calendarJson the calendar json
+   * @param event        the event
+   * @param category     the category
+   * @param categories   the categories
+   */
   public void nullCategoryCalEvent(CalendarJson calendarJson, EventJson event,
                                    String category, ArrayList<String> categories) {
     if (category != null) {
@@ -105,11 +152,19 @@ public class CalendarAdapter {
     }
   }
 
-  public void everyEventJson(CalendarJson calendarJson, int i,
+  /**
+   * Adds every event from the calendar json to the given inputs list.
+   *
+   * @param calendarJson the calendar json
+   * @param day            the day
+   * @param dayWeek      the day week
+   * @param inputs       the inputs
+   * @param categories   the categories
+   */
+  public void everyEventJson(CalendarJson calendarJson, int day,
                              DayWeek dayWeek, ArrayList<UserCalInput> inputs,
                              ArrayList<String> categories) {
-
-    for (EventJson event : calendarJson.days()[i].events()) {
+    for (EventJson event : calendarJson.days()[day].events()) {
       EventIn newEvent;
       String eventTitle = event.name();
       String eventDescription = event.description();
@@ -125,11 +180,20 @@ public class CalendarAdapter {
     }
   }
 
-  public void everyTaskJson(CalendarJson calendarJson, int i,
+  /**
+   * Adds every task from the calendar json to the given inputs list.
+   *
+   * @param calendarJson the calendar json
+   * @param day            the day
+   * @param dayWeek      the day week
+   * @param inputs       the inputs
+   * @param categories   the categories
+   */
+  public void everyTaskJson(CalendarJson calendarJson, int day,
                              DayWeek dayWeek, ArrayList<UserCalInput> inputs,
                              ArrayList<String> categories) {
 
-    for (TaskJson task : calendarJson.days()[i].tasks()) {
+    for (TaskJson task : calendarJson.days()[day].tasks()) {
       Task newTask;
       String eventTitle = task.name();
       String eventDescription = task.description();
@@ -143,4 +207,3 @@ public class CalendarAdapter {
     }
   }
 }
-

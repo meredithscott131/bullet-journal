@@ -7,25 +7,30 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
+/**
+ * Represents the handler for the theme button.
+ */
 public class ThemeButtonHandler implements EventHandler {
+  private final Calendar calendar;
+  private final Button button;
 
-  private Calendar calendar;
-
-
-  private Button button;
-
-
+  /**
+   * Instantiates a new theme button handler.
+   *
+   * @param calendar the calendar
+   * @param button   the button
+   */
   public ThemeButtonHandler(Calendar calendar, Button button) {
     this.calendar = calendar;
     this.button = button;
   }
 
-
+  /**
+   * Handles the theme button press
+   */
   @Override
   public void handle(Event event) {
-
     Scene scene = button.getScene();
-
     if (!scene.getStylesheets().isEmpty()) {
       scene.getStylesheets().remove(0, 1);
     }
@@ -43,12 +48,5 @@ public class ThemeButtonHandler implements EventHandler {
       scene.getStylesheets().add("Normal.css");
       calendar.setStyleType(StyleType.NORMAL);
     }
-
-
-
-
   }
-
-
 }
-
