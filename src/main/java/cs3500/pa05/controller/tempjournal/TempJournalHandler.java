@@ -33,6 +33,10 @@ public class TempJournalHandler implements EventHandler {
     this.nameStr = nameStr;
   }
 
+  /**
+   * handles template journal
+   * @param event event
+   */
   @Override
   public void handle(Event event) {
     Path path = Path.of(pathStr);

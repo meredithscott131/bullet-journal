@@ -14,6 +14,7 @@ public class TempJournalView implements View {
 
   /**
    * TempJournalView constructor
+   * @param controller the controller
    */
   public TempJournalView(TempJournalController controller) {
     this.loader = new FXMLLoader();
@@ -26,7 +27,7 @@ public class TempJournalView implements View {
    *
    * @return the layout
    */
-  //@Override
+  @Override
   public Scene load() throws IllegalStateException {
     try {
       return this.loader.load();

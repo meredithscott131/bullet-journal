@@ -24,6 +24,9 @@ public class TempJournalController implements Controller {
   @FXML
   private Button submitButton;
 
+  /**
+   * initalizes template journal controller
+   */
   public TempJournalController() {
   }
 
@@ -39,6 +42,8 @@ public class TempJournalController implements Controller {
 
   /**
    * runTemp method
+   *
+   * @param e event
    */
   public void runTemp(Event e) {
 
