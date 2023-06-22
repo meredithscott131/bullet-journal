@@ -1,12 +1,15 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.choosejournal;
 
-import cs3500.pa05.controller.ChooseJournalController;
-import cs3500.pa05.controller.WarningPopupController;
+import cs3500.pa05.controller.choosejournal.ChooseJournalController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents the view for the chooseing journal
+ * type popup.
+ */
 public class ChooseJournalView implements View {
   private FXMLLoader loader;
 

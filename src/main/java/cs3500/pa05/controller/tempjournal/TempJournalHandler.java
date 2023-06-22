@@ -1,13 +1,12 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.tempjournal;
 
+import cs3500.pa05.controller.Controller;
+import cs3500.pa05.controller.password.PasswordController;
 import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.Day;
 import cs3500.pa05.model.ScannerBujo;
 import cs3500.pa05.view.View;
 import cs3500.pa05.view.gui.PasswordPopupView;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Node;

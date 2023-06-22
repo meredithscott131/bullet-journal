@@ -1,7 +1,7 @@
 package cs3500.pa05.controller.welcome;
 
-import cs3500.pa05.controller.ChooseJournalController;
-import cs3500.pa05.controller.ChooseJournalView;
+import cs3500.pa05.controller.choosejournal.ChooseJournalController;
+import cs3500.pa05.controller.choosejournal.ChooseJournalView;
 import cs3500.pa05.controller.bujofile.BujoPopupController;
 import cs3500.pa05.view.gui.BujoPopupView;
 import javafx.event.Event;

@@ -1,5 +1,6 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.password;
 
+import cs3500.pa05.controller.JournalController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
 import cs3500.pa05.view.JournalView;

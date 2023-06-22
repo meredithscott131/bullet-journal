@@ -1,5 +1,6 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.password;
 
+import cs3500.pa05.controller.Controller;
 import cs3500.pa05.model.Calendar;
 import java.nio.file.Path;
 import javafx.event.Event;

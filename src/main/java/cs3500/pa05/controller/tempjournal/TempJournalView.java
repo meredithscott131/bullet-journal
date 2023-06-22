@@ -1,7 +1,6 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.tempjournal;
 
-import cs3500.pa05.controller.ChooseJournalController;
-import cs3500.pa05.controller.TempJournalController;
+import cs3500.pa05.controller.tempjournal.TempJournalController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;

@@ -2,7 +2,7 @@ package cs3500.pa05.controller.bujofile;
 
 import cs3500.pa05.controller.Controller;
 import cs3500.pa05.controller.JournalController;
-import cs3500.pa05.controller.PasswordController;
+import cs3500.pa05.controller.password.PasswordController;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.DayWeek;
 import cs3500.pa05.model.ParseToFile;

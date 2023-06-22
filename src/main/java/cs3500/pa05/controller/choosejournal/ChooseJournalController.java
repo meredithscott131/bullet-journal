@@ -1,13 +1,16 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.choosejournal;
 
-import cs3500.pa05.controller.bujofile.BujoPopupController;
-import cs3500.pa05.view.gui.BujoPopupView;
+import cs3500.pa05.controller.Controller;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+/**
+ * Represents the controller for
+ * choosing a type of journal
+ */
 public class ChooseJournalController implements Controller {
 
   @FXML
@@ -16,10 +19,16 @@ public class ChooseJournalController implements Controller {
   @FXML
   private Button regularJournal;
 
+  /**
+   * Instantiates a new choose journal handler.
+   */
   public ChooseJournalController() {
   }
 
 
+  /**
+   * Runs the choose journal controller.
+   */
   @Override
   public void run() {
 
@@ -38,11 +47,17 @@ public class ChooseJournalController implements Controller {
     });
   }
 
+  /**
+   * Runs the regular type of journal
+   */
   public void runRegular(Event e) {
     ChooseJournalHandlerRegular regular = new ChooseJournalHandlerRegular();
     regular.handle(e);
   }
 
+  /**
+   * Runs the template type of journal
+   */
   public void runTemplate(Event e) {
     ChooseJournalTempHandler temp = new ChooseJournalTempHandler();
     temp.handle(e);

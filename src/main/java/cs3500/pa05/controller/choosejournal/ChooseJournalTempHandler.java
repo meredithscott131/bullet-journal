@@ -1,10 +1,28 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.choosejournal;
 
+import cs3500.pa05.controller.tempjournal.TempJournalController;
+import cs3500.pa05.controller.tempjournal.TempJournalView;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
+/**
+ * Represents the handler for the template journal popup.
+ */
 public class ChooseJournalTempHandler implements EventHandler {
+
+  /**
+   * Instantiates a new template journal handler.
+   */
+  ChooseJournalTempHandler() {
+
+  }
+
+  /**
+   * Handles the submit button action.
+   *
+   * @param event the action event
+   */
   @Override
   public void handle(Event event) {
     //run it here

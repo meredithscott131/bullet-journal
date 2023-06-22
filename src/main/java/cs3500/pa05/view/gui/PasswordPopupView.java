@@ -1,6 +1,6 @@
 package cs3500.pa05.view.gui;
 
-import cs3500.pa05.controller.PasswordController;
+import cs3500.pa05.controller.password.PasswordController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;

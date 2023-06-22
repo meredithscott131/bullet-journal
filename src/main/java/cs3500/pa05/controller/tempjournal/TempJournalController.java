@@ -1,20 +1,14 @@
-package cs3500.pa05.controller;
+package cs3500.pa05.controller.tempjournal;
 
+import cs3500.pa05.controller.Controller;
 import cs3500.pa05.controller.bujofile.BujoPopupController;
-import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.ScannerBujo;
-import cs3500.pa05.view.View;
-import cs3500.pa05.view.gui.PasswordPopupView;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.Objects;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class TempJournalController implements Controller {
 
