@@ -101,10 +101,12 @@ public class TaskPopupController implements Controller {
     window.close(); // closes popup window
   }
 
+  //this is interesting
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = task.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);
-    int numOfInputsCurr = oneDay.getNumEventsAndTasksInDay();
+    //
+    int numOfInputsCurr = oneDay.getNumTasksInDay();
     int maxTask = this.calendar.getMaxTask();
     return numOfInputsCurr == maxTask;
   }

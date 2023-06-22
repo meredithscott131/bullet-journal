@@ -161,7 +161,7 @@ public class PopupController implements Controller {
 
     //int numOfInputsCurr = oneDay.getDayInputsObservable().size();
 
-    int numOfEventsCurr = oneDay.getNumEventsAndTasksInDay();
+    int numOfEventsCurr = oneDay.getNumEventsInDay();
     int maxEvents = this.calendar.getMaxEvent();
     return numOfEventsCurr == maxEvents;
   }

@@ -41,7 +41,14 @@
     } ]
   }, {
     "day" : "WEDNESDAY",
-    "events" : [ ],
+    "events" : [ {
+      "name" : "A",
+      "description" : "A",
+      "day" : "WEDNESDAY",
+      "start time" : "12:30",
+      "duration" : 23,
+      "category" : null
+    } ],
     "tasks" : [ ]
   }, {
     "day" : "THURSDAY",
@@ -54,7 +61,13 @@
   }, {
     "day" : "SATURDAY",
     "events" : [ ],
-    "tasks" : [ ]
+    "tasks" : [ {
+      "name" : "S",
+      "description" : "A",
+      "day" : "SATURDAY",
+      "complete" : false,
+      "category" : null
+    } ]
   } ],
   "quotes & notes" : "",
   "start day" : "WEDNESDAY",

@@ -101,31 +101,31 @@ public class JournalController implements Controller {
     SaveButtonHandler saveButt = new SaveButtonHandler(this.calendar);
     saveButton.setOnAction(saveButt);
 
-    updateCalendar();
+    updateCalenderFirst();
 
-    //when we make changes to the day lists
+    Sorting sorting = new Sorting(this.calendar);
+
     List<Day> days = calendar.getDays();
     for (Day d : days) {
       d.getDayInputsObservable().addListener(
           (ListChangeListener) c -> {
             if (this.calendar.getOrderType().equals(OrderType.NORMAL)) {
-              updateCalendar();
+              updateCalendarOnAction();
 
               taskBox.getChildren().clear();
-              sortJustTask(this.calendar.getOrderType());
+              sorting.sortJustTask(this.calendar.getOrderType());
               displayJustTask();
             } else {
               d.listClear();
-              updateCalendar();
+              updateCalendarOnAction();
               organize();
 
               taskBox.getChildren().clear();
-              sortJustTask(this.calendar.getOrderType());
+              sorting.sortJustTask(this.calendar.getOrderType());
               displayJustTask();
             }
           });
     }
-
 
     this.quotesNotes.textProperty().addListener((observable, oldValue, newValue) -> {
       this.calendar.setQuotesNotes(newValue);
@@ -136,12 +136,12 @@ public class JournalController implements Controller {
       if (selectedIndex == 0) {
         organizeBasedOnName();
         taskBox.getChildren().clear();
-        sortJustTask(OrderType.NAME);
+        sorting.sortJustTask(OrderType.NAME);
         displayJustTask();
       } else if (selectedIndex == 1) {
         organizeBasedOnDur();
         taskBox.getChildren().clear();
-        sortJustTask(OrderType.DURATION);
+        sorting.sortJustTask(OrderType.DURATION);
         displayJustTask();
       }
     });
@@ -160,20 +160,20 @@ public class JournalController implements Controller {
 
   public void organizeBasedOnName() {
     this.calendar.setOrderType(OrderType.NAME);
+    Sorting sorting = new Sorting(this.calendar);
 
     for (Day d : this.calendar.getDays()) {
       d.listClear();
       d.listCopy();
     }
 
-    updateOrder(OrderType.NAME);
+    sorting.updateOrder(OrderType.NAME);
     clearCalendar();
     updateCalOrderDisplay();
   }
 
-  //it needs to clear the copy list
-
   public void organizeBasedOnDur() {
+    Sorting sorting = new Sorting(this.calendar);
     this.calendar.setOrderType(OrderType.DURATION);
 
     for (Day d : this.calendar.getDays()) {
@@ -181,7 +181,7 @@ public class JournalController implements Controller {
       d.listCopy();
     }
 
-    updateOrder(OrderType.DURATION);
+    sorting.updateOrder(OrderType.DURATION);
     clearCalendar();
     updateCalOrderDisplay();
   }
@@ -200,58 +200,10 @@ public class JournalController implements Controller {
 
   //make a copy of the complete list of tasks
 
-  public void sortJustTask(OrderType orderType) {
-
-    this.calendar.getListTasks().clear();
-    this.calendar.setListTask();
-
-    //added this
-    //this.calendar.getListTasks().clear();
-
-    List<Task> tasks = this.calendar.getListTasks();
-
-    Comparator<UserCalInput> compareName = new CompareByInputName();
-    Comparator<UserCalInput> compareDuration = new CompareByDuration();
-    if (orderType.equals(OrderType.NAME)) {
-      Collections.sort(tasks, compareName);
-    } else if (orderType.equals(OrderType.DURATION)) {
-      Collections.sort(tasks, compareDuration);
-    }
-  }
 
   public void displayJustTask() {
     for (Task t : this.calendar.getListTasks()) {
       taskBox.getChildren().add(createTaskBox(t));
-    }
-  }
-
-
-  public void updateOrder(OrderType orderType) {
-    Comparator<UserCalInput> compareName = new CompareByInputName();
-    Comparator<UserCalInput> compareDuration = new CompareByDuration();
-
-    List<Day> days = this.calendar.getDays();
-    for (Day d : days) {
-      List<UserCalInput> userInputs = d.getDayInputsObservable();
-      //d.listCopy();
-      List<UserCalInput> userInputsCopy = d.getListCopy(); //copy of list
-
-      //System.out.println("inital first " + userInputs.get(0).getName());
-
-      for (UserCalInput u : userInputsCopy) { //changed to userInputsCopy
-        System.out.println("inital first " + u.getName());
-      }
-
-      if (orderType.equals(OrderType.NAME)) {
-        Collections.sort(userInputsCopy, compareName);
-
-        for (UserCalInput u : userInputsCopy) { //changed to userInputsCopy
-          System.out.println("inital name " + u.getName());
-        }
-        // System.out.println("organized name " + userInputs.get(0).getName());
-      } else if (orderType.equals(OrderType.DURATION)) {
-        Collections.sort(userInputsCopy, compareDuration);
-      }
     }
   }
 
@@ -264,21 +216,49 @@ public class JournalController implements Controller {
   public void updateCalOrderDisplay() {
     List<Day> days = this.calendar.getDays();
     for (Day d : days) {
-      //List<UserCalInput> inputs = d.getDayInputsObservable();
       List<UserCalInput> inputs = d.getListCopy();
       for (UserCalInput use : inputs) {
         if (use instanceof EventIn) {
           this.addUserIn(use, this.createEvent((EventIn) use));
         } else if (use instanceof Task) {
           this.addUserIn(use, this.createTask((Task) use));
-          // taskBox.getChildren().add(createTaskBox((Task) use));
         }
       }
     }
   }
 
+  public void updateCalenderFirst() {
+    this.titleLabel.setText(this.calendar.getName());
+    this.quotesNotes.setText(this.calendar.getQuotesNotes());
+    List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
+    int totalSize = totalList.size();
 
-  public void updateCalendar() {
+    for (UserCalInput use : totalList) {
+      if (use instanceof EventIn) {
+        this.addUserIn(use, this.createEvent((EventIn) use));
+      } else {
+        this.addUserIn(use, this.createTask((Task) use));
+        taskBox.getChildren().add(createTaskBox((Task) use));
+      }
+    }
+  }
+
+  public void updateCalendarOnAction() {
+    List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
+    int totalSize = totalList.size();
+
+    UserCalInput lastInput = totalList.get(totalSize - 1);
+
+    if (lastInput instanceof EventIn) {
+      this.addUserIn(lastInput, this.createEvent((EventIn) lastInput));
+    } else if (lastInput instanceof Task) {
+      this.addUserIn(lastInput, this.createTask((Task) lastInput));
+      taskBox.getChildren().add(createTaskBox((Task) lastInput));
+    }
+  }
+
+
+  public void updateCalendar2() {
     this.titleLabel.setText(this.calendar.getName());
     this.quotesNotes.setText(this.calendar.getQuotesNotes());
     List<UserCalInput> totalList = this.calendar.getTotalUserInputs();
