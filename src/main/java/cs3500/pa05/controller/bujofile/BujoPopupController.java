@@ -68,7 +68,7 @@ public class BujoPopupController implements Controller {
   }
 
   /**
-   * Given a selected integer, sets the
+   * Given a selected integer, sets the.
    * starting day for the calendar view.
    *
    * @param selected the selected start day
