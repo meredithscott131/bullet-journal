@@ -1,7 +1,7 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.controller.Task.TaskButtonsEventHandler;
 import cs3500.pa05.controller.event.ButtonsEventHandler;
+import cs3500.pa05.controller.task.TaskButtonsEventHandler;
 import cs3500.pa05.controller.title.TitleEventHandler;
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
@@ -98,7 +98,6 @@ public class JournalController implements Controller {
     Sorting sorting = new Sorting(this.calendar);
 
     //when we make changes to the day lists
-    // TODO move this?
     List<Day> days = calendar.getDays();
     for (Day d : days) {
       d.getDayInputsObservable().addListener(

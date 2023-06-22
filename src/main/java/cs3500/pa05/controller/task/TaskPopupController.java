@@ -1,4 +1,4 @@
-package cs3500.pa05.controller.Task;
+package cs3500.pa05.controller.task;
 
 import cs3500.pa05.controller.Controller;
 import cs3500.pa05.controller.WarningPopupController;

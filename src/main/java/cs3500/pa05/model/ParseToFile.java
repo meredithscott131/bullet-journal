@@ -22,7 +22,7 @@ public class ParseToFile {
   public void writeToFile(Path path, Calendar calendar) {
     CalendarAdapter adapter = new CalendarAdapter();
 
-    if(calendar.getIsTemp()) {
+    if (calendar.getIsTemp()) {
       calendar.setNormalList();
     }
 

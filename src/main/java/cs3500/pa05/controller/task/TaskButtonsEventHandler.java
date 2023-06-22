@@ -1,4 +1,4 @@
-package cs3500.pa05.controller.Task;
+package cs3500.pa05.controller.task;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.view.gui.TaskPopupView;
