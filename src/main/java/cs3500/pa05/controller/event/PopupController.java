@@ -202,7 +202,7 @@ public class PopupController implements Controller {
     DayWeek dayWeek = eventIn.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);
 
-    int numOfEventsCurr = oneDay.getNumEventsAndTasksInDay();
+    int numOfEventsCurr = oneDay.getNumEventsInDay();
     int maxEvents = this.calendar.getMaxEvent();
     return numOfEventsCurr == maxEvents;
   }

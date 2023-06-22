@@ -49,21 +49,6 @@ public class Day {
   }
 
   /**
-   * Gets number of events and tasks in day.
-   *
-   * @return the number of events and tasks in day
-   */
-  public int getNumEventsAndTasksInDay() {
-    int counter = 0;
-    for (UserCalInput use : dayInputsObservable) {
-      if (use instanceof EventIn) {
-        counter++;
-      }
-    }
-    return counter;
-  }
-
-  /**
    * Clears the dayInputsObservableCopy list
    */
   public void listClear() {
@@ -113,5 +98,35 @@ public class Day {
    */
   public List<UserCalInput> getInputs() {
     return this.dayInputs;
+  }
+
+  /**
+   * Gets num events in day.
+   *
+   * @return the num events in day
+   */
+  public int getNumEventsInDay() {
+    int counter = 0;
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof EventIn) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  /**
+   * Gets num task in day.
+   *
+   * @return the num task in day
+   */
+  public int getNumTaskInDay() {
+    int counter = 0;
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof Task) {
+        counter++;
+      }
+    }
+    return counter;
   }
 }
