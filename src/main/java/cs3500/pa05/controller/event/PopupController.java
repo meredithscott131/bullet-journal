@@ -156,7 +156,7 @@ public class PopupController implements Controller {
   /**
    * Initialize the submit button.
    *
-   * @param eventEn the action event
+   * @param eventEn the action event.
    */
   public void makeSubmitButton(Event eventEn) {
     if (this.isNullEvent()) {
