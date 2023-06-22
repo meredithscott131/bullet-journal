@@ -97,8 +97,6 @@ public class JournalController implements Controller {
 
     Sorting sorting = new Sorting(this.calendar);
 
-    //when we make changes to the day lists
-    // TODO move this?
     List<Day> days = calendar.getDays();
     for (Day d : days) {
       d.getDayInputsObservable().addListener(

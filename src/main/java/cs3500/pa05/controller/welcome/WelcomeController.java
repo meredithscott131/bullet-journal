@@ -31,7 +31,6 @@ public class WelcomeController implements Controller {
 
   /**
    * Runs the welcome controller
-   * TODO move this?
    */
   @Override
   public void run() {

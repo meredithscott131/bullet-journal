@@ -60,7 +60,6 @@ public class BujoPopupController implements Controller {
   @Override
   public void run() {
     initChoiceBox();
-    // TODO move this
     choiceBox.setOnAction(e -> {
       int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
       setStartDayIn(selectedIndex);

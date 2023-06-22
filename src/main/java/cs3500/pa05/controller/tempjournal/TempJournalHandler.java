@@ -66,7 +66,6 @@ public class TempJournalHandler implements EventHandler {
     //could be this
     PasswordPopupView passwordView = new PasswordPopupView(passwordController);
     setView(passwordView, passwordController);
-    System.out.println("run on existing");
   }
 
   /**

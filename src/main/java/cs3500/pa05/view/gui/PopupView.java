@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 
 /**
  * Represents a View for the Event Popup
- * TODO rename
  */
 public class PopupView implements View {
   private FXMLLoader loader;

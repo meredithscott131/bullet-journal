@@ -55,7 +55,6 @@ public class Calendar {
 
   /**
    * Instantiates a new Calendar.
-   * TODO get rid of this?
    */
   public Calendar() {}
 

@@ -129,7 +129,6 @@ public class PopupController implements Controller {
 
   /**
    * Runs the event popup controller.
-   * // TODO move this stuff?
    */
   @Override
   public void run() {
@@ -145,7 +144,6 @@ public class PopupController implements Controller {
     });
     this.startTime.textProperty().addListener((observable, oldValue, newValue) -> {
       this.eventIn.setStartTime(this.takeTime(newValue));
-      System.out.println(this.eventIn.getStartTime());
     });
     this.duration.textProperty().addListener((observable, oldValue, newValue) -> {
       this.eventIn.setDuration(this.takeDuration(newValue));

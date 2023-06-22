@@ -40,7 +40,6 @@ public class PasswordController implements Controller {
 
   /**
    * Runs the password controller
-   * // Todo move this?
    */
   @Override
   public void run() {
