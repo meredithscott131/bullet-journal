@@ -391,9 +391,9 @@ public class Calendar {
    * copy of the observable list
    */
   public void setNormalList() {
-    for(Day d: days) {
+    for (Day d : days) {
       List<UserCalInput> listObservable = d.getDayInputsObservable();
-      for(UserCalInput use : listObservable) {
+      for (UserCalInput use : listObservable) {
         d.getInputs().clear();
         d.getInputs().add(use);
       }

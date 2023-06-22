@@ -45,7 +45,7 @@ public class TempJournalController implements Controller {
    */
   public void runTemp(Event e) {
 
-    if(isValidBujo(bujoPath.getText()) && !(bujoName == null)) {
+    if (isValidBujo(bujoPath.getText()) && !(bujoName == null)) {
       TempJournalHandler regular = new TempJournalHandler(bujoPath.getText(), bujoName.getText());
       regular.handle(e);
     }

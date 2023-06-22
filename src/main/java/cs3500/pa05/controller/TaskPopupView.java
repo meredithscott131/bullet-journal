@@ -1,6 +1,6 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.controller.Task.TaskPopupController;
+import cs3500.pa05.controller.task.TaskPopupController;
 import cs3500.pa05.view.View;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;

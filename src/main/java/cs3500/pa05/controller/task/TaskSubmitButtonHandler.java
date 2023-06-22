@@ -1,10 +1,8 @@
-package cs3500.pa05.controller.Task;
+package cs3500.pa05.controller.task;
 
 import cs3500.pa05.model.Calendar;
 import cs3500.pa05.model.Day;
-import cs3500.pa05.model.EventIn;
 import cs3500.pa05.model.Task;
-import cs3500.pa05.model.UserCalInput;
 import java.util.Objects;
 import javafx.event.Event;
 import javafx.event.EventHandler;
