@@ -28,12 +28,9 @@ public class PasswordController implements Controller {
 
   private Path path;
 
-  private String nameStr;
-
-  public PasswordController(Path path, Calendar calendar, String nameStr) {
+  public PasswordController(Path path, Calendar calendar) {
     this.path = path;
     this.calendar = calendar;
-    this.nameStr = nameStr;
   }
 
   @Override
@@ -54,7 +51,7 @@ public class PasswordController implements Controller {
 
   public void pressEnter(Event e) {
     if (isPasswordCorrect()) {
-      PasswordHandler handler = new PasswordHandler(path, nameStr, this.calendar);
+      PasswordHandler handler = new PasswordHandler(path);
       handler.handle(e);
 
       Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();

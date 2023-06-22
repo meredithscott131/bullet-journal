@@ -6,9 +6,17 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents the View for the Welcome Handler
+ */
 public class WelcomeHandlerView implements View {
-  private FXMLLoader loader;
+  private final FXMLLoader loader;
 
+  /**
+   * Instantiates a new Welcome handler view.
+   *
+   * @param controller the controller
+   */
   public WelcomeHandlerView(WelcomeController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("welcome.fxml"));
@@ -16,11 +24,16 @@ public class WelcomeHandlerView implements View {
   }
 
   /**
-   Loads a scene from a journal GUI layout.*
-   @return the layout*/
+   * Loads a scene from a journal GUI layout.
+   *
+   * @return the layout
+   */
   @Override
   public Scene load() throws IllegalStateException {
     try {
-      return this.loader.load(); } catch (IOException exc) {
-      throw new IllegalStateException("Unable to load popup."); } }
+      return this.loader.load();
+    } catch (IOException exc) {
+      throw new IllegalStateException("Unable to load popup.");
+    }
+  }
 }

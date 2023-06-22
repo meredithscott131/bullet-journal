@@ -7,13 +7,24 @@ import java.nio.file.Paths;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
+/**
+ * Represents the handler for the save button
+ */
 public class SaveButtonHandler implements EventHandler {
-  private Calendar calendar;
+  private final Calendar calendar;
 
+  /**
+   * Instantiates a new save button handler.
+   *
+   * @param calendar the calendar
+   */
   SaveButtonHandler(Calendar calendar) {
     this.calendar = calendar;
   }
 
+  /**
+   * Handles a button press
+   */
   @Override
   public void handle(Event event) {
     ParseToFile parseToFile = new ParseToFile();

@@ -35,8 +35,6 @@ public class Calendar {
 
   private String password;
 
-  private boolean isTemp;
-
   public Calendar(String name, List<Day> days, int maxTask, int maxEvent,
                   String quotesNotes, DayWeek startDay, ArrayList<String> categories,
                   String bujoPath, String password) {
@@ -56,25 +54,6 @@ public class Calendar {
 
   public Calendar() {
 
-  }
-
-  public void setNormalList() {
-    for(Day d: days) {
-      List<UserCalInput> listObservable = d.getDayInputsObservable();
-      for(UserCalInput use : listObservable) {
-        d.getInputs().clear();
-        d.getInputs().add(use);
-      }
-    }
-  }
-
-
-  public boolean getIsTemp() {
-    return isTemp;
-  }
-
-  public void setIsTemp() {
-    isTemp = true;
   }
 
   public void setPassword(String pass) {

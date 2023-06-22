@@ -1,0 +1,51 @@
+{
+  "max tasks" : 4,
+  "max events" : 4,
+  "title" : "Test Week",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ {
+      "name" : "Dinner",
+      "description" : "eating",
+      "day" : "SUNDAY",
+      "start time" : "6:30",
+      "duration" : 60,
+      "category" : "catagory"
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Dinner",
+      "description" : "eating",
+      "day" : "THURSDAY",
+      "complete" : false,
+      "category" : "catagory"
+    } ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "quotes",
+  "start day" : "MONDAY",
+  "categories" : [ "CATAGORY", "CATAGORY" ],
+  "password" : "password"
+}

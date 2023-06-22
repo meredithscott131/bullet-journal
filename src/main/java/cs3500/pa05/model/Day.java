@@ -1,5 +1,6 @@
 package cs3500.pa05.model;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -40,40 +41,16 @@ public class Day {
 
   }
 
-  public void setObservable(ArrayList<UserCalInput> list) {
-    dayInputsObservable = FXCollections.observableList(list);
-  }
-
-  public void setDayInputs(ArrayList<UserCalInput> list) {
-    dayInputs = list;
-  }
-
-/*
-  public void setDayInputsObservable() {
-    dayInputsObservable = new ObservableList<>();
-  }
-  */
-
   public void listCopy() {
     for (UserCalInput use : dayInputsObservable) {
       dayInputsObservableCopy.add(use);
     }
   }
 
-  public int getNumEvents() {
+  public int getNumEventsAndTasksInDay() {
     int counter = 0;
     for (UserCalInput use : dayInputsObservable) {
       if (use instanceof EventIn) {
-        counter++;
-      }
-    }
-    return counter;
-  }
-
-  public int getNumTaskInDay() {
-    int counter = 0;
-    for (UserCalInput use : dayInputsObservable) {
-      if (use instanceof Task) {
         counter++;
       }
     }

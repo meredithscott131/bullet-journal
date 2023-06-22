@@ -1,18 +1,19 @@
 package cs3500.pa05.controller;
 
-import cs3500.pa05.model.Calendar;
-
+/**
+ * Represents the controller for the warning popup.
+ */
 public class WarningPopupController implements Controller {
 
-  private Calendar calendar;
-
-  public WarningPopupController(Calendar calendar) {
-    this.calendar = calendar;
+  /**
+   * Instantiates a new Warning popup controller.
+   */
+  public WarningPopupController() {
   }
 
-
+  /**
+   * Runs the warning popup controller.
+   */
   @Override
-  public void run() {
-
-  }
+  public void run() {}
 }

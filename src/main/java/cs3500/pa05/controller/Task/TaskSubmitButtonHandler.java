@@ -36,8 +36,7 @@ public class TaskSubmitButtonHandler implements EventHandler {
       setUserDescriptionInput();
 
       Day dayToAddTo = this.calendar.getOneDay(task.getDayWeek());
-      //adding CHANGED
-      //dayToAddTo.getDayInputs().add(task);
+      //dayToAddTo.getDayInputs().add(eventIn);
       this.calendar.getTotalUserInputs().add(task);
       dayToAddTo.getDayInputsObservable().add(task);
 

@@ -8,6 +8,9 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 
+/**
+ * SubmitButtonHandler class controls the submit button
+ */
 public class SubmitButtonHandler implements EventHandler {
   private final EventIn eventIn;
   private final Calendar calendar;
@@ -16,8 +19,12 @@ public class SubmitButtonHandler implements EventHandler {
   private final int duration;
   private final String startTime;
 
- public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
-                            String nameDecription, String startTime, int duration) {
+
+  /**
+   * Controller #1
+   */
+  public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
+                             String nameDecription, String startTime, int duration) {
     this.calendar = calendar;
     this.eventIn = eventIn;
     this.nameTask = nameTask;
@@ -26,6 +33,9 @@ public class SubmitButtonHandler implements EventHandler {
     this.startTime = startTime;
   }
 
+  /**
+   * handle method for the submit button
+   */
   @Override
   public void handle(Event event) {
     // Adds event to calendar object
@@ -43,6 +53,9 @@ public class SubmitButtonHandler implements EventHandler {
     window.close(); // closes popup window
   }
 
+  /**
+   * setUserNameInput sets the user input for the name
+   */
   public void setUserNameInput() {
     if (nameTask.startsWith("#")) {
       String[] titleArr = nameTask.split(" ", 2);
@@ -54,22 +67,24 @@ public class SubmitButtonHandler implements EventHandler {
     }
   }
 
+  /**
+   * setUserDescriptionInput is the setter for a description from the user
+   */
   public void setUserDescriptionInput() {
     eventIn.setDescription(nameDecription);
   }
 
+  /**
+   * setUserDurationInput is the setter for a duration from the user
+   */
   public void setUserDurationInput() {
     eventIn.setDuration(duration);
   }
 
+  /**
+   * setStartTimeInput is the setter for a start time from the user
+   */
   public void setStartTimeInput() {
     eventIn.setStartTime(startTime);
-  }
-
-  public boolean isNullEvent() {
-    return nameTask == ""
-        || eventIn.getDayWeek() == null
-        || duration == 0
-        || startTime == "";
   }
 }

@@ -9,20 +9,31 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * The type Title popup controller.
+ */
 public class TitlePopupController implements Controller {
-
   @FXML
   private DialogPane titlePane;
-  private Calendar calendar;
+  private final Calendar calendar;
   @FXML
   private TextField titleInput;
-  private Label titleLabel;
+  private final Label titleLabel;
 
+  /**
+   * Instantiates a new title popup controller.
+   *
+   * @param calendar   the calendar
+   * @param titleLabel the title label
+   */
   public TitlePopupController(Calendar calendar, Label titleLabel) {
     this.calendar = calendar;
     this.titleLabel = titleLabel;
   }
 
+  /**
+   * Runs the title popup controller
+   */
   @Override
   public void run() {
     Button b = (Button) titlePane.lookupButton(ButtonType.APPLY);

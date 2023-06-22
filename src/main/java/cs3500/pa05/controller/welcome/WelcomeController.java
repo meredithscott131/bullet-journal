@@ -14,35 +14,45 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ * Represents the controller for the welcome screen
+ */
 public class WelcomeController implements Controller {
-
   @FXML
   private Button startButton;
-
   @FXML
   private VBox welcomeBox;
 
+  /**
+   * Instantiates a new welcome controller.
+   */
   public WelcomeController() {
   }
 
+  /**
+   * Runs the welcome controller
+   * TODO move this?
+   */
   @Override
   public void run() {
-
-    BackgroundImage image= new BackgroundImage(new Image("photoSky.png",
-        400,450,false,true),
+    BackgroundImage image = new BackgroundImage(new Image("photoSky.png",
+        400, 450, false, true),
         BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
         BackgroundSize.DEFAULT);
     welcomeBox.setBackground(new Background(image));
 
     startButton.setOnAction(e -> {
       makeHandler(e);
-
       Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
       window.close(); // closes popup window
     });
-
   }
 
+  /**
+   * Makes the welcome screen handler
+   *
+   * @param e the action event
+   */
   public void makeHandler(Event e) {
     WelcomeHandler welcomeHandler = new WelcomeHandler();
     welcomeHandler.handle(e);

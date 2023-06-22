@@ -7,16 +7,27 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+/**
+ * Represents the handler for the title label
+ */
 public class TitleEventHandler implements EventHandler {
+  private final Calendar calendar;
+  private final Label titleLabel;
 
-  private Calendar calendar;
-  private Label titleLabel;
-
+  /**
+   * Instantiates a new title event handler.
+   *
+   * @param calendar   the calendar
+   * @param titleLabel the title label
+   */
   public TitleEventHandler(Calendar calendar, Label titleLabel) {
     this.calendar = calendar;
     this.titleLabel = titleLabel;
   }
 
+  /**
+   * Handles the action event by launching the popup
+   */
   @Override
   public void handle(Event event) {
     Stage stage = new Stage();

@@ -6,9 +6,17 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents the view for the bujo popup
+ */
 public class BujoPopupView implements View {
-  private FXMLLoader loader;
+  private final FXMLLoader loader;
 
+  /**
+   * Instantiates a new bujo popup view.
+   *
+   * @param controller the controller
+   */
   public BujoPopupView(BujoPopupController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("PopUpOpening.fxml"));
