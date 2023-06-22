@@ -2,9 +2,12 @@ package cs3500.pa05.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import cs3500.pa05.json.CalendarJson;
+import cs3500.pa05.json.DayJson;
 import cs3500.pa05.json.EventJson;
+import cs3500.pa05.json.TaskJson;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -161,5 +164,31 @@ class CalendarAdapterTest {
     assertEquals(0, categories.size());
   }
 
+  @Test
+  public void testNullCategoryCalTask() {
+
+    DayJson[] sayArray = new DayJson[1];
+    List<EventJson> eventJson = new ArrayList<>();
+    List<TaskJson> taskJson = new ArrayList<>();
+    sayArray[0] = new DayJson(DayWeek.SUNDAY, eventJson, taskJson);
+
+    CalendarJson calJson = new CalendarJson(2,2,"title",
+        sayArray, "quote", DayWeek.MONDAY.toString(), new ArrayList<>(), "pas");
+
+    EventJson event = new EventJson("j", "e", DayWeek.SUNDAY,
+        "12:30", 2, "family");
+
+    TaskJson task = new TaskJson("j", "e", DayWeek.SUNDAY, true, "i");
+    ArrayList<String> str = new ArrayList<>();
+    str.add("u");
+
+    assertEquals(1, str.size());
+
+    CalendarAdapter calAdapt = new CalendarAdapter();
+    calAdapt.nullCategoryCalTask(calJson, task, "hi", str);
+
+    assertTrue(str.contains("I"));
+    assertEquals(2, str.size());
+  }
 
 }

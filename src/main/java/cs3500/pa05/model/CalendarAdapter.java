@@ -126,7 +126,7 @@ public class CalendarAdapter {
    * @param eventCategory the category of the event
    * @param categories    the list of categories
    */
-  private void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
+  public void nullCategoryCalTask(CalendarJson calendarJson, TaskJson task,
                                String eventCategory, ArrayList<String> categories) {
     if (eventCategory != null) {
       if (!calendarJson.categories().contains(task.category().toUpperCase())) {
