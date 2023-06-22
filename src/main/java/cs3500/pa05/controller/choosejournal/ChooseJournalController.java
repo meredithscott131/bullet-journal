@@ -49,6 +49,7 @@ public class ChooseJournalController implements Controller {
 
   /**
    * Runs the regular type of journal
+   * @param e event
    */
   public void runRegular(Event e) {
     ChooseJournalHandlerRegular regular = new ChooseJournalHandlerRegular();
@@ -57,6 +58,7 @@ public class ChooseJournalController implements Controller {
 
   /**
    * Runs the template type of journal
+   * @param e event
    */
   public void runTemplate(Event e) {
     ChooseJournalTempHandler temp = new ChooseJournalTempHandler();

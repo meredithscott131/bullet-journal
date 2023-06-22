@@ -30,7 +30,7 @@ public class Calendar {
    * @param days        the days on the calendar
    * @param maxTask     the max amount of tasks
    * @param maxEvent    the max amount of events
-   * @param quotesNotes the quotes & notes
+   * @param quotesNotes the quotes and notes
    * @param startDay    the calendar start day
    * @param categories  the categories
    * @param bujoPath    the bujo path
@@ -283,16 +283,16 @@ public class Calendar {
   }
 
   /**
-   * Gets the quotes & notes content of this calendar.
+   * Gets the quotes and notes content of this calendar.
    *
-   * @return the quotes & notes
+   * @return the quotes and notes
    */
   public String getQuotesNotes() {
     return quotesNotes;
   }
 
   /**
-   * Sets quotes & notes content for this calendar.
+   * Sets quotes and notes content for this calendar.
    *
    * @param notes the notes
    */
@@ -374,6 +374,7 @@ public class Calendar {
 
   /**
    * getIsTemp gets the temp
+   * @return true if it is temp
    */
   public boolean getIsTemp() {
     return isTemp;
