@@ -24,4 +24,5 @@ public class ScannerBujo {
     }
     return calendar;
   }
+
 }

@@ -134,7 +134,7 @@ public class BujoSubmitHandler implements EventHandler {
    * @param cal  the calendar
    */
   public void runOnExisting(Path path, Calendar cal) {
-    PasswordController passwordController = new PasswordController(path, cal);
+    PasswordController passwordController = new PasswordController(path, cal, cal.getName());
     PasswordPopupView passwordView = new PasswordPopupView(passwordController);
     setView(passwordView, passwordController);
   }

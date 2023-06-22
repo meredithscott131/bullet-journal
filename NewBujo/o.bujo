@@ -1,0 +1,63 @@
+{
+  "max tasks" : 2,
+  "max events" : 2,
+  "title" : "hello",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "hi",
+      "description" : "2",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "asd",
+      "description" : "asd",
+      "day" : "MONDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "lkjjlkkj",
+      "description" : "nnl",
+      "day" : "TUESDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ {
+      "name" : "e",
+      "description" : "e23e",
+      "day" : "WEDNESDAY",
+      "start time" : null,
+      "duration" : 23,
+      "category" : "12:30"
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "TUESDAY",
+  "categories" : [ "12:30" ],
+  "password" : "password"
+}
