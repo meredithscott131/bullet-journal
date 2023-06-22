@@ -14,8 +14,8 @@ public class CompareByInputName implements Comparator<UserCalInput> {
    */
   @Override
   public int compare(UserCalInput use1, UserCalInput use2) {
-    String str1 = use1.getName();
-    String str2 = use2.getName();
+    String str1 = use1.getName().toLowerCase();
+    String str2 = use2.getName().toLowerCase();
 
     if  (str1.compareTo(str2) < 0) {
       return -1;
