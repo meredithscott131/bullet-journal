@@ -22,6 +22,13 @@ public class SubmitButtonHandler implements EventHandler {
 
   /**
    * Controller #1
+   *
+   * @param calendar calendar
+   * @param eventIn event
+   * @param nameDecription name desc
+   * @param nameTask name task
+   * @param startTime time
+   * @param duration duration
    */
   public SubmitButtonHandler(Calendar calendar, EventIn eventIn, String nameTask,
                              String nameDecription, String startTime, int duration) {

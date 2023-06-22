@@ -30,6 +30,7 @@ public class PasswordController implements Controller {
    *
    * @param path     the path
    * @param calendar the calendar
+   * @param nameStr the name
    */
   public PasswordController(Path path, Calendar calendar, String nameStr) {
     this.path = path;
