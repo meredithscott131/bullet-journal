@@ -14,7 +14,7 @@ the week on. While in a calendar, you can save, add a task to a specific day, ad
 day, order the tasks and events by name or duration, and change the theme! The taskbar on the right
 will list all the current tasks that you have made. Click the checkbox next to the task to see how much
 progress you have made on the progress bar. In the bottom right of the calendar add your notes and
-quotes! Overall, we hope you enjoy this calendar!
+quotes! Overall, we hope you enjoy this calendar! 
 
 # Screenshots
 
