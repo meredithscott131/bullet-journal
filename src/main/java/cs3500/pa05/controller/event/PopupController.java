@@ -18,8 +18,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * Represents the controller for the Event popup
+ */
 public class PopupController implements Controller {
-
   private EventIn eventIn;
   private boolean popupOn;
   private Calendar calendar;
@@ -48,29 +50,36 @@ public class PopupController implements Controller {
   @FXML
   private Button submitButton;
 
-  @FXML
-  private Stage stage;
-
+  /**
+   * Instantiates a new Event Popup controller.
+   *
+   * @param calendar the calendar
+   */
   public PopupController(Calendar calendar) {
-    this.eventIn = new EventIn(null, null, null, null, null, 0);
+    this.eventIn = new EventIn(null, null,
+        null, null, null, 0);
     this.calendar = calendar;
     this.popupOn = false;
   }
 
-  public void setUserNameInput() {
-    eventIn.setName(nameTask.getText());
-  }
-
-  public void setUserDescriptionInput() {
-    eventIn.setDescription(description.getText());
-  }
-
+  /**
+   * Determines whether the given time is valid
+   *
+   * @param time the time
+   * @return whether its valid
+   */
   public boolean validTime(String time) {
     Pattern p = Pattern.compile("([01]?[0-9]|2[0-3]):[0-5][0-9]");
     Matcher m = p.matcher(time);
     return m.matches();
   }
 
+  /**
+   * Parses the given duration time to an integer
+   *
+   * @param durationStr the duration time
+   * @return the duration time as an int
+   */
   public int takeDuration(String durationStr) {
     if (isValidNum(durationStr)) {
       return parseInt(durationStr);
@@ -78,6 +87,12 @@ public class PopupController implements Controller {
     return 0;
   }
 
+  /**
+   * Returns the start time set by the user
+   *
+   * @param timeStr the start time
+   * @return the start time (null or valid value)
+   */
   public String takeTime(String timeStr) {
     if (validTime(timeStr)) {
       return timeStr;
@@ -85,6 +100,12 @@ public class PopupController implements Controller {
     return null;
   }
 
+  /**
+   * Determines whether the given duration is valid
+   *
+   * @param str the duration amount
+   * @return whether its valid
+   */
   public boolean isValidNum(String str) {
     try {
       return Integer.parseInt(str) > 0;
@@ -93,6 +114,12 @@ public class PopupController implements Controller {
     }
   }
 
+  /**
+   * Determines whether this event created by the user
+   * has any null parameters.
+   *
+   * @return whether the event has any null parameters.
+   */
   public boolean isNullEvent() {
     return eventIn.getName() == null
         || eventIn.getDayWeek() == null
@@ -100,6 +127,10 @@ public class PopupController implements Controller {
         || eventIn.getDuration() == 0;
   }
 
+  /**
+   * Runs the event popup controller.
+   * // TODO move this stuff?
+   */
   @Override
   public void run() {
     sunButton.setOnAction(new PopButtonHandler(DayWeek.SUNDAY, eventIn));
@@ -119,10 +150,14 @@ public class PopupController implements Controller {
     this.duration.textProperty().addListener((observable, oldValue, newValue) -> {
       this.eventIn.setDuration(this.takeDuration(newValue));
     });
-
     submitButton.setOnAction(e -> makeSubmitButton(e));
   }
 
+  /**
+   * Initialize the submit button.
+   *
+   * @param eventEn the action event
+   */
   public void makeSubmitButton(Event eventEn) {
     if (this.isNullEvent()) {
       // do nothing
@@ -130,7 +165,6 @@ public class PopupController implements Controller {
       //if we have reached the max number of events
       //set up warning popup
       runWarningPopup(eventEn);
-
     } else {
       SubmitButtonHandler submit = new SubmitButtonHandler(calendar, eventIn, nameTask.getText(),
           description.getText(), this.takeTime(startTime.getText()),
@@ -139,6 +173,11 @@ public class PopupController implements Controller {
     }
   }
 
+  /**
+   * Run warning popup.
+   *
+   * @param eventEn the event en
+   */
   public void runWarningPopup(Event eventEn) {
     WarningPopupController warningCont = new WarningPopupController(this.calendar);
     WarningPopupView warningView = new WarningPopupView(warningCont);
@@ -155,6 +194,11 @@ public class PopupController implements Controller {
     window.close(); // closes popup window
   }
 
+  /**
+   * Is at max event boolean.
+   *
+   * @return the boolean
+   */
   public boolean isAtMaxEvent() {
     DayWeek dayWeek = eventIn.getDayWeek();
     Day oneDay = this.calendar.getOneDay(dayWeek);

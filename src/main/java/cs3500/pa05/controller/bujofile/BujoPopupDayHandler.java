@@ -8,7 +8,7 @@ import javafx.event.EventHandler;
  * Represents the handler for the bujo popup
  */
 public class BujoPopupDayHandler implements EventHandler {
-  private DayWeek dayWeek;
+  private final DayWeek dayWeek;
   private DayWeek startDay;
 
   /**
