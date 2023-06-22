@@ -1,0 +1,77 @@
+{
+  "max tasks" : 2,
+  "max events" : 2,
+  "title" : "Last Week of OOD",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Cry",
+      "description" : "cry lots",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ {
+      "name" : "Go for a run",
+      "description" : "",
+      "day" : "TUESDAY",
+      "start time" : "19:00",
+      "duration" : 29,
+      "category" : null
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ {
+      "name" : "Leave",
+      "description" : "leave the country",
+      "day" : "WEDNESDAY",
+      "start time" : "12:30",
+      "duration" : 2,
+      "category" : null
+    }, {
+      "name" : "An event",
+      "description" : "",
+      "day" : "WEDNESDAY",
+      "start time" : "14:29",
+      "duration" : 12,
+      "category" : null
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Get food",
+      "description" : "",
+      "day" : "THURSDAY",
+      "complete" : true,
+      "category" : null
+    } ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Go to lecture",
+      "description" : "",
+      "day" : "FRIDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "THURSDAY",
+  "categories" : [ ],
+  "password" : "password"
+}

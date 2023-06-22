@@ -1,22 +1,52 @@
 package cs3500.pa05.view;
 
 import cs3500.pa05.controller.JournalController;
+import cs3500.pa05.model.DayWeek;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 /**
- * Represents a interface journal GUI cs3500.pa05.view.view.
+ * Represents the View for the Journal
  */
 public class JournalView implements View {
-  private FXMLLoader loader;
-  private JournalController controller;
+  private final FXMLLoader loader;
+  private final DayWeek startDay;
 
-  public JournalView(JournalController controller) {
+  /**
+   * Instantiates a new Journal view.
+   *
+   * @param controller the controller
+   * @param startDay   the start day
+   */
+  public JournalView(JournalController controller, DayWeek startDay) {
+    this.startDay = startDay;
     this.loader = new FXMLLoader();
-    this.loader.setLocation(getClass().getClassLoader().getResource("bulletJournal.fxml"));
+    this.loader.setLocation(getClass().getClassLoader().getResource(getFxMl()));
     this.loader.setController(controller);
-    this.controller = controller;
+  }
+
+  /**
+   * Gets fxml.
+   *
+   * @return the fxml
+   */
+  public String getFxMl() {
+    if (startDay.equals(DayWeek.SUNDAY)) {
+      return "bulletJournal.fxml";
+    } else if (startDay.equals(DayWeek.MONDAY)) {
+      return "bulletJournalMonday.fxml";
+    } else if (startDay.equals(DayWeek.TUESDAY)) {
+      return "bulletJournalTuesday.fxml";
+    } else if (startDay.equals(DayWeek.WEDNESDAY)) {
+      return "bulletJournalWednesday.fxml";
+    } else if (startDay.equals(DayWeek.THURSDAY)) {
+      return "bulletJournalThursday.fxml";
+    } else if (startDay.equals(DayWeek.FRIDAY)) {
+      return "bulletJournalFriday.fxml";
+    } else {
+      return "bulletJournalSaturday.fxml";
+    }
   }
 
   /**

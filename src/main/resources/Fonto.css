@@ -1,0 +1,102 @@
+.root {
+    -fx-background-image: url("Code.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1300 800;
+    -fx-background-position: center center;
+}
+
+
+.button {
+    -fx-background-color: #000000;
+    -fx-font-size: 16;
+    -fx-font-family: "Impact";
+    -fx-text-fill: #ffffff;
+}
+
+.label {
+    -fx-font-family: "Impact";
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #3552b2;
+}
+
+.scroll-pane {
+    -fx-background-color: #737373;
+}
+
+#mondayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+}
+
+#tuesdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+}
+
+#sundayTitle3 {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#thursdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#fridayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#saturdayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#sundayTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#taskTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+
+}
+#notesTitle {
+    -fx-background-color: black;
+    -fx-text-fill: #ffffff;
+}
+
+.text-field {
+    -fx-background-color: #3552b2;
+    -fx-text-fill: #ffffff;
+}
+
+#picture3 {
+    -fx-background-image: url("Fonto1.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 85 85;
+    -fx-background-position: center center;
+}
+
+#picture4 {
+    -fx-background-image: url("Fonto1.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 85 85;
+    -fx-background-position: center center;
+}
+
+
+#dropDown {
+    -fx-background-color: #3552b2;
+}
+
+.choice-box .label {
+    -fx-text-fill: #000000;
+}
+

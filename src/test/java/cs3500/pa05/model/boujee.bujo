@@ -9,7 +9,8 @@
       "description" : "eating",
       "day" : "SUNDAY",
       "start time" : "6:30",
-      "duration" : 60
+      "duration" : 60,
+      "category" : "catagory"
     } ],
     "tasks" : [ ]
   }, {
@@ -31,7 +32,8 @@
       "name" : "Dinner",
       "description" : "eating",
       "day" : "THURSDAY",
-      "complete" : false
+      "complete" : false,
+      "category" : "catagory"
     } ]
   }, {
     "day" : "FRIDAY",
@@ -41,5 +43,9 @@
     "day" : "SATURDAY",
     "events" : [ ],
     "tasks" : [ ]
-  } ]
+  } ],
+  "quotes & notes" : "quotes",
+  "start day" : "MONDAY",
+  "categories" : [ "CATAGORY", "CATAGORY" ],
+  "password" : "password"
 }

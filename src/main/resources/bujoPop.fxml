@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="399.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox layoutX="13.0" layoutY="152.0" prefHeight="190.0" prefWidth="348.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="340.0" text="To create a new .bujo file: ">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
+            <Label prefHeight="38.0" prefWidth="340.0" text="Please enter a maximum number of events per day:">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="maxEventText" />
+            <Label prefHeight="38.0" prefWidth="340.0" text="Please enter a maximum number of tasks per day:">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="maxTaskText" />
+         </children>
+      </VBox>
+      <Button id="submitButton" fx:id="submitButton" layoutX="151.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="71.0" text="Submit" />
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="133.0" prefWidth="352.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="38.0" prefWidth="340.0" text="To open an existing .bujo file:">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
+            <Label prefHeight="38.0" prefWidth="340.0" text="Please enter the path to an existing .bujo file: ">
+               <font>
+                  <Font name="Avenir Book" size="13.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="bujoText" prefHeight="43.0" prefWidth="348.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

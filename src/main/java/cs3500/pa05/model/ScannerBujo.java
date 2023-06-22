@@ -6,9 +6,20 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+/**
+ * Responsible for reading a bujo file and converting
+ * its contents to a calendar object.
+ */
 public class ScannerBujo {
-  private CalendarAdapter adapter = new CalendarAdapter();
+  private final CalendarAdapter adapter = new CalendarAdapter();
 
+  /**
+   * Reads from the given file and parses its content
+   * to a new calendar object.
+   *
+   * @param file the file
+   * @return the calendar
+   */
   public Calendar readFromFile(File file) {
     Calendar calendar;
     if (!file.toPath().toString().endsWith(".bujo")) {
@@ -17,7 +28,7 @@ public class ScannerBujo {
       try {
         String bujoString = Files.readString(file.toPath());
         CalendarJson calendarJson = new ObjectMapper().readValue(bujoString, CalendarJson.class);
-        calendar = adapter.convertToCalendar(calendarJson);
+        calendar = adapter.convertToCalendar(calendarJson, file.getPath());
       } catch (IOException e) {
         throw new RuntimeException(e);
       }

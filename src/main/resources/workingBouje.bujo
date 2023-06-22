@@ -1,0 +1,76 @@
+{
+  "max tasks" : 4,
+  "max events" : 4,
+  "title" : "Test Week",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ {
+      "name" : "Dinner",
+      "description" : "eating",
+      "day" : "SUNDAY",
+      "start time" : null,
+      "duration" : 60,
+      "category" : "6:30"
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Hello",
+      "description" : "",
+      "day" : "MONDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ {
+      "name" : "Greetings",
+      "description" : "Hello",
+      "day" : "TUESDAY",
+      "start time" : null,
+      "duration" : 20,
+      "category" : "2:00"
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "hi",
+      "description" : "",
+      "day" : "WEDNESDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Live, laugh, love OOD",
+      "description" : "go to OOD",
+      "day" : "THURSDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Saturday",
+      "description" : "",
+      "day" : "SATURDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  } ],
+  "quotes & notes" : "New Note! Hello.",
+  "start day" : "MONDAY",
+  "categories" : [ "6:30", "2:00" ],
+  "password" : "password"
+}

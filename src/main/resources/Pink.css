@@ -1,0 +1,54 @@
+.root {
+    -fx-background-image: url("pinkHearts.jpeg");
+    -fx-background-size: 300 300;
+}
+
+.button {
+    -fx-background-color: #e3c1d6;
+    -fx-font-size: 17;
+    -fx-font-family: "Apple Chancery";
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+}
+
+/* labels in scroll panes are Papyrus and black */
+.label {
+    -fx-font-family: "Apple Chancery";
+    -fx-font-weight: bold;
+    -fx-text-fill: #b97fac;
+}
+
+
+/* Setting scroll panes to pink */
+.scroll-pane .viewport {
+    -fx-background-color: #fae5ec;
+}
+
+/* Setting scroll panes to pink */
+.scroll-pane {
+    -fx-background-color: #737373;
+}
+
+.text-field {
+    -fx-background-color: #e3c1d6;
+    -fx-text-fill: #ffffff;
+}
+
+#picture3 {
+    -fx-background-image: url("BirdPink.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 140 140;
+    -fx-background-position: center center;
+}
+
+#picture4 {
+    -fx-background-image: url("BirdPinkFlipped.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 140 140;
+    -fx-background-position: center center;
+}
+
+#dropDown {
+    -fx-background-color: #e3c1d6;
+}
+

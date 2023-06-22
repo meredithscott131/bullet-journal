@@ -1,10 +1,7 @@
 package cs3500.pa05;
 
-import cs3500.pa05.controller.JournalController;
-import cs3500.pa05.model.Calendar;
-import cs3500.pa05.model.ScannerBujo;
-import cs3500.pa05.view.JournalView;
-import java.io.File;
+import cs3500.pa05.controller.welcome.WelcomeController;
+import cs3500.pa05.view.gui.WelcomeHandlerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -20,18 +17,17 @@ public class Driver extends Application {
    */
   @Override
   public void start(Stage stage) {
-    ScannerBujo scannerBujo = new ScannerBujo();
-    Calendar cal = scannerBujo.readFromFile(new File("src/main/resources/bouje.bujo"));
-    JournalController journalCont = new JournalController(cal);
-    JournalView journalView = new JournalView(journalCont);
+
+    WelcomeController welController = new WelcomeController();
+    WelcomeHandlerView welPopupView = new WelcomeHandlerView(welController);
 
     try {
-      stage.setScene(journalView.load());
+      stage.setScene(welPopupView.load());
       stage.show();
-      journalCont.run();
+      welController.run();
 
     } catch (IllegalStateException exc) {
-      System.err.println("Unable to load GUI.");
+      System.err.println("Unable to load welcome GUI.");
     }
   }
 

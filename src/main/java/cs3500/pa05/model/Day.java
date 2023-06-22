@@ -10,12 +10,30 @@ import javafx.collections.ObservableList;
  */
 public class Day {
   private DayWeek day;
-  private List<UserCalInput> dayInputs = new ArrayList<>();
-
   private ObservableList<UserCalInput> dayInputsObservable;
+  private List<UserCalInput> dayInputs = new ArrayList<>();
+  private List<UserCalInput> dayInputsObservableCopy = new ArrayList<>();
 
+  /**
+   * Empty Constructor for days:
+   */
   public Day() {}
 
+  /**
+   * Constructor for days that takes in only day:
+   *
+   * @param day the day
+   */
+  public Day(DayWeek day) {
+    this.day = day;
+  }
+
+  /**
+   * Constructor for days that takes in day and dayInputs:
+   *
+   * @param day       the day
+   * @param dayInputs the day inputs
+   */
   public Day(DayWeek day, ArrayList<UserCalInput> dayInputs) {
     this.day = day;
     this.dayInputs = dayInputs;
@@ -23,27 +41,111 @@ public class Day {
 
   }
 
-  public Day(DayWeek day) {
-    this.day = day;
+  /**
+   * Constructs the observable input list copy
+   */
+  public void listCopy() {
+    dayInputsObservableCopy.addAll(dayInputsObservable);
   }
 
-  public List<UserCalInput> getDayInputs() {
-    return dayInputs;
+  /**
+   * Clears the dayInputsObservableCopy list
+   */
+  public void listClear() {
+    dayInputsObservableCopy = new ArrayList<>();
   }
 
+  /**
+   * Gets day inputs observable list.
+   *
+   * @return the day inputs observable list
+   */
   public ObservableList<UserCalInput> getDayInputsObservable() {
     return dayInputsObservable;
   }
 
+  /**
+   * Gets the dayInputsObservableCopy list.
+   *
+   * @return the list copy
+   */
+  public List<UserCalInput> getListCopy() {
+    return dayInputsObservableCopy;
+  }
+
+  /**
+   * Gets day inputs.
+   *
+   * @return the day inputs
+   */
+  public List<UserCalInput> getDayInputs() {
+    return dayInputs;
+  }
+
+  /**
+   * Gets get day week.
+   *
+   * @return the get day week
+   */
   public DayWeek getGetDayWeek() {
     return day;
   }
 
+  /**
+   * Gets inputs.
+   *
+   * @return the inputs
+   */
   public List<UserCalInput> getInputs() {
     return this.dayInputs;
   }
 
-  public ObservableList getAsObservableList() {
-    return FXCollections.observableList(this.dayInputs);
+  /**
+   * Gets num events in day.
+   *
+   * @return the num events in day
+   */
+  public int getNumEventsInDay() {
+    int counter = 0;
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof EventIn) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  /**
+   * Gets num task in day.
+   *
+   * @return the num task in day
+   */
+  public int getNumTaskInDay() {
+    int counter = 0;
+    for (UserCalInput use : dayInputsObservable) {
+      if (use instanceof Task) {
+        counter++;
+      }
+    }
+    return counter;
+  }
+
+  /**
+   * sets observable
+   *
+   * @param list list
+   */
+  public void setObservable(ArrayList<UserCalInput> list) {
+    dayInputsObservable = FXCollections.observableList(list);
+  }
+
+
+  /**
+   * sets day input
+   *
+   * @param list list
+   */
+  public void setDayInputs(ArrayList<UserCalInput> list) {
+    dayInputs = list;
   }
 }

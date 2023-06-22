@@ -1,10 +1,9 @@
 package cs3500.pa05.view;
 
-
 import javafx.scene.Scene;
 
 /**
- * Represents a interface journal GUI cs3500.pa05.view.view.
+ * Represents a View
  */
 public interface View {
 
