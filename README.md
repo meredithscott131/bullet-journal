@@ -3,6 +3,7 @@
 
 [PA Write Up](https://markefontenot.notion.site/PA-05-8263d28a81a7473d8372c6579abd6481)
 
+
 ![alt text](/Users/lalcelikbilek/Documents/cs3500/pa05-boujeebujo/photo.png)
 
 
@@ -65,3 +66,5 @@ scene builder that reorganized our information in a vertical format.
 - https://www.instagram.com/frogeposting/#
 - https://www.freepik.com/premium-vector/dotted-grid-seamless-pattern-bullet-journal-black-point-texture-black-dot-grid-notebook-paper-vector-illustration-white-background_24711017.htm
 - https://www.vecteezy.com/free-vector/coding-background
+=======
+![alt text](src/PhotoOfJournal.png)
