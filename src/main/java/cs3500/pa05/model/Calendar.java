@@ -372,14 +372,24 @@ public class Calendar {
     }
   }
 
+  /**
+   * Gets if calendar is a template
+   */
   public boolean getIsTemp() {
     return isTemp;
   }
 
+  /**
+   * Sets calendar to a template.
+   */
   public void setIsTemp() {
     isTemp = true;
   }
 
+  /**
+   * Sets the list of userinputs to be a
+   * copy of the observable list
+   */
   public void setNormalList() {
     for(Day d: days) {
       List<UserCalInput> listObservable = d.getDayInputsObservable();

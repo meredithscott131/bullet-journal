@@ -6,9 +6,15 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
+/**
+ * Represents the task popup view
+ */
 public class TaskPopupView implements View {
   private FXMLLoader loader;
 
+  /**
+   * Instantiates task popup view
+   */
   public TaskPopupView(TaskPopupController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("PopupTask.fxml"));

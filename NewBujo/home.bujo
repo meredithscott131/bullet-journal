@@ -1,0 +1,71 @@
+{
+  "max tasks" : 2,
+  "max events" : 2,
+  "title" : "Wonderful week",
+  "days" : [ {
+    "day" : "SUNDAY",
+    "events" : [ ],
+    "tasks" : [ {
+      "name" : "Go home",
+      "description" : "book a flight",
+      "day" : "SUNDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "MONDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "TUESDAY",
+    "events" : [ {
+      "name" : "Wait at airport",
+      "description" : "",
+      "day" : "TUESDAY",
+      "start time" : "17:00",
+      "duration" : 86,
+      "category" : null
+    }, {
+      "name" : "Eat sushi",
+      "description" : "",
+      "day" : "TUESDAY",
+      "start time" : "19:00",
+      "duration" : 2,
+      "category" : null
+    } ],
+    "tasks" : [ {
+      "name" : "be cool",
+      "description" : "",
+      "day" : "TUESDAY",
+      "complete" : false,
+      "category" : null
+    } ]
+  }, {
+    "day" : "WEDNESDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "THURSDAY",
+    "events" : [ {
+      "name" : "Go to airport",
+      "description" : "",
+      "day" : "THURSDAY",
+      "start time" : "12:30",
+      "duration" : 23,
+      "category" : null
+    } ],
+    "tasks" : [ ]
+  }, {
+    "day" : "FRIDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  }, {
+    "day" : "SATURDAY",
+    "events" : [ ],
+    "tasks" : [ ]
+  } ],
+  "quotes & notes" : "",
+  "start day" : "FRIDAY",
+  "categories" : [ ],
+  "password" : "password"
+}
