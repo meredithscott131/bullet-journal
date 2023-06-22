@@ -13,6 +13,11 @@ import javafx.scene.Scene;
 public class ChooseJournalView implements View {
   private FXMLLoader loader;
 
+  /**
+   * Instantiates a new choose hournal view.
+   *
+   * @param controller      the choose journal controller
+   */
   public ChooseJournalView(ChooseJournalController controller) {
     this.loader = new FXMLLoader();
     this.loader.setLocation(getClass().getClassLoader().getResource("journalChoice.fxml"));
@@ -24,7 +29,6 @@ public class ChooseJournalView implements View {
    *
    * @return the layout
    */
-  //@Override
   public Scene load() throws IllegalStateException {
     try {
       return this.loader.load();
