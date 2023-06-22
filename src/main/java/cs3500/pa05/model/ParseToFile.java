@@ -15,7 +15,6 @@ public class ParseToFile {
 
     if(calendar.getIsTemp()) {
       calendar.setNormalList();
-    } else {
     }
 
     CalendarJson calendarJson = adapter.convertToJson(calendar);

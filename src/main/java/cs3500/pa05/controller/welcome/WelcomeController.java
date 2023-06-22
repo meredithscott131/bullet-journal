@@ -40,7 +40,6 @@ public class WelcomeController implements Controller {
       Stage window = (Stage) ((Node) e.getSource()).getScene().getWindow();
       window.close(); // closes popup window
     });
-
   }
 
   public void makeHandler(Event e) {
