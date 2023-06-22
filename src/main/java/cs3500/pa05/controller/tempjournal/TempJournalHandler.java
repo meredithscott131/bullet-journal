@@ -58,11 +58,11 @@ public class TempJournalHandler implements EventHandler {
    *
    * @param path the bujo file path
    * @param cal  the calendar
-   * @param cal  the nameStr name
+   * @param nameStr  the nameStr name
    */
   public void runOnExisting(Path path, Calendar cal, String nameStr) {
     PasswordController passwordController = new PasswordController(path, cal, nameStr);
-    //added this run
+    //added this run.
     //could be this
     PasswordPopupView passwordView = new PasswordPopupView(passwordController);
     setView(passwordView, passwordController);
